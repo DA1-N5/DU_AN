@@ -1,3 +1,6 @@
+<?php
+require_once("./../global.php");
+?>
 <section class="newsletter" id="email">
 
 <div class="content">
@@ -24,10 +27,10 @@
 
         <div class="box">
             <h3>Xem Nhanh</h3>
-            <a href="<?=$website?>/User/home-user.php#home">Trang Chủ</a>
-            <a href="<?=$website?>/User/home-user.php#products">Sản Phẩm Mới Nhất</a>
-            <a href="<?=$website?>/User/home-user.php#featured">Sản Phẩm Nổi Bật</a>
-            <a href="<?=$website?>/User/home-user.php#info">Thông Tin Website</a>
+            <a href="">Trang Chủ</a>
+            <a href="">Sản Phẩm Mới Nhất</a>
+            <a href="">Sản Phẩm Nổi Bật</a>
+            <a href="">Thông Tin Website</a>
         </div>
 
         <div class="box">
@@ -70,7 +73,7 @@
         }
     }
 </script>
-<script src="./../js/script.js"></script>
+<script src="<?=$website?>/js/script.js"></script>
 
 </body>
 

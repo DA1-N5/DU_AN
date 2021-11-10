@@ -1,9 +1,5 @@
 <?php
-session_start();
-include_once('./../connect_DB.php');
-if(!isset($_SESSION['admin'])){
-    header("Location: $website/layout/login-admin.php");
-}
+require_once("./../global.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,7 +29,7 @@ if(!isset($_SESSION['admin'])){
 
         <header class="main-header">
             <!-- Logo -->
-            <a href="<?=$website?>/User/home-user.php" class="logo">
+            <a href="" class="logo">
                 <span class="glyphicon glyphicon-home"></span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
@@ -46,25 +42,25 @@ if(!isset($_SESSION['admin'])){
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="<?php echo $url_images . $_SESSION['admin']['anh'] ?>" class="user-image" alt="User Image">
-                                <span class="hidden-xs"><?php echo $_SESSION['admin']['ten'] ?></span>
+                                <img src="" class="user-image" alt="User Image">
+                                <span class="hidden-xs"></span>
 
                             </a>
 
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
-                                    <img src="<?php echo $url_images . $_SESSION['admin']['anh'] ?>" class="img-circle"
+                                    <img src="" class="img-circle"
                                         alt="User Image">
 
                                     <p>
-                                    <?php echo $_SESSION['admin']['ten'] ?> - Web Developer
+                                     Tên- Web Developer
                                     </p>
                                 </li>
 
                                 <li class="user-footer">
                                     <div class="pull-right">
-                                        <form action="<?="$website/admin/layout/log-out.php"?>" method="POST">
+                                        <form action="" method="POST">
                                             <button class="btn btn-default btn-flat">Log Out</button>
                                         </form>
                                     </div>
@@ -85,10 +81,10 @@ if(!isset($_SESSION['admin'])){
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="<?php echo $url_images . $_SESSION['admin']['anh'] ?>" class="img-circle" alt="User Image">
+                        <img src="" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
-                        <p><?php echo $_SESSION['admin']['ten'] ?></p>
+                        <p>Tên</p>
                         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                     </div>
                 </div>
@@ -115,9 +111,9 @@ if(!isset($_SESSION['admin'])){
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="<?=$website ?>/admin/admins/list-admin.php"><i
+                            <li><a href=""><i
                                         class="fa fa-circle-o"></i> Danh sách Admin</a></li>
-                            <li><a href="<?=$website ?>/admin/admins/add-admin.php"><i
+                            <li><a href=""><i
                                         class="fa fa-circle-o"></i> Thêm mới Admin</a></li>
                         </ul>
                     </li>
@@ -130,9 +126,9 @@ if(!isset($_SESSION['admin'])){
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="<?=$website ?>/admin/users/list-user.php"><i
+                            <li><a href=""><i
                                         class="fa fa-circle-o"></i> Danh sách User</a></li>
-                            <li><a href="<?=$website ?>/admin/users/add-user.php"><i class="fa fa-circle-o"></i>
+                            <li><a href=""><i class="fa fa-circle-o"></i>
                                     Thêm mới User</a></li>
                         </ul>
                     </li>
@@ -145,9 +141,9 @@ if(!isset($_SESSION['admin'])){
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="<?=$website ?>/admin/goods/list-product.php"><i
+                            <li><a href=""><i
                                         class="fa fa-circle-o"></i> Danh sách sản phẩm</a></li>
-                            <li><a href="<?=$website ?>/admin/goods/add-product.php"><i
+                            <li><a href=""><i
                                         class="fa fa-circle-o"></i> Thêm mới Sản phẩm</a></li>
                         </ul>
                     </li>
@@ -160,9 +156,9 @@ if(!isset($_SESSION['admin'])){
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="<?=$website ?>/admin/catetory/list-catetory.php"><i
+                            <li><a href=""><i
                                         class="fa fa-circle-o"></i> Danh sách Loại sản phẩm</a></li>
-                            <li><a href="<?=$website ?>/admin/catetory/add-catetory.php"><i
+                            <li><a href=""><i
                                         class="fa fa-circle-o"></i> Thêm mới Loại Sản phẩm</a></li>
                         </ul>
                     </li>
@@ -176,7 +172,7 @@ if(!isset($_SESSION['admin'])){
                         </a>
                         <ul class="treeview-menu">
                             <li>
-                                <a href="<?=$website?>/admin/comment/list-comment.php"><i class="fa fa-circle-o"></i>Danh sách Bình Luận</a>
+                                <a href=""><i class="fa fa-circle-o"></i>Danh sách Bình Luận</a>
                                 </li>
                         </ul>
                     </li>

@@ -1,5 +1,5 @@
 <?php
-include_once('./../connect_DB.php');
+require_once("./../global.php");
 ?>
 </div>
 <script src="<?=$website ?>/js/jquery.min.js"></script>
