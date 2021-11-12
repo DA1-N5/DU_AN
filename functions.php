@@ -31,8 +31,13 @@ function update_user($email, $mat_khau, $ten, $sdt, $id){
     $sql = "UPDATE khach_hang set email = ?, mat_khau = ?, ten = ?, sdt = ? where id = ?";
     execute($sql, $email, $mat_khau, $ten, $sdt, $id);
 }
-function insert_diachi($id,$dia_chi,$ngay_tao,$trang_thai){
-    $sql = "INSERT INTO dia_chi(id, dia_chi, ngay_tao, trang_thai) VALUES(?, ?, ?, ?,)";
-    execute($sql, $id, $dia_chi, $ngay_tao, $trang_thai);
+// Địa chỉ ----------------------------------------------------------------------
+function insert_diachi($dia_chi,$ngay_tao,$trang_thai,$id){
+    $sql = "INSERT INTO dia_chi(dia_chi, ngay_tao, trang_thai,id) VALUES(?, ?, ?, ?)";
+    execute($sql, $dia_chi, $ngay_tao, $trang_thai, $id);
+}
+function update_diachi($dia_chi,$ngay_tao,$trang_thai,$id){
+    $sql = "UPDATE dia_chi set dia_chi = ?, ngay_tao = ?, trang_thai = ? where id = ?";
+    execute($sql,$dia_chi, $ngay_tao, $trang_thai, $id);
 }
 ?>
