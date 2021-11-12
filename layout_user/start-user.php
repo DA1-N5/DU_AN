@@ -1,6 +1,3 @@
-<?php
-require_once("./../global.php");
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,8 +5,9 @@ require_once("./../global.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./../css/user.css">
+    <link href="<?=$website?>/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?=$website?>/css/user.css">
+    <link rel="stylesheet" href="<?=$website?>/css/tour.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
 </head>
@@ -38,7 +36,7 @@ require_once("./../global.php");
 
         <div id="menu-bar" class="fas fa-bars"></div>
         
-        <a href="" class="logo">LOVEONEX</a>
+        <a href="" class="logo">Nhóm 5</a>
 
         <nav class="navbar">
         <a href="">Trang Chủ</a>
@@ -106,7 +104,7 @@ require_once("./../global.php");
             }
             .container-2:hover input#search{
                 outline:none; 
-                width: 300px;
+                width: 150px;
                 background: #ccc;
                 color: #000;
             }
@@ -130,8 +128,7 @@ require_once("./../global.php");
                 <a href="" type="submit"><i class="fas fa-shopping-bag cart"></i></a>
                 <span class="number"><?php echo isset($sosp) ? intval($sosp) : 0 ?></span>
             </span>
-            <a href='' class='fas fa-edit'></a>
-            <a href='' class='fas fa-user'></a>
+            <a href="" class='fas fa-user'></a>
             <a href=""><i class="fas fa-users-cog"></i></a>
         </div>
               
