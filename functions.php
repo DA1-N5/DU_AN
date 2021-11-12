@@ -40,4 +40,6 @@ function update_diachi($dia_chi,$ngay_tao,$trang_thai,$id){
     $sql = "UPDATE dia_chi set dia_chi = ?, ngay_tao = ?, trang_thai = ? where id = ?";
     execute($sql,$dia_chi, $ngay_tao, $trang_thai, $id);
 }
+// Tour----------------------------------------------------------------------------
+
 ?>
