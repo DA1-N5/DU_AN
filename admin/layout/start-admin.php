@@ -121,7 +121,7 @@ if(!isset($_SESSION['admin'])){
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href=""><i
+                            <li><a href="<?=$website?>/admin/users/list.php"><i
                                         class="fa fa-circle-o"></i> Danh sách User</a></li>
                             <li><a href=""><i class="fa fa-circle-o"></i>
                                     Thêm mới User</a></li>
