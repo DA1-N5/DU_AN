@@ -1,9 +1,10 @@
 <?php
 function getConnection(){
-    $dbHost = "mysql:host=localhost;dbname=asm_du_an";
+    $dbHost = "mysql:host=localhost;dbname=du_an";
     $dbName = 'root';
     $dbPass ='';
     $connection = new PDO($dbHost, $dbName, $dbPass);
+    $connection->exec("set names utf8");
     return $connection;
 }
 

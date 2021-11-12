@@ -1,5 +1,5 @@
 <?php
-$website = "/TEST";
+$website = "/DU_AN";
 $url_admin = $website . "/admin/";
 $url_images = $website . "/images/";
 

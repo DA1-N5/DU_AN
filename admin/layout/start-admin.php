@@ -1,23 +1,28 @@
 <?php
-require_once("./../global.php");
+session_start();
+if(!isset($_SESSION['admin'])){
+    header("Location: $website/admin/log/login.php");
+    die;
+}
 ?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Admin | Dashboard</title>
+    <title>Trang Quản Trị</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     
     <link rel="stylesheet" href="<?=$website?>/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?=$website?>/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="<?=$website?>/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="<?=$website?>/css/AdminLTE.css">
     <link rel="stylesheet" href="<?=$website?>/css/_all-skins.min.css">
-    <link rel="stylesheet" href="<?=$website?>/css/jquery-ui.css">
+    <!-- <link rel="stylesheet" href="<?=$website?>/css/jquery-ui.css"> -->
     <link rel="stylesheet" href="<?=$website?>/css/style.css" />
     <script src="<?=$website?>/js/angular.min.js"></script>
     <script src="<?=$website?>/js/app.js"></script>
@@ -30,7 +35,7 @@ require_once("./../global.php");
         <header class="main-header">
             <!-- Logo -->
             <a href="" class="logo">
-                <span class="glyphicon glyphicon-home"></span>
+                <span class="fa fa-home"></span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
@@ -42,25 +47,24 @@ require_once("./../global.php");
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="" class="user-image" alt="User Image">
-                                <span class="hidden-xs"></span>
+                                <img src="<?=$url_images . $_SESSION['admin']['anh']?>" class="user-image">
+                                <span class="hidden-xs"><?=$_SESSION['admin']['ten']?></span>
 
                             </a>
 
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
-                                    <img src="" class="img-circle"
-                                        alt="User Image">
+                                    <img src="<?=$url_images . $_SESSION['admin']['anh']?>" class="img-circle">
 
                                     <p>
-                                     Tên- Web Developer
+                                        <?=$_SESSION['admin']['ten']?> - <?=intval($_SESSION['admin']['vai_tro']) == 1 ? "Nhân Viên" : "Quản Trị Viên"?>
                                     </p>
                                 </li>
 
                                 <li class="user-footer">
                                     <div class="pull-right">
-                                        <form action="" method="POST">
+                                        <form action="<?="$website/admin/log/log-out.php"?>" method="POST">
                                             <button class="btn btn-default btn-flat">Log Out</button>
                                         </form>
                                     </div>
@@ -81,31 +85,20 @@ require_once("./../global.php");
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="" class="img-circle" alt="User Image">
+                        <img src="<?=$url_images . $_SESSION['admin']['anh'] ?>" class="img-circle">
                     </div>
                     <div class="pull-left info">
-                        <p>Tên</p>
+                        <p><?=$_SESSION['admin']['ten'] ?></p>
                         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                     </div>
                 </div>
-                <!-- search form -->
-                <form action="#" method="get" class="sidebar-form">
-                    <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="Search...">
-                        <span class="input-group-btn">
-                            <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i
-                                    class="fa fa-search"></i>
-                            </button>
-                        </span>
-                    </div>
-                </form>
-                <!-- /.search form -->
-                <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" data-widget="tree">
-
+                    <?php
+                    if($_SESSION['admin']['vai_tro'] == 2){
+                    ?>
                     <li class="treeview">
                         <a href="#">
-                            <i class="glyphicon glyphicon-cog"></i> <span>Quản Lí Admin</span>
+                            <i class="fa fa-cog"></i> <span>Quản Lí Admin</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
@@ -117,10 +110,14 @@ require_once("./../global.php");
                                         class="fa fa-circle-o"></i> Thêm mới Admin</a></li>
                         </ul>
                     </li>
+                    <?php
+                    } else {
 
+                    }
+                    ?>
                     <li class="treeview">
                         <a href="#">
-                            <i class="glyphicon glyphicon-user"></i> <span>Quản Lí User</span>
+                            <i class="fa fa-user"></i> <span>Quản Lí User</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
@@ -135,45 +132,31 @@ require_once("./../global.php");
 
                     <li class="treeview">
                         <a href="#">
-                            <i class="glyphicon glyphicon-list-alt"></i> <span>Quản Lí Sản Phẩm</span>
+                            <i class="fa fa-list-alt"></i> <span>Quản Lí Tour</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
                             <li><a href=""><i
-                                        class="fa fa-circle-o"></i> Danh sách sản phẩm</a></li>
+                                        class="fa fa-circle-o"></i> Danh sách Tour</a></li>
                             <li><a href=""><i
-                                        class="fa fa-circle-o"></i> Thêm mới Sản phẩm</a></li>
+                                        class="fa fa-circle-o"></i> Thêm mới Tour</a></li>
                         </ul>
                     </li>
 
                     <li class="treeview">
                         <a href="#">
-                            <i class="glyphicon glyphicon-list-alt"></i> <span>Quản Lí Loại Sản Phẩm</span>
+                            <i class="fa fa-list-alt"></i> <span>Quản Lí Đơn Hàng</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
                             <li><a href=""><i
-                                        class="fa fa-circle-o"></i> Danh sách Loại sản phẩm</a></li>
+                                        class="fa fa-circle-o"></i> Danh sách Đơn Hàng</a></li>
                             <li><a href=""><i
-                                        class="fa fa-circle-o"></i> Thêm mới Loại Sản phẩm</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="glyphicon glyphicon-list-alt"></i> <span>Quản Lí Bình Luận</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li>
-                                <a href=""><i class="fa fa-circle-o"></i>Danh sách Bình Luận</a>
-                                </li>
+                                        class="fa fa-circle-o"></i> Thêm mới Đơn Hàng</a></li>
                         </ul>
                     </li>
                 </ul>

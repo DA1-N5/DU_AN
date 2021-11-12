@@ -1,6 +1,3 @@
-<?php
-require_once("./../global.php");
-?>
 </div>
 <script src="<?=$website ?>/js/jquery.min.js"></script>
 <script src="<?=$website ?>/js/jquery-ui.js"></script>
