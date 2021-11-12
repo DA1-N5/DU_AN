@@ -17,13 +17,12 @@ if(!isset($_SESSION['admin'])){
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    
     <link rel="stylesheet" href="<?=$website?>/css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="<?=$website?>/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="<?=$website?>/css/AdminLTE.css">
     <link rel="stylesheet" href="<?=$website?>/css/_all-skins.min.css">
     <!-- <link rel="stylesheet" href="<?=$website?>/css/jquery-ui.css"> -->
-    <link rel="stylesheet" href="<?=$website?>/css/style.css" />
+    <!-- <link rel="stylesheet" href="<?=$website?>/css/style.css" /> -->
     <script src="<?=$website?>/js/angular.min.js"></script>
     <script src="<?=$website?>/js/app.js"></script>
 </head>
@@ -40,8 +39,7 @@ if(!isset($_SESSION['admin'])){
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
                 <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                </a>
+                <a href="" class="fa fa-bars" style="padding: 15px ; color:#fff" data-toggle="push-menu" role="button"></a>
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <!-- User Account: style can be found in dropdown.less -->
