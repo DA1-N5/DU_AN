@@ -1,15 +1,5 @@
-<?php
-require_once("./../global.php");
-?>
-<section class="newsletter" id="email">
 
-<div class="content">
-    <h3>Đăng Kí Để Được Nhận Tin Tức Mới Nhất Về Chúng Tôi</h3>
-    <form action="">
-        <input type="email" required placeholder="enter your email" class="box">
-        <input type="submit" value="send" class="btn btn-secondary">
-    </form>
-</div>
+<section class="newsletter" id="email">
 
 </section>
 
