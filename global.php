@@ -1,8 +1,7 @@
 <?php
-$website = "/DA1";
+$website = "/DU_AN";
 $url_admin = $website . "/admin/";
 $url_images = $website . "/images/";
-$url_main = $website . "/index.php";
 
 $image_path = $_SERVER['DOCUMENT_ROOT'] . $url_images;
 
