@@ -32,13 +32,13 @@ function update_user($email, $mat_khau, $ten, $sdt, $id){
     execute($sql, $email, $mat_khau, $ten, $sdt, $id);
 }
 // Địa chỉ ----------------------------------------------------------------------
-function insert_diachi($dia_chi,$ngay_tao,$trang_thai,$id){
-    $sql = "INSERT INTO dia_chi(dia_chi, ngay_tao, trang_thai,id) VALUES(?, ?, ?, ?)";
-    execute($sql, $dia_chi, $ngay_tao, $trang_thai, $id);
+function insert_diachi($dia_chi,$ngay_tao){
+    $sql = "INSERT INTO dia_chi(dia_chi, ngay_tao) VALUES(?, ?)";
+    execute($sql, $dia_chi, $ngay_tao);
 }
-function update_diachi($dia_chi,$ngay_tao,$trang_thai,$id){
-    $sql = "UPDATE dia_chi set dia_chi = ?, ngay_tao = ?, trang_thai = ? where id = ?";
-    execute($sql,$dia_chi, $ngay_tao, $trang_thai, $id);
+function update_diachi($dia_chi, $id){
+    $sql = "UPDATE dia_chi set dia_chi = ? where id = ?";
+    execute($sql,$dia_chi, $id);
 }
 // Tour----------------------------------------------------------------------------
 
