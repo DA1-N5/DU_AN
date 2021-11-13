@@ -17,10 +17,19 @@ function getDelete($table, $id, $value){
 
 function update_status($table, $value, $id){
     $sql = "UPDATE $table set trang_thai = ? where id = ?";
-    execute($sql, $value, $id);
+    return execute($sql, $value, $id);
 }
 
 // User
+function checkLogin($email, $pass) {
+    $sql = "SELECT * FROM khach_hang WHERE email=? and mat_khau=?";
+    return query_one($sql, $email, $pass);
+}
+
+function checkLoginValue($email, $pass) {
+    $sql = "SELECT count(*) FROM khach_hang WHERE email=? and mat_khau=?";
+    return query_value($sql, $email, $pass);
+}
 
 function insert_user($email, $mat_khau, $ten, $sdt, $ngay_them){
     $sql = "INSERT INTO khach_hang(email, mat_khau, ten, sdt, ngay_tao) VALUES (?, ?, ?, ?, ?)";
@@ -31,8 +40,15 @@ function update_user($email, $mat_khau, $ten, $sdt, $id){
     $sql = "UPDATE khach_hang set email = ?, mat_khau = ?, ten = ?, sdt = ? where id = ?";
     execute($sql, $email, $mat_khau, $ten, $sdt, $id);
 }
-function insert_diachi($id,$dia_chi,$ngay_tao,$trang_thai){
-    $sql = "INSERT INTO dia_chi(id, dia_chi, ngay_tao, trang_thai) VALUES(?, ?, ?, ?,)";
-    execute($sql, $id, $dia_chi, $ngay_tao, $trang_thai);
+// Địa chỉ ----------------------------------------------------------------------
+function insert_diachi($dia_chi,$ngay_tao){
+    $sql = "INSERT INTO dia_chi(dia_chi, ngay_tao) VALUES(?, ?)";
+    execute($sql, $dia_chi, $ngay_tao);
 }
+function update_diachi($dia_chi, $id){
+    $sql = "UPDATE dia_chi set dia_chi = ? where id = ?";
+    execute($sql,$dia_chi, $id);
+}
+// Tour----------------------------------------------------------------------------
+
 ?>
