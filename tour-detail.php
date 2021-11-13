@@ -16,7 +16,7 @@ $comment = [];
         <p style="font-size:17px">ABC ................ XYZ</p>
         <h1 style="border-bottom:1px solid #000"></h1>
         <br>
-        <h3 style="font-site:20px">1.000.000 VNĐ</h3>
+        <h3 style="font-size:20px">1.000.000 VNĐ</h3>
         <a href="tel:1234567890" class="btn" style="border: 2px solid #000;padding: 10px">Liên Hệ Để Đặt Tour</a>
     </div>
     
