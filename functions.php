@@ -5,9 +5,14 @@ function getSelect($table,$start, $quantity){
     return query($sql);
 }
 
-function getSelect_one($table, $id, $value){
-    $sql = "SELECT * FROM $table where $id = ?";
-    return query_one($sql, $value);
+function getSelect_one($table, $value, $email){
+    $sql = "SELECT * FROM $table where $value = ?";
+    return query_one($sql, $value, $email );
+}
+
+function getSelect_id($table, $value, $email){
+    $sql = "SELECT id FROM $table where $value = ?";
+    return query_one($sql, $value, $email );
 }
 
 function getDelete($table, $id, $value){
@@ -21,15 +26,10 @@ function update_status($table, $value, $id){
 }
 
 // User
-function checkLogin($email, $pass) {
-    $sql = "SELECT * FROM khach_hang WHERE email=? and mat_khau=?";
-    return query_one($sql, $email, $pass);
-}
-
-function checkLoginValue($email, $pass) {
-    $sql = "SELECT count(*) FROM khach_hang WHERE email=? and mat_khau=?";
-    return query_value($sql, $email, $pass);
-}
+// function checkLogin($email) {
+//     $sql = "SELECT * FROM khach_hang WHERE email=?";
+//     return query_one($sql, $email);
+// }
 
 function insert_user($ten, $mat_khau, $email, $sdt, $ngay_them){
     $sql = "INSERT INTO khach_hang(ten, mat_khau, email, sdt, ngay_tao) VALUES (?, ?, ?, ?, ?)";

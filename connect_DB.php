@@ -48,8 +48,7 @@ function query_one($sql){
     }
 }
 
-function query_value($sql)
-{
+function query_value($sql) {
     $args = array_slice(func_get_args(), 1);
     try {
         $conn = getConnection();
@@ -57,7 +56,7 @@ function query_value($sql)
         $statement->execute($args);
         $result = $statement->fetch(PDO::FETCH_ASSOC);
         return array_values($result)[0];
-    } catch (PDOException $e) {
+    } catch(PDOException $e) {
         echo "Có lỗi xảy ra: " . $e->getMessage();
     } finally {
         unset($conn);
