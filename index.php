@@ -20,125 +20,194 @@ require_once("./layout_user/start-user.php");
 </section>
 <aside style="margin-top: 150px;">
     <div class="tournoibat">
-        <h2>tour Nổi bật</h2>
+    <h1 class="heading"> Tour <span>Nổi bật</span> </h1>
         <div class="row col-10" style="margin:auto;">
             <div class="col-12   col-sm-12	col-md-12	col-lg-12	col-xl-6    col-xxl-6">
-                <img src="images/anh1.png.jpg" style="max-width:100%">
+                <img src="images/anh1.png.jpg" style="max-width:100%" class="col-12">
             </div>
-            <div style="margin:auto; display:grid; grid-template-rows:1fr 1fr; grid-template-columns:1fr 1fr; grid-gap:5px" class="col-12   col-sm-12	col-md-12	col-lg-12	col-xl-6    col-xxl-6">
-
-                <img src="images/anh1.png.jpg" style="max-width:100%">
-                <img src="images/anh1.png.jpg" style="max-width:100%">
-                <img src="images/anh1.png.jpg" style="max-width:100%">
-                <img src="images/anh1.png.jpg" style="max-width:100%">
+            <div style="margin:auto;" class="row col-12   col-sm-12	col-md-12	col-lg-12	col-xl-6    col-xxl-6">
+                <div class="col-6" style="padding-bottom:7.5px">
+                    <img src="images/anh1.png.jpg" style="max-width:100%">
+                </div>
+                <div class="col-6" style="padding-bottom:7.5px">
+                    <img src="images/anh1.png.jpg" style="max-width:100%">
+                </div>
+                <div class="col-6" style="padding-top:7.5px">
+                    <img src="images/anh1.png.jpg" style="max-width:100%">
+                </div>
+                <div class="col-6" style="padding-top:7.5px">
+                    <img src="images/anh1.png.jpg" style="max-width:100%">
+                </div>
             </div>
         </div>
     </div>
     <div class="contenner">
 
-        <h2> Danh sách tour</h2>
+    <h1 class="heading"> Tour <span>Mới Nhất</span> </h1>
 
     </div>
     <div class="container">
         <div class="row g-2">
-         
+
             <div class="col-6">
-            <div class="col-6" id="so1">
-                <a href="#">
-                <div class="img">
-                    <img src="images/anh1.png.jpg" style="max-width:100%">
+                <div class="col-6" id="so1">
+                    <a href="#">
+                        <div class="img">
+                            <img src="images/anh1.png.jpg" style="max-width:100%">
+                        </div>
+                        <div class="conten-item">
+
+                            <p>Thông tin tour</p>
+                            <p>giá</p>
+
+                            <input name="productQuantiti" value="" hidden>
+                            <form action="">
+                                <input name="productImage" value="" hidden>
+                                <input name="productName" value="" hidden>
+                                <input name="productPrice" value="" hidden>
+                                <input class="button" type="submit" name="addcard" value="them gh">
+
+                            </form>
+                        </div>
+                    </a>
                 </div>
-                <div class="conten-item">
-                    
-            <p>Thông tin tour</p>
-            <p>giá</p>
-
-            <input name="productQuantiti" value="" hidden>
-            <form action="" >
-                <input name="productImage" value="" hidden>
-                <input name="productName" value="" hidden>
-                <input name="productPrice" value="" hidden>
-                <input class="button" type="submit" name="addcard" value="them gh">
-
-            </form>
-        </div>
-                </a>
-            </div>
-            </div>
-            <div class="col-6">
-            <div class="col-6" id="so1">
-                <a href="#">
-                <div class="img">
-                    <img src="images/anh1.png.jpg" style="max-width:100%">
-                </div>
-                <div class="conten-item">
-                    
-                <p>Thông tin tour</p>
-            <p>giá</p>
-
-            <input name="productQuantiti" value="" hidden>
-            <form action="" >
-                <input name="productImage" value="" hidden>
-                <input name="productName" value="" hidden>
-                <input name="productPrice" value="" hidden>
-                <input class="button" type="submit" name="addcard" value="them gh">
-
-            </form>
-        </div>
-                </a>
-            </div>
             </div>
             <div class="col-6">
-            <div class="col-6" id="so1">
-                <a href="#">
-                <div class="img">
-                    <img src="images/anh1.png.jpg" style="max-width:100%">
+                <div class="col-6" id="so1">
+                    <a href="#">
+                        <div class="img">
+                            <img src="images/anh1.png.jpg" style="max-width:100%">
+                        </div>
+                        <div class="conten-item">
+
+                            <p>Thông tin tour</p>
+                            <p>giá</p>
+
+                            <input name="productQuantiti" value="" hidden>
+                            <form action="">
+                                <input name="productImage" value="" hidden>
+                                <input name="productName" value="" hidden>
+                                <input name="productPrice" value="" hidden>
+                                <input class="button" type="submit" name="addcard" value="them gh">
+
+                            </form>
+                        </div>
+                    </a>
                 </div>
-                <div class="conten-item">
-                    
-                <p>Thông tin tour</p>
-            <p>giá</p>
-
-            <input name="productQuantiti" value="" hidden>
-            <form action="" >
-                <input name="productImage" value="" hidden>
-                <input name="productName" value="" hidden>
-                <input name="productPrice" value="" hidden>
-                <input class="button" type="submit" name="addcard" value="them gh">
-
-            </form>
-        </div>
-                </a>
-            </div>
             </div>
             <div class="col-6">
-            <div class="col-6"id="so1">
-                <a href="#">
-                <div class="img">
-                    <img src="images/anh1.png.jpg" style="max-width:100%">
+                <div class="col-6" id="so1">
+                    <a href="#">
+                        <div class="img">
+                            <img src="images/anh1.png.jpg" style="max-width:100%">
+                        </div>
+                        <div class="conten-item">
+
+                            <p>Thông tin tour</p>
+                            <p>giá</p>
+
+                            <input name="productQuantiti" value="" hidden>
+                            <form action="">
+                                <input name="productImage" value="" hidden>
+                                <input name="productName" value="" hidden>
+                                <input name="productPrice" value="" hidden>
+                                <input class="button" type="submit" name="addcard" value="them gh">
+
+                            </form>
+                        </div>
+                    </a>
                 </div>
-                <div class="conten-item">
-                    
-                <p>Thông tin tour</p>
-            <p>giá</p>
-
-            <input name="productQuantiti" value="" hidden>
-            <form action="" >
-                <input name="productImage" value="" hidden>
-                <input name="productName" value="" hidden>
-                <input name="productPrice" value="" hidden>
-                <input class="button" type="submit" name="addcard" value="them gh">
-
-            </form>
-        </div>
-                </a>
             </div>
+            <div class="col-6">
+                <div class="col-6" id="so1">
+                    <a href="#">
+                        <div class="img">
+                            <img src="images/anh1.png.jpg" style="max-width:100%">
+                        </div>
+                        <div class="conten-item">
+
+                            <p>Thông tin tour</p>
+                            <p>giá</p>
+
+                            <input name="productQuantiti" value="" hidden>
+                            <form action="">
+                                <input name="productImage" value="" hidden>
+                                <input name="productName" value="" hidden>
+                                <input name="productPrice" value="" hidden>
+                                <input class="button" type="submit" name="addcard" value="them gh">
+
+                            </form>
+                        </div>
+                    </a>
+                </div>
             </div>
-        
+            <div class="col-6">
+                <div class="col-6" id="so1">
+                    <a href="#">
+                        <div class="img">
+                            <img src="images/anh1.png.jpg" style="max-width:100%">
+                        </div>
+                        <div class="conten-item">
+
+                            <p>Thông tin tour</p>
+                            <p>giá</p>
+
+                            <input name="productQuantiti" value="" hidden>
+                            <form action="">
+                                <input name="productImage" value="" hidden>
+                                <input name="productName" value="" hidden>
+                                <input name="productPrice" value="" hidden>
+                                <input class="button" type="submit" name="addcard" value="them gh">
+
+                            </form>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="col-6" id="so1">
+                    <a href="#">
+                        <div class="img">
+                            <img src="images/anh1.png.jpg" style="max-width:100%">
+                        </div>
+                        <div class="conten-item">
+
+                            <p>Thông tin tour</p>
+                            <p>giá</p>
+
+                            <input name="productQuantiti" value="" hidden>
+                            <form action="">
+                                <input name="productImage" value="" hidden>
+                                <input name="productName" value="" hidden>
+                                <input name="productPrice" value="" hidden>
+                                <input class="button" type="submit" name="addcard" value="them gh">
+
+                            </form>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </aside>
 
-    <?php
-    require_once("./layout_user/end-user.php");
-    ?>
+<article aria-label="Page navigation example" class="col-1" style="margin: 20px auto 20px auto;">
+    <ul class="pagination col-12" style="margin:auto;">
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</article>
+<?php
+require_once("./layout_user/end-user.php");
+?>
