@@ -15,7 +15,7 @@
 <body>
     <div class="auth-wrapper">
         <div class="auth-background"></div>
-        <div class="auth-container">
+        < class="auth-container">
             <form class="auth-form" action="login.php" method="post">
                 <div class="auth-form--title">
                     <h1>Đăng Nhập vào tài khoản</h1>

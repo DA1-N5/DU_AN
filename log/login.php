@@ -20,4 +20,5 @@ extract($_REQUEST);
     $_SESSION['user'] = $user;
     $_SESSION['success'] = "<script>alert('Đăng nhập thành công.');</script>";
     header("location: /DU_AN/");
+    
 
