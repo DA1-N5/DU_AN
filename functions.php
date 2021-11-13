@@ -17,10 +17,19 @@ function getDelete($table, $id, $value){
 
 function update_status($table, $value, $id){
     $sql = "UPDATE $table set trang_thai = ? where id = ?";
-    execute($sql, $value, $id);
+    return execute($sql, $value, $id);
 }
 
 // User
+function checkLogin($email, $pass) {
+    $sql = "SELECT * FROM khach_hang WHERE email=? and mat_khau=?";
+    return query_one($sql, $email, $pass);
+}
+
+function checkLoginValue($email, $pass) {
+    $sql = "SELECT count(*) FROM khach_hang WHERE email=? and mat_khau=?";
+    return query_value($sql, $email, $pass);
+}
 
 function insert_user($email, $mat_khau, $ten, $sdt, $ngay_them){
     $sql = "INSERT INTO khach_hang(email, mat_khau, ten, sdt, ngay_tao) VALUES (?, ?, ?, ?, ?)";

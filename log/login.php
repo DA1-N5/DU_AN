@@ -1,6 +1,31 @@
 <?php
 session_start();
 require_once('./../global.php');
+require_once('./../functions.php');
+
+/* Login Form */
+if (isset($_POST['login'])) {
+    $username = $_POST['email'];
+    $password = $_POST['mat_khau'];
+    if (checkLoginValue($username,md5($password)) > 0) {
+        $row = checkLogin($username,md5($password));
+        $extra = "index.php";
+        $_SESSION['login'] = $_POST['email'];
+        $_SESSION['id'] = $row['id'];
+        $_SESSION['name']= $row['ten'];
+        $host=$_SERVER['HTTP_HOST'];
+        header("location: $url_main");
+        exit();
+    }
+    else {
+    echo "<script>alert('Invalid username or password');</script>";
+    $extra="index.php";
+    $host  = $_SERVER['HTTP_HOST'];
+    $uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
+    header("location: $url_main");
+    exit();
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +46,7 @@ require_once('./../global.php');
     <div class="auth-wrapper">
         <div class="auth-background"></div>
         <div class="auth-container">
-            <form class="auth-form" action="log.php" method="post">
+            <form class="auth-form" action="" method="post">
                 <div class="auth-form--title">
                     <h1>Đăng Nhập vào tài khoản</h1>
                 </div>

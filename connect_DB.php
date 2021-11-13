@@ -47,4 +47,20 @@ function query_one($sql){
         unset($conn);
     }
 }
+
+function query_value($sql)
+{
+    $args = array_slice(func_get_args(), 1);
+    try {
+        $conn = getConnection();
+        $statement = $conn->prepare($sql);
+        $statement->execute($args);
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        return array_values($result)[0];
+    } catch (PDOException $e) {
+        echo "Có lỗi xảy ra: " . $e->getMessage();
+    } finally {
+        unset($conn);
+    }
+}
 ?>
