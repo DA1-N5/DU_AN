@@ -1,4 +1,7 @@
-
+<?php
+    session_start();
+    require_once "../global.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,14 +9,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng nhập</title>
-    <link rel="stylesheet" href="./../css/login.css">
+    <link rel="stylesheet" href="<?=$website?>/css/login.css">
 
 </head>
 <body>
     <div class="auth-wrapper">
         <div class="auth-background"></div>
         <div class="auth-container">
-            <form class="auth-form" action="" method="post">
+            <form class="auth-form" action="login.php" method="post">
                 <div class="auth-form--title">
                     <h1>Đăng Nhập vào tài khoản</h1>
                 </div>
@@ -39,12 +42,10 @@
                     </div>
                     <div class="mb-3 d-flex justify-content-between align-items-center">
                         <a href="./sign-up-form.php" id="hihi">Đăng Kí ngay</a>
-                        <a href="forgetps-form.php" id="hihi">Quên mật khẩu?</a>
                     </div>
-                    <button type="submit" class="btn btn-blue mb-3" name="login">Đăng nhập ngay</button>
+                    <button type="submit" class="btn btn-blue mb-3">Đăng nhập ngay</button>
                     
                 </div>
-                <?php require 'login.php'; ?>
             </form>
         </div>
     </div>

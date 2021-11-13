@@ -4,24 +4,20 @@ require_once('./../global.php');
 require_once('./../functions.php');
 
 /* Login Form */
-if (isset($_POST['login'])) {
-    $email = $_POST['email'];
-    $password = $_POST['mat_khau'];
+extract($_REQUEST);
+    if(empty($email) || empty($mat_khau)) {
+        $_SESSION['error'] = 'Không được để trống.';
+        header("location: /DU_AN/log/loginform.php");
+        die;
+    }
     $user = getSelect_one('khach_hang', 'email', $email);
-    if (md5($password) == $user['mat_khau']) {
-        $extra = "index.php";
-        $_SESSION['user'] = $user;
-        $host=$_SERVER['HTTP_HOST'];
-        header("location: http://localhost:8080/git/DU_AN/");
-        exit();
+    
+    if (empty($user) || md5($mat_khau) != $user['mat_khau']) {
+        $_SESSION['error'] = 'Mật khẩu hoặc tài khoản không đúng.';
+        header("location: /DU_AN/log/loginform.php");
+        die;
     }
-    else {
-    echo "<script>alert('Mật khẩu không đúng.');</script>";
-    $extra="index.php";
-    $host  = $_SERVER['HTTP_HOST'];
-    $uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
-    header("location: http://localhost:8080/git/DU_AN/");
-    exit();
-    }
-}
-?>
+    $_SESSION['user'] = $user;
+    $_SESSION['success'] = "<script>alert('Đăng nhập thành công.');</script>";
+    header("location: /DU_AN/");
+

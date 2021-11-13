@@ -7,7 +7,7 @@ function getSelect($table,$start, $quantity){
 
 function getSelect_one($table, $value, $email){
     $sql = "SELECT * FROM $table where $value = ?";
-    return query_one($sql, $value, $email );
+    return query_one($sql, $email);
 }
 
 function getSelect_id($table, $value, $email){
