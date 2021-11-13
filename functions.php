@@ -31,14 +31,19 @@ function checkLoginValue($email, $pass) {
     return query_value($sql, $email, $pass);
 }
 
-function insert_user($email, $mat_khau, $ten, $sdt, $ngay_them){
-    $sql = "INSERT INTO khach_hang(email, mat_khau, ten, sdt, ngay_tao) VALUES (?, ?, ?, ?, ?)";
-    execute($sql, $email, $mat_khau, $ten, $sdt, $ngay_them);
+function insert_user($ten, $mat_khau, $email, $sdt, $ngay_them){
+    $sql = "INSERT INTO khach_hang(ten, mat_khau, email, sdt, ngay_tao) VALUES (?, ?, ?, ?, ?)";
+    execute($sql, $ten, $mat_khau, $email, $sdt, $ngay_them);
 }
 
-function update_user($email, $mat_khau, $ten, $sdt, $id){
+function update_user($ten, $mat_khau, $email, $sdt, $id){
     $sql = "UPDATE khach_hang set email = ?, mat_khau = ?, ten = ?, sdt = ? where id = ?";
-    execute($sql, $email, $mat_khau, $ten, $sdt, $id);
+    execute($sql, $ten, $mat_khau, $email, $sdt, $id);
+}
+
+function check_email_existed($email) {
+    $sql = "SELECT email FROM khach_hang WHERE email=?";
+    return query_one($sql, $email);
 }
 // Địa chỉ ----------------------------------------------------------------------
 function insert_diachi($dia_chi,$ngay_tao){

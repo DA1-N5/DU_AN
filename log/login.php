@@ -14,7 +14,7 @@ if (isset($_POST['login'])) {
         $_SESSION['id'] = $row['id'];
         $_SESSION['name']= $row['ten'];
         $host=$_SERVER['HTTP_HOST'];
-        header("location: $url_main");
+        header("location: http://localhost:8080/git/DU_AN/");
         exit();
     }
     else {
@@ -22,7 +22,7 @@ if (isset($_POST['login'])) {
     $extra="index.php";
     $host  = $_SERVER['HTTP_HOST'];
     $uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
-    header("location: $url_main");
+    header("location: http://localhost:8080/git/DU_AN/");
     exit();
     }
 }
@@ -34,7 +34,7 @@ if (isset($_POST['login'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng nhập</title>
-    <link rel="stylesheet" href="<?=$website?>/css/login.css">
+    <link rel="stylesheet" href="./../css/login.css">
 
 </head>
 <body>
