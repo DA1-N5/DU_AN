@@ -10,11 +10,6 @@ function getSelect_one($table, $value, $email){
     return query_one($sql, $email);
 }
 
-function getSelect_id($table, $value, $email){
-    $sql = "SELECT id FROM $table where $value = ?";
-    return query_one($sql, $value, $email );
-}
-
 function getDelete($table, $id, $value){
     $sql = "DELETE FROM $table WHERE $id = ?";
     return execute($sql, $value);

@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    require_once "../global.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,12 +53,11 @@
                         <input type="text" class="form-control" name="sdt" id="password2" placeholder="Số điện thoại">
                     </div>
                     <button type="submit" class="btn btn-blue mb-3" name="register">Đăng Kí</button>
-                    <a href="login-form.php" class="btn btn-dark">
+                    <a href="loginform.php" class="btn btn-dark">
                         Đăng Nhập
                         <img src="https://www.nicepng.com/png/full/9-97633_right-arrow-white-png-right-arrow-png-white.png" class="btn-icon" style="margin-left: 1rem;width: 20px;height: 18px;" />
                     </a>
                 </div>
-                <?php require 'sign-up.php' ?>
             </form>
         </div>
     </div>
