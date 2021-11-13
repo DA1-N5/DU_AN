@@ -1,63 +1,41 @@
 <?php
+
 session_start();
 require_once('./../global.php');
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng ký</title>
-    <link rel="stylesheet" href="<?=$website?>/css/login.css">
-</head>
-<body>
+require_once('./../functions.php');
 
-    <div class="auth-wrapper">
-        <div class="auth-background"></div>
-        <div class="auth-container">
-            <form class="auth-form" action="sign.php" method="post">
-                <div class="auth-form--title">
-                    <h1>Đăng Kí Tài Khoản Mới</h1>
-                    <span style="color: red;">
-                    <?php 
-                    if(isset($_SESSION['error'])){
-                        echo $_SESSION['error'];
-                        unset($_SESSION['error']);
-                    }
-                    ?>
-                    </span>
-                </div>
-                <div class="auth-form--body">
+// Register
+extract($_REQUEST);
+if(empty($email) || empty($mat_khau) || empty($mat_khau2) || empty($ten) || empty($sdt)) {
+    $_SESSION['error'] = 'Không được để trống.';
+    header("location: /DU_AN/log/sign-up-form.php");
+    die;
+}
+
+
+// if (isset($_POST['register'])) {
+    
+//     $date = date('d M Y');
+    
+//     $user = getSelect_id('khach_hang', 'email', $email);
+//     echo $user;
+//     if(!empty($email) && !empty($pass) && !empty($pass2) && !empty($name) && !empty($phone)) {
+//         if($user > 0) {
+//             echo "<script>alert('Email này đã tồn tại. Bạn vui lòng nhập email khác.');window.location='sign-up-form.php'</script>";
+//         }
+//         elseif($pass2 != $pass) {
+//             echo "<script>alert('Mật khẩu xác nhận không khớp với mật khẩu.');window.location='sign-up-form.php'</script>";
+//         }
+//         else {
+//             $user = insert_user($name, md5($pass), $email, $phone, $date);
+//             if($user) {
+//                 echo "<script>alert('Đăng ký thành công.');window.location='login-form.php'</script>";
+//             }
+//         }
+//     }
+//     else {
+//         echo "<script>alert('Bạn vui lòng nhập đầy đủ thông tin.');window.location='sign-up-form.php'</script>";
         
-                    <div class="mb-3">
-                        <label for="name">Email</label>
-                        <input type="text" class="form-control" name="email"  id="name" placeholder="John Snowwhite">
-                    </div>
-                    <div class="mb-3">
-                        <label for="password">Mật Khẩu</label>
-                        <input type="password" class="form-control" name="mat_khau"  id="password1" placeholder="******">
-                    </div>
-                    <div class="mb-3">
-                        <label for="password">Xác Nhận Mật Khẩu</label>
-                        <input type="password" class="form-control" name="mat_khau2"  id="password2" placeholder="******">
-                    </div>
-                    <div class="mb-3">
-                        <label for="password">Họ Tên</label>
-                        <input type="text" class="form-control" name="ten"  id="password2" placeholder="Họ và Tên">
-                    </div>
-                    <div class="mb-3">
-                        <label for="password">SĐT</label>
-                        <input type="text" class="form-control" name="sdt"  id="password2" placeholder="Số điện thoại">
-                    </div>
-                    <button type="submit" class="btn btn-blue mb-3" name="register">Đăng Kí</button>
-                    <a href="login.php" class="btn btn-dark">
-                        Đăng Nhập
-                        <img src="https://www.nicepng.com/png/full/9-97633_right-arrow-white-png-right-arrow-png-white.png" class="btn-icon" style="margin-left: 1rem;width: 20px;height: 18px;"/>
-                    </a>
-                </div>
-            </form>
-        </div>
-    </div>
-</body>
-</html>
+//     }
+// }
+?>

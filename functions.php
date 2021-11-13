@@ -5,9 +5,9 @@ function getSelect($table,$start, $quantity){
     return query($sql);
 }
 
-function getSelect_one($table, $id, $value){
-    $sql = "SELECT * FROM $table where $id = ?";
-    return query_one($sql, $value);
+function getSelect_one($table, $value, $email){
+    $sql = "SELECT * FROM $table where $value = ?";
+    return query_one($sql, $email);
 }
 
 function getDelete($table, $id, $value){
@@ -21,24 +21,24 @@ function update_status($table, $value, $id){
 }
 
 // User
-function checkLogin($email, $pass) {
-    $sql = "SELECT * FROM khach_hang WHERE email=? and mat_khau=?";
-    return query_one($sql, $email, $pass);
+// function checkLogin($email) {
+//     $sql = "SELECT * FROM khach_hang WHERE email=?";
+//     return query_one($sql, $email);
+// }
+
+function insert_user($ten, $mat_khau, $email, $sdt, $ngay_them){
+    $sql = "INSERT INTO khach_hang(ten, mat_khau, email, sdt, ngay_tao) VALUES (?, ?, ?, ?, ?)";
+    execute($sql, $ten, $mat_khau, $email, $sdt, $ngay_them);
 }
 
-function checkLoginValue($email, $pass) {
-    $sql = "SELECT count(*) FROM khach_hang WHERE email=? and mat_khau=?";
-    return query_value($sql, $email, $pass);
-}
-
-function insert_user($email, $mat_khau, $ten, $sdt, $ngay_them){
-    $sql = "INSERT INTO khach_hang(email, mat_khau, ten, sdt, ngay_tao) VALUES (?, ?, ?, ?, ?)";
-    execute($sql, $email, $mat_khau, $ten, $sdt, $ngay_them);
-}
-
-function update_user($email, $mat_khau, $ten, $sdt, $id){
+function update_user($ten, $mat_khau, $email, $sdt, $id){
     $sql = "UPDATE khach_hang set email = ?, mat_khau = ?, ten = ?, sdt = ? where id = ?";
-    execute($sql, $email, $mat_khau, $ten, $sdt, $id);
+    execute($sql, $ten, $mat_khau, $email, $sdt, $id);
+}
+
+function check_email_existed($email) {
+    $sql = "SELECT email FROM khach_hang WHERE email=?";
+    return query_one($sql, $email);
 }
 // Địa chỉ ----------------------------------------------------------------------
 function insert_diachi($dia_chi,$ngay_tao){
