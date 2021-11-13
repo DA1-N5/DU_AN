@@ -36,25 +36,28 @@
 }
 #so1 {
  
-   
     position: relative;
     width: fit-content;
     overflow: hidden;
-        grid-gap: 30px;
+    grid-gap: 30px;
 }
 .conten-item {
+    padding: 10px;
     position: absolute;
     bottom: 0;
     background-color: aquamarine;
     width: 100%;
-    transform: translateY(120px);
-    transition: ease-in-out 1s;
+    height: 0%;
+    transform: translateY(0%);
+    transition: ease-in-out 0.5s;
     animation-name: fadeOut;
     animation-duration: 1s;
 }
 
 #so1:hover .conten-item {
-    transform: translateY(0);
+    transform: translateY(0%);
+    height: 50%;
+    width: 100%;
     transition: ease-in-out 1s;
     animation-name: fadeIn;
     animation-duration: 1s;
@@ -92,7 +95,10 @@
     padding: 20px;
     font-family: font1;
 }
+.pagination {
+    list-style: none;
 
+}
 .button {
     width: 100%;
     background-color: black;
@@ -101,13 +107,15 @@
     font-family: font2;
     font-size:10px;
 }
-
-.img {
-  text-align: center;
+.lichtrinh{
+    margin-left: 100px;
+    margin-right: 100px;
+    border-bottom: 1px solid black;
 }
-
-.img figure:hover {
-    transform: scale(1.1);
-    transition: all 2s ease-in-out;
+.lichtrinh>h2{
+    margin-top: 10px;
 }
-
+.lichtrinh>p{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
