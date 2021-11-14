@@ -17,10 +17,10 @@ require_once "../global.php";
 <body>
     <div class="auth-wrapper">
         <?php
-        if (isset($_SESSION['success'])) {
-            echo $_SESSION['success'];
-            unset($_SESSION['success']);
-        }
+            if(isset($_SESSION['success'])) {
+                echo $_SESSION['success'];
+                unset($_SESSION['success']);
+            }
         ?>
         <div class="auth-background"></div>
         <div class="auth-container">
