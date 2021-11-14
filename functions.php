@@ -20,12 +20,6 @@ function update_status($table, $value, $id){
     return execute($sql, $value, $id);
 }
 
-// User
-// function checkLogin($email) {
-//     $sql = "SELECT * FROM khach_hang WHERE email=?";
-//     return query_one($sql, $email);
-// }
-
 function insert_user($ten, $mat_khau, $email, $sdt, $ngay_them){
     $sql = "INSERT INTO khach_hang(ten, mat_khau, email, sdt, ngay_tao) VALUES (?, ?, ?, ?, ?)";
     execute($sql, $ten, $mat_khau, $email, $sdt, $ngay_them);
@@ -49,6 +43,23 @@ function update_diachi($dia_chi, $id){
     $sql = "UPDATE dia_chi set dia_chi = ? where id = ?";
     execute($sql,$dia_chi, $id);
 }
+
 // Tour----------------------------------------------------------------------------
 
+
+// Khách sạn------------------------------------------------------------------------
+function insert_ks($ten_ks,$anh,$mo_ta,$id_dc,$dia_chi_ct,$sdt,$trang_thai,$ngay_tao) {
+    $sql = "INSERT INTO khach_san(ten_ks,anh,mo_ta,id_dc,dia_chi_ct,sdt,trang_thai,ngay_tao) values(?,?,?,?,?,?,?,?)";
+    return execute($sql, $ten_ks,$anh,$mo_ta,$id_dc,$dia_chi_ct,$sdt,$trang_thai,$ngay_tao);
+}
+
+function select_ks() {
+    $sql = "SELECT * FROM khach_san";
+    return query($sql);
+}
+
+function update_ks($ten_ks,$anh,$mo_ta,$id_dc,$dia_chi_ct,$sdt,$tinh_trang,$id){
+    $sql = "UPDATE khach_san set ten_ks = ?,anh = ?,mo_ta = ?,id_dc = ?,dia_chi_ct = ?,sdt = ?,trang_thai = ? where id = ?";
+    return execute($sql,$ten_ks,$anh,$mo_ta,$id_dc,$dia_chi_ct,$sdt,$tinh_trang,$id);
+}
 ?>
