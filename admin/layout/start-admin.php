@@ -157,6 +157,7 @@ if(!isset($_SESSION['admin'])){
                                         class="fa fa-circle-o"></i> Thêm mới Đơn Hàng</a></li>
                         </ul>
                     </li>
+
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-list-alt"></i> <span>Quản lí địa chỉ</span>
@@ -167,7 +168,23 @@ if(!isset($_SESSION['admin'])){
                          <ul class="treeview-menu">
                             <li><a href="<?=$website?>/admin/diachi/list.php"><i
                                         class="fa fa-circle-o"></i> Địa chỉ</a></li>
+                         </ul>
                     </li>
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-list-alt"></i> <span>Quản lí phương tiện</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                         <ul class="treeview-menu">
+                            <li><a href="<?=$website?>/admin/phuongtien/list.php"><i
+                                        class="fa fa-circle-o"></i> Phương tiện</a></li>
+                         </ul>
+                    </li>
+                                     
+                    
                 </ul>
             </section>
         </aside>
