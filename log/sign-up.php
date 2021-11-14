@@ -42,7 +42,7 @@ if(strlen($sdt) < 10) {
 else {
     $new_user = insert_user($ten, md5($mat_khau), $email, $sdt, $date);
     if(empty($new_user)) {
-        // $_SESSION['success'] = "<script>Đăng ký thành công</script>";
+        $_SESSION['success'] = "<script>alert('Đăng ký thành công')</script>";
         header("location: /DU_AN/log/loginform.php");
     }
 }
