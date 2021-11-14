@@ -35,9 +35,9 @@ if(!checkSdt($sdt)) {
     die;
 }
 else {
-    $chu_de = "Xác nhận email";
+    $chu_de = "Confirm Email";
     $code = random_int(0,999999);
-    $noi_dung = "Xin chào $ten mã code xác nhận $code";
+    $noi_dung = "Xin chào $ten đã đến với Webside du lịch VNTravel của chúng tôi, mã xác nhận là <p style='color:blue;'>$code</p> mời bạn hãy nhập mã xác nhận ! Xin cảm ơn !";
     $_SESSION['checkMail']['noi_dung'] = $noi_dung;
     $_SESSION['checkMail']['chu_de'] = $chu_de;
     $_SESSION['checkMail']['ten'] = $ten;
