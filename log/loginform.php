@@ -1,35 +1,43 @@
 <?php
-    session_start();
-    require_once "../global.php";
+session_start();
+require_once "../global.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng nhập</title>
-    <link rel="stylesheet" href="<?=$website?>/css/login.css">
+    <link rel="stylesheet" href="<?= $website ?>/css/login.css">
 
 </head>
+
 <body>
     <div class="auth-wrapper">
+        <?php
+        if (isset($_SESSION['success'])) {
+            echo $_SESSION['success'];
+            unset($_SESSION['success']);
+        }
+        ?>
         <div class="auth-background"></div>
-        < class="auth-container">
+        <div class="auth-container">
             <form class="auth-form" action="login.php" method="post">
                 <div class="auth-form--title">
                     <h1>Đăng Nhập vào tài khoản</h1>
                 </div>
                 <div class="auth-form--body">
-                    
+
                     <div class="mb-3">
                         <span style="color: red;">
-                        <?php 
-                        if(isset($_SESSION['error'])){
-                            echo $_SESSION['error'];
-                            unset($_SESSION['error']);
-                        }
-                        ?>
+                            <?php
+                            if (isset($_SESSION['error'])) {
+                                echo $_SESSION['error'];
+                                unset($_SESSION['error']);
+                            }
+                            ?>
                         </span>
                     </div>
                     <div class="mb-3">
@@ -44,10 +52,11 @@
                         <a href="./sign-up-form.php" id="hihi">Đăng Kí ngay</a>
                     </div>
                     <button type="submit" class="btn btn-blue mb-3">Đăng nhập ngay</button>
-                    
+
                 </div>
             </form>
         </div>
     </div>
 </body>
+
 </html>
