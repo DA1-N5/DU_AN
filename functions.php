@@ -49,6 +49,15 @@ function update_diachi($dia_chi, $id){
     $sql = "UPDATE dia_chi set dia_chi = ? where id = ?";
     execute($sql,$dia_chi, $id);
 }
-// Tour----------------------------------------------------------------------------
+
+// Phương tiện----------------------------------
+function insert_phuongtien($ten, $bien_so, $so_ghe,$anh,$ngay_tao){
+    $sql = "INSERT INTO phuong_tien(ten, bien_so, so_ghe, anh, ngay_tao) VALUES(?, ?, ?, ?, ?)";
+    execute($sql, $ten, $bien_so, $so_ghe, $anh, $ngay_tao);
+}
+function update_phuongtien($ten, $bien_so, $so_ghe,$anh, $id){
+    $sql = "UPDATE phuong_tien set ten = ?, bien_so =?, so_ghe = ?, anh = ? where id = ?";
+    execute($sql, $ten, $bien_so, $so_ghe,$anh, $id);
+}
 
 ?>
