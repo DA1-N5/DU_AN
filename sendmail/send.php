@@ -1,11 +1,11 @@
 <?php
+session_start();
 include("PHPMailer/src/PHPMailer.php");
 include("PHPMailer/src/Exception.php");
 include("PHPMailer/src/OAuth.php");
 include("PHPMailer/src/POP3.php");
 include("PHPMailer/src/SMTP.php");
 
-extract($_REQUEST);
  
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -24,7 +24,7 @@ try {
  
     //Recipients
     $mail->setFrom('vannamhdvt@gmail.com', 'LOVEONEX');
-    $mail->addAddress($email, $ten);     // Add a recipient
+    $mail->addAddress($_SESSION['checkMail']['email'], $_SESSION['checkMail']['ten']);     // Add a recipient
     // $mail->addReplyTo('info@example.com', 'Information');
     // $mail->addCC('cc@example.com');
     // $mail->addBCC('bcc@example.com');
@@ -34,14 +34,20 @@ try {
     // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
  
     //Content
+
     $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = $chu_de;
-    $mail->Body    = $noi_dung;
+    $mail->Subject = $_SESSION['checkMail']['chu_de'];
+    $mail->Body    = $_SESSION['checkMail']['noi_dung'];
     // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
  
     $mail->send();
-    echo 'Message has been sent';
+    $_SESSION['error'] = "<script>alert('Đã gửi mã code vào email mời bạn xác nhận');</script>";
 } catch (Exception $e) {
-    echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+    $_SESSION['error'] = "Email không đúng: ".$_SESSION['checkMail']['email'];
+    header('location: /DU_AN/log/sign-up-form.php');
+    die;
+}
+if(intval($_GET['id']) == 1) {
+    header('Location: /DU_AN/log/formCheckCode.php');
 }
 ?>

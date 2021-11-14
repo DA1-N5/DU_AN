@@ -5,9 +5,9 @@ require_once('./../global.php');
 require_once('./../functions.php');
 require_once('./../validate.php');
 
-// Register
 extract($_REQUEST);
-$date = date('d m Y');
+$_SESSION['info'] = $_REQUEST;
+// Register
 $user = getSelect_one('khach_hang', 'email', $email);
 if(empty($email) || empty($mat_khau) || empty($mat_khau2) || empty($ten) || empty($sdt)) {
     $_SESSION['error'] = 'Mời bạn nhập đầy đủ thông tin.';
@@ -35,10 +35,14 @@ if(!checkSdt($sdt)) {
     die;
 }
 else {
-    $new_user = insert_user($ten, md5($mat_khau), $email, $sdt, $date);
-    if(empty($new_user)) {
-        $_SESSION['success'] = "<script>alert('Đăng ký thành công');</script>";
-        header("location: /DU_AN/log/loginform.php");
-    }
+    $chu_de = "Xác nhận email";
+    $code = random_int(0,999999);
+    $noi_dung = "Xin chào $ten mã code xác nhận $code";
+    $_SESSION['checkMail']['noi_dung'] = $noi_dung;
+    $_SESSION['checkMail']['chu_de'] = $chu_de;
+    $_SESSION['checkMail']['ten'] = $ten;
+    $_SESSION['checkMail']['email'] = $email;
+    $_SESSION['code'] = $code;
+    header('Location: /DU_AN/sendmail/send.php?id=1');
 }
 ?>
