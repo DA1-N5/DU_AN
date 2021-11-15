@@ -51,7 +51,7 @@ function update_diachi($dia_chi, $id){
 }
 
 // Phương tiện----------------------------------
-function insert_phuongtien($ten, $bien_so, $so_ghe,$anh,$ngay_tao){
+function insert_phuongtien($ten, $bien_so, $so_ghe, $anh, $ngay_tao){
     $sql = "INSERT INTO phuong_tien(ten, bien_so, so_ghe, anh, ngay_tao) VALUES(?, ?, ?, ?, ?)";
     execute($sql, $ten, $bien_so, $so_ghe, $anh, $ngay_tao);
 }
@@ -59,5 +59,9 @@ function update_phuongtien($ten, $bien_so, $so_ghe,$anh, $id){
     $sql = "UPDATE phuong_tien set ten = ?, bien_so =?, so_ghe = ?, anh = ? where id = ?";
     execute($sql, $ten, $bien_so, $so_ghe,$anh, $id);
 }
-
+//Tour----------------------------------------------------
+function insert_tour($ten, $anh, $ngay_di, $ngay_den, $gia ,$ngay_tao){
+    $sql = "INSERT INTO tour(ten, anh, ngay_di, ngay_den, gia, ngay_tao) VALUES(?, ?, ?, ?, ?, ?)";
+    execute($sql, $ten, $anh, $ngay_di, $ngay_den, $gia,$ngay_tao);
+}
 ?>
