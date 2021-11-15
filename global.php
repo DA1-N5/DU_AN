@@ -11,4 +11,3 @@ function save_file($image, $address){
     move_uploaded_file($image['tmp_name'], $part);
 }
 
-?>

@@ -1,6 +1,4 @@
-<?php
-    require_once "./global.php";
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -132,8 +130,7 @@
                 <a href="" type="submit"><i class="fas fa-shopping-bag cart"></i></a>
                 <span class="number"><?php echo isset($sosp) ? intval($sosp) : 0 ?></span>
             </span>
-            <a href="" class='fas fa-user'></a>
-            <a href=""><i class="fas fa-users-cog"></i></a>
+            <a href="<?=$website?>/log/loginform.php" class='fas fa-user'></a>
         </div>
               
 

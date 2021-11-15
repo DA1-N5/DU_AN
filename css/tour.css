@@ -42,10 +42,10 @@
     grid-gap: 30px;
 }
 .conten-item {
-    padding: 10px;
+    padding-top: 10px;
     position: absolute;
     bottom: 0;
-    background-color: aquamarine;
+    background-color: rgba(0,174,239,.7);
     width: 100%;
     height: 0%;
     transform: translateY(0%);
@@ -53,18 +53,14 @@
     animation-name: fadeOut;
     animation-duration: 1s;
 }
-
 #so1:hover .conten-item {
     transform: translateY(0%);
-    height: 50%;
+    height: 40%;
     width: 100%;
     transition: ease-in-out 1s;
     animation-name: fadeIn;
     animation-duration: 1s;
 }
-
-
-
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -84,20 +80,19 @@
         opacity: 0;
     }
 }
-
-
 .conten-item {
     text-align: center;
 }
-
+.conten-item h3 {
+    font-size:  30px;
+    color: white;
+}
 .conten-item p {
-    font-size:  15px;
-    padding: 20px;
-    font-family: font1;
+    font-size:  20px;
+    color: white;
 }
 .pagination {
     list-style: none;
-
 }
 .button {
     width: 100%;

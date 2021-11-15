@@ -159,6 +159,20 @@ if(!isset($_SESSION['admin'])){
                     </li>
 
                     <li class="treeview">
+                        <a href="">
+                            <i class="fa fa-list-alt"></i> <span>Quản Lí Khách sạn</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="<?=$website?>/admin/khach_san/list.php"><i
+                                        class="fa fa-circle-o"></i> Danh sách Khách Sạn</a></li>
+                            <li><a href="<?=$website?>/admin/khach_san/add.php"><i
+                                        class="fa fa-circle-o"></i> Thêm mới</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
                         <a href="#">
                             <i class="fa fa-list-alt"></i> <span>Quản lí địa chỉ</span>
                             <span class="pull-right-container">
@@ -168,6 +182,8 @@ if(!isset($_SESSION['admin'])){
                          <ul class="treeview-menu">
                             <li><a href="<?=$website?>/admin/diachi/list.php"><i
                                         class="fa fa-circle-o"></i> Địa chỉ</a></li>
+                    </li> 
+                      
                          </ul>
                     </li>
 

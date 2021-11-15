@@ -4,27 +4,27 @@ require_once("./../layout/start-admin.php");
 require_once("./../../functions.php");
 $start = 0;
 $quantity = 10;
-$result = getSelect('tour', $start, $quantity);
+$result = select_ks();
 ?>
 <div class="content-wrapper">
     
     <section class="content-header">
         <h1>
-            Thông Tin Tour
+            Thông tin khách sạn
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i>Quản Lý Tour</a></li>
-            <li class="active">Danh Sách Tour</li>
+            <li><a href="#"><i class="fa fa-dashboard"></i>Quản Lý khách sạn</a></li>
+            <li class="active">Danh Sách khách sạn</li>
         </ol>
     </section>
     <section class="content">
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <a href="add.php" class="btn btn-success">+Thêm mới Tour</a>
+                    <a href="add.php" class="btn btn-success">+Thêm mới khách sạn</a>
 
                     <div class="box-tools">
-                        <form action="" class="input-group input-group-sm" style="width: 150px;" method="GET">
+                        <form action="<?=$website?>/admin/diachi/find-user.php" class="input-group input-group-sm" style="width: 150px;" method="GET">
                             <input type="text" name="id" class="form-control pull-right"placeholder="Search ID">
                             <div class="input-group-btn">
                                 <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
@@ -37,15 +37,12 @@ $result = getSelect('tour', $start, $quantity);
                         <thead>
                             <tr>
                                 <td>ID</td>
-                                <td>Tên</td>
+                                <td>Tên khách sạn</td>
                                 <td>Ảnh</td>
-                                <td>Ngày đi</td>
-                                <td>Ngày đến</td>
-                                <td>Giá</td>
-                                <td>Ngày tạo</td>
-                                <td>Ngày sửa</td>
-                                <td>Trạng thái</td>
-                                <td colspan="2">Thao Tác</td>
+                                <td>Địa chỉ</td>
+                                <td>SĐT</td>
+                                <td>Trạng Thái</td>
+                                <td>Thao Tác</td>
                             </tr>
                         </thead>
 
@@ -61,53 +58,42 @@ $result = getSelect('tour', $start, $quantity);
                                     </td>
                                     <td>
                                         <br>
-                                        <?=$values['ten']?>
+                                        <?=$values['ten_ks']?>
+                                    </td>
+                                   
+                                    <td>
+                                        <br>
+                                        <img src="./../../images/<?=$values['anh']?>" width="100px" alt="">
                                     </td>
                                     <td>
                                         <br>
-                                        <img src="<?=$url_images . $values['anh']?>" width="50px" alt="">
+                                        <?=$values['dia_chi_ct']?>
                                     </td>
                                     <td>
                                         <br>
-                                        <?=$values['ngay_di']?>
-                                    </td>
-                                    <td>
-                                        <br>
-                                        <?=$values['ngay_den']?>
-                                    </td>
-                                    <td>
-                                        <br>
-                                        <?=$values['gia']?>
-                                    </td>
-                                    <td>
-                                        <br>
-                                        <?=$values['ngay_tao']?>
-                                    </td>
-                                    <td>
-                                        <br>
-                                        <?=$values['ngay_sua']?>
+                                        <?=$values['sdt']?>
                                     </td>
                                     <td>
                                         <br>
                                         <?php
-                                        if($values['trang_thai'] == 1){
+                                        if(intval($values['trang_thai']) == 1){
                                         ?>
-                                        <a href="<?=$website?>/admin/tour/status.php?id=<?=$values['id']?>&st=1" class="btn btn-success">Hoạt Động</a> <!--trạng thái đang hoạt động ấn vào để chuyển trạng thái khóa-->
+                                        <a href="<?=$website?>/admin/khach_san/status.php?id=<?=$values['id']?>&st=1" class="btn btn-success">Hoạt Động</a> <!--trạng thái đang hoạt động ấn vào để chuyển trạng thái khóa-->
                                         <?php
                                         } else {
                                         ?>
-                                        <a href="<?=$website?>/admin/tour/status.php?id=<?=$values['id']?>&st=2" class="btn btn-danger">Khóa</a> <!--trạng thái đang khóa ấn vào để chuyển trạng thái hoạt động-->
+                                        <a href="<?=$website?>/admin/khach_san/status.php?id=<?=$values['id']?>&st=2" class="btn btn-danger">Khóa</a> <!--trạng thái đang khóa ấn vào để chuyển trạng thái hoạt động-->
                                         <?php
                                         }
                                         ?>
                                     </td>
                                     <td>
                                         <br>
-                                        <a href="<?=$website?>/admin/tour/update.php?id=<?=$values['id']?>" class="btn btn-success">Update</a>
+                                        <a href="<?=$website?>/admin/khach_san/update.php?id=<?=$values['id']?>" class="btn btn-success">Update</a>
                                         <?php
                                             if($_SESSION['admin']['vai_tro'] == 2){
                                         ?>
-                                        <a href="<?=$website?>/admin/tour/delete.php?id=<?=$values['id']?>" onclick="return confirm('Bạn có chắc muốn xóa không ? ')" class="btn btn-danger">Delete</a>
+                                        <a href="<?=$website?>/admin/khach_san/delete.php?id=<?=$values['id']?>" onclick="return confirm('Bạn có chắc muốn xóa không ? ')" class="btn btn-danger">Delete</a>
                                         <?php
                                             }
                                         ?>        

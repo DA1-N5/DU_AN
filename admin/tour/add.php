@@ -108,7 +108,6 @@ include_once('./../../functions.php');
                             });
                         </script>
                        <br>
-                                                       
                     </div>
                     
                     <div class="box-footer-group">

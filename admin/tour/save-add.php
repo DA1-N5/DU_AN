@@ -11,8 +11,6 @@ if(
     checkEmpty($mo_ta) == false ||
     checkEmpty($thong_tin) == false ||
     checkEmpty($anh['name']) == false 
-    
-
 ){
     $_SESSION['error'] = "Vui lòng không để trống !";
     header("Location: $website/admin/tour/add.php");
