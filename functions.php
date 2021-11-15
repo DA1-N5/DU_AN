@@ -62,4 +62,19 @@ function update_ks($ten_ks,$anh,$mo_ta,$id_dc,$dia_chi_ct,$sdt,$id){
     $sql = "UPDATE khach_san set ten_ks = ?,anh = ?,mo_ta = ?,id_dc = ?,dia_chi_ct = ?,sdt = ? where id = ?";
     return execute($sql,$ten_ks,$anh,$mo_ta,$id_dc,$dia_chi_ct,$sdt,$id);
 }
+
+// Phương tiện----------------------------------
+function insert_phuongtien($ten, $bien_so, $so_ghe, $anh, $ngay_tao){
+    $sql = "INSERT INTO phuong_tien(ten, bien_so, so_ghe, anh, ngay_tao) VALUES(?, ?, ?, ?, ?)";
+    execute($sql, $ten, $bien_so, $so_ghe, $anh, $ngay_tao);
+}
+function update_phuongtien($ten, $bien_so, $so_ghe,$anh, $id){
+    $sql = "UPDATE phuong_tien set ten = ?, bien_so =?, so_ghe = ?, anh = ? where id = ?";
+    execute($sql, $ten, $bien_so, $so_ghe,$anh, $id);
+}
+//Tour----------------------------------------------------
+function insert_tour($ten, $anh, $ngay_di, $ngay_den, $gia ,$ngay_tao){
+    $sql = "INSERT INTO tour(ten, anh, ngay_di, ngay_den, gia, ngay_tao) VALUES(?, ?, ?, ?, ?, ?)";
+    execute($sql, $ten, $anh, $ngay_di, $ngay_den, $gia,$ngay_tao);
+}
 ?>

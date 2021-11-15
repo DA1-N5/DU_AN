@@ -31,4 +31,12 @@ function checkImage($image){
     }
     return true;
 }
+function checkBien($value){
+    $form = "/^\d{2}-[A-Z]\d ((\d{4})|(\d{3}\.\d{2}))$/";
+	if(preg_match($form,$value)==0){
+    return false;
+        
+    }
+    return true;
+}
 ?>

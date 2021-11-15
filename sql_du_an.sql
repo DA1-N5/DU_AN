@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 13, 2021 lúc 01:35 AM
--- Phiên bản máy phục vụ: 10.4.19-MariaDB
--- Phiên bản PHP: 7.4.20
+-- Host: 127.0.0.1
+-- Generation Time: Nov 14, 2021 at 03:27 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 7.4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `du_an`
+-- Database: `du_an`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -41,7 +41,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `email`, `mat_khau`, `ten`, `sdt`, `ngay_sinh`, `vai_tro`, `anh`, `ngay_tao`, `trang_thai`) VALUES
@@ -51,7 +51,7 @@ INSERT INTO `admin` (`id`, `email`, `mat_khau`, `ten`, `sdt`, `ngay_sinh`, `vai_
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `dia_chi`
+-- Table structure for table `dia_chi`
 --
 
 CREATE TABLE `dia_chi` (
@@ -62,17 +62,17 @@ CREATE TABLE `dia_chi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `dia_chi`
+-- Dumping data for table `dia_chi`
 --
 
 INSERT INTO `dia_chi` (`id`, `dia_chi`, `ngay_tao`, `trang_thai`) VALUES
-(1, 'Việt Nam-Trái Đất-Hệ mặt trời', '2021-11-11', 1),
-(2, 'xin chào 1234', '2021-11-13', 1);
+(1, 'Việt Nam-Trái Đất-Hệ mặt trời 2', '2021-11-11', 1),
+(4, 'xin chào', '2021-11-13', 1);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `khach_hang`
+-- Table structure for table `khach_hang`
 --
 
 CREATE TABLE `khach_hang` (
@@ -85,89 +85,119 @@ CREATE TABLE `khach_hang` (
   `trang_thai` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- --------------------------------------------------------
+
 --
--- Đang đổ dữ liệu cho bảng `khach_hang`
+-- Table structure for table `phuong_tien`
 --
 
-INSERT INTO `khach_hang` (`id`, `ten`, `email`, `mat_khau`, `sdt`, `ngay_tao`, `trang_thai`) VALUES
-(2, 'Trần Chí Công', 'congtc@fpt.edu.vn', '25f9e794323b453885f5181f1b624d0b', '0325689714', '', 1),
-(3, 'Trần Chí Công', 'congtcph11890@fpt.edu.vn', 'c4ca4238a0b923820dcc509a6f75849b', '0862460235', '2021-11-12', 1);
+CREATE TABLE `phuong_tien` (
+  `id` int(11) NOT NULL,
+  `ten` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `bien_so` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `so_ghe` int(11) NOT NULL,
+  `anh` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ngay_tao` date NOT NULL,
+  `trang_thai` int(11) NOT NULL DEFAULT 1,
+  `ngay_ban` datetime DEFAULT NULL,
+  `ngay_hoat_dong` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `phuong_tien`
+--
+
+INSERT INTO `phuong_tien` (`id`, `ten`, `bien_so`, `so_ghe`, `anh`, `ngay_tao`, `trang_thai`, `ngay_ban`, `ngay_hoat_dong`) VALUES
+(6, 'Trần Chí Công', '30-F1 999.13', 12, 'anh1.png.jpg', '2021-11-14', 1, NULL, NULL),
+(7, 'Trần Chí Công', '30-F1 999.12', 1, 'anh1.png.jpg', '2021-11-14', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tour`
+-- Table structure for table `tour`
 --
 
 CREATE TABLE `tour` (
   `id` int(11) NOT NULL,
-  `ten` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `ten` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `id_dia_chi` int(11) NOT NULL,
-  `anh` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `anh` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `id_danhmuc` int(11) NOT NULL,
   `ngay_di` date NOT NULL,
   `ngay_den` date NOT NULL,
-  `mo_ta` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `thong_tin` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `gia` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `khuyen_mai` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `mo_ta` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `thong_tin` varchar(255) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
+  `gia` varchar(255) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
+  `khuyen_mai` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `ngay_tao` date NOT NULL,
   `ngay_sua` date NOT NULL,
   `trang_thai` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `dia_chi`
+-- Indexes for table `dia_chi`
 --
 ALTER TABLE `dia_chi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `khach_hang`
+-- Indexes for table `khach_hang`
 --
 ALTER TABLE `khach_hang`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `tour`
+-- Indexes for table `phuong_tien`
+--
+ALTER TABLE `phuong_tien`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tour`
 --
 ALTER TABLE `tour`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `admin`
+-- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT cho bảng `dia_chi`
+-- AUTO_INCREMENT for table `dia_chi`
 --
 ALTER TABLE `dia_chi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT cho bảng `khach_hang`
+-- AUTO_INCREMENT for table `khach_hang`
 --
 ALTER TABLE `khach_hang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT cho bảng `tour`
+-- AUTO_INCREMENT for table `phuong_tien`
+--
+ALTER TABLE `phuong_tien`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `tour`
 --
 ALTER TABLE `tour`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
