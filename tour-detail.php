@@ -25,7 +25,7 @@ $comment = [];
 <div class="container" style="margin-top: 50px;">
 <h1 style="border-bottom:1px solid #000"></h1>
 </div>
-<div class="lichtrinh">
+<div class="container mt-5 rows" style="margin:auto">
             <h2>Lịnh Trình</h2>
             <p>Sáng: Quý khách có mặt tại ga quốc nội, sân bay Tân Sơn Nhất trước giờ bay ít nhất ba tiếng.
 
