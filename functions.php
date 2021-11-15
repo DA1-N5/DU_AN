@@ -73,8 +73,12 @@ function update_phuongtien($ten, $bien_so, $so_ghe,$anh, $id){
     execute($sql, $ten, $bien_so, $so_ghe,$anh, $id);
 }
 //Tour----------------------------------------------------
-function insert_tour($ten, $anh, $ngay_di, $ngay_den, $gia ,$ngay_tao){
-    $sql = "INSERT INTO tour(ten, anh, ngay_di, ngay_den, gia, ngay_tao) VALUES(?, ?, ?, ?, ?, ?)";
-    execute($sql, $ten, $anh, $ngay_di, $ngay_den, $gia,$ngay_tao);
+function insert_tour($ten, $id_diachi, $anh, $id_danhmuc, $ngay_di, $ngay_den, $mo_ta, $thong_tin, $gia ,$ngay_tao){
+    $sql = "INSERT INTO tour(ten, id_diachi, anh, id_danhmuc, ngay_di, ngay_den, mo_ta, thong_tin, gia , ngay_tao) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    execute($sql, $ten, $id_diachi, $anh, $id_danhmuc, $ngay_di, $ngay_den, $mo_ta, $thong_tin, $gia ,$ngay_tao);
+}
+function update_tour($ten, $id_diachi, $anh, $id_danhmuc, $ngay_di, $ngay_den, $mo_ta, $thong_tin, $gia, $ngay_sua, $id){
+    $sql = "UPDATE tour set ten = ?, id_diachi = ?, anh = ? ,id_danhmuc = ?, ngay_di = ?, ngay_den = ?, mo_ta =?, thong_tin = ?, gia = ?, ngay_sua = ? where id = ?";
+    execute($sql, $ten, $id_diachi, $anh, $id_danhmuc, $ngay_di, $ngay_den, $mo_ta, $thong_tin, $gia, $ngay_sua, $id);
 }
 ?>
