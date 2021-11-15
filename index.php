@@ -1,6 +1,10 @@
 <?php
 require_once("./global.php");
 require_once("./layout_user/start-user.php");
+require_once("./functions.php");
+$result = getSelect("tour", 0, 10);
+
+
 ?>
 <section class="home" id="home">
     <div class="slide-container active">
@@ -20,7 +24,7 @@ require_once("./layout_user/start-user.php");
 </section>
 <aside style="margin-top: 150px;">
     <div class="tournoibat">
-    <h1 class="heading"> Tour <span>Nổi bật</span> </h1>
+        <h1 class="heading"> Tour <span>Nổi bật</span> </h1>
         <div class="row col-10" style="margin:auto;">
             <div class="col-12   col-sm-12	col-md-12	col-lg-12	col-xl-6    col-xxl-6">
                 <img src="images/anh1.png.jpg" style="max-width:100%" class="col-12">
@@ -43,155 +47,42 @@ require_once("./layout_user/start-user.php");
     </div>
     <div class="contenner">
 
-    <h1 class="heading"> Tour <span>Mới Nhất</span> </h1>
+        <h1 class="heading"> Tour <span>Mới Nhất</span> </h1>
 
     </div>
     <div class="container">
+    <?php 
+    if(empty($result)){
+
+    }else{
+        foreach($result as $value){
+    
+    ?>
         <div class="row g-2">
-
             <div class="col-6">
                 <div class="col-6" id="so1">
                     <a href="#">
                         <div class="img">
-                            <img src="images/anh1.png.jpg" style="max-width:100%">
+                            <img src="<?=$url_images . $value['anh']?>" style="max-width:100%">
                         </div>
                         <div class="conten-item">
-
-                            <p>Thông tin tour</p>
-                            <p>giá</p>
-
-                            <input name="productQuantiti" value="" hidden>
-                            <form action="">
-                                <input name="productImage" value="" hidden>
-                                <input name="productName" value="" hidden>
-                                <input name="productPrice" value="" hidden>
-                                <input class="button" type="submit" name="addcard" value="them gh">
-
-                            </form>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="col-6" id="so1">
-                    <a href="#">
-                        <div class="img">
-                            <img src="images/anh1.png.jpg" style="max-width:100%">
-                        </div>
-                        <div class="conten-item">
-
-                            <p>Thông tin tour</p>
-                            <p>giá</p>
-
-                            <input name="productQuantiti" value="" hidden>
-                            <form action="">
-                                <input name="productImage" value="" hidden>
-                                <input name="productName" value="" hidden>
-                                <input name="productPrice" value="" hidden>
-                                <input class="button" type="submit" name="addcard" value="them gh">
-
-                            </form>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="col-6" id="so1">
-                    <a href="#">
-                        <div class="img">
-                            <img src="images/anh1.png.jpg" style="max-width:100%">
-                        </div>
-                        <div class="conten-item">
-
-                            <p>Thông tin tour</p>
-                            <p>giá</p>
-
-                            <input name="productQuantiti" value="" hidden>
-                            <form action="">
-                                <input name="productImage" value="" hidden>
-                                <input name="productName" value="" hidden>
-                                <input name="productPrice" value="" hidden>
-                                <input class="button" type="submit" name="addcard" value="them gh">
-
-                            </form>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="col-6" id="so1">
-                    <a href="#">
-                        <div class="img">
-                            <img src="images/anh1.png.jpg" style="max-width:100%">
-                        </div>
-                        <div class="conten-item">
-
-                            <p>Thông tin tour</p>
-                            <p>giá</p>
-
-                            <input name="productQuantiti" value="" hidden>
-                            <form action="">
-                                <input name="productImage" value="" hidden>
-                                <input name="productName" value="" hidden>
-                                <input name="productPrice" value="" hidden>
-                                <input class="button" type="submit" name="addcard" value="them gh">
-
-                            </form>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="col-6" id="so1">
-                    <a href="#">
-                        <div class="img">
-                            <img src="images/anh1.png.jpg" style="max-width:100%">
-                        </div>
-                        <div class="conten-item">
-
-                            <p>Thông tin tour</p>
-                            <p>giá</p>
-
-                            <input name="productQuantiti" value="" hidden>
-                            <form action="">
-                                <input name="productImage" value="" hidden>
-                                <input name="productName" value="" hidden>
-                                <input name="productPrice" value="" hidden>
-                                <input class="button" type="submit" name="addcard" value="them gh">
-
-                            </form>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="col-6" id="so1">
-                    <a href="#">
-                        <div class="img">
-                            <img src="images/anh1.png.jpg" style="max-width:100%">
-                        </div>
-                        <div class="conten-item">
-
-                            <p>Thông tin tour</p>
-                            <p>giá</p>
-
-                            <input name="productQuantiti" value="" hidden>
-                            <form action="">
-                                <input name="productImage" value="" hidden>
-                                <input name="productName" value="" hidden>
-                                <input name="productPrice" value="" hidden>
-                                <input class="button" type="submit" name="addcard" value="them gh">
-
-                            </form>
+                           <h3><?=$value['ten']?></h3>
+                            <p><?=number_format($value['gia'])?> VNĐ</p>
+                            <a href="<?=$website?>/tour-detail.php?id=<?= $value['id']?>" class="btn" style="border: 2px solid #fff;padding: 10px;color:#fff;">Xem Thêm</a> 
                         </div>
                     </a>
                 </div>
             </div>
         </div>
+    <?php
+        }
+    }
+    ?>
     </div>
+    
 </aside>
 
-<article aria-label="Page navigation example" class="col-1" style="margin: 20px auto 20px auto;">
+<article aria-label="Page navigation example" class="col-1" style="margin: 50px auto 20px auto;">
     <ul class="pagination col-12" style="margin:auto;">
         <li class="page-item">
             <a class="page-link" href="#" aria-label="Previous">

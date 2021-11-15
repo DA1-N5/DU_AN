@@ -2,21 +2,23 @@
 session_start();
 require_once("./global.php");
 require_once("./layout_user/start-user.php");
+require_once("./functions.php");
+$value = getSelect_one("tour", "id", intval($_GET['id']));
 $comment = [];
 ?>
 
 <div style="margin-top: 150px;"></div>
 <h1 style="text-align: center; color: #ff9f1a; margin: 50px 0px;">Chi Tiết Tour</h1>
 <div class="container mt-5 rows" style="display:grid; grid-template-columns: 3fr 2fr">
-    <div><img src="./images/anh1.png.jpg" alt="" width="70%"></div>
+    <div><img src="<?=$url_images . $value['anh']?>" alt="" width="70%"></div>
     <div>
-        <h2 style="font-size:30px">Du Lịch Bái Đính - Tràng An</h2>
+        <h2 style="font-size:30px"><?=$value['ten']?></h2>
         <h1 style="border-bottom:1px solid #000"></h1>
         <p style="font-size:17px">Mô tả:</p>
-        <p style="font-size:17px">ABC ................ XYZ</p>
+        <p style="font-size:17px"><?=$value['mo_ta']?></p>
         <h1 style="border-bottom:1px solid #000"></h1>
         <br>
-        <h3 style="font-size:20px">1.000.000 VNĐ</h3>
+        <h3 style="font-size:20px"><?=number_format($value['gia'])?> VNĐ</h3>
         <a href="tel:1234567890" class="btn" style="border: 2px solid #000;padding: 10px">Liên Hệ Để Đặt Tour</a>
     </div>
     
@@ -25,23 +27,9 @@ $comment = [];
 <div class="container" style="margin-top: 50px;">
 <h1 style="border-bottom:1px solid #000"></h1>
 </div>
-<div class="container mt-5 rows" style="margin:auto">
-            <h2>Lịnh Trình</h2>
-            <p>Sáng: Quý khách có mặt tại ga quốc nội, sân bay Tân Sơn Nhất trước giờ bay ít nhất ba tiếng.
-
-Đại diện công ty Du Lịch Việt đón và hỗ trợ Quý Khách làm thủ tục đón chuyến bay đi Hà Nội.
-Đến sân bay Nội Bài, Hướng Dẫn Viên đón đoàn, Khởi hành đến Hạ Long. Đến núi Yên Tử - 
-ngọn núi cao 1068 m so với mực nước biển, một thắng cảnh thiên nhiên còn lưu giữ hệ thống các di tích lịch 
-sử văn hóa gắn với sự ra đời, hình thành và phát triển của thiền phái Trúc Lâm Yên Tử, được mệnh danh là “đấ
-t tổ Phật giáo Việt Nam”.
-Trưa: Dùng cơm trưa.
-Quý khách lên núi bằng cáp treo (chi phí cáp treo tự túc), tham quan chùa Hoa Yên, Bảo Tháp, Trúc L
-âm Tam Tổ, Hàng Tùng 700 tuổi…xuống núi tham quan Thiền Viện Trúc Lâm với quả cầu Như Ý nặng 6 tấn đư
-ợc xếp kỷ lục guiness Việt Nam.
-Đoàn khởi hành đến Hạ Long
-Tối: Dùng bữa tối. Nghỉ đêm tại Hạ Long.
-
-Quý khách tự do dạo phố, mua sắm tại chợ đêm hoặc tham gia khu Sunworld Hạ Long Park với tất cả khu trò chơi trong nhà, ngoài trời hoành tráng có các khu Công viên Rồng, Cáp treo Nữ Hoàng vòng quay Sun wheel…(chi phí tự túc).</p>
+<div class="col-10" style="margin:auto">
+    <h2 style="margin:auto">Lịnh Trình</h2>
+    <p><?=$value['thong_tin']?></p>
 </div>
 <div class="col-6" style="margin:auto">
     <h1 style="text-align: center; color: #ff9f1a; margin: 50px 0px;" id="cmt">Đánh Giá</h1>
