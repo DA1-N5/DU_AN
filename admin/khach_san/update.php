@@ -3,7 +3,8 @@ include_once('./../../global.php');
 include_once("./../layout/start-admin.php");
 include_once('./../../functions.php');
 
-$id = intval($_GET['id']);
+$id = $_GET['id'];
+$_SESSION['id'] = $id;
 $result = getSelect_one('khach_san', 'id', $id);
 ?>
 <div class="content-wrapper">
@@ -64,13 +65,6 @@ $result = getSelect_one('khach_san', 'id', $id);
                             <label>Số điện thoại</label>
                             <input type="text" class="form-control" name="sdt" value="<?=$result['sdt']?>">
                             <input type="hidden" class="form-control" name="sdt_cu" value="<?=$result['sdt']?>">
-                        </div>
-                        <div class="form-group">
-                            <label>Tình trạng</label>
-                            <select name="trang_thai">
-                                <option value="1">Hoạt động</option>
-                                <option value="2">Khóa</option>
-                            </select>
                         </div>
                     </div>
 

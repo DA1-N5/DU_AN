@@ -32,12 +32,11 @@ include_once('./../../functions.php');
                         </div>
                         <div class="form-group">
                             <label>Ảnh</label>
-                            <input type="file" class="form-control" name="anh" placeholder="">
+                            <input type="file" class="form-control" name="anh">
                         </div>
                         <div class="form-group">
                             <label>Mô tả</label>
                             <textarea name="mo_ta" class="form-control" cols="30" rows="6"></textarea>
-                            <!-- <input type="text" class="form-control" name="mo_ta" placeholder="Mô tả"> -->
                         </div>
                         <div class="form-group">
                             <label>Địa chỉ</label>

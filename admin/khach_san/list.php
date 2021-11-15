@@ -63,7 +63,7 @@ $result = select_ks();
                                    
                                     <td>
                                         <br>
-                                        <?=$values['anh']?>
+                                        <img src="./../../images/<?=$values['anh']?>" width="100px" alt="">
                                     </td>
                                     <td>
                                         <br>
