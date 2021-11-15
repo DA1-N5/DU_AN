@@ -136,7 +136,7 @@ if(!isset($_SESSION['admin'])){
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href=""><i
+                            <li><a href="<?=$website?>/admin/tour/list.php"><i
                                         class="fa fa-circle-o"></i> Danh sách Tour</a></li>
                             <li><a href=""><i
                                         class="fa fa-circle-o"></i> Thêm mới Tour</a></li>
@@ -151,7 +151,7 @@ if(!isset($_SESSION['admin'])){
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href=""><i
+                            <li><a href="#"><i
                                         class="fa fa-circle-o"></i> Danh sách Đơn Hàng</a></li>
                             <li><a href=""><i
                                         class="fa fa-circle-o"></i> Thêm mới Đơn Hàng</a></li>
