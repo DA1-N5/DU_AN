@@ -26,7 +26,20 @@ if(!checkSdt($sdt)) {
     header("location: $website/admin/khach_san/update.php?id=$id");
     die;
 }
-save_file($anh, $image_path);
-update_ks($ten_ks,$anh['name'],$mo_ta,$id_dc,$dia_chi_ct,$sdt,$id);
+
+$khach_san = getSelect_one('khach_san', 'id', $id);
+if(!checkEmpty($anh['name'])) {
+    update_ks($ten_ks,$khach_san['anh'],$mo_ta,$id_dc,$dia_chi_ct,$sdt,$id);
+}
+else {
+    if(!checkImage($anh)) {
+        $_SESSION['error'] = "File không phải là ảnh !";
+        header("Location: $website/admin/khach_san/update.php?id=$id");
+        die;
+    }
+    save_file($anh, $image_path);
+    unlink($image_path . $khach_san['anh']);
+    update_ks($ten_ks,$anh['name'],$mo_ta,$id_dc,$dia_chi_ct,$sdt,$id);
+}
 header("Location: $website/admin/khach_san/list.php");
 ?>
