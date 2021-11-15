@@ -45,7 +45,70 @@ include_once('./../../functions.php');
                         <div class="form-group">
                             <label>Giá*</label>
                             <input type="text" class="form-control" name= "gia" placeholder="Nhập vào giá">
-                        </div>                            
+                        </div> 
+                        <div class="form-group">
+                            <label>Địa chỉ</label>
+                            <select name="id_diachi" id="">
+                                <option value="0" selected>Chọn địa chỉ</option>
+                                <?php
+                                $rows = getSelect('id_diachi', 0, 10);
+                                foreach ($rows as $row) {
+                                    extract($row);
+                                ?>
+                                    <option value="<?= $id; ?>"><?= $id_diachi; ?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Danh mục</label>
+                            <select name="id_danhmuc" id="">
+                                <option value="0" selected>Chọn danh mục</option>
+                                <?php
+                                $rows = getSelect('id_danhmuc', 0, 10);
+                                foreach ($rows as $row) {
+                                    extract($row);
+                                ?>
+                                    <option value="<?= $id; ?>"><?= $id_danhmuc; ?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                        </div>   
+                        <div class="form-group">
+                            <label>Mô tả</label>
+                            <textarea name="mo_ta" id="mo_ta"></textarea>
+                        </div>                                       
+                        <div class="form-group">
+                            <label>Thông tin</label>
+                            <textarea name="thong_tin" id="thong_tin" rows="10"></textarea>
+                        </div>                  
+                        <script src="<?=$website ?>/ckeditor/ckeditor.js"></script>
+                        <script>
+                            ClassicEditor
+                            .create(document.querySelector('#thong_tin'),{
+                                ckfinder: {
+                                    uploadUrl: '<?=$website ?>/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+
+                                },
+                            })
+                            .catch(error => {
+                                console.error(error);
+                            });
+                            ClassicEditor
+                            .create(document.querySelector('#mo_ta'),{
+                                ckfinder: {
+                                    uploadUrl: '<?=$website ?>/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+
+                                },
+                            })
+                            .catch(error => {
+                                console.error(error);
+                            });
+                        </script>
+                       <br>
+                                                       
                     </div>
                     
                     <div class="box-footer-group">

@@ -44,6 +44,7 @@ $result = getSelect('tour', $start, $quantity);
                                 <td>Giá</td>
                                 <td>Ngày tạo</td>
                                 <td>Ngày sửa</td>
+                               
                                 <td>Trạng thái</td>
                                 <td colspan="2">Thao Tác</td>
                             </tr>
