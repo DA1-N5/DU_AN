@@ -26,7 +26,7 @@ function insert_user($ten, $mat_khau, $email, $sdt, $ngay_them){
 }
 
 function update_user($ten, $mat_khau, $email, $sdt, $id){
-    $sql = "UPDATE khach_hang set email = ?, mat_khau = ?, ten = ?, sdt = ? where id = ?";
+    $sql = "UPDATE khach_hang set ten = ?, mat_khau = ?, email = ?, sdt = ? where id = ?";
     execute($sql, $ten, $mat_khau, $email, $sdt, $id);
 }
 
