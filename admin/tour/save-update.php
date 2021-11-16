@@ -5,6 +5,7 @@ require_once ('./../../validate.php');
 include_once('./../../global.php');
 extract($_REQUEST);
 $anh = $_FILES['anh'];
+$ngay_sua = date('Y-m-d');
 if(
     checkEmpty($ten) == false ||
     checkEmpty($gia) == false ||
@@ -12,6 +13,11 @@ if(
     checkEmpty($thong_tin) == false 
 ){
     $_SESSION['error'] = "Vui lòng không để trống !";
+    header("Location: $website/admin/tour/add.php?id=$id");
+    die;
+}
+if(!checkInt($gia)){
+    $_SESSION['error'] = "Giá không đúng định dạng !";
     header("Location: $website/admin/tour/add.php?id=$id");
     die;
 }

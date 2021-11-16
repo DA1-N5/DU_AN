@@ -33,7 +33,7 @@ if(!isset($_SESSION['admin'])){
 
         <header class="main-header">
             <!-- Logo -->
-            <a href="" class="logo">
+            <a href="<?=$website?>/" class="logo">
                 <span class="fa fa-home"></span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->

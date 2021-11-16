@@ -16,6 +16,11 @@ if(
     header("Location: $website/admin/tour/add.php");
     die;
 }
+if(!checkInt($gia)){
+    $_SESSION['error'] = "Giá không đúng định dạng !";
+    header("Location: $website/admin/tour/add.php");
+    die;
+}
 if(!checkImage($anh)){
     $_SESSION['error'] = "File phải là ảnh !";
     header("Location: $website/admin/tour/add.php");

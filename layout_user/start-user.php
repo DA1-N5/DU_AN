@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,19 +34,22 @@
 
 <body>
     <header>
-
+        <?php
+            if(isset($_SESSION['success'])) {
+                echo $_SESSION['success'];
+                unset($_SESSION['success']);
+            }
+        ?>
         <div id="menu-bar" class="fas fa-bars"></div>
         
-        <a href="" class="logo">Nhóm 5</a>
+        <a href="<?=$website?>/" class="logo">VNTRAVEL</a>
 
         <nav class="navbar">
         <a href="">Trang Chủ</a>
-        <a href="">Sản phẩm Mới Nhất</a>
-        <a href="">Sản Phẩm Nổi Bật</a>
-        <a href="">tin tức</a>
+        <a href="">Giới Thiệu</a>
         <span>
             <select class="form-select" style="font-size: 17px; border:none;" name="ma_loai" onchange="location = this.value;">
-                <option selected>Danh Mục Sản Phẩm</option>
+                <option selected>Danh Mục Tour</option>
                 <option value=""></option>
             </select>
         </span>
@@ -130,7 +132,25 @@
                 <a href="" type="submit"><i class="fas fa-shopping-bag cart"></i></a>
                 <span class="number"><?php echo isset($sosp) ? intval($sosp) : 0 ?></span>
             </span>
-            <a href="<?=$website?>/log/loginform.php" class='fas fa-user'></a>
+            <?php
+            if(isset($_SESSION['user'])){
+            ?>
+                <a href='#' class='fas fa-edit'></a>
+                <a href='<?=$website?>/log/log-out.php'><i class='fas fa-user-times'></i></a>
+            <?php
+            } else {
+            ?>
+                <a href='<?=$website?>/log/loginform.php'><i class='fas fa-user'></i></a>
+            <?php
+            }
+            ?>
+            <?php
+            if(isset($_SESSION['admin'])){
+            ?>
+                <a href='<?=$website?>/admin' class='fas fa-users-cog'></a>
+            <?php
+            }
+            ?>
         </div>
               
 

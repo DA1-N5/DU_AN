@@ -1,5 +1,9 @@
 <?php
-    session_start();
+session_start();
+if(isset($_SESSION['admin'])){
+    header("Location: $website/admin");
+    die;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
