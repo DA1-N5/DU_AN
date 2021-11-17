@@ -30,6 +30,11 @@ function update_user($ten, $mat_khau, $email, $sdt, $id){
     execute($sql, $ten, $mat_khau, $email, $sdt, $id);
 }
 
+function update_user_one($mat_khau, $email) {
+    $sql = "UPDATE khach_hang set mat_khau = ? where email = ?";
+    return execute($sql, $mat_khau, $email);
+}
+
 function check_email_existed($email) {
     $sql = "SELECT email FROM khach_hang WHERE email=?";
     return query_one($sql, $email);

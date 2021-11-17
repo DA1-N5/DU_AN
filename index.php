@@ -1,6 +1,14 @@
 <?php
+session_start();
 require_once("./global.php");
 require_once("./layout_user/start-user.php");
+
+// Thông báo đăng nhập thành công (có thể bỏ đi)
+// if (isset($_SESSION['success'])) {
+//     echo $_SESSION['success'];
+//     unset($_SESSION['success']);
+// }
+
 ?>
 <section class="home" id="home">
     <div class="slide-container active">
@@ -20,7 +28,7 @@ require_once("./layout_user/start-user.php");
 </section>
 <aside style="margin-top: 150px;">
     <div class="tournoibat">
-    <h1 class="heading"> Tour <span>Nổi bật</span> </h1>
+        <h1 class="heading"> Tour <span>Nổi bật</span> </h1>
         <div class="row col-10" style="margin:auto;">
             <div class="col-12   col-sm-12	col-md-12	col-lg-12	col-xl-6    col-xxl-6">
                 <img src="images/anh1.png.jpg" style="max-width:100%" class="col-12">
@@ -43,7 +51,7 @@ require_once("./layout_user/start-user.php");
     </div>
     <div class="contenner">
 
-    <h1 class="heading"> Tour <span>Mới Nhất</span> </h1>
+        <h1 class="heading"> Tour <span>Mới Nhất</span> </h1>
 
     </div>
     <div class="container">
