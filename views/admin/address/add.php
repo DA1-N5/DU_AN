@@ -1,22 +1,15 @@
-<?php
-include_once('./../../global.php');
-include_once("./../layout/start-admin.php");
-include_once('./../../functions.php');
-$id = intval($_GET['id']);
-$result = getSelect_one('dia_chi', 'id', $id);
-?>
 <div class="content-wrapper">
     <section class="content-header">
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i>Quản Lý User</a></li>
-            <li class="active">Update User</li>
+            <li><a href="#"><i class="fa fa-dashboard"></i>Quản Lý Địa chỉ</a></li>
+            <li class="active">Thêm Mới Địa chỉ</li>
         </ol>
     </section>
     <section class="content">
         <div class="col-md-8">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3>Update User</h3>
+                    <h3>Thêm mới Địa Chỉ</h3>
                     <span style="color: red;">
                     <?php 
                     if(isset($_SESSION['error'])){
@@ -26,21 +19,20 @@ $result = getSelect_one('dia_chi', 'id', $id);
                     ?>
                     </span>
                 </div>
-                <form role="form" action="save-update.php" method="POST">
-                    <input type="hidden" name = "id" value = "<?=$result['id'] ?>">
+                <form role="form" action="<?=BASE_URL?>/admin/address/save-add" method="POST">
                     <div class="box-body">
                         <div class="form-group">
                            <label>Địa chỉ*</label>
-                            <input type="text" class="form-control" name ="diachi" value="<?=$result['dia_chi']?>">
-                            <input type="hidden" class="form-control" name ="dia_chi_cu" value="<?=$result['dia_chi']?>">
+                            <input type="text" class="form-control" name ="diachi" placeholder="Nhập vào địa chỉ">
                         </div>                       
-                    </div>                   
+                    </div>
+                    
                     <div class="box-footer-group">
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary">Thêm mới</button>
                     </div>
                     <div class="box-footer">
-                        <a href="<?=$website ?>/admin/index.php" class="btn btn-primary"><i class="fa fa-home"></i> Trang chủ</a>
+                        <a href="<?=BASE_URL?>/admin/address/list" class="btn btn-primary"><i class="fa fa-arrow-right"></i> Quay lại</a>
                     </div>
                     </div>
                 </form>
@@ -48,6 +40,3 @@ $result = getSelect_one('dia_chi', 'id', $id);
         </div>
     </section>
 </div>
-<?php
-  include_once("./../layout/end-admin.php");
-?>

@@ -1,10 +1,3 @@
-<?php
-include_once('./../../global.php');
-include_once("./../layout/start-admin.php");
-include_once('./../../functions.php');
-$id = intval($_GET['id']);
-$result = getSelect_one('phuong_tien', 'id', $id);
-?>
 <div class="content-wrapper">
     <section class="content-header">
         <ol class="breadcrumb">
@@ -26,7 +19,7 @@ $result = getSelect_one('phuong_tien', 'id', $id);
                     ?>
                     </span>
                 </div>
-                <form role="form" action="save-update.php" enctype="multipart/form-data"  method="POST">
+                <form role="form" action="<?=BASE_URL?>/admin/vehicle/save-update" enctype="multipart/form-data"  method="POST">
                     <input type="hidden" name = "id" value = "<?=$result['id'] ?>">
                     <div class="box-body">
                         <div class="form-group">
@@ -54,7 +47,7 @@ $result = getSelect_one('phuong_tien', 'id', $id);
                         <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                     <div class="box-footer">
-                        <a href="<?=$website ?>/admin/index.php" class="btn btn-primary"><i class="fa fa-home"></i> Trang chủ</a>
+                        <a href="<?=BASE_URL?>/admin/vehicle/list" class="btn btn-primary"><i class="fa fa-arrow-right"></i> Quay lại</a>
                     </div>
                     </div>
                 </form>
@@ -62,6 +55,3 @@ $result = getSelect_one('phuong_tien', 'id', $id);
         </div>
     </section>
 </div>
-<?php
-  include_once("./../layout/end-admin.php");
-?>
