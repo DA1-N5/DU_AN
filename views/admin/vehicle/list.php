@@ -1,11 +1,3 @@
-<?php
-require_once('./../../global.php');
-require_once("./../layout/start-admin.php");
-require_once("./../../functions.php");
-$start = 0;
-$quantity = 10;
-$result = getSelect('phuong_tien', $start, $quantity);
-?>
 <div class="content-wrapper">
     
     <section class="content-header">
@@ -21,10 +13,10 @@ $result = getSelect('phuong_tien', $start, $quantity);
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <a href="add.php" class="btn btn-success">+Thêm mới phương tiện</a>
+                    <a href="<?=BASE_URL?>/admin/vehicle/add" class="btn btn-success">+Thêm mới phương tiện</a>
 
                     <div class="box-tools">
-                        <form action="<?=$website?>/admin/phuongtien/find-user.php" class="input-group input-group-sm" style="width: 150px;" method="GET">
+                        <form action="<?=BASE_URL?>/admin/phuongtien/find-user.php" class="input-group input-group-sm" style="width: 150px;" method="GET">
                             <input type="text" name="id" class="form-control pull-right"placeholder="Search ID">
                             <div class="input-group-btn">
                                 <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
@@ -73,7 +65,7 @@ $result = getSelect('phuong_tien', $start, $quantity);
                                     </td>
                                     <td>
                                         
-                                        <img src="<?=$url_images . $values['anh']?>" width="50px" alt="">                                       
+                                        <img src="<?=IMAGE_URL . $values['anh']?>" width="50px" alt="">                                       
                                     </td>
                                     <td>
                                         
@@ -84,11 +76,11 @@ $result = getSelect('phuong_tien', $start, $quantity);
                                         <?php
                                         if($values['trang_thai'] == 1){
                                         ?>
-                                        <a href="<?=$website?>/admin/phuongtien/status.php?id=<?=$values['id']?>&st=1" class="btn btn-success" onclick="return comp('Bạn có chắc muốn xóa không ? ')">Hoạt Động</a> <!--trạng thái đang hoạt động ấn vào để chuyển trạng thái khóa-->
+                                        <a href="<?=BASE_URL?>/admin/vehicle/status?id=<?=$values['id']?>&st=1" class="btn btn-success" onclick="return comp('Bạn có chắc muốn xóa không ? ')">Hoạt Động</a> <!--trạng thái đang hoạt động ấn vào để chuyển trạng thái khóa-->
                                         <?php
                                         } else {
                                         ?>
-                                        <a href="<?=$website?>/admin/phuongtien/status.php?id=<?=$values['id']?>&st=2" class="btn btn-danger">Khóa</a> <!--trạng thái đang khóa ấn vào để chuyển trạng thái hoạt động-->
+                                        <a href="<?=BASE_URL?>/admin/vehicle/status?id=<?=$values['id']?>&st=2" class="btn btn-danger">Khóa</a> <!--trạng thái đang khóa ấn vào để chuyển trạng thái hoạt động-->
                                         <?php
                                         }
                                         ?>
@@ -99,11 +91,11 @@ $result = getSelect('phuong_tien', $start, $quantity);
                                     </td>
                                     <td>
                                         
-                                        <a href="<?=$website?>/admin/phuongtien/update.php?id=<?=$values['id']?>" class="btn btn-success">Update</a>
+                                        <a href="<?=BASE_URL?>/admin/vehicle/update?id=<?=$values['id']?>" class="btn btn-success">Update</a>
                                         <?php
                                             if($_SESSION['admin']['vai_tro'] == 2){
                                         ?>
-                                        <a href="<?=$website?>/admin/phuongtien/delete.php?id=<?=$values['id']?>" onclick="return confirm('Bạn có chắc muốn xóa không ? ')" class="btn btn-danger">Delete</a>
+                                        <a href="<?=BASE_URL?>/admin/vehicle/delete?id=<?=$values['id']?>" onclick="return confirm('Bạn có chắc muốn xóa không ? ')" class="btn btn-danger">Delete</a>
                                         <?php
                                             }
                                         ?>        
@@ -120,6 +112,3 @@ $result = getSelect('phuong_tien', $start, $quantity);
         </div>
     </section>
 </div>
-<?php
-include_once("./../layout/end-admin.php");
-?>

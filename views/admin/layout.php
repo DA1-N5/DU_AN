@@ -135,9 +135,9 @@ if(!isset($_SESSION['admin'])){
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="<?=BASE_URL?>/admin/tour/list.php"><i
+                            <li><a href="<?=BASE_URL?>/admin/tour/list"><i
                                         class="fa fa-circle-o"></i> Danh sách</a></li>
-                            <li><a href="<?=BASE_URL?>/admin/tour/add.php"><i
+                            <li><a href="<?=BASE_URL?>/admin/tour/add"><i
                                         class="fa fa-circle-o"></i> Thêm mới</a></li>
                         </ul>
                     </li>
@@ -177,9 +177,9 @@ if(!isset($_SESSION['admin'])){
                             </span>
                         </a>
                          <ul class="treeview-menu">
-                            <li><a href="<?=BASE_URL?>/admin/diachi/list.php"><i
+                            <li><a href="<?=BASE_URL?>/admin/address/list"><i
                                         class="fa fa-circle-o"></i> Danh sách</a></li>
-                            <li><a href="<?=BASE_URL?>/admin/diachi/add.php"><i
+                            <li><a href="<?=BASE_URL?>/admin/address/add"><i
                                         class="fa fa-circle-o"></i> Thêm mới</a></li>
                       
                          </ul>
@@ -193,9 +193,9 @@ if(!isset($_SESSION['admin'])){
                             </span>
                         </a>
                          <ul class="treeview-menu">
-                            <li><a href="<?=BASE_URL?>/admin/phuongtien/list.php"><i
+                            <li><a href="<?=BASE_URL?>/admin/vehicle/list"><i
                                         class="fa fa-circle-o"></i> Danh sách</a></li>
-                            <li><a href="<?=BASE_URL?>/admin/phuongtien/add.php"><i
+                            <li><a href="<?=BASE_URL?>/admin/phuongtien/add"><i
                                         class="fa fa-circle-o"></i> Thêm mới</a></li>            
                          </ul>
                     </li>
