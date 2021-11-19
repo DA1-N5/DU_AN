@@ -46,10 +46,10 @@ try {
     $_SESSION['error'] = "<script>alert('Đã gửi mã code vào email mời bạn xác nhận');</script>";
 } catch (Exception $e) {
     $_SESSION['error'] = "Email không đúng: ".$_SESSION['checkMail']['email'];
-    header('location: /DU_AN/log/sign-up-form.php');
+    header('location: ' . BASE_URL . '/sign-up');
     die;
 }
 if(intval($_GET['id']) == 1) {
-    header('Location: /DU_AN/log/formCheckCode.php');
+    header('Location: ' . BASE_URL . '/check-code-form');
 }
 ?>

@@ -146,11 +146,11 @@
             if (isset($_SESSION['user'])) {
             ?>
                 <a href='#' class='fas fa-edit'></a>
-                <a href='<?= BASE_URL ?>/log/log-out.php'><i class='fas fa-user-times'></i></a>
+                <a href='<?= BASE_URL ?>/log-out'><i class='fas fa-user-times'></i></a>
             <?php
             } else {
             ?>
-                <a href='<?= BASE_URL ?>/log/loginform.php'><i class='fas fa-user'></i></a>
+                <a href='<?= BASE_URL ?>/login'><i class='fas fa-user'></i></a>
             <?php
             }
             ?>

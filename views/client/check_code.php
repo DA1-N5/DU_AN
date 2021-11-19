@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,11 +5,11 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./../css/login.css">
+    <link rel="stylesheet" href="<?=BASE_URL?>/css/login.css">
 </head>
 
 <body>
-    <form class="auth-form" action="checkCode.php" method="post" style="margin: 50px auto 0;">
+    <form class="auth-form" action="<?=BASE_URL?>/check-code" method="post" style="margin: 50px auto 0;">
         <div class="auth-form--title">
             <h1>Nhập code xác nhận Email</h1>
             <span style="color: red;">

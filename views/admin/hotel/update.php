@@ -1,12 +1,3 @@
-<?php
-include_once('./../../global.php');
-include_once("./../layout/start-admin.php");
-include_once('./../../functions.php');
-
-$id = $_GET['id'];
-$_SESSION['id'] = $id;
-$result = getSelect_one('khach_san', 'id', $id);
-?>
 <div class="content-wrapper">
     <section class="content-header">
         <ol class="breadcrumb">
@@ -28,7 +19,7 @@ $result = getSelect_one('khach_san', 'id', $id);
                         ?>
                     </span>
                 </div>
-                <form role="form" action="save-update.php" method="POST" enctype="multipart/form-data">
+                <form role="form" action="<?=BASE_URL?>/admin/hotel/save-update" method="POST" enctype="multipart/form-data">
                     <div class="box-body">
                         <div class="form-group">
                             <label>Tên khách sạn</label>
@@ -47,7 +38,6 @@ $result = getSelect_one('khach_san', 'id', $id);
                             <label>Địa chỉ</label>
                             <select name="id_dc" id="">
                                 <?php
-                                $rows = getSelect('dia_chi', 0, 10);
                                 foreach ($rows as $row) {
                                 ?>
                                     <option <?= $row['id'] == $result['id_dc'] ? 'selected' : '' ?>  value="<?= $row['id']; ?>"><?= $row['dia_chi']; ?></option>
@@ -73,7 +63,7 @@ $result = getSelect_one('khach_san', 'id', $id);
                             <button type="submit" class="btn btn-primary">Cập nhật</button>
                         </div>
                         <div class="box-footer">
-                            <a href="<?= $website ?>/admin/index.php" class="btn btn-primary"><i class="fa fa-home"></i> Trang chủ</a>
+                            <a href="<?= BASE_URL ?>/admin/hotel/list" class="btn btn-primary"><i class="fa fa-arrow-right"></i> Quay lại</a>
                         </div>
                     </div>
                 </form>
@@ -81,6 +71,3 @@ $result = getSelect_one('khach_san', 'id', $id);
         </div>
     </section>
 </div>
-<?php
-include_once("./../layout/end-admin.php");
-?>

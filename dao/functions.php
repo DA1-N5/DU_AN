@@ -31,6 +31,11 @@ function update_user($ten, $mat_khau, $email, $sdt, $id){
     execute($sql, $ten, $mat_khau, $email, $sdt, $id);
 }
 
+function update_user_one($mat_khau, $email) {
+    $sql = "UPDATE khach_hang set mat_khau = ? where email = ?";
+    return execute($sql, $mat_khau, $email);
+}
+
 function check_email_existed($email) {
     $sql = "SELECT email FROM khach_hang WHERE email=?";
     return query_one($sql, $email);
@@ -47,14 +52,9 @@ function update_diachi($dia_chi, $id){
 }
 
 // Khách sạn--------------------------------------------
-function insert_ks($ten_ks,$anh,$mo_ta,$id_dc,$dia_chi_ct,$sdt,$trang_thai,$ngay_tao) {
-    $sql = "INSERT INTO khach_san(ten_ks,anh,mo_ta,id_dc,dia_chi_ct,sdt,trang_thai,ngay_tao) values(?,?,?,?,?,?,?,?)";
-    return execute($sql, $ten_ks,$anh,$mo_ta,$id_dc,$dia_chi_ct,$sdt,$trang_thai,$ngay_tao);
-}
-
-function select_ks() {
-    $sql = "SELECT * FROM khach_san";
-    return query($sql);
+function insert_ks($ten_ks,$anh,$mo_ta,$id_dc,$dia_chi_ct,$sdt,$ngay_tao) {
+    $sql = "INSERT INTO khach_san(ten_ks,anh,mo_ta,id_dc,dia_chi_ct,sdt,ngay_tao) values(?,?,?,?,?,?,?)";
+    return execute($sql, $ten_ks,$anh,$mo_ta,$id_dc,$dia_chi_ct,$sdt,$ngay_tao);
 }
 
 function update_ks($ten_ks,$anh,$mo_ta,$id_dc,$dia_chi_ct,$sdt,$id){

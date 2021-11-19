@@ -1,7 +1,3 @@
-<?php
-    session_start();
-    require_once "../global.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng ký</title>
-    <link rel="stylesheet" href="./../css/login.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/login.css">
 </head>
 
 <body>
@@ -18,7 +14,7 @@
     <div class="auth-wrapper">
         <div class="auth-background"></div>
         <div class="auth-container">
-            <form class="auth-form" action="sign-up.php" method="post" enctype="multipart/form-data">
+            <form class="auth-form" action="<?= BASE_URL ?>/save-sign-up" method="post" enctype="multipart/form-data">
                 <div class="auth-form--title">
                     <h1>Đăng Kí Tài Khoản Mới</h1>
                     <span style="color: red;">
@@ -53,7 +49,7 @@
                         <input type="text" class="form-control" name="sdt" id="password2" placeholder="Số điện thoại">
                     </div>
                     <button type="submit" class="btn btn-blue mb-3" name="register">Đăng Kí</button>
-                    <a href="loginform.php" class="btn btn-dark">
+                    <a href="<?=BASE_URL?>/login" class="btn btn-dark">
                         Đăng Nhập
                         <img src="https://www.nicepng.com/png/full/9-97633_right-arrow-white-png-right-arrow-png-white.png" class="btn-icon" style="margin-left: 1rem;width: 20px;height: 18px;" />
                     </a>

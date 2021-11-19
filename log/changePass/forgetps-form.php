@@ -1,4 +1,6 @@
-
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,14 +8,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng nhập</title>
-    <link rel="stylesheet" href="./../css/login.css">
+    <link rel="stylesheet" href="./../../css/login.css">
 
 </head>
 <body>
-    <div class="auth-wrapper">
+    <div class="auth-wrapper" style="margin-top: -80px;">
         <div class="auth-background"></div>
         <div class="auth-container">
-            <form class="auth-form" action="" method="post">
+            <form class="auth-form" action="forgetps.php" method="post">
                 <div class="auth-form--title">
                     <h1>Nhập Email của tài khoản</h1>
                 </div>
@@ -35,9 +37,7 @@
                     </div>
                     
                     <button type="submit" class="btn btn-blue mb-3" name="login">Gửi</button>
-                    
                 </div>
-                <?php require 'login.php'; ?>
             </form>
         </div>
     </div>

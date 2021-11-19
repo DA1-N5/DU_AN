@@ -1,11 +1,3 @@
-<?php
-require_once('./../../global.php');
-require_once("./../layout/start-admin.php");
-require_once("./../../functions.php");
-$start = 0;
-$quantity = 10;
-$result = select_ks();
-?>
 <div class="content-wrapper">
     
     <section class="content-header">
@@ -21,10 +13,10 @@ $result = select_ks();
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <a href="add.php" class="btn btn-success">+Thêm mới khách sạn</a>
+                    <a href="<?=BASE_URL?>/admin/hotel/add" class="btn btn-success">+Thêm mới khách sạn</a>
 
                     <div class="box-tools">
-                        <form action="<?=$website?>/admin/diachi/find-user.php" class="input-group input-group-sm" style="width: 150px;" method="GET">
+                        <form action="<?=BASE_URL?>/admin/diachi/find-user.php" class="input-group input-group-sm" style="width: 150px;" method="GET">
                             <input type="text" name="id" class="form-control pull-right"placeholder="Search ID">
                             <div class="input-group-btn">
                                 <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
@@ -63,7 +55,7 @@ $result = select_ks();
                                    
                                     <td>
                                         
-                                        <img src="./../../images/<?=$values['anh']?>" width="100px" alt="">
+                                        <img src="<?= IMAGE_URL . $values['anh']?>" width="100px" alt="">
                                     </td>
                                     <td>
                                         
@@ -78,22 +70,22 @@ $result = select_ks();
                                         <?php
                                         if(intval($values['trang_thai']) == 1){
                                         ?>
-                                        <a href="<?=$website?>/admin/khach_san/status.php?id=<?=$values['id']?>&st=1" class="btn btn-success">Hoạt Động</a> <!--trạng thái đang hoạt động ấn vào để chuyển trạng thái khóa-->
+                                        <a href="<?=BASE_URL?>/admin/hotel/status?id=<?=$values['id']?>&st=1" class="btn btn-success">Hoạt Động</a> <!--trạng thái đang hoạt động ấn vào để chuyển trạng thái khóa-->
                                         <?php
                                         } else {
                                         ?>
-                                        <a href="<?=$website?>/admin/khach_san/status.php?id=<?=$values['id']?>&st=2" class="btn btn-danger">Khóa</a> <!--trạng thái đang khóa ấn vào để chuyển trạng thái hoạt động-->
+                                        <a href="<?=BASE_URL?>/admin/hotel/status?id=<?=$values['id']?>&st=2" class="btn btn-danger">Khóa</a> <!--trạng thái đang khóa ấn vào để chuyển trạng thái hoạt động-->
                                         <?php
                                         }
                                         ?>
                                     </td>
                                     <td>
                                         
-                                        <a href="<?=$website?>/admin/khach_san/update.php?id=<?=$values['id']?>" class="btn btn-success">Update</a>
+                                        <a href="<?=BASE_URL?>/admin/hotel/update?id=<?=$values['id']?>" class="btn btn-success">Update</a>
                                         <?php
                                             if($_SESSION['admin']['vai_tro'] == 2){
                                         ?>
-                                        <a href="<?=$website?>/admin/khach_san/delete.php?id=<?=$values['id']?>" onclick="return confirm('Bạn có chắc muốn xóa không ? ')" class="btn btn-danger">Delete</a>
+                                        <a href="<?=BASE_URL?>/admin/hotel/delete?id=<?=$values['id']?>" onclick="return confirm('Bạn có chắc muốn xóa không ? ')" class="btn btn-danger">Delete</a>
                                         <?php
                                             }
                                         ?>        
@@ -110,6 +102,3 @@ $result = select_ks();
         </div>
     </section>
 </div>
-<?php
-include_once("./../layout/end-admin.php");
-?>
