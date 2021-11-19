@@ -54,7 +54,7 @@ $result = getSelect("tour", 0, 10);
         if (empty($result)) {
         } else {
             foreach ($result as $value) {
-
+                if($value['trang_thai'] == 1){
         ?>
         <div class="" id="so1">
             <a href="<?= $website ?>/tour-detail.php?id=<?= $value['id']?>">
@@ -69,6 +69,7 @@ $result = getSelect("tour", 0, 10);
             </a>
         </div>
         <?php
+                }
             }
         }
         ?>

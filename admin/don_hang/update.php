@@ -2,21 +2,23 @@
 include_once('./../../global.php');
 include_once("./../layout/start-admin.php");
 include_once('./../../functions.php');
-$id = intval($_GET['id']);
-$result = getSelect_one('phuong_tien', 'id', $id);
+$don_hang = getSelect_one("don_hang", 'id', intval($_GET['id']));
+$tour = getSelect_one("tour", 'id', intval($don_hang['id_tour']));
+$user = getSelect_one("khach_hang", 'id', intval($don_hang['id_kh']));
+extract($tour);
 ?>
 <div class="content-wrapper">
     <section class="content-header">
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i>Quản Lý User</a></li>
-            <li class="active">Update User</li>
+            <li><a href="#"><i class="fa fa-dashboard"></i>Quản Lý Đơn Hàng</a></li>
+            <li class="active">Update Đơn Hàng</li>
         </ol>
     </section>
     <section class="content">
         <div class="col-md-8">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3>Update User</h3>
+                    <h3>Update Đơn Hàng</h3>
                     <span style="color: red;">
                     <?php 
                     if(isset($_SESSION['error'])){
@@ -26,29 +28,50 @@ $result = getSelect_one('phuong_tien', 'id', $id);
                     ?>
                     </span>
                 </div>
-                <form role="form" action="save-update.php" enctype="multipart/form-data"  method="POST">
-                    <input type="hidden" name = "id" value = "<?=$result['id'] ?>">
+                <form role="form" action="save-update.php" method="POST">
                     <div class="box-body">
+                        <input type="hidden" value="<?=$don_hang['id']?>" name="id">
+                        <input type="hidden" value="<?=$id?>" name="id_tour">
+                        <input type="hidden" value="<?=$gia?>" id="gia">
+                        <input type="hidden" value="<?=$thong_tin?>" name="lich_trinh">
                         <div class="form-group">
-                           <label>Tên*</label>
-                            <input type="text" class="form-control" name ="ten" value="<?=$result['ten']?>">
-                            
+                            <label>Tour : <?=$ten?></label>
                         </div>
                         <div class="form-group">
-                           <label>Biển số*</label>
-                            <input type="text" class="form-control" name ="bien_so" value="<?=$result['bien_so']?>">
-                            <input type="hidden" class="form-control" name ="bien_so_cu" value="<?=$result['bien_so']?>">
+                            <label>Ngày đi</label>
+                            <input type="date" class="form-control" name="ngay_di" value="<?=$ngay_di?>" <?=empty($ngay_di) ? "" : "readonly"?>>
                         </div>
                         <div class="form-group">
-                           <label>Số ghế*</label>
-                            <input type="text" class="form-control" name ="so_ghe" value="<?=$result['so_ghe']?>">
-                            
-                        </div>  
+                            <label>Địa điểm khởi hành</label>
+                            <input type="text" class="form-control" name= "noi_di" value="<?=$don_hang['noi_di']?>">
+                        </div>
                         <div class="form-group">
-                           <label>ảnh*</label>
-                            <input type="file" class="form-control" name ="anh" value="<?=$result['anh']?>">                          
-                        </div> 
+                            <label>Email khách hàng*</label>
+                            <input type="text" class="form-control" name= "email" value="<?=$user['email']?>">
+                        </div>
+                        <div class="form-group">
+                            <label>Số lượng người lớn*</label>
+                            <input type="number" class="form-control" name= "nguoi_lon" id="nguoi_lon" onchange="tinh_gia();" value="<?=$don_hang['nguoi_lon']?>">
+                        </div>
+                        <div class="form-group">
+                            <label>Số lượng trẻ em dưới 10 tuổi *</label>
+                            <input type="number" class="form-control" name= "tre_em" onchange="tinh_gia();" id="tre_em" value="<?=$don_hang['tre_em']?>">
+                        </div>
+                        <div class="form-group">
+                            <label>Giá *</label>
+                            <input type="number" class="form-control" name= "gia" id="tong_gia" readonly value="<?=$don_hang['gia']?>">
+                        </div>
+                        <script>
+                            function tinh_gia(){
+                                var nguoi_lon = document.querySelector('#nguoi_lon').value;
+                                var tre_em = document.querySelector('#tre_em').value;
+                                var gia = document.querySelector('#gia').value;
+                                var tong_gia = (nguoi_lon*gia) + (tre_em*(gia*(70/100)));
+                                document.querySelector('#tong_gia').value = tong_gia;
+                            }
+                        </script>
                     </div>
+                    
                     <div class="box-footer-group">
                     <div class="box-footer">
                         <button type="submit" class="btn btn-primary">Update</button>

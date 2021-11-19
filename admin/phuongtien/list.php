@@ -42,9 +42,8 @@ $result = getSelect('phuong_tien', $start, $quantity);
                                 <td>Số ghê</td>
                                 <td>Ảnh</td>
                                 <td>Ngày tạo</td>
-                                <td>Ngày bận</td>
-                                <td>Ngày hoạt dộng</td>
                                 <td>Trạng Thái</td>
+                                <td>Ngày hoạt dộng</td>
                                 <td>Thao Tác</td>
                             </tr>
                         </thead>
@@ -56,44 +55,36 @@ $result = getSelect('phuong_tien', $start, $quantity);
                                 foreach($result as $values) {?>
                                 <tr>
                                     <td>
-                                        <br>
+                                        
                                         <?=$values['id']?>
                                     </td>
                                     <td>
-                                        <br>
+                                        
                                         <?=$values['ten']?>
                                     </td>
                                    
                                     <td>
-                                        <br>
+                                        
                                         <?=$values['bien_so']?>
                                     </td>
                                     <td>
-                                        <br>
+                                        
                                         <?=$values['so_ghe']?>
                                     </td>
                                     <td>
-                                        <br>
+                                        
                                         <img src="<?=$url_images . $values['anh']?>" width="50px" alt="">                                       
                                     </td>
                                     <td>
-                                        <br>
+                                        
                                         <?=$values['ngay_tao']?>
                                     </td>
                                     <td>
-                                        <br>
-                                        <?=$values['ngay_ban']?>
-                                    </td>
-                                    <td>
-                                        <br>
-                                        <?=$values['ngay_hoat_dong']?>
-                                    </td>
-                                    <td>
-                                        <br>
+                                        
                                         <?php
                                         if($values['trang_thai'] == 1){
                                         ?>
-                                        <a href="<?=$website?>/admin/phuongtien/status.php?id=<?=$values['id']?>&st=1" class="btn btn-success">Hoạt Động</a> <!--trạng thái đang hoạt động ấn vào để chuyển trạng thái khóa-->
+                                        <a href="<?=$website?>/admin/phuongtien/status.php?id=<?=$values['id']?>&st=1" class="btn btn-success" onclick="return comp('Bạn có chắc muốn xóa không ? ')">Hoạt Động</a> <!--trạng thái đang hoạt động ấn vào để chuyển trạng thái khóa-->
                                         <?php
                                         } else {
                                         ?>
@@ -102,9 +93,12 @@ $result = getSelect('phuong_tien', $start, $quantity);
                                         }
                                         ?>
                                     </td>
-
                                     <td>
-                                        <br>
+                                        
+                                        <?=$values['ngay_hoat_dong']?>
+                                    </td>
+                                    <td>
+                                        
                                         <a href="<?=$website?>/admin/phuongtien/update.php?id=<?=$values['id']?>" class="btn btn-success">Update</a>
                                         <?php
                                             if($_SESSION['admin']['vai_tro'] == 2){

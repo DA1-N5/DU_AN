@@ -2,19 +2,21 @@
 include_once('./../../global.php');
 include_once("./../layout/start-admin.php");
 include_once('./../../functions.php');
+$tour = getSelect_one("tour", 'id', intval($_GET['id']));
+extract($tour);
 ?>
 <div class="content-wrapper">
     <section class="content-header">
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i>Quản Lý Phương tiện</a></li>
-            <li class="active">Thêm Mới Phương tiện</li>
+            <li><a href="#"><i class="fa fa-dashboard"></i>Quản Lý Đơn Hàng</a></li>
+            <li class="active">Thêm Mới Đơn Hàng</li>
         </ol>
     </section>
     <section class="content">
         <div class="col-md-8">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3>Thêm mới Phương tiện</h3>
+                    <h3>Thêm mới Đơn Hàng</h3>
                     <span style="color: red;">
                     <?php 
                     if(isset($_SESSION['error'])){
@@ -24,24 +26,47 @@ include_once('./../../functions.php');
                     ?>
                     </span>
                 </div>
-                <form role="form" action="save-add.php" enctype="multipart/form-data" method="POST">
+                <form role="form" action="save-add.php" method="POST">
                     <div class="box-body">
                         <div class="form-group">
-                           <label>Tên*</label>
-                            <input type="text" class="form-control" name ="ten" placeholder="Nhập vào tên">
+                            <label>Tour : <?=$ten?></label>
+                            <input type="hidden" value="<?=$id?>" name="id_tour">
+                            <input type="hidden" value="<?=$gia?>" id="gia">
+                            <input type="hidden" value="<?=$thong_tin?>" name="lich_trinh">
                         </div>
                         <div class="form-group">
-                            <label>Biển số*</label>
-                            <input type="text" class="form-control" name= "bien_so" placeholder="Nhập mật biển số">
+                            <label>Ngày đi</label>
+                            <input type="date" class="form-control" name="ngay_di" value="<?=$ngay_di?>" <?=empty($ngay_di) ? "" : "readonly"?>>
                         </div>
                         <div class="form-group">
-                            <label>Số ghê*</label>
-                            <input type="text" class="form-control" name= "so_ghe" placeholder="Nhập mật số ghế">
+                            <label>Địa điểm khởi hành</label>
+                            <input type="text" class="form-control" name= "noi_di" placeholder="Nhập mật địa chỉ khởi hành">
                         </div>
                         <div class="form-group">
-                            <label>Chọn ảnh*</label>
-                            <input type="file" name="anh" />
+                            <label>Email khách hàng*</label>
+                            <input type="text" class="form-control" name= "email" placeholder="Nhập mật email">
                         </div>
+                        <div class="form-group">
+                            <label>Số lượng người lớn*</label>
+                            <input type="number" class="form-control" name= "nguoi_lon" id="nguoi_lon" placeholder="Nhập Số Lượng Người Lớn">
+                        </div>
+                        <div class="form-group">
+                            <label>Số lượng trẻ em dưới 10 tuổi *</label>
+                            <input type="number" class="form-control" name= "tre_em" onchange="tinh_gia();" id="tre_em" placeholder="Nhập Số Lượng Trẻ Em Dưới 10 Tuổi">
+                        </div>
+                        <div class="form-group">
+                            <label>Giá *</label>
+                            <input type="number" class="form-control" name= "gia" id="tong_gia" readonly>
+                        </div>
+                        <script>
+                            function tinh_gia(){
+                                var nguoi_lon = document.querySelector('#nguoi_lon').value;
+                                var tre_em = document.querySelector('#tre_em').value;
+                                var gia = document.querySelector('#gia').value;
+                                var tong_gia = (nguoi_lon*gia) + (tre_em*(gia*(70/100)));
+                                document.querySelector('#tong_gia').value = tong_gia;
+                            }
+                        </script>
                     </div>
                     
                     <div class="box-footer-group">

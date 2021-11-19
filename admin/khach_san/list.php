@@ -53,28 +53,28 @@ $result = select_ks();
                                 foreach($result as $values) {?>
                                 <tr>
                                     <td>
-                                        <br>
+                                        
                                         <?=$values['id']?>
                                     </td>
                                     <td>
-                                        <br>
+                                        
                                         <?=$values['ten_ks']?>
                                     </td>
                                    
                                     <td>
-                                        <br>
+                                        
                                         <img src="./../../images/<?=$values['anh']?>" width="100px" alt="">
                                     </td>
                                     <td>
-                                        <br>
+                                        
                                         <?=$values['dia_chi_ct']?>
                                     </td>
                                     <td>
-                                        <br>
+                                        
                                         <?=$values['sdt']?>
                                     </td>
                                     <td>
-                                        <br>
+                                        
                                         <?php
                                         if(intval($values['trang_thai']) == 1){
                                         ?>
@@ -88,7 +88,7 @@ $result = select_ks();
                                         ?>
                                     </td>
                                     <td>
-                                        <br>
+                                        
                                         <a href="<?=$website?>/admin/khach_san/update.php?id=<?=$values['id']?>" class="btn btn-success">Update</a>
                                         <?php
                                             if($_SESSION['admin']['vai_tro'] == 2){

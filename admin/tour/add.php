@@ -49,13 +49,13 @@ include_once('./../../functions.php');
                         <div class="form-group">
                             <label>Địa chỉ</label>
                             <select name="id_diachi" id="">
-                                <option value="0" selected>Chọn địa chỉ</option>
+                                <option selected>Chọn địa chỉ</option>
                                 <?php
-                                $rows = getSelect('id_diachi', 0, 10);
+                                $rows = getSelect('dia_chi', 0, 10);
                                 foreach ($rows as $row) {
                                     extract($row);
                                 ?>
-                                    <option value="<?= $id; ?>"><?= $id_diachi; ?></option>
+                                    <option value="<?=$id?>"><?=$dia_chi?></option>
                                 <?php
                                 }
                                 ?>
