@@ -1,18 +1,3 @@
-<?php
-
-use MicrosoftAzure\Storage\Common\Internal\Serialization\ISerializer;
-
-require_once('./../../global.php');
-require_once("./../layout/start-admin.php");
-require_once("./../../functions.php");
-$start = 0;
-$quantity = 10;
-if(isset($_GET['id'])){
-    $values = getSelect_one('tour', 'id', intval($_GET['id']));
-} else {
-    $result = getSelect('tour', $start, $quantity);
-}
-?>
 <div class="content-wrapper">
     
     <section class="content-header">
@@ -28,7 +13,7 @@ if(isset($_GET['id'])){
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <a href="add.php" class="btn btn-success">+Thêm mới Tour</a>
+                    <a href="<?=BASE_URL?>/admin/tour/add" class="btn btn-success">+Thêm mới Tour</a>
 
                     <div class="box-tools">
                         <form action="" class="input-group input-group-sm" style="width: 150px;" method="GET">
@@ -71,7 +56,7 @@ if(isset($_GET['id'])){
                                         <?=$values['ten']?>
                                     </td>
                                     <td>
-                                        <img src="<?=$url_images . $values['anh']?>" width="50px" alt="">
+                                    <img src="<?=IMAGE_URL . $values['anh']?>" width="50px" alt=""> 
                                     </td>
                                     <td>
                                         <?=$values['ngay_di']?>
@@ -92,27 +77,27 @@ if(isset($_GET['id'])){
                                         <?php
                                         if($values['trang_thai'] == 1){
                                         ?>
-                                        <a href="<?=$website?>/admin/tour/status.php?id=<?=$values['id']?>&st=1" class="btn btn-success">Hoạt Động</a> <!--trạng thái đang hoạt động ấn vào để chuyển trạng thái khóa-->
+                                        <a href="<?=BASE_URL?>/admin/tour/status?id=<?=$values['id']?>&st=1" class="btn btn-success">Hoạt Động</a> <!--trạng thái đang hoạt động ấn vào để chuyển trạng thái khóa-->
                                         <?php
                                         } else {
                                         ?>
-                                        <a href="<?=$website?>/admin/tour/status.php?id=<?=$values['id']?>&st=2" class="btn btn-danger">Khóa</a> <!--trạng thái đang khóa ấn vào để chuyển trạng thái hoạt động-->
+                                        <a href="<?=BASE_URL?>/admin/tour/status?id=<?=$values['id']?>&st=2" class="btn btn-danger">Khóa</a> <!--trạng thái đang khóa ấn vào để chuyển trạng thái hoạt động-->
                                         <?php
                                         }
                                         ?>
                                     </td>
                                     <td>
-                                        <a href="<?=$website?>/admin/tour/update.php?id=<?=$values['id']?>" class="btn btn-success">Update</a>
+                                        <a href="<?=BASE_URL?>/admin/tour/update?id=<?=$values['id']?>" class="btn btn-success">Update</a>
                                         <?php
                                             if($_SESSION['admin']['vai_tro'] == 2){
                                         ?>
-                                        <a href="<?=$website?>/admin/tour/delete.php?id=<?=$values['id']?>" onclick="return confirm('Bạn có chắc muốn xóa không ? ')" class="btn btn-danger">Delete</a>
+                                        <a href="<?=BASE_URL?>/admin/tour/delete?id=<?=$values['id']?>" onclick="return confirm('Bạn có chắc muốn xóa không ? ')" class="btn btn-danger">Delete</a>
                                         <?php
                                             }
                                         ?>        
                                     </td>
                                     <td>
-                                    <a href="<?=$website?>/admin/don_hang/add.php?id=<?=$values['id']?>" class="btn btn-primary">Đặt Tour</a>
+                                    <a href="<?=BASE_URL?>/admin/tour/add?id=<?=$values['id']?>" class="btn btn-primary">Đặt Tour</a>
                                     </td>
                                 </tr>
                             <?php
@@ -128,7 +113,7 @@ if(isset($_GET['id'])){
                                         <?=$values['ten']?>
                                     </td>
                                     <td>
-                                        <img src="<?=$url_images . $values['anh']?>" width="50px" alt="">
+                                    <img src="<?=IMAGE_URL . $values['anh']?>" width="50px" alt=""> 
                                     </td>
                                     <td>
                                         <?=$values['ngay_di']?>
@@ -149,27 +134,27 @@ if(isset($_GET['id'])){
                                         <?php
                                         if($values['trang_thai'] == 1){
                                         ?>
-                                        <a href="<?=$website?>/admin/tour/status.php?id=<?=$values['id']?>&st=1" class="btn btn-success">Hoạt Động</a> <!--trạng thái đang hoạt động ấn vào để chuyển trạng thái khóa-->
+                                        <a href="<?=BASE_URL?>/admin/tour/status<?=$values['id']?>&st=1" class="btn btn-success">Hoạt Động</a> <!--trạng thái đang hoạt động ấn vào để chuyển trạng thái khóa-->
                                         <?php
                                         } else {
                                         ?>
-                                        <a href="<?=$website?>/admin/tour/status.php?id=<?=$values['id']?>&st=2" class="btn btn-danger">Khóa</a> <!--trạng thái đang khóa ấn vào để chuyển trạng thái hoạt động-->
+                                        <a href="<?=BASE_URL?>/admin/tour/status<?=$values['id']?>&st=2" class="btn btn-danger">Khóa</a> <!--trạng thái đang khóa ấn vào để chuyển trạng thái hoạt động-->
                                         <?php
                                         }
                                         ?>
                                     </td>
                                     <td>
-                                        <a href="<?=$website?>/admin/tour/update.php?id=<?=$values['id']?>" class="btn btn-success">Update</a>
+                                        <a href="<?=BASE_URL?>/admin/tour/update<?=$values['id']?>" class="btn btn-success">Update</a>
                                         <?php
                                             if($_SESSION['admin']['vai_tro'] == 2){
                                         ?>
-                                        <a href="<?=$website?>/admin/tour/delete.php?id=<?=$values['id']?>" onclick="return confirm('Bạn có chắc muốn xóa không ? ')" class="btn btn-danger">Delete</a>
+                                        <a href="<?=BASE_URL?>/admin/tour/delete<?=$values['id']?>" onclick="return confirm('Bạn có chắc muốn xóa không ? ')" class="btn btn-danger">Delete</a>
                                         <?php
                                             }
                                         ?>        
                                     </td>
                                     <td>
-                                    <a href="<?=$website?>/admin/don_hang/add.php?id=<?=$values['id']?>" class="btn btn-primary">Đặt Tour</a>
+                                    <a href="<?=BASE_URL?>/admin/tour/add<?=$values['id']?>" class="btn btn-primary">Đặt Tour</a>
                                     </td>
                                 </tr>
                             <?php
@@ -182,6 +167,3 @@ if(isset($_GET['id'])){
         </div>
     </section>
 </div>
-<?php
-include_once("./../layout/end-admin.php");
-?>

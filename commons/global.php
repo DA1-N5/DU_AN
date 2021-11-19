@@ -5,9 +5,9 @@ const IMAGE_URL = BASE_URL . "/images/";
 
 $image_path = $_SERVER['DOCUMENT_ROOT'] . IMAGE_URL;
 
-function save_file($image, $address){
+function save_file($image){
     $fileName = $image['name'];
-    $part = $address . $fileName;
-    move_uploaded_file($image['tmp_name'], $part);
+    move_uploaded_file($image['tmp_name'], "./images/". $fileName);
 }
+
 
