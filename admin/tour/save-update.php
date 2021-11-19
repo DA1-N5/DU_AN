@@ -16,7 +16,7 @@ if(
     header("Location: $website/admin/tour/add.php?id=$id");
     die;
 }
-if(!checkInt($gia)){
+if(!checkInt(intval($gia))){
     $_SESSION['error'] = "Giá không đúng định dạng !";
     header("Location: $website/admin/tour/add.php?id=$id");
     die;
