@@ -33,7 +33,7 @@ if(!isset($_SESSION['admin'])){
 
         <header class="main-header">
             <!-- Logo -->
-            <a href="" class="logo">
+            <a href="<?=$website?>/" class="logo">
                 <span class="fa fa-home"></span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
@@ -103,9 +103,9 @@ if(!isset($_SESSION['admin'])){
                         </a>
                         <ul class="treeview-menu">
                             <li><a href=""><i
-                                        class="fa fa-circle-o"></i> Danh sách Admin</a></li>
+                                        class="fa fa-circle-o"></i> Danh sách</a></li>
                             <li><a href=""><i
-                                        class="fa fa-circle-o"></i> Thêm mới Admin</a></li>
+                                        class="fa fa-circle-o"></i> Thêm mới</a></li>
                         </ul>
                     </li>
                     <?php
@@ -122,9 +122,9 @@ if(!isset($_SESSION['admin'])){
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="<?=$website?>/admin/users/list.php"><i
-                                        class="fa fa-circle-o"></i> Danh sách User</a></li>
-                            <li><a href=""><i class="fa fa-circle-o"></i>
-                                    Thêm mới User</a></li>
+                                        class="fa fa-circle-o"></i> Danh sách</a></li>
+                            <li><a href="<?=$website?>/admin/users/add.php"><i
+                                        class="fa fa-circle-o"></i> Thêm mới</a></li>
                         </ul>
                     </li>
 
@@ -137,9 +137,9 @@ if(!isset($_SESSION['admin'])){
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="<?=$website?>/admin/tour/list.php"><i
-                                        class="fa fa-circle-o"></i> Danh sách Tour</a></li>
-                            <li><a href=""><i
-                                        class="fa fa-circle-o"></i> Thêm mới Tour</a></li>
+                                        class="fa fa-circle-o"></i> Danh sách</a></li>
+                            <li><a href="<?=$website?>/admin/tour/add.php"><i
+                                        class="fa fa-circle-o"></i> Thêm mới</a></li>
                         </ul>
                     </li>
 
@@ -151,10 +151,8 @@ if(!isset($_SESSION['admin'])){
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="#"><i
-                                        class="fa fa-circle-o"></i> Danh sách Đơn Hàng</a></li>
-                            <li><a href=""><i
-                                        class="fa fa-circle-o"></i> Thêm mới Đơn Hàng</a></li>
+                            <li><a href="<?=$website?>/admin/don_hang/list.php"><i
+                                        class="fa fa-circle-o"></i> Danh sách</a></li>
                         </ul>
                     </li>
 
@@ -167,7 +165,7 @@ if(!isset($_SESSION['admin'])){
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="<?=$website?>/admin/khach_san/list.php"><i
-                                        class="fa fa-circle-o"></i> Danh sách Khách Sạn</a></li>
+                                        class="fa fa-circle-o"></i> Danh sách</a></li>
                             <li><a href="<?=$website?>/admin/khach_san/add.php"><i
                                         class="fa fa-circle-o"></i> Thêm mới</a></li>
                         </ul>
@@ -181,8 +179,9 @@ if(!isset($_SESSION['admin'])){
                         </a>
                          <ul class="treeview-menu">
                             <li><a href="<?=$website?>/admin/diachi/list.php"><i
-                                        class="fa fa-circle-o"></i> Địa chỉ</a></li>
-                    </li> 
+                                        class="fa fa-circle-o"></i> Danh sách</a></li>
+                            <li><a href="<?=$website?>/admin/diachi/add.php"><i
+                                        class="fa fa-circle-o"></i> Thêm mới</a></li>
                       
                          </ul>
                     </li>
@@ -196,7 +195,9 @@ if(!isset($_SESSION['admin'])){
                         </a>
                          <ul class="treeview-menu">
                             <li><a href="<?=$website?>/admin/phuongtien/list.php"><i
-                                        class="fa fa-circle-o"></i> Phương tiện</a></li>
+                                        class="fa fa-circle-o"></i> Danh sách</a></li>
+                            <li><a href="<?=$website?>/admin/phuongtien/add.php"><i
+                                        class="fa fa-circle-o"></i> Thêm mới</a></li>            
                          </ul>
                     </li>
                                      

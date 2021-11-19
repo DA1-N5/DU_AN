@@ -4,7 +4,11 @@ require_once("./../layout/start-admin.php");
 require_once("./../../functions.php");
 $start = 0;
 $quantity = 10;
-$result = getSelect('khach_hang', $start, $quantity);
+if(isset($_GET['id'])){
+    $values = getSelect_one('khach_hang', 'id', intval($_GET['id']));
+} else {
+    $result = getSelect('khach_hang', $start, $quantity);
+}
 ?>
 <div class="content-wrapper">
     
@@ -48,32 +52,33 @@ $result = getSelect('khach_hang', $start, $quantity);
 
                         <tbody>
                             <?php 
-                            if(empty($result)){
-                            } else {
-                                foreach($result as $values) {?>
+                            if(!isset($result) || empty($result)){
+                            } else if(!empty($result) ) {
+                                foreach($result as $values) {
+                            ?>
                                 <tr>
                                     <td>
-                                        <br>
+                                        
                                         <?=$values['id']?>
                                     </td>
                                     <td>
-                                        <br>
+                                        
                                         <?=$values['ten']?>
                                     </td>
                                     <td>
-                                        <br>
+                                        
                                         <?=$values['email']?>
                                     </td>
                                     <td>
-                                        <br>
+                                        
                                         <?=$values['sdt']?>
                                     </td>
                                     <td>
-                                        <br>
+                                        
                                         <?=$values['ngay_tao']?>
                                     </td>
                                     <td>
-                                        <br>
+                                        
                                         <?php
                                         if($values['trang_thai'] == 1){
                                         ?>
@@ -87,7 +92,7 @@ $result = getSelect('khach_hang', $start, $quantity);
                                         ?>
                                     </td>
                                     <td>
-                                        <br>
+                                        
                                         <a href="<?=$website?>/admin/users/update.php?id=<?=$values['id']?>" class="btn btn-success">Update</a>
                                         <?php
                                             if($_SESSION['admin']['vai_tro'] == 2){
@@ -100,7 +105,51 @@ $result = getSelect('khach_hang', $start, $quantity);
                                 </tr>
                             <?php
                                 }
-                            } 
+                            }
+                            if (isset($values)){
+                            ?>
+                                <tr>
+                                    <td>
+                                        <?=$values['id']?>
+                                    </td>
+                                    <td>
+                                        <?=$values['ten']?>
+                                    </td>
+                                    <td>
+                                        <?=$values['email']?>
+                                    </td>
+                                    <td>
+                                        <?=$values['sdt']?>
+                                    </td>
+                                    <td>
+                                        <?=$values['ngay_tao']?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        if($values['trang_thai'] == 1){
+                                        ?>
+                                        <a href="<?=$website?>/admin/users/status.php?id=<?=$values['id']?>&st=1" class="btn btn-success">Hoạt Động</a> <!--trạng thái đang hoạt động ấn vào để chuyển trạng thái khóa-->
+                                        <?php
+                                        } else {
+                                        ?>
+                                        <a href="<?=$website?>/admin/users/status.php?id=<?=$values['id']?>&st=2" class="btn btn-danger">Khóa</a> <!--trạng thái đang khóa ấn vào để chuyển trạng thái hoạt động-->
+                                        <?php
+                                        }
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <a href="<?=$website?>/admin/users/update.php?id=<?=$values['id']?>" class="btn btn-success">Update</a>
+                                        <?php
+                                            if($_SESSION['admin']['vai_tro'] == 2){
+                                        ?>
+                                        <a href="<?=$website?>/admin/users/delete.php?id=<?=$values['id']?>" onclick="return confirm('Bạn có chắc muốn xóa không ? ')" class="btn btn-danger">Delete</a>
+                                        <?php
+                                            }
+                                        ?>        
+                                    </td>
+                                </tr>
+                            <?php
+                            }
                             ?>
                         <tbody>
                     </table>

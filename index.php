@@ -2,6 +2,7 @@
 session_start();
 require_once("./global.php");
 require_once("./layout_user/start-user.php");
+<<<<<<< HEAD
 
 // Thông báo đăng nhập thành công (có thể bỏ đi)
 // if (isset($_SESSION['success'])) {
@@ -9,12 +10,16 @@ require_once("./layout_user/start-user.php");
 //     unset($_SESSION['success']);
 // }
 
+=======
+require_once("./functions.php");
+$result = getSelect("tour", 0, 10);
+>>>>>>> master
 ?>
 <section class="home" id="home">
     <div class="slide-container active">
         <div class="slide">
             <div class="content">
-                <h3>Giày nike </h3>
+                <h3>Xách balo mà đi</h3>
             </div>
             <div class="image">
                 <img src="images/home-shoe-2.png.jpg" class="shoe" alt="">
@@ -54,152 +59,35 @@ require_once("./layout_user/start-user.php");
         <h1 class="heading"> Tour <span>Mới Nhất</span> </h1>
 
     </div>
-    <div class="container">
-        <div class="row g-2">
-
-            <div class="col-6">
-                <div class="col-6" id="so1">
-                    <a href="#">
-                        <div class="img">
-                            <img src="images/anh1.png.jpg" style="max-width:100%">
-                        </div>
-                        <div class="conten-item">
-
-                            <p>Thông tin tour</p>
-                            <p>giá</p>
-
-                            <input name="productQuantiti" value="" hidden>
-                            <form action="">
-                                <input name="productImage" value="" hidden>
-                                <input name="productName" value="" hidden>
-                                <input name="productPrice" value="" hidden>
-                                <input class="button" type="submit" name="addcard" value="them gh">
-
-                            </form>
-                        </div>
-                    </a>
+    <div class="col-10" id="row" style="margin:auto">
+        <?php
+        if (empty($result)) {
+        } else {
+            foreach ($result as $value) {
+                if($value['trang_thai'] == 1){
+        ?>
+        <div class="" id="so1">
+            <a href="<?= $website ?>/tour-detail.php?id=<?= $value['id']?>">
+                <div class="img">
+                    <img src="<?= $url_images . $value['anh'] ?>">
                 </div>
-            </div>
-            <div class="col-6">
-                <div class="col-6" id="so1">
-                    <a href="#">
-                        <div class="img">
-                            <img src="images/anh1.png.jpg" style="max-width:100%">
-                        </div>
-                        <div class="conten-item">
-
-                            <p>Thông tin tour</p>
-                            <p>giá</p>
-
-                            <input name="productQuantiti" value="" hidden>
-                            <form action="">
-                                <input name="productImage" value="" hidden>
-                                <input name="productName" value="" hidden>
-                                <input name="productPrice" value="" hidden>
-                                <input class="button" type="submit" name="addcard" value="them gh">
-
-                            </form>
-                        </div>
-                    </a>
+                <div class="conten-item">
+                    <h3><?= $value['ten'] ?></h3>
+                    <p><?= number_format($value['gia']) ?> VNĐ</p>
+                    <a href="<?= $website ?>/tour-detail.php?id=<?= $value['id']?>" class="btn" style="border: 2px solid #fff;padding: 10px;color:#fff;">Xem Thêm</a>
                 </div>
-            </div>
-            <div class="col-6">
-                <div class="col-6" id="so1">
-                    <a href="#">
-                        <div class="img">
-                            <img src="images/anh1.png.jpg" style="max-width:100%">
-                        </div>
-                        <div class="conten-item">
-
-                            <p>Thông tin tour</p>
-                            <p>giá</p>
-
-                            <input name="productQuantiti" value="" hidden>
-                            <form action="">
-                                <input name="productImage" value="" hidden>
-                                <input name="productName" value="" hidden>
-                                <input name="productPrice" value="" hidden>
-                                <input class="button" type="submit" name="addcard" value="them gh">
-
-                            </form>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="col-6" id="so1">
-                    <a href="#">
-                        <div class="img">
-                            <img src="images/anh1.png.jpg" style="max-width:100%">
-                        </div>
-                        <div class="conten-item">
-
-                            <p>Thông tin tour</p>
-                            <p>giá</p>
-
-                            <input name="productQuantiti" value="" hidden>
-                            <form action="">
-                                <input name="productImage" value="" hidden>
-                                <input name="productName" value="" hidden>
-                                <input name="productPrice" value="" hidden>
-                                <input class="button" type="submit" name="addcard" value="them gh">
-
-                            </form>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="col-6" id="so1">
-                    <a href="#">
-                        <div class="img">
-                            <img src="images/anh1.png.jpg" style="max-width:100%">
-                        </div>
-                        <div class="conten-item">
-
-                            <p>Thông tin tour</p>
-                            <p>giá</p>
-
-                            <input name="productQuantiti" value="" hidden>
-                            <form action="">
-                                <input name="productImage" value="" hidden>
-                                <input name="productName" value="" hidden>
-                                <input name="productPrice" value="" hidden>
-                                <input class="button" type="submit" name="addcard" value="them gh">
-
-                            </form>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="col-6" id="so1">
-                    <a href="#">
-                        <div class="img">
-                            <img src="images/anh1.png.jpg" style="max-width:100%">
-                        </div>
-                        <div class="conten-item">
-
-                            <p>Thông tin tour</p>
-                            <p>giá</p>
-
-                            <input name="productQuantiti" value="" hidden>
-                            <form action="">
-                                <input name="productImage" value="" hidden>
-                                <input name="productName" value="" hidden>
-                                <input name="productPrice" value="" hidden>
-                                <input class="button" type="submit" name="addcard" value="them gh">
-
-                            </form>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            </a>
         </div>
+        <?php
+                }
+            }
+        }
+        ?>
     </div>
+
 </aside>
 
-<article aria-label="Page navigation example" class="col-1" style="margin: 20px auto 20px auto;">
+<article aria-label="Page navigation example" class="col-1" style="margin: 50px auto 20px auto;">
     <ul class="pagination col-12" style="margin:auto;">
         <li class="page-item">
             <a class="page-link" href="#" aria-label="Previous">

@@ -40,6 +40,6 @@ if (checkSdt($sdt) == false){
     header("Location: $website/admin/users/update.php?id=$id");
     die;
 }
-update_user($email, $mat_khau, $ten, $sdt, $id);
+update_user($ten, $mat_khau, $email, $sdt, $id);
 header("Location: $website/admin/users/list.php");
 ?>

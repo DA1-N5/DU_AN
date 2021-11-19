@@ -51,20 +51,20 @@ $result = getSelect('dia_chi', $start, $quantity);
                                 foreach($result as $values) {?>
                                 <tr>
                                     <td>
-                                        <br>
+                                        
                                         <?=$values['id']?>
                                     </td>
                                     <td>
-                                        <br>
+                                        
                                         <?=$values['dia_chi']?>
                                     </td>
                                    
                                     <td>
-                                        <br>
+                                        
                                         <?=$values['ngay_tao']?>
                                     </td>
                                     <td>
-                                        <br>
+                                        
                                         <?php
                                         if($values['trang_thai'] == 1){
                                         ?>
@@ -78,7 +78,7 @@ $result = getSelect('dia_chi', $start, $quantity);
                                         ?>
                                     </td>
                                     <td>
-                                        <br>
+                                        
                                         <a href="<?=$website?>/admin/diachi/update.php?id=<?=$values['id']?>" class="btn btn-success">Update</a>
                                         <?php
                                             if($_SESSION['admin']['vai_tro'] == 2){

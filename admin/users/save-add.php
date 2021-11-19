@@ -36,6 +36,6 @@ if (checkSdt($sdt) == false){
     die;
 }
 $ngay_them = date('Y-m-d');
-insert_user($email, $mat_khau, $ten, $sdt, $ngay_them);
+insert_user($ten, $mat_khau, $email, $sdt, $ngay_them);
 header("Location: $website/admin/users/list.php");
 ?>

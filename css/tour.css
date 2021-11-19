@@ -1,51 +1,57 @@
-.contenner{
+.contenner {
     margin-top: 50px;
     text-align: center;
 }
-.col1{
-    
-       width: 100px;
-     margin-right: 450px;
-      
-   
-}
-.col1>img{
-    width:550px;
-    height: 520px;
-  
-   
 
-}  
-#col6>img{
-    margin-bottom: 10px;
-    margin-left: 10px;
-   
-    
-  
-}
-
-.tournoibat{
+.tournoibat {
     text-align: center;
     margin-top: 30px;
 }
-.container{
+
+.container {
     margin-top: 30px;
-    
     display: grid;
-    
 }
+
+#row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px
+}
+
 #so1 {
- 
     position: relative;
     width: fit-content;
     overflow: hidden;
-    grid-gap: 30px;
+    border-radius: 15px;
 }
+
+#so1 .img img {
+    width: 5000px;
+    height: 500px;
+    border-radius: 15px;
+    max-width: 100%;
+}
+
+@media screen and (max-width:1200px) {
+    #row {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+    }
+    #so1 .img img {
+        width: 5000px;
+        height: 300px;
+        border-radius: 15px;
+        max-width: 100%;
+    }
+}
+
 .conten-item {
-    padding: 10px;
+    border-radius: 15px;
     position: absolute;
     bottom: 0;
-    background-color: aquamarine;
+    background-color: rgba(0, 174, 239, .7);
     width: 100%;
     height: 0%;
     transform: translateY(0%);
@@ -56,20 +62,17 @@
 
 #so1:hover .conten-item {
     transform: translateY(0%);
-    height: 50%;
+    height: 40%;
     width: 100%;
     transition: ease-in-out 1s;
     animation-name: fadeIn;
     animation-duration: 1s;
 }
 
-
-
 @keyframes fadeIn {
     from {
         opacity: 0;
     }
-
     to {
         opacity: 1;
     }
@@ -79,43 +82,40 @@
     from {
         opacity: 1;
     }
-
     to {
         opacity: 0;
     }
 }
 
-
 .conten-item {
     text-align: center;
 }
 
-.conten-item p {
-    font-size:  15px;
-    padding: 20px;
-    font-family: font1;
+.conten-item h3 {
+    font-size: 30px;
+    color: white;
 }
+
+.conten-item p {
+    font-size: 20px;
+    color: white;
+}
+
 .pagination {
     list-style: none;
+}
 
-}
-.button {
-    width: 100%;
-    background-color: black;
-    color: white;
-    padding: 5px 0;
-    font-family: font2;
-    font-size:10px;
-}
-.lichtrinh{
+.lichtrinh {
     margin-left: 100px;
     margin-right: 100px;
     border-bottom: 1px solid black;
 }
-.lichtrinh>h2{
+
+.lichtrinh>h2 {
     margin-top: 10px;
 }
-.lichtrinh>p{
+
+.lichtrinh>p {
     margin-top: 20px;
     margin-bottom: 20px;
 }

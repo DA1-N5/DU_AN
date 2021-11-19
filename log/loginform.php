@@ -1,6 +1,13 @@
 <?php
 session_start();
 require_once "../global.php";
+if(isset($_SESSION['user'])){
+    header("Location: $website/");
+    die;
+}
+if(isset($_GET['id_tour'])){
+    $_SESSION['id_tour'] = $_GET['id_tour'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,12 +23,15 @@ require_once "../global.php";
 
 <body>
     <div class="auth-wrapper">
+<<<<<<< HEAD
         <?php
         if (isset($_SESSION['success'])) {
             echo $_SESSION['success'];
             unset($_SESSION['success']);
         }
         ?>
+=======
+>>>>>>> master
         <div class="auth-background"></div>
         <div class="auth-container">
             <form class="auth-form" action="login.php" method="post">
@@ -52,7 +62,7 @@ require_once "../global.php";
                         <a href="./sign-up-form.php" id="hihi">Đăng Kí ngay</a>
                         <a href="./changePass/forgetps-form.php" id="hihi">Quên mật khẩu?</a>
                     </div>
-                    <button type="submit" class="btn btn-blue mb-3">Đăng nhập ngay</button>
+                    <button type="submit" class="btn btn-blue mb-3">Đăng nhập</button>
 
                 </div>
             </form>
