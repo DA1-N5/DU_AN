@@ -1,10 +1,3 @@
-<?php
-session_start();
-if(isset($_SESSION['admin'])){
-    header("Location: $website/admin");
-    die;
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +5,7 @@ if(isset($_SESSION['admin'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng nhập Admin</title>
-    <link rel="stylesheet" href="./../../css/login.css">
+    <link rel="stylesheet" href="<?=BASE_URL?>/css/login.css">
     <style>a{text-align: center;}</style>
 </head>
 <body>
@@ -20,7 +13,7 @@ if(isset($_SESSION['admin'])){
     <div class="auth-wrapper">
         <div class="auth-background"></div>
         <div class="auth-container">
-            <form class="auth-form" action="log.php" method="post">
+            <form class="auth-form" action="save-login" method="post">
                 <div class="auth-form--title">
                     <h1>Đăng Nhập Quản Trị Viên</h1>
                 </div>

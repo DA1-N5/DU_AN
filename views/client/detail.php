@@ -1,16 +1,7 @@
-<?php
-session_start();
-require_once("./global.php");
-require_once("./layout_user/start-user.php");
-require_once("./functions.php");
-$value = getSelect_one("tour", "id", intval($_GET['id']));
-$comment = [];
-?>
-
 <div style="margin-top: 150px;"></div>
 <h1 class="heading" style="margin-bottom:50px"><span>Chi Tiết Tour</span> </h1>
 <div class="row col-8" style="margin:auto">
-    <div class="col-6"><img src="<?= $url_images . $value['anh'] ?>" alt="" width="100%"></div>
+    <div class="col-6"><img src="<?= IMAGE_URL . $value['anh'] ?>" alt="" width="100%"></div>
     <div class="col-6">
         <h1 style="font-size:30px"><?= $value['ten'] ?></h1>
         <h1 style="border-bottom:1px solid #000"></h1>
@@ -24,7 +15,7 @@ $comment = [];
         <?php
             if (!isset($_SESSION['user'])) {
             ?>
-                <a href="<?=$website?>/log/loginform.php?id_tour=<?=$_GET['id']?>" class="btn" style="border: 2px solid #000;padding: 5px; font-size:15px">Đăng nhập ngay để liên hệ đặt tour</a>
+                <a href="<?=BASE_URL?>/log/loginform.php?id_tour=<?=$_GET['id']?>" class="btn" style="border: 2px solid #000;padding: 5px; font-size:15px">Đăng nhập ngay để liên hệ đặt tour</a>
             <?php
             } else {
             ?>
@@ -191,12 +182,12 @@ $comment = [];
             }
             ?>
         </form>
-        <script src="<?= $website ?>/ckeditor/ckeditor.js"></script>
+        <script src="<?= BASE_URL ?>/ckeditor/ckeditor.js"></script>
         <script>
             ClassicEditor
                 .create(document.querySelector('#noi_dung'), {
                     ckfinder: {
-                        uploadUrl: '<?= $website ?>/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+                        uploadUrl: '<?= BASE_URL ?>/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
 
                     },
                 })
@@ -272,7 +263,3 @@ $comment = [];
     </div>
 
 </section>
-
-<?php
-require_once("./layout_user/end-user.php");
-?>

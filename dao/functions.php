@@ -1,5 +1,4 @@
 <?php
-require_once("connect_DB.php");
 // General -------------------------------------------------
 function getSelect($table,$start, $quantity){
     $sql = "SELECT * FROM $table order by ngay_tao desc limit $start,$quantity";
