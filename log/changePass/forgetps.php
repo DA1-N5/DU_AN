@@ -37,7 +37,7 @@ else {
     $_SESSION['checkMail']['email'] = $email;
     $_SESSION['code'] = $code;
     $_SESSION['id'] = $id;
-    header('Location: /DU_AN/sendmail/send2.php?id=1');
+    header('Location: /DU_AN/sendmail/send.php?id=1');
 }
 
 ?>

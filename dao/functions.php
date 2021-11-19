@@ -52,14 +52,9 @@ function update_diachi($dia_chi, $id){
 }
 
 // Khách sạn--------------------------------------------
-function insert_ks($ten_ks,$anh,$mo_ta,$id_dc,$dia_chi_ct,$sdt,$trang_thai,$ngay_tao) {
-    $sql = "INSERT INTO khach_san(ten_ks,anh,mo_ta,id_dc,dia_chi_ct,sdt,trang_thai,ngay_tao) values(?,?,?,?,?,?,?,?)";
-    return execute($sql, $ten_ks,$anh,$mo_ta,$id_dc,$dia_chi_ct,$sdt,$trang_thai,$ngay_tao);
-}
-
-function select_ks() {
-    $sql = "SELECT * FROM khach_san";
-    return query($sql);
+function insert_ks($ten_ks,$anh,$mo_ta,$id_dc,$dia_chi_ct,$sdt,$ngay_tao) {
+    $sql = "INSERT INTO khach_san(ten_ks,anh,mo_ta,id_dc,dia_chi_ct,sdt,ngay_tao) values(?,?,?,?,?,?,?)";
+    return execute($sql, $ten_ks,$anh,$mo_ta,$id_dc,$dia_chi_ct,$sdt,$ngay_tao);
 }
 
 function update_ks($ten_ks,$anh,$mo_ta,$id_dc,$dia_chi_ct,$sdt,$id){

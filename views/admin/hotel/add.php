@@ -1,8 +1,3 @@
-<?php
-include_once('./../../global.php');
-include_once("./../layout/start-admin.php");
-include_once('./../../functions.php');
-?>
 <div class="content-wrapper">
     <section class="content-header">
         <ol class="breadcrumb">
@@ -24,7 +19,7 @@ include_once('./../../functions.php');
                         ?>
                     </span>
                 </div>
-                <form role="form" action="save-add.php" method="POST" enctype="multipart/form-data">
+                <form role="form" action="<?=BASE_URL?>/admin/hotel/save-add" method="POST" enctype="multipart/form-data">
                     <div class="box-body">
                         <div class="form-group">
                             <label>Tên khách sạn</label>
@@ -43,7 +38,6 @@ include_once('./../../functions.php');
                             <select name="id_dc" id="">
                                 <option value="0">-------</option>
                                 <?php
-                                $rows = getSelect('dia_chi', 0, 10);
                                 foreach ($rows as $row) {
                                     extract($row);
                                 ?>
@@ -61,13 +55,6 @@ include_once('./../../functions.php');
                             <label>Số điện thoại</label>
                             <input type="text" class="form-control" name="sdt" placeholder="******">
                         </div>
-                        <div class="form-group">
-                            <label>Tình trạng</label>
-                            <select name="trang_thai">
-                                <option value="1">Hoạt động</option>
-                                <option value="2">Khóa</option>
-                            </select>
-                        </div>
                     </div>
 
                     <div class="box-footer-group">
@@ -75,7 +62,7 @@ include_once('./../../functions.php');
                             <button type="submit" class="btn btn-primary">Thêm mới</button>
                         </div>
                         <div class="box-footer">
-                            <a href="<?= $website ?>/admin/index.php" class="btn btn-primary"><i class="fa fa-home"></i> Trang chủ</a>
+                            <a href="<?= BASE_URL ?>/admin/hotel/list" class="btn btn-primary"><i class="fa fa-arrow-right"></i> Quay lại</a>
                         </div>
                     </div>
                 </form>
@@ -83,6 +70,3 @@ include_once('./../../functions.php');
         </div>
     </section>
 </div>
-<?php
-include_once("./../layout/end-admin.php");
-?>

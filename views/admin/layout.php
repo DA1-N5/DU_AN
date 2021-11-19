@@ -163,9 +163,9 @@ if(!isset($_SESSION['admin'])){
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="<?=BASE_URL?>/admin/khach_san/list.php"><i
+                            <li><a href="<?=BASE_URL?>/admin/hotel/list"><i
                                         class="fa fa-circle-o"></i> Danh sách</a></li>
-                            <li><a href="<?=BASE_URL?>/admin/khach_san/add.php"><i
+                            <li><a href="<?=BASE_URL?>/admin/hotel/add"><i
                                         class="fa fa-circle-o"></i> Thêm mới</a></li>
                         </ul>
                     </li>

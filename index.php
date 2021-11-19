@@ -18,6 +18,40 @@ switch ($url) {
         require_once './business/client/clientpage.php';
         client_detail();
         break;
+
+    case 'login': 
+        require_once './business/client/log.php';
+        client_login_form();
+        break;
+
+    case 'save-login' :
+        require_once './business/client/log.php';
+        client_login();
+        break;
+    case 'log-out':
+        require_once './business/client/log.php';
+        client_log_out();
+        break;
+    case 'sign-up': 
+        require_once './business/client/log.php';
+        client_sign_up_form();
+        break;
+    case 'save-sign-up': 
+        require_once './business/client/log.php';
+        client_sign_up();
+        break;
+    case 'check-code-form':
+        require_once './business/client/log.php';
+        client_check_code_form();
+        break;
+    case 'check-code': 
+        require_once './business/client/log.php';
+        client_check_code();
+        break;
+    case 'send-mail':
+        require_once './business/client/log.php';
+        client_sendmail();
+        break;
     case 'admin':
         require_once './business/admin/dashbroard.php';
         admin_dashbroard();
@@ -120,10 +154,35 @@ switch ($url) {
         require_once './business/admin/address.php';
         address_delete();
         break;
-
-
-    
-       
+    // Hotel
+    case 'admin/hotel/list':
+        require_once './business/admin/hotel.php';
+        hotel_list();
+        break;
+    case 'admin/hotel/add':
+        require_once './business/admin/hotel.php';
+        hotel_add();
+        break;
+    case 'admin/hotel/save-add':
+        require_once './business/admin/hotel.php';
+        hotel_save_add();
+        break;
+    case 'admin/hotel/update':
+        require_once './business/admin/hotel.php';
+        hotel_update();
+        break;
+    case 'admin/hotel/save-update':
+        require_once './business/admin/hotel.php';
+        hotel_save_update();
+        break;
+    case 'admin/hotel/delete':
+        require_once './business/admin/hotel.php';
+        hotel_delete();
+        break;
+    case 'admin/hotel/status':
+        require_once './business/admin/hotel.php';
+        hotel_status();
+        break;
     default:
         echo "Đường dẫn bạn đang truy cập chưa được định nghĩa";
         break;
