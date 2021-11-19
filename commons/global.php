@@ -1,9 +1,9 @@
 <?php
-$website = "/DU_AN";
-$url_admin = $website . "/admin/";
-$url_images = $website . "/images/";
+const BASE_URL = "/DU_AN";
+const ADMIN_URL = BASE_URL . "/admin/";
+const IMAGE_URL = BASE_URL . "/images/";
 
-$image_path = $_SERVER['DOCUMENT_ROOT'] . $url_images;
+$image_path = $_SERVER['DOCUMENT_ROOT'] . IMAGE_URL;
 
 function save_file($image, $address){
     $fileName = $image['name'];
