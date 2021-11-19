@@ -1,7 +1,3 @@
-<?php
-require_once('./../global.php');
-require_once('./layout/start-admin.php');
-?>
 <div class="content-wrapper">
     <section class="content-header">
         <h1 style="text-align: center; font-size: 30px; margin: 30px;">
@@ -26,6 +22,3 @@ require_once('./layout/start-admin.php');
 
     </section>
 </div>
-<?php
-require_once('./layout/end-admin.php');
-?>

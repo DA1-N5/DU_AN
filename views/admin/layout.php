@@ -1,7 +1,6 @@
 <?php
-session_start();
 if(!isset($_SESSION['admin'])){
-    header("Location: $website/admin/log/login.php");
+    header("Location: " . BASE_URL . "/admin/login");
     die;
 }
 ?>
@@ -17,14 +16,14 @@ if(!isset($_SESSION['admin'])){
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="<?=$website?>/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="<?=$website?>/css/font-awesome.min.css"> -->
-    <link rel="stylesheet" href="<?=$website?>/css/AdminLTE.css">
-    <link rel="stylesheet" href="<?=$website?>/css/_all-skins.min.css">
-    <!-- <link rel="stylesheet" href="<?=$website?>/css/jquery-ui.css"> -->
-    <!-- <link rel="stylesheet" href="<?=$website?>/css/style.css" /> -->
-    <script src="<?=$website?>/js/angular.min.js"></script>
-    <script src="<?=$website?>/js/app.js"></script>
+    <link rel="stylesheet" href="<?=BASE_URL?>/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="<?=BASE_URL?>/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="<?=BASE_URL?>/css/AdminLTE.css">
+    <link rel="stylesheet" href="<?=BASE_URL?>/css/_all-skins.min.css">
+    <!-- <link rel="stylesheet" href="<?=BASE_URL?>/css/jquery-ui.css"> -->
+    <!-- <link rel="stylesheet" href="<?=BASE_URL?>/css/style.css" /> -->
+    <script src="<?=BASE_URL?>/js/angular.min.js"></script>
+    <script src="<?=BASE_URL?>/js/app.js"></script>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -33,7 +32,7 @@ if(!isset($_SESSION['admin'])){
 
         <header class="main-header">
             <!-- Logo -->
-            <a href="<?=$website?>/" class="logo">
+            <a href="<?=BASE_URL?>/" class="logo">
                 <span class="fa fa-home"></span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
@@ -45,7 +44,7 @@ if(!isset($_SESSION['admin'])){
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="<?=$url_images . $_SESSION['admin']['anh']?>" class="user-image">
+                                <img src="<?=IMAGE_URL . $_SESSION['admin']['anh']?>" class="user-image">
                                 <span class="hidden-xs"><?=$_SESSION['admin']['ten']?></span>
 
                             </a>
@@ -53,7 +52,7 @@ if(!isset($_SESSION['admin'])){
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
-                                    <img src="<?=$url_images . $_SESSION['admin']['anh']?>" class="img-circle">
+                                    <img src="<?=IMAGE_URL . $_SESSION['admin']['anh']?>" class="img-circle">
 
                                     <p>
                                         <?=$_SESSION['admin']['ten']?> - <?=intval($_SESSION['admin']['vai_tro']) == 1 ? "Nhân Viên" : "Quản Trị Viên"?>
@@ -62,7 +61,7 @@ if(!isset($_SESSION['admin'])){
 
                                 <li class="user-footer">
                                     <div class="pull-right">
-                                        <form action="<?="$website/admin/log/log-out.php"?>" method="POST">
+                                        <form action="<?=BASE_URL?>/admin/logout" method="POST">
                                             <button class="btn btn-default btn-flat">Log Out</button>
                                         </form>
                                     </div>
@@ -83,7 +82,7 @@ if(!isset($_SESSION['admin'])){
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="<?=$url_images . $_SESSION['admin']['anh'] ?>" class="img-circle">
+                        <img src="<?=IMAGE_URL . $_SESSION['admin']['anh'] ?>" class="img-circle">
                     </div>
                     <div class="pull-left info">
                         <p><?=$_SESSION['admin']['ten'] ?></p>
@@ -121,9 +120,9 @@ if(!isset($_SESSION['admin'])){
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="<?=$website?>/admin/users/list.php"><i
+                            <li><a href="<?=BASE_URL?>/admin/users/list.php"><i
                                         class="fa fa-circle-o"></i> Danh sách</a></li>
-                            <li><a href="<?=$website?>/admin/users/add.php"><i
+                            <li><a href="<?=BASE_URL?>/admin/users/add.php"><i
                                         class="fa fa-circle-o"></i> Thêm mới</a></li>
                         </ul>
                     </li>
@@ -136,9 +135,9 @@ if(!isset($_SESSION['admin'])){
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="<?=$website?>/admin/tour/list.php"><i
+                            <li><a href="<?=BASE_URL?>/admin/tour/list.php"><i
                                         class="fa fa-circle-o"></i> Danh sách</a></li>
-                            <li><a href="<?=$website?>/admin/tour/add.php"><i
+                            <li><a href="<?=BASE_URL?>/admin/tour/add.php"><i
                                         class="fa fa-circle-o"></i> Thêm mới</a></li>
                         </ul>
                     </li>
@@ -151,7 +150,7 @@ if(!isset($_SESSION['admin'])){
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="<?=$website?>/admin/don_hang/list.php"><i
+                            <li><a href="<?=BASE_URL?>/admin/don_hang/list.php"><i
                                         class="fa fa-circle-o"></i> Danh sách</a></li>
                         </ul>
                     </li>
@@ -164,9 +163,9 @@ if(!isset($_SESSION['admin'])){
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="<?=$website?>/admin/khach_san/list.php"><i
+                            <li><a href="<?=BASE_URL?>/admin/khach_san/list.php"><i
                                         class="fa fa-circle-o"></i> Danh sách</a></li>
-                            <li><a href="<?=$website?>/admin/khach_san/add.php"><i
+                            <li><a href="<?=BASE_URL?>/admin/khach_san/add.php"><i
                                         class="fa fa-circle-o"></i> Thêm mới</a></li>
                         </ul>
                     </li>
@@ -178,9 +177,9 @@ if(!isset($_SESSION['admin'])){
                             </span>
                         </a>
                          <ul class="treeview-menu">
-                            <li><a href="<?=$website?>/admin/diachi/list.php"><i
+                            <li><a href="<?=BASE_URL?>/admin/diachi/list.php"><i
                                         class="fa fa-circle-o"></i> Danh sách</a></li>
-                            <li><a href="<?=$website?>/admin/diachi/add.php"><i
+                            <li><a href="<?=BASE_URL?>/admin/diachi/add.php"><i
                                         class="fa fa-circle-o"></i> Thêm mới</a></li>
                       
                          </ul>
@@ -194,9 +193,9 @@ if(!isset($_SESSION['admin'])){
                             </span>
                         </a>
                          <ul class="treeview-menu">
-                            <li><a href="<?=$website?>/admin/phuongtien/list.php"><i
+                            <li><a href="<?=BASE_URL?>/admin/phuongtien/list.php"><i
                                         class="fa fa-circle-o"></i> Danh sách</a></li>
-                            <li><a href="<?=$website?>/admin/phuongtien/add.php"><i
+                            <li><a href="<?=BASE_URL?>/admin/phuongtien/add.php"><i
                                         class="fa fa-circle-o"></i> Thêm mới</a></li>            
                          </ul>
                     </li>
@@ -205,3 +204,25 @@ if(!isset($_SESSION['admin'])){
                 </ul>
             </section>
         </aside>
+
+
+    <!-- START --- CONTENT-->
+
+
+    <?php include_once $businessView;?>
+
+
+    <!-- END --- CONTENT-->
+
+
+    </div>
+<script src="<?=BASE_URL ?>/js/jquery.min.js"></script>
+<script src="<?=BASE_URL ?>/js/jquery-ui.js"></script>
+<script src="<?=BASE_URL ?>/js/bootstrap.min.js"></script>
+<script src="<?=BASE_URL ?>/js/adminlte.min.js"></script>
+<script src="<?=BASE_URL ?>/js/dashboard.js"></script> 
+<script src="<?=BASE_URL ?>/tinymce/tinymce.min.js"></script>
+<script src="<?=BASE_URL ?>/tinymce/config.js"></script>
+<script src="<?=BASE_URL ?>/js/function.js"></script>
+</body>
+</html>
