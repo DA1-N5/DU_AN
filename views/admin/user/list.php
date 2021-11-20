@@ -1,15 +1,3 @@
-<?php
-require_once('./../../global.php');
-require_once("./../layout/start-admin.php");
-require_once("./../../functions.php");
-$start = 0;
-$quantity = 10;
-if(isset($_GET['id'])){
-    $values = getSelect_one('khach_hang', 'id', intval($_GET['id']));
-} else {
-    $result = getSelect('khach_hang', $start, $quantity);
-}
-?>
 <div class="content-wrapper">
     
     <section class="content-header">
@@ -25,10 +13,10 @@ if(isset($_GET['id'])){
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <a href="add.php" class="btn btn-success">+Thêm mới User</a>
+                    <a href="<?=BASE_URL?>/admin/user/add" class="btn btn-success">+Thêm mới User</a>
 
                     <div class="box-tools">
-                        <form action="<?=$website?>/admin/users/find-user.php" class="input-group input-group-sm" style="width: 150px;" method="GET">
+                        <form action="<?=BASE_URL?>/admin/user/find-user" class="input-group input-group-sm" style="width: 150px;" method="GET">
                             <input type="text" name="id" class="form-control pull-right"placeholder="Search ID">
                             <div class="input-group-btn">
                                 <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
@@ -82,22 +70,22 @@ if(isset($_GET['id'])){
                                         <?php
                                         if($values['trang_thai'] == 1){
                                         ?>
-                                        <a href="<?=$website?>/admin/users/status.php?id=<?=$values['id']?>&st=1" class="btn btn-success">Hoạt Động</a> <!--trạng thái đang hoạt động ấn vào để chuyển trạng thái khóa-->
+                                        <a href="<?=BASE_URL?>/admin/user/status?id=<?=$values['id']?>&st=1" class="btn btn-success">Hoạt Động</a> <!--trạng thái đang hoạt động ấn vào để chuyển trạng thái khóa-->
                                         <?php
                                         } else {
                                         ?>
-                                        <a href="<?=$website?>/admin/users/status.php?id=<?=$values['id']?>&st=2" class="btn btn-danger">Khóa</a> <!--trạng thái đang khóa ấn vào để chuyển trạng thái hoạt động-->
+                                        <a href="<?=BASE_URL?>/admin/user/status?id=<?=$values['id']?>&st=2" class="btn btn-danger">Khóa</a> <!--trạng thái đang khóa ấn vào để chuyển trạng thái hoạt động-->
                                         <?php
                                         }
                                         ?>
                                     </td>
                                     <td>
                                         
-                                        <a href="<?=$website?>/admin/users/update.php?id=<?=$values['id']?>" class="btn btn-success">Update</a>
+                                        <a href="<?=BASE_URL?>/admin/user/update?id=<?=$values['id']?>" class="btn btn-success">Update</a>
                                         <?php
                                             if($_SESSION['admin']['vai_tro'] == 2){
                                         ?>
-                                        <a href="<?=$website?>/admin/users/delete.php?id=<?=$values['id']?>" onclick="return confirm('Bạn có chắc muốn xóa không ? ')" class="btn btn-danger">Delete</a>
+                                        <a href="<?=BASE_URL?>/admin/user/delete?id=<?=$values['id']?>" onclick="return confirm('Bạn có chắc muốn xóa không ? ')" class="btn btn-danger">Delete</a>
                                         <?php
                                             }
                                         ?>        
@@ -106,43 +94,43 @@ if(isset($_GET['id'])){
                             <?php
                                 }
                             }
-                            if (isset($values)){
+                            if (isset($value)){
                             ?>
                                 <tr>
                                     <td>
-                                        <?=$values['id']?>
+                                        <?=$value['id']?>
                                     </td>
                                     <td>
-                                        <?=$values['ten']?>
+                                        <?=$value['ten']?>
                                     </td>
                                     <td>
-                                        <?=$values['email']?>
+                                        <?=$value['email']?>
                                     </td>
                                     <td>
-                                        <?=$values['sdt']?>
+                                        <?=$value['sdt']?>
                                     </td>
                                     <td>
-                                        <?=$values['ngay_tao']?>
+                                        <?=$value['ngay_tao']?>
                                     </td>
                                     <td>
                                         <?php
-                                        if($values['trang_thai'] == 1){
+                                        if($value['trang_thai'] == 1){
                                         ?>
-                                        <a href="<?=$website?>/admin/users/status.php?id=<?=$values['id']?>&st=1" class="btn btn-success">Hoạt Động</a> <!--trạng thái đang hoạt động ấn vào để chuyển trạng thái khóa-->
+                                        <a href="<?=BASE_URL?>/admin/user/status?id=<?=$value['id']?>&st=1" class="btn btn-success">Hoạt Động</a> <!--trạng thái đang hoạt động ấn vào để chuyển trạng thái khóa-->
                                         <?php
                                         } else {
                                         ?>
-                                        <a href="<?=$website?>/admin/users/status.php?id=<?=$values['id']?>&st=2" class="btn btn-danger">Khóa</a> <!--trạng thái đang khóa ấn vào để chuyển trạng thái hoạt động-->
+                                        <a href="<?=BASE_URL?>/admin/user/status?id=<?=$value['id']?>&st=2" class="btn btn-danger">Khóa</a> <!--trạng thái đang khóa ấn vào để chuyển trạng thái hoạt động-->
                                         <?php
                                         }
                                         ?>
                                     </td>
                                     <td>
-                                        <a href="<?=$website?>/admin/users/update.php?id=<?=$values['id']?>" class="btn btn-success">Update</a>
+                                        <a href="<?=BASE_URL?>/admin/user/update?id=<?=$value['id']?>" class="btn btn-success">Update</a>
                                         <?php
                                             if($_SESSION['admin']['vai_tro'] == 2){
                                         ?>
-                                        <a href="<?=$website?>/admin/users/delete.php?id=<?=$values['id']?>" onclick="return confirm('Bạn có chắc muốn xóa không ? ')" class="btn btn-danger">Delete</a>
+                                        <a href="<?=BASE_URL?>/admin/user/delete?id=<?=$value['id']?>" onclick="return confirm('Bạn có chắc muốn xóa không ? ')" class="btn btn-danger">Delete</a>
                                         <?php
                                             }
                                         ?>        
@@ -158,6 +146,3 @@ if(isset($_GET['id'])){
         </div>
     </section>
 </div>
-<?php
-include_once("./../layout/end-admin.php");
-?>

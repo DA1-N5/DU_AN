@@ -120,9 +120,9 @@ if(!isset($_SESSION['admin'])){
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="<?=BASE_URL?>/admin/users/list.php"><i
+                            <li><a href="<?=BASE_URL?>/admin/user/list"><i
                                         class="fa fa-circle-o"></i> Danh sách</a></li>
-                            <li><a href="<?=BASE_URL?>/admin/users/add.php"><i
+                            <li><a href="<?=BASE_URL?>/admin/user/add"><i
                                         class="fa fa-circle-o"></i> Thêm mới</a></li>
                         </ul>
                     </li>
@@ -150,7 +150,7 @@ if(!isset($_SESSION['admin'])){
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="<?=BASE_URL?>/admin/don_hang/list.php"><i
+                            <li><a href="<?=BASE_URL?>/admin/order/list"><i
                                         class="fa fa-circle-o"></i> Danh sách</a></li>
                         </ul>
                     </li>

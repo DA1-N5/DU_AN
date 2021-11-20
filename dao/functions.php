@@ -94,4 +94,65 @@ function update_deposit($table, $value, $id){
     $sql = "UPDATE $table set dat_coc = ? where id = ?";
     execute($sql, $value, $id);
 }
+
+// lấy danh sách đơn hàng có tour cố định
+function select_distinct(){
+    $sql1 = "SELECT * FROM tour where id_danhmuc = 2";
+    $tours = query($sql1);
+    $result = [];
+    foreach($tours as $tour){
+        $sql = "SELECT * FROM don_hang where id_tour = " . $tour['id'] . " order by ngay_tao DESC limit 0,1"; 
+        if(!empty(query($sql))){
+            array_push($result, query($sql));
+        }
+    }
+    return $result;
+}
+function select_status_order($id_tour){
+    $result = [];
+    $sql = "SELECT * FROM don_hang where id_tour = " . $id_tour . " and trang_thai = 1"; 
+    if(!empty(query($sql))){
+        array_push($result, query($sql));
+    }
+    return $result;
+}
+function select_deposit_order($id_tour){
+    $result = [];
+    $sql = "SELECT * FROM don_hang where id_tour = " . $id_tour . " and dat_coc = 1"; 
+    if(!empty(query($sql))){
+        array_push($result, query($sql));
+    }
+    return $result;
+}
+// lấy danh sách đơn hàng có tour linh động
+function select_order_linh_dong(){
+    $sql1 = "SELECT * FROM tour where id_danhmuc = 1";
+    $tours = query($sql1);
+    $result = [];
+    foreach($tours as $tour){
+        $sql = "SELECT * FROM don_hang where id_tour = " . $tour['id'] . " order by ngay_tao DESC";
+        if(!empty(query($sql))){
+            array_push($result, query($sql));
+        }
+    }
+    return $result;
+}
+// lấy danh sách khách hàng đặt tour linh động
+function select_user_by_id_tour($id_tour){
+    $sql = "SELECT * FROM don_hang where id_tour = $id_tour order by ngay_tao DESC";
+    $order_distinct = query($sql);
+    $result = [];
+    foreach($order_distinct as $user){
+        $sql = "SELECT * FROM khach_hang where id = " . $user['id_kh'] ;
+        if(!empty(query($sql))){
+            array_push($result, query($sql));
+        }
+    }
+    return $result;
+}
+// lấy danh sách đơn hàng cùng 1 tour cố định
+function select_order_by_id_tour($id_tour){
+    $sql = "SELECT * FROM don_hang where id_tour = $id_tour order by ngay_tao DESC";
+    return query($sql);
+}
 ?>

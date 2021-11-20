@@ -1,8 +1,3 @@
-<?php
-include_once('./../../global.php');
-include_once("./../layout/start-admin.php");
-include_once('./../../functions.php');
-?>
 <div class="content-wrapper">
     <section class="content-header">
         <ol class="breadcrumb">
@@ -24,7 +19,7 @@ include_once('./../../functions.php');
                     ?>
                     </span>
                 </div>
-                <form role="form" action="save-add.php" method="POST">
+                <form role="form" action="<?=BASE_URL ?>/admin/user/save-add" method="POST">
                     <div class="box-body">
                         <div class="form-group">
                            <label>Email*</label>
@@ -52,7 +47,7 @@ include_once('./../../functions.php');
                         <button type="submit" class="btn btn-primary">Thêm mới</button>
                     </div>
                     <div class="box-footer">
-                        <a href="<?=$website ?>/admin/index.php" class="btn btn-primary"><i class="fa fa-home"></i> Trang chủ</a>
+                        <a href="<?=BASE_URL ?>/admin/user/list" class="btn btn-primary"><i class="fa fa-arrow-right"></i> Quay Lại</a>
                     </div>
                     </div>
                 </form>
@@ -60,6 +55,3 @@ include_once('./../../functions.php');
         </div>
     </section>
 </div>
-<?php
-  include_once("./../layout/end-admin.php");
-?>

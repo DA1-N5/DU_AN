@@ -65,7 +65,7 @@
                                         <?=$values['ngay_den']?>
                                     </td>
                                     <td>
-                                        <?=$values['gia']?>
+                                        <?=number_format($values['gia'])?> VNĐ
                                     </td>
                                     <td>
                                         <?=$values['ngay_tao']?>
@@ -97,64 +97,64 @@
                                         ?>        
                                     </td>
                                     <td>
-                                    <a href="<?=BASE_URL?>/admin/tour/add?id=<?=$values['id']?>" class="btn btn-primary">Đặt Tour</a>
+                                    <a href="<?=BASE_URL?>/admin/order/add?id=<?=$values['id']?>" class="btn btn-primary">Đặt Tour</a>
                                     </td>
                                 </tr>
                             <?php
                                 }
                             }
-                            if (isset($values)){
+                            if (isset($value)){
                             ?>
                                 <tr>
                                     <td>
-                                        <?=$values['id']?>
+                                        <?=$value['id']?>
                                     </td>
                                     <td>
-                                        <?=$values['ten']?>
+                                        <?=$value['ten']?>
                                     </td>
                                     <td>
-                                    <img src="<?=IMAGE_URL . $values['anh']?>" width="50px" alt=""> 
+                                    <img src="<?=IMAGE_URL . $value['anh']?>" width="50px" alt=""> 
                                     </td>
                                     <td>
-                                        <?=$values['ngay_di']?>
+                                        <?=$value['ngay_di']?>
                                     </td>
                                     <td>
-                                        <?=$values['ngay_den']?>
+                                        <?=$value['ngay_den']?>
                                     </td>
                                     <td>
-                                        <?=$values['gia']?>
+                                        <?=$value['gia']?>
                                     </td>
                                     <td>
-                                        <?=$values['ngay_tao']?>
+                                        <?=$value['ngay_tao']?>
                                     </td>
                                     <td>
-                                        <?=$values['ngay_sua']?>
+                                        <?=$value['ngay_sua']?>
                                     </td>
                                     <td>
                                         <?php
-                                        if($values['trang_thai'] == 1){
+                                        if($value['trang_thai'] == 1){
                                         ?>
-                                        <a href="<?=BASE_URL?>/admin/tour/status<?=$values['id']?>&st=1" class="btn btn-success">Hoạt Động</a> <!--trạng thái đang hoạt động ấn vào để chuyển trạng thái khóa-->
+                                        <a href="<?=BASE_URL?>/admin/tour/status<?=$value['id']?>&st=1" class="btn btn-success">Hoạt Động</a> <!--trạng thái đang hoạt động ấn vào để chuyển trạng thái khóa-->
                                         <?php
                                         } else {
                                         ?>
-                                        <a href="<?=BASE_URL?>/admin/tour/status<?=$values['id']?>&st=2" class="btn btn-danger">Khóa</a> <!--trạng thái đang khóa ấn vào để chuyển trạng thái hoạt động-->
+                                        <a href="<?=BASE_URL?>/admin/tour/status<?=$value['id']?>&st=2" class="btn btn-danger">Khóa</a> <!--trạng thái đang khóa ấn vào để chuyển trạng thái hoạt động-->
                                         <?php
                                         }
                                         ?>
                                     </td>
                                     <td>
-                                        <a href="<?=BASE_URL?>/admin/tour/update<?=$values['id']?>" class="btn btn-success">Update</a>
+                                        <a href="<?=BASE_URL?>/admin/tour/update<?=$value['id']?>" class="btn btn-success">Update</a>
                                         <?php
                                             if($_SESSION['admin']['vai_tro'] == 2){
                                         ?>
-                                        <a href="<?=BASE_URL?>/admin/tour/delete<?=$values['id']?>" onclick="return confirm('Bạn có chắc muốn xóa không ? ')" class="btn btn-danger">Delete</a>
+                                        <a href="<?=BASE_URL?>/admin/tour/delete<?=$value['id']?>" onclick="return confirm('Bạn có chắc muốn xóa không ? ')" class="btn btn-danger">Delete</a>
                                         <?php
                                             }
                                         ?>        
                                     </td>
                                     <td>
-                                    <a href="<?=BASE_URL?>/admin/tour/add<?=$values['id']?>" class="btn btn-primary">Đặt Tour</a>
+                                    <a href="<?=BASE_URL?>/admin/order/add?id<?=$value['id']?>" class="btn btn-primary">Đặt Tour</a>
                                     </td>
                                 </tr>
                             <?php

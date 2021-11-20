@@ -1,10 +1,14 @@
 <?php 
 function  tour_list(){
-    $start = 0;
-    $quantity = 10;
-    $result = getSelect('tour', $start, $quantity);
-    admin_render('tour/list.php', ['result' => $result]);
+    if(isset($_GET['id'])){
+        $value = getSelect_one('tour', 'id', intval($_GET['id']));
+        admin_render('tour/list.php', ['value' => $value]);
+    } else {
+        $result = getSelect('tour', 0, 10);
+        admin_render('tour/list.php', ['result' => $result]);
     }
+    
+}
 
 function tour_add(){
     admin_render('tour/add.php');
@@ -34,7 +38,7 @@ if(!checkImage($anh)){
     header("Location: ". BASE_URL . "/admin/tour/add");
     die;
 }
-save_file($anh, $image_path);
+save_file($anh);
 $ngay_them = date('Y-m-d');
 insert_tour( $ten, $id_diachi, $anh['name'], $id_danhmuc, $ngay_di, $ngay_den, $mo_ta, $thong_tin, $gia ,$ngay_them);
 header("Location:" . BASE_URL . "/admin/tour/list");
@@ -76,9 +80,9 @@ function tour_save_update(){
             header("Location: " . BASE_URL . "/admin/tour/update?id=$id");
             die;
         }
-        save_file($anh,$image_path);
+        save_file($anh);
         unlink($image_path . $tour['anh']);
-        update_phuongtien($ten, $id_diachi, $anh['name'], $id_danhmuc, $ngay_di, $ngay_den, $mo_ta, $thong_tin, $gia, $ngay_sua, $id);
+        update_tour($ten, $id_diachi, $anh['name'], $id_danhmuc, $ngay_di, $ngay_den, $mo_ta, $thong_tin, $gia, $ngay_sua, $id);
     }   
     header("Location:" . BASE_URL . "/admin/tour/update");
 

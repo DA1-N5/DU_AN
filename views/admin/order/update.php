@@ -1,10 +1,4 @@
-<?php
-include_once('./../../global.php');
-include_once("./../layout/start-admin.php");
-include_once('./../../functions.php');
-$don_hang = getSelect_one("don_hang", 'id', intval($_GET['id']));
-$tour = getSelect_one("tour", 'id', intval($don_hang['id_tour']));
-$user = getSelect_one("khach_hang", 'id', intval($don_hang['id_kh']));
+<?php 
 extract($tour);
 ?>
 <div class="content-wrapper">
@@ -28,7 +22,7 @@ extract($tour);
                     ?>
                     </span>
                 </div>
-                <form role="form" action="save-update.php" method="POST">
+                <form role="form" action="<?=BASE_URL?>/admin/order/save-update" method="POST">
                     <div class="box-body">
                         <input type="hidden" value="<?=$don_hang['id']?>" name="id">
                         <input type="hidden" value="<?=$id?>" name="id_tour">
@@ -39,11 +33,11 @@ extract($tour);
                         </div>
                         <div class="form-group">
                             <label>Ngày đi</label>
-                            <input type="date" class="form-control" name="ngay_di" value="<?=$ngay_di?>" <?=empty($ngay_di) ? "" : "readonly"?>>
+                            <input type="date" class="form-control" name="ngay_di" value="<?=$don_hang['ngay_di']?>" <?=empty($ngay_di) ? "" : "readonly"?>>
                         </div>
                         <div class="form-group">
                             <label>Địa điểm khởi hành</label>
-                            <input type="text" class="form-control" name= "noi_di" value="<?=$don_hang['noi_di']?>">
+                            <input type="text" class="form-control" name= "noi_di" value="<?=$don_hang['noi_di']?>" <?=empty($ngay_di) ? "" : "readonly"?>>
                         </div>
                         <div class="form-group">
                             <label>Email khách hàng*</label>
@@ -77,7 +71,7 @@ extract($tour);
                         <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                     <div class="box-footer">
-                        <a href="<?=$website ?>/admin/index.php" class="btn btn-primary"><i class="fa fa-home"></i> Trang chủ</a>
+                        <a href="<?=BASE_URL?>/admin/order/list" class="btn btn-primary"><i class="fa fa-arrow-right"></i> Quay Lại</a>
                     </div>
                     </div>
                 </form>
@@ -85,6 +79,3 @@ extract($tour);
         </div>
     </section>
 </div>
-<?php
-  include_once("./../layout/end-admin.php");
-?>

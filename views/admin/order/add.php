@@ -1,8 +1,4 @@
-<?php
-include_once('./../../global.php');
-include_once("./../layout/start-admin.php");
-include_once('./../../functions.php');
-$tour = getSelect_one("tour", 'id', intval($_GET['id']));
+<?php 
 extract($tour);
 ?>
 <div class="content-wrapper">
@@ -26,7 +22,7 @@ extract($tour);
                     ?>
                     </span>
                 </div>
-                <form role="form" action="save-add.php" method="POST">
+                <form role="form" action="<?=BASE_URL?>/admin/order/save-add" method="POST">
                     <div class="box-body">
                         <div class="form-group">
                             <label>Tour : <?=$ten?></label>
@@ -40,7 +36,7 @@ extract($tour);
                         </div>
                         <div class="form-group">
                             <label>Địa điểm khởi hành</label>
-                            <input type="text" class="form-control" name= "noi_di" placeholder="Nhập mật địa chỉ khởi hành">
+                            <input type="text" class="form-control" name= "noi_di" value="<?=$noi_di?>" <?=empty($ngay_di) ? "" : "readonly"?>>
                         </div>
                         <div class="form-group">
                             <label>Email khách hàng*</label>
@@ -48,7 +44,7 @@ extract($tour);
                         </div>
                         <div class="form-group">
                             <label>Số lượng người lớn*</label>
-                            <input type="number" class="form-control" name= "nguoi_lon" id="nguoi_lon" placeholder="Nhập Số Lượng Người Lớn">
+                            <input type="number" class="form-control" name= "nguoi_lon" id="nguoi_lon" onchange="tinh_gia();" placeholder="Nhập Số Lượng Người Lớn">
                         </div>
                         <div class="form-group">
                             <label>Số lượng trẻ em dưới 10 tuổi *</label>
@@ -74,7 +70,7 @@ extract($tour);
                         <button type="submit" class="btn btn-primary">Thêm mới</button>
                     </div>
                     <div class="box-footer">
-                        <a href="<?=$website ?>/admin/index.php" class="btn btn-primary"><i class="fa fa-home"></i> Trang chủ</a>
+                        <a href="<?=BASE_URL?>/admin/tour/list" class="btn btn-primary"><i class="fa fa-arrow-right"></i> Quay Lại</a>
                     </div>
                     </div>
                 </form>
@@ -82,6 +78,3 @@ extract($tour);
         </div>
     </section>
 </div>
-<?php
-  include_once("./../layout/end-admin.php");
-?>
