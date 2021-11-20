@@ -10,6 +10,7 @@ require_once './dao/connect_DB.php';
 
 $url = isset($_GET['url']) ? $_GET['url'] : "/";
 switch ($url) {
+            //------------------------------------HOMEPAGE---DETAIL----------------------------------------
     case '/':
         require_once './business/client/clientpage.php';
         client_homepage();
@@ -18,7 +19,7 @@ switch ($url) {
         require_once './business/client/clientpage.php';
         client_detail();
         break;
-
+            //----------------------------LOGIN---LOGOUT---SIGN-UP---CLIENT---------------------------
     case 'login': 
         require_once './business/client/log.php';
         client_login_form();
@@ -52,6 +53,7 @@ switch ($url) {
         require_once './business/client/log.php';
         client_sendmail();
         break;
+            //-------------------------DASHBROARD---LOGIN/LOGOUT---ADMIN-------------------------
     case 'admin':
         require_once './business/admin/dashbroard.php';
         admin_dashbroard();
@@ -68,6 +70,7 @@ switch ($url) {
         require_once './business/admin/log.php';
         admin_logout();
         break;
+        //----------------------------------------MANAGE--VEHICLE------------------------------------------
     case 'admin/vehicle/list':
         require_once './business/admin/vehicle.php';
         vehicle_list();
@@ -96,7 +99,7 @@ switch ($url) {
         require_once './business/admin/vehicle.php';
         vehicle_status();
         break;
-        //------------------------------------Đến tour-----------------------------------------------------
+        //------------------------------------------MANAGE--TOUR----------------------------------------------
     case 'admin/tour/list':
         require_once './business/admin/tour.php';
         tour_list();
@@ -125,7 +128,7 @@ switch ($url) {
         require_once './business/admin/tour.php';
         tour_delete();
         break;
-        //--------------------------Hết tour----------------------------------
+        //-------------------------------------------MANAGE--ADDRESS------------------------------------------
     case 'admin/address/list':
         require_once './business/admin/address.php';
         address_list();
@@ -154,7 +157,7 @@ switch ($url) {
         require_once './business/admin/address.php';
         address_delete();
         break;
-    // Hotel
+            //------------------------------------------MANAGE--HOTEL----------------------------------------------
     case 'admin/hotel/list':
         require_once './business/admin/hotel.php';
         hotel_list();
@@ -183,8 +186,74 @@ switch ($url) {
         require_once './business/admin/hotel.php';
         hotel_status();
         break;
+            //-------------------------------------------MANAGE--USER-----------------------------------------------
+    case 'admin/user/list':
+        require_once './business/admin/user.php';
+        user_list();
+        break;
+    case 'admin/user/add':
+        require_once './business/admin/user.php';
+        user_add();
+        break;
+    case 'admin/user/save-add':
+        require_once './business/admin/user.php';
+        user_save_add();
+        break;
+    case 'admin/user/update':
+        require_once './business/admin/user.php';
+        user_update();
+        break;
+    case 'admin/user/save-update':
+        require_once './business/admin/user.php';
+        user_save_update();
+        break;
+    case 'admin/user/delete':
+        require_once './business/admin/user.php';
+        user_delete();
+        break;
+    case 'admin/user/status':
+        require_once './business/admin/user.php';
+        user_status();
+        break;
+            //-------------------------------------------MANAGE--ORDER-----------------------------------------------
+    case 'admin/order/list':
+        require_once './business/admin/order.php';
+        order_list();
+        break;
+    case 'admin/order/add':
+        require_once './business/admin/order.php';
+        order_add();
+        break;
+    case 'admin/order/save-add':
+        require_once './business/admin/order.php';
+        order_save_add();
+        break;
+    case 'admin/order/update':
+        require_once './business/admin/order.php';
+        order_update();
+        break;
+    case 'admin/order/save-update':
+        require_once './business/admin/order.php';
+        order_save_update();
+        break;
+    case 'admin/order/delete':
+        require_once './business/admin/order.php';
+        order_delete();
+        break;
+    case 'admin/order/deposit':
+        require_once './business/admin/order.php';
+        order_deposit();
+        break;
+    case 'admin/order/status':
+        require_once './business/admin/order.php';
+        order_status();
+        break;
+    case 'admin/order/detail':
+        require_once './business/admin/order.php';
+        order_detail();
+        break;
     default:
-        echo "Đường dẫn bạn đang truy cập chưa được định nghĩa";
+        require_once './404.php';
         break;
 }
 ?>
