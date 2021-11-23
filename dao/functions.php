@@ -109,12 +109,10 @@ function select_distinct(){
     return $result;
 }
 function select_status_order($id_tour){
-    $result = [];
     $sql = "SELECT * FROM don_hang where id_tour = " . $id_tour . " and trang_thai = 1"; 
     return query($sql);
 }
 function select_deposit_order($id_tour){
-    $result = [];
     $sql = "SELECT * FROM don_hang where id_tour = " . $id_tour . " and dat_coc = 1"; 
     return query($sql);
 }

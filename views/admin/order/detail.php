@@ -55,16 +55,16 @@
                 </div>
                 <?php
                     $now = strtotime(date('Y-m-d'));
-                    if(strtotime($don['ngay_di']) - $now < (48*3600)){
+                    if((strtotime($don['ngay_di']) - $now < (48*3600)) && ($don['dat_coc'] == 2)){
                         echo "<span style='color:red'>Quá Hạn Đặt Cọc</span>";
                     } else {
                         if($don['dat_coc'] == 1){
                     ?>
-                    <a href="<?=BASE_URL?>/admin/order/deposit?id=<?=$don['id']?>&dc=1" class="btn btn-success">Đã đặt cọc</a>
+                    <a href="<?=BASE_URL?>/admin/order/deposit?id=<?=$don['id']?>&dc=1&ct=<?=$don['id_tour']?>" class="btn btn-success">Đã đặt cọc</a>
                     <?php
                         } else {
                     ?>
-                    <a href="<?=BASE_URL?>/admin/order/deposit?id=<?=$don['id']?>&dc=2" class="btn btn-danger">Chưa đặt cọc</a>
+                    <a href="<?=BASE_URL?>/admin/order/deposit?id=<?=$don['id']?>&dc=2&ct=<?=$don['id_tour']?>" class="btn btn-danger">Chưa đặt cọc</a>
                     <?php
                         }
                     }
@@ -72,19 +72,19 @@
                 <?php
                     if($don['trang_thai'] == 1){
                     ?>
-                    <a href="<?=BASE_URL?>/admin/order/status?id=<?=$don['id']?>&st=1" class="btn btn-success">Đã thanh toán</a>
+                    <a href="<?=BASE_URL?>/admin/order/status?id=<?=$don['id']?>&st=1&ct=<?=$don['id_tour']?>" class="btn btn-success">Đã thanh toán</a>
                     <?php
                     } else {
                     ?>
-                    <a href="<?=BASE_URL?>/admin/order/status?id=<?=$don['id']?>&st=2" class="btn btn-danger">Chưa thanh toán</a>
+                    <a href="<?=BASE_URL?>/admin/order/status?id=<?=$don['id']?>&st=2&ct=<?=$don['id_tour']?>" class="btn btn-danger">Chưa thanh toán</a>
                     <?php
                     }
                 ?>
-                <a href="<?=BASE_URL?>/admin/order/update?id=<?=$don['id']?>" class="btn btn-primary">Update</a>
+                <a href="<?=BASE_URL?>/admin/order/update?id=<?=$don['id']?>&ct=<?=$don['id_tour']?>" class="btn btn-primary">Update</a>
                 <?php
                     if($_SESSION['admin']['vai_tro'] == 2){
                 ?>
-                <a href="<?=BASE_URL?>/admin/order/delete?id=<?=$don['id']?>" onclick="return confirm('Bạn có chắc muốn xóa không ? ')" class="btn btn-danger">Delete</a>
+                <a href="<?=BASE_URL?>/admin/order/delete?id=<?=$don['id']?>&ct=<?=$don['id_tour']?>" onclick="return confirm('Bạn có chắc muốn xóa không ? ')" class="btn btn-danger">Delete</a>
                 <?php
                     }
                 ?> 
