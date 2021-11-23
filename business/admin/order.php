@@ -120,6 +120,10 @@ if(!checkInt(intval($gia))){
     die;
 }
 update_donhang($id_tour, $user['id'], $nguoi_lon, $tre_em, $ngay_di, $noi_di, $gia, $lich_trinh, $id);
+if(isset($_GET['ct'])){
+    header("Location: " . BASE_URL . "/admin/order/detail?ed=" . $_GET['ct']);
+    die;
+}
 header("Location: " . BASE_URL . "/admin/order/list");
 }
 
@@ -127,6 +131,10 @@ function order_delete(){
     if(isset($_GET['id'])){
         $id = intval($_GET['id']);
         getDelete('don_hang', 'id', $id);
+    }
+    if(isset($_GET['ct'])){
+        header("Location: " . BASE_URL . "/admin/order/detail?ed=" . $_GET['ct']);
+        die;
     }
     header("Location: " . BASE_URL . "/admin/order/list");
 }
@@ -161,6 +169,10 @@ function order_deposit(){
             update_deposit('don_hang', 1, $id);
         }
     }
+    if(isset($_GET['ct'])){
+        header("Location: " . BASE_URL . "/admin/order/detail?ed=" . $_GET['ct']);
+        die;
+    }
     header("Location: " . BASE_URL . "/admin/order/list");
 }
 
@@ -173,6 +185,10 @@ function order_status(){
         } else if($status == 2){
             update_status('don_hang', 1, $id);
         }
+    }
+    if(isset($_GET['ct'])){
+        header("Location: " . BASE_URL . "/admin/order/detail?ed=" . $_GET['ct']);
+        die;
     }
     header("Location: " . BASE_URL . "/admin/order/list");
 }

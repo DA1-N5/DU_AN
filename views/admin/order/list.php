@@ -66,18 +66,19 @@
                                     </td>
                                     <td>
                                         <?php
-                                        // $now = strtotime(date('Y-m-d'));
-                                        // if(strtotime($values['ngay_di']) - $now < (48*3600)){
-                                        //     echo "<h5 style='color:red'>Quá Hạn Đặt Cọc</h5>";
-                                        // } else {
+                                        $now = strtotime(date('Y-m-d'));
+                                        if((strtotime($values['ngay_di']) - $now < (48*3600)) && ($values['dat_coc'] == 2)){
+                                            echo "<h5 style='color:red'>Quá Hạn Đặt Cọc</h5>";
+                                        } else {
                                         if($values['dat_coc'] == 1){
                                         ?>
                                         <a href="<?=BASE_URL?>/admin/order/deposit?id=<?=$values['id']?>&dc=1" class="btn btn-success">Đã đặt cọc</a>
                                         <?php
-                                        } else {
+                                            } else {
                                         ?>
                                         <a href="<?=BASE_URL?>/admin/order/deposit?id=<?=$values['id']?>&dc=2" class="btn btn-danger">Chưa đặt cọc</a>
                                         <?php
+                                            }
                                         }
                                         ?>                                 
                                     </td>
