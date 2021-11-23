@@ -111,18 +111,12 @@ function select_distinct(){
 function select_status_order($id_tour){
     $result = [];
     $sql = "SELECT * FROM don_hang where id_tour = " . $id_tour . " and trang_thai = 1"; 
-    if(!empty(query($sql))){
-        array_push($result, query($sql));
-    }
-    return $result;
+    return query($sql);
 }
 function select_deposit_order($id_tour){
     $result = [];
     $sql = "SELECT * FROM don_hang where id_tour = " . $id_tour . " and dat_coc = 1"; 
-    if(!empty(query($sql))){
-        array_push($result, query($sql));
-    }
-    return $result;
+    return query($sql);
 }
 // lấy danh sách đơn hàng có tour linh động
 function select_order_linh_dong(){
