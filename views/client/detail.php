@@ -15,7 +15,7 @@
         <?php
             if (!isset($_SESSION['user'])) {
             ?>
-                <a href="<?=BASE_URL?>/log/loginform.php?id_tour=<?=$_GET['id']?>" class="btn" style="border: 2px solid #000;padding: 5px; font-size:15px">Đăng nhập ngay để liên hệ đặt tour</a>
+                <a href="<?=BASE_URL?>/login?id_tour=<?=$_GET['id']?>" class="btn" style="border: 2px solid #000;padding: 5px; font-size:15px">Đăng nhập ngay để liên hệ đặt tour</a>
             <?php
             } else {
             ?>
