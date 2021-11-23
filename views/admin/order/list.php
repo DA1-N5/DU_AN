@@ -146,14 +146,14 @@
                                         <h5><?=count($user) - count($don_hang) >= 1 ? "Có " . count($don_hang) . " khách hàng đã thanh toán" : "Tất cả khách hàng đã thanh toán"?></h5>
                                     </td>
                                     <td>
-                                        <a href="<?=BASE_URL?>/admin/order/update?id=<?=$value['id']?>" class="btn btn-success">Update</a>
+                                        <!-- <a href="<?=BASE_URL?>/admin/order/update?id=<?=$value['id']?>" class="btn btn-success">Update</a>
                                         <?php
                                             if($_SESSION['admin']['vai_tro'] == 2){
                                         ?>
                                         <a href="<?=BASE_URL?>/admin/order/delete?id=<?=$value['id']?>" onclick="return confirm('Bạn có chắc muốn xóa không ? ')" class="btn btn-danger">Delete</a>
                                         <?php
                                             }
-                                        ?>        
+                                        ?>         -->
                                     </td>
                                     <td>
                                         <a href="<?=BASE_URL?>/admin/order/detail?ed=<?=$value['id_tour']?>" class="btn btn-default">Xem Chi Tiết</a>     

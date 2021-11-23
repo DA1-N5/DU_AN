@@ -80,6 +80,14 @@
                     <?php
                     }
                 ?>
+                <a href="<?=BASE_URL?>/admin/order/update?id=<?=$don['id']?>" class="btn btn-primary">Update</a>
+                <?php
+                    if($_SESSION['admin']['vai_tro'] == 2){
+                ?>
+                <a href="<?=BASE_URL?>/admin/order/delete?id=<?=$don['id']?>" onclick="return confirm('Bạn có chắc muốn xóa không ? ')" class="btn btn-danger">Delete</a>
+                <?php
+                    }
+                ?> 
                 <?php
                 $i++;
                 }
