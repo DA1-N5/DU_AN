@@ -31,19 +31,11 @@
                             <input type="file" name="anh" />
                         </div>
                         <div class="form-group">
-                            <label>Ngày đi</label>
-                            <input type="date" class="form-control" name= "ngay_di" value="<?=$value['ngay_di']?>">
-                        </div>
-                        <div class="form-group">
-                            <label>Ngày đến*</label>
-                            <input type="date" class="form-control" name= "ngay_den" value="<?=$value['ngay_den']?>">
-                        </div>
-                        <div class="form-group">
                             <label>Giá*</label>
                             <input type="text" class="form-control" name= "gia" value="<?=$value['gia']?>">
                         </div> 
                         <div class="form-group">
-                            <label>Địa chỉ</label>
+                            <label>Điểm đến</label>
                             <select name="id_diachi" id="">
                                 <?php
                                 $rows = getSelect('dia_chi', 0, 10);
@@ -61,16 +53,28 @@
                             <select name="id_danhmuc" id="">
                                 <option value="0" selected>Chọn danh mục</option>
                                 <?php
-                                $rows = getSelect('id_danhmuc', 0, 10);
+                                $rows = getSelect('danh_muc', 0, 10);
                                 foreach ($rows as $row) {
                                     extract($row);
                                 ?>
-                                    <option value="<?= $id; ?>"><?= $id_danhmuc; ?></option>
+                                    <option <?=$id == $value['id_danhmuc'] ? "selected": ""?> value="<?= $id; ?>"><?= $ten; ?></option>
                                 <?php
                                 }
                                 ?>
                             </select>
-                        </div>   
+                        </div>
+                        <div class="form-group">
+                            <label>Ngày đi</label>
+                            <input type="date" class="form-control" name= "ngay_di" value="<?=$value['ngay_di']?>">
+                        </div>
+                        <div class="form-group">
+                            <label>Ngày đến*</label>
+                            <input type="date" class="form-control" name= "ngay_den" value="<?=$value['ngay_den']?>">
+                        </div>
+                        <div class="form-group">
+                            <label>Địa điểm khởi hành</label>
+                            <input type="text" class="form-control" name= "noi_di" value="<?=$value['noi_di']?>">
+                        </div>
                         <div class="form-group">
                             <label>Mô tả</label>
                             <textarea name="mo_ta" id="mo_ta"><?=$value['mo_ta']?></textarea>

@@ -19,6 +19,9 @@ function tour_save_add(){
     $anh = $_FILES['anh'];
 if(
     checkEmpty($ten) == false ||
+    checkEmpty($id_danhmuc) == false ||
+    checkEmpty($id_diachi) == false ||
+    checkEmpty($noi_di) == false ||
     checkEmpty($gia) == false ||
     checkEmpty($mo_ta) == false ||
     checkEmpty($thong_tin) == false ||
@@ -38,9 +41,15 @@ if(!checkImage($anh)){
     header("Location: ". BASE_URL . "/admin/tour/add");
     die;
 }
+
+if($id_danhmuc == "1"){
+    $ngay_di = null;
+    $ngay_den = null;
+}
+
 save_file($anh);
 $ngay_them = date('Y-m-d');
-insert_tour( $ten, $id_diachi, $anh['name'], $id_danhmuc, $ngay_di, $ngay_den, $mo_ta, $thong_tin, $gia ,$ngay_them);
+insert_tour( $ten, $id_diachi, $anh['name'], $id_danhmuc, $ngay_di, $ngay_den, $noi_di, $mo_ta, $thong_tin, $gia ,$ngay_them);
 header("Location:" . BASE_URL . "/admin/tour/list");
 }
 
@@ -58,6 +67,9 @@ function tour_save_update(){
     $ngay_sua = date('Y-m-d');
     if(
         checkEmpty($ten) == false ||
+        checkEmpty($id_danhmuc) == false ||
+        checkEmpty($id_diachi) == false ||
+        checkEmpty($noi_di) == false ||
         checkEmpty($gia) == false ||
         checkEmpty($mo_ta) == false ||
         checkEmpty($thong_tin) == false 
@@ -71,9 +83,19 @@ function tour_save_update(){
         header("Location:" . BASE_URL . "/admin/tour/update?id=$id");
         die;
     }
+    if($id_danhmuc == "1"){
+        $ngay_di = null;
+        $ngay_den = null;
+    }
     $tour = getSelect_one('tour','id',$id);
+    $don_hang = getSelect_one('don_hang', 'id_tour', $tour['id']);
+    if(!empty($don_hang)){
+        $_SESSION['error'] = "Đã có khách đặt tour, bạn không thể cập nhật !";
+        header("Location:" . BASE_URL . "/admin/tour/update?id=$id");
+        die;
+    }
     if(!checkEmpty($anh['name'])){
-        update_tour($ten, $id_diachi, $tour['anh'], $id_danhmuc, $ngay_di, $ngay_den, $mo_ta, $thong_tin, $gia, $ngay_sua, $id);
+        update_tour($ten, $id_diachi, $tour['anh'], $id_danhmuc, $ngay_di, $ngay_den, $noi_di, $mo_ta, $thong_tin, $gia, $ngay_sua, $id);
     } else{
         if(!checkImage($anh)){
             $_SESSION['error'] = "File không phải là ảnh !";
@@ -82,7 +104,7 @@ function tour_save_update(){
         }
         save_file($anh);
         unlink($image_path . $tour['anh']);
-        update_tour($ten, $id_diachi, $anh['name'], $id_danhmuc, $ngay_di, $ngay_den, $mo_ta, $thong_tin, $gia, $ngay_sua, $id);
+        update_tour($ten, $id_diachi, $anh['name'], $id_danhmuc, $ngay_di, $ngay_den, $noi_di, $mo_ta, $thong_tin, $gia, $ngay_sua, $id);
     }   
     header("Location:" . BASE_URL . "/admin/tour/update");
 
