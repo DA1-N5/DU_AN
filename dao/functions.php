@@ -147,4 +147,14 @@ function select_order_by_id_tour($id_tour){
     $sql = "SELECT * FROM don_hang where id_tour = $id_tour order by ngay_tao DESC";
     return query($sql);
 }
+// --------------------------- Danh Mục ------------------
+function insert_danhmuc($ten,$date){
+    $sql ="INSERT INTO danh_muc(ten,ngay_tao) VALUES(?,?)"; 
+    return execute($sql, $ten,$date);
+}
+function update_danhmuc($ten,$id){
+    $sql ="UPDATE danh_muc set ten = ? where id = ?"; 
+    return execute($sql, $ten,$id);
+}
+
 ?>

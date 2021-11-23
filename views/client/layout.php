@@ -128,7 +128,7 @@
                 }
             </style>
             <span>
-                <div class="box">
+            <div class="box">
                     <form action="find.php" method="POST" class="container-2">
                         <button class="icon"><i class="fas fa-search"></i></button>
                         <input type="search" name="search" id="search" placeholder="Search..." />

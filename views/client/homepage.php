@@ -1,18 +1,33 @@
 <section class="home" id="home">
     <div class="slide-container active">
         <div class="slide">
-            <div class="content">
-                <h3>Xách balo mà đi</h3>
-            </div>
+           
             <div class="image">
                 <img src="images/home-shoe-2.png.jpg" class="shoe" alt="">
                 <img src="images/home-text-1.png" class="text" alt="">
+                <div class="row col-8">
+                <div class="mb-3">
+<H2>Thông tin tìm kiếm tour</H2>
+
+  <input type="text" class="form-control" id="formGroupExampleInput">
+ 
+</div>
+  <div class="col">
+    <input type="date" class="form-control">
+  </div>
+  <div class="col">
+    <input type="text" class="form-control" placeholder="Khởi hành">
+  </div>
+  <div class="col">
+    <input type="submit" class="form-control" placeholder="Khởi hành">
+  </div>
+</div>
+
             </div>
         </div>
     </div>
     <div id="prev" class="fas fa-chevron-left" onclick="prev()"></div>
     <div id="next" class="fas fa-chevron-right" onclick="next()"></div>
-
 </section>
 <aside style="margin-top: 150px;">
     <div class="tournoibat">

@@ -252,8 +252,36 @@ switch ($url) {
         require_once './business/admin/order.php';
         order_detail();
         break;
+   //-------------------------------------------MANAGE--CATEGORY-----------------------------------------------
+    case 'admin/category/list':
+        require_once './business/admin/category.php';
+        category_list();
+        break;
+    case 'admin/category/add':
+        require_once './business/admin/category.php';
+        category_add();
+        break;
+    case 'admin/category/save-add':
+        require_once './business/admin/category.php';
+        category_save_add();
+        break;
+    case 'admin/category/update':
+        require_once './business/admin/category.php';
+        category_update();
+        break;
+    case 'admin/category/save-update':
+        require_once './business/admin/category.php';
+        category_save_update();
+        break;
+    case 'admin/category/delete':
+        require_once './business/admin/category.php';
+        category_delete();
+        break;
+    case 'admin/category/status':
+        require_once './business/admin/category.php';
+        category_status();
+        break;
     default:
         require_once './404.php';
         break;
 }
-?>
