@@ -29,7 +29,6 @@
     </g>
   </g>
   <g id="tracks">
-    <path class="st2" d="M9.8 282.4h-3L0 307.6h3z"/>
     <path class="st2" d="M19.8 282.4h-3L10 307.6h3z"/>
     <path class="st2" d="M29.8 282.4h-3L20 307.6h3z"/>
     <path class="st2" d="M39.8 282.4h-3L30 307.6h3z"/>

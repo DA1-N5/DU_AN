@@ -147,4 +147,15 @@ function select_order_by_id_tour($id_tour){
     $sql = "SELECT * FROM don_hang where id_tour = $id_tour order by ngay_tao DESC";
     return query($sql);
 }
+
+// Slider
+function insert_slide($ten_slide, $anh, $url, $date) {
+    $sql = "INSERT INTO slider(ten_slide,image,url,ngay_tao) values(?,?,?,?)";
+    return execute($sql,$ten_slide, $anh, $url, $date);
+}
+
+function update_slide($ten_slide, $image, $url, $id){
+    $sql = "UPDATE slider set ten_slide = ?, image =?, url = ? where id = ?";
+    execute($sql, $ten_slide, $image, $url, $id);
+}
 ?>
