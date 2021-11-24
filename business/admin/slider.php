@@ -1,7 +1,5 @@
 <?php
 
-use Aws\Result;
-
 function slider_list() {
     $result = getSelect('slider', 0, 10);
     admin_render('slider/list.php', ['result' => $result]);
@@ -93,4 +91,5 @@ function slider_delete() {
     }
     header("Location:" . BASE_URL .  "/admin/slider/list");   
 }
+
 ?>

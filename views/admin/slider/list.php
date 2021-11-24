@@ -51,9 +51,7 @@
                                         
                                         <?=$values['ten_slide']?>
                                     </td>
-                                   
                                     <td>
-                                        
                                         <img src="<?= IMAGE_URL . $values['image']?>" width="100px" alt="">
                                     </td>
                                     <td>
