@@ -234,6 +234,21 @@ INSERT INTO `tour` (`id`, `ten`, `id_diachi`, `anh`, `id_danhmuc`, `ngay_di`, `n
 (3, 'Du lịch Miền Bắc Hà Nội - Mộc Châu - Sơn La - Điện Biên - Sa Pa - Phú Thọ - Đền Hùng', 1, 'Tour-tay-bac.jpg', 0, '2021-11-16', '2021-11-20', 'Hồ Chí Minh', '<p><strong>Tây Bắc: Du lịch Hè Hà Nội - Mộc Châu - Sơn La - Điện Biên - Sa Pa - Phú Thọ - Đền Hùng</strong></p><p><strong>6 ngày 5 đêm</strong></p>', '<p><strong>NGÀY 1 | TP.HCM – HÀ NỘI – HÒA BÌNH – MAI CHÂU – MỘC CHÂU (Ăn trưa, chiều)</strong></p><p>&nbsp;</p><p>&nbsp;</p><p>Sáng: Quý khách có mặt tại ga quốc nội, sân bay Tân Sơn Nhất trước giờ bay ít nhất hai tiếng. Đại diện công ty Du Lịch Việt đón và hỗ trợ Quý khách làm thủ tục đón chuyến bay đi Hà Nội.</p><ul><li>Đến sân bay Nội Bài, xe đón Đoàn khởi hành đến Mai Châu.</li><li>Trên đường đến Hòa Bình, Quý khách có dịp ngắm nhìn Nhà máy thủy điện sông Đà (còn gọi là thủy điện Hòa Bình)</li><li>Chiêm ngưỡng toàn cảnh tuyệt đẹp của thung lũng Mai Châu trên đoạn đường đèo Thung Khe.</li></ul><p>&nbsp;</p><p>&nbsp;</p><p>Trưa: Dùng cơm trưa.</p><ul><li>Đoàn tiếp tục khởi hành đến Mai Châu, tham quan Bản Lác tìm hiểu phong tục tập quán của bản làng người Thái, nơi in đậm bản sắc văn hóa người Thái.</li><li>Rời Mai Châu, Đoàn khởi hành đến Cao Nguyên Mộc Châu nổi tiếng với những đồi chè xanh mướt trải dài đến tận bên kia quả đồi</li></ul><p>&nbsp;</p><p>Tối: Dùng cơm chiều. Nghỉ đêm Mộc Châu.</p><p><strong>NGÀY 2 | MỘC CHÂU – SƠN LA – ĐIỆN BIÊN (Ăn sáng, trưa, chiều)</strong></p><p>&nbsp;</p><p><strong>NGÀY 3 | ĐIỆN BIÊN – MƯỜNG LAY – SAPA (Ăn sáng, trưa, chiều)</strong></p><p>&nbsp;</p><p><strong>NGÀY 4 | SAPA – FANSIPAN – BẢN CÁT CÁT (Ăn sáng, trưa, chiều)</strong></p><p>&nbsp;</p><p><strong>NGÀY 5 | SAPA – YÊN BÁI – MÙ CANG CHẢI (Ăn sáng, trưa, chiều)</strong></p><p>&nbsp;</p><p><strong>NGÀY 6 | YÊN BÁI – PHÚ THỌ – HÀ NỘI –TP.HCM (Ăn sáng, trưa)</strong></p><p>&nbsp;</p>', '8399000', '', '2021-11-15', '2021-11-23', 1),
 (4, 'DU LỊCH SAPA', 1, 'photo-1-1590288752660121049893-crop-1590289164370580694377.jpg', 1, NULL, NULL, 'Hải Phòng', '<p>- Du lịch Sapa: tham quan nhà thờ Đá, núi Hàm Rồng, ...&nbsp;</p><p>- Đặc biệt quý khách có cơ hội chinh phục đình Fasipan</p>', '<p><strong>NGÀY 1 : HẢI PHÒNG – SAPA – KHÁM PHÁ CHỢ ĐÊM SAPA (Ăn trưa, tối)</strong><br>06:45 Quý khách có mặt tại bến xe, lên xe giường nằm khởi hành đi <strong>Sapa </strong>(dự kiến 07:00).<br>Chiều: Đến Sapa, Hướng dẫn viên đón đoàn đưa đi ăn trưa sau đó về khách sạn nhận phòng, nghỉ ngơi. 15h00: Quý khách tự do <strong>khám phá Sapa như Nhà Thờ Đá, Hồ Sapa, </strong>Mua sắm đồ tại các dãy phố ...18h00: Sau bữa tối, quý khách đi <strong>chợ tình SaPa</strong> (nếu vào tối thứ 7) - một nét văn hóa đặc sắc của đồng bào dân tộc thiểu số tại vùng núi Tây Bắc và&nbsp; tự do dạo chơi chợ đêm Sapa, thưởng thức các món nướng đặc sắc vùng cao.</p><p><strong>NGÀY 2 : SAPA – CÁT CÁT – HÀM RỒNG (Ăn sáng, trưa, tối)</strong><br>Quý khách dùng bữa sáng tại khách sạn . 07h30: HDV và xe đưa đoàn đi tham quan <strong>bản Cát Cát</strong>, bản của người H’Mông đen, thăm <strong>thác nước Cát Cát</strong>, <strong>thuỷ điện Cát cát</strong> nơi có ba con suối gặp nhau tạo thành thung lũng Mường Hoa quý khách chụp ảnh lưu niệm. Ăn trưa.<br>14h30 HDV đưa quý khách đi tham quan <strong>khu du lịch núi Hàm Rồng</strong> - hòa mình trong bốn bề của các loài hoa &amp; ngắm nhìn toàn cảnh thị trấn Sapa, xem biểu diễn của những chàng trai cô gái trong điệu khèn, điệu múa đặc trưng của dân tộc&nbsp; miền Tây Bắc…18h00: Quý khách dùng bữa tối tại nhà hang, sau bữa tối Quý khách tự do dạo chơi và khám phá thị trấn Sapa về đêm.</p><p><strong>NGÀY 3 : CHINH PHỤC FANSIPAN– LÀO CAI - HẢI PHÒNG (Ăn sáng, trưa)</strong><br>Quý khách dùng bữa sáng tại khách sạn. .HDV đưa Quý khách tới nhà Ga SAPA, quý khách trải nghiệm<strong> tàu hỏa leo núi Mường Hoa (TỰ TÚC CHI PHÍ)</strong> ngắm nhìn khung cảnh thiên nhiên hùng vĩ của thung lũng Mường Hoa với núi đồi trập trùng. Đến Ga cáp treo, du khách sẽ tiếp tục hành trình khám phá Sun World Fansipan Legend với cáp treo ba dây hiện đại nhất thế giới băng qua <strong>dãy Hoàng Liên Sơn, chinh phục đỉnh Fansipan</strong> - nóc nhà Đông Dương và chiêm bái quần thể văn hóa tâm linh trên đỉnh Fansipan. (TỰ TÚC CHI PHÍ)<br>11h30: Quý khách về nhà hàng dùng bữa trưa, trả phòng khách sạn sau đó quý khách tự do đi chợ Sapa mua sắm về làm quà cho người thân. Quý khách có mặt tại văn phòng xe hoặc bến xe Sapa, lên xe giường nằm khởi hành về Hà Nội (dự kiến chuyến 13:30 hoặc 16:00- tùy ngày khởi hành). Về đến tp Hải Phòng, Quý khách tự túc phương tiện trở về nhà. Kết thúc chương trình tham quan.</p>', '2350000', '', '2021-11-17', '2021-11-18', 1);
 
+-- Cấu trúc bảng cho bảng `slider`
+--
+
+CREATE TABLE `slider` (
+  `id` int(11) NOT NULL,
+  `ten_slide` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `url` varchar(255) NOT NULL,
+  `ngay_tao` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Đang đổ dữ liệu cho bảng `slider`
+--
+INSERT INTO `slider` (`id`, `ten_slide`, `image`, `url`, `ngay_tao`) VALUES
+(3, 'slide4', 'IMG_20210706_142304_402.jpg', 'url_slide4', '2021-11-24');
 --
 -- Chỉ mục cho các bảng đã đổ
 --
@@ -280,6 +295,11 @@ ALTER TABLE `phuong_tien`
 ALTER TABLE `tour`
   ADD PRIMARY KEY (`id`);
 
+  -- Chỉ mục cho bảng `slider`
+--
+ALTER TABLE `slider`
+  ADD PRIMARY KEY (`id`);
+
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
@@ -324,6 +344,11 @@ ALTER TABLE `phuong_tien`
 -- AUTO_INCREMENT cho bảng `tour`
 --
 ALTER TABLE `tour`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+-- AUTO_INCREMENT cho bảng `slider`
+--
+ALTER TABLE `slider`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
