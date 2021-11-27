@@ -3,7 +3,7 @@ function  tour_list(){
     if(isset($_GET['id'])){
         $value = getSelect_one('tour', 'id', intval($_GET['id']));
         admin_render('tour/list.php', ['value' => $value]);
-    } else {
+    } else{
         $result = getSelect('tour', 0, 10);
         admin_render('tour/list.php', ['result' => $result]);
     }

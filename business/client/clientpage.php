@@ -1,7 +1,69 @@
 <?php
 function client_homepage(){
-    $tour = getSelect("tour", 0, 10);
-    client_render('homepage.php', ["result" => $tour]);
+    if(isset($_POST['submit'])){
+        extract($_REQUEST);
+        if(empty($ngay_di) && empty($dia_chi) && empty($values)){
+            $sql = "SELECT * FROM tour";
+            $tour = query($sql);
+        }else if(empty($ngay_di) && empty($dia_chi) && !empty($values)){
+            if(checkInt(intval($values))){
+                $pre = intval(floor(intval($values) - (20/100)));
+                $next = intval(floor(intval($values) + (20/100)));
+                $sql = "SELECT * FROM tour where gia > $pre and gia < $next ";
+                $tour = query($sql);
+            }else{
+                $sql = "SELECT * FROM tour where noi_di like '%$values%' ";
+                $tour = query($sql);
+            }
+        }else if(!empty($ngay_di) && empty($dia_chi) && empty($values)){
+            $sql = "SELECT * FROM tour where ngay_di = '$ngay_di' ";
+            $tour = query($sql);
+        }elseif(empty($ngay_di) && !empty($dia_chi) && empty($values)){
+            $sql = "SELECT * FROM tour where id_diachi = $dia_chi ";
+            $tour = query($sql);
+        }else if(empty($ngay_di) && !empty($dia_chi) && !empty($values)){
+            if(checkInt(intval($values))){
+                $pre = intval(floor(intval($values) - (20/100)));
+                $next = intval(floor(intval($values) + (20/100)));
+                $sql = "SELECT * FROM tour where id_diachi = $dia_chi and (gia > $pre and gia < $next) ";
+                $tour = query($sql);
+            }else{
+                $sql = "SELECT * FROM tour where id_diachi = $dia_chi and noi_di like '%$values%' ";
+                $tour = query($sql);
+            }
+        }else if(!empty($ngay_di) && empty($dia_chi) && !empty($values)){
+            if(checkInt(intval($values))){
+                $pre = intval(floor(intval($values) - (20/100)));
+                $next = intval(floor(intval($values) + (20/100)));
+                $sql = "SELECT * FROM tour where ngay_di = '$ngay_di' and (gia > $pre and gia < $next) ";
+                $tour = query($sql);
+            }else{
+                $sql = "SELECT * FROM tour where ngay_di = '$ngay_di' and noi_di like '%$values%' ";
+                $tour = query($sql);
+            }
+        }else if(!empty($ngay_di) && !empty($dia_chi) && empty($values)){
+            $sql = "SELECT * FROM tour where ngay_di = '$ngay_di' and id_diachi = $dia_chi ";
+            $tour = query($sql);
+        }else if(!empty($ngay_di) && !empty($dia_chi) && !empty($values)){
+            if(checkInt(intval($values))){
+                $pre = intval(floor(intval($values) - (20/100)));
+                $next = intval(floor(intval($values) + (20/100)));
+                $value = "";
+            }else{
+                $value = $values;
+                $pre = "";
+                $next = "";
+            }
+            $tour = tim_kiem($ngay_di,$dia_chi,$value,$pre,$next);
+        }
+    }else if(isset($_GET['ct'])){
+        $tour = tour_by_category(intval($_GET['ct']));
+    }else{
+        $tour = getSelect("tour", 0, 10);
+    }
+    $category = getSelect("danh_muc", 0, 10);
+    $address = getSelect('dia_chi',0, 10);
+    client_render('homepage.php', ["result" => $tour, "category" => $category ,"address" => $address]);
 }
 function client_detail(){
     $value = getSelect_one("tour", "id", intval($_GET['id']));
@@ -11,7 +73,6 @@ function client_detail(){
         "comment" => $comment
     ]);
 }
-
 function client_login() {
     extract($_REQUEST);
     if(empty($email) || empty($mat_khau)) {
@@ -36,3 +97,5 @@ function client_login() {
     }
     header("Location: $website/");
 }
+
+

@@ -1,7 +1,8 @@
 <?php
     function category_list(){
         $values = getSelect("danh_muc",0,10);
-        admin_render("category/list.php",["values" => $values]);
+        admin_render("category/list.php", ["values" => $values]);
+       
     }
     function category_add(){
         admin_render("category/add.php");
@@ -45,7 +46,7 @@
             $_SESSION['error'] = "Tên danh mục đã tồn tại!";
             header("Location:".BASE_URL."/admin/category/update?id=$id");
             die;
-        }
+        }   
         update_danhmuc($ten,$id);
         header("Location:".BASE_URL."/admin/category/list");
     }

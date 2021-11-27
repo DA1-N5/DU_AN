@@ -7,24 +7,31 @@ require_once './commons/validate.php';
 require_once './dao/functions.php';
 require_once './dao/connect_DB.php';
 
-
 $url = isset($_GET['url']) ? $_GET['url'] : "/";
 switch ($url) {
             //------------------------------------HOMEPAGE---DETAIL----------------------------------------
     case '/':
         require_once './business/client/clientpage.php';
-        client_homepage();
+        client_homepage(); 
         break;
     case 'detail':
         require_once './business/client/clientpage.php';
         client_detail();
+        break;
+        //// tìm kiếm 
+    case 'tour-by-category':
+        require_once './business/client/clientpage.php';
+        client_homepage();
+        break;
+    case 'search-tour':
+        require_once './business/client/clientpage.php';
+        client_homepage();
         break;
             //----------------------------LOGIN---LOGOUT---SIGN-UP---CLIENT---------------------------
     case 'login': 
         require_once './business/client/log.php';
         client_login_form();
         break;
-
     case 'save-login' :
         require_once './business/client/log.php';
         client_login();

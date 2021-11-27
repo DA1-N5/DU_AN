@@ -7,22 +7,6 @@
                 <img src="images/home-text-1.png" class="text" alt="">
                 <div class="row col-8">
                 <div class="mb-3">
-<H2>Thông tin tìm kiếm tour</H2>
-
-  <input type="text" class="form-control" id="formGroupExampleInput">
- 
-</div>
-  <div class="col">
-    <input type="date" class="form-control">
-  </div>
-  <div class="col">
-    <input type="text" class="form-control" placeholder="Khởi hành">
-  </div>
-  <div class="col">
-    <input type="submit" class="form-control" placeholder="Khởi hành">
-  </div>
-</div>
-
             </div>
         </div>
     </div>
@@ -53,9 +37,7 @@
         </div>
     </div>
     <div class="contenner">
-
         <h1 class="heading"> Tour <span>Mới Nhất</span> </h1>
-
     </div>
     <div class="col-10" id="row" style="margin:auto">
     

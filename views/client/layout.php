@@ -33,26 +33,38 @@
 </style>
 
 <body>
-    <header>
+    <header class="row">
         <?php
         if (isset($_SESSION['success'])) {
             echo $_SESSION['success'];
             unset($_SESSION['success']);
         }
         ?>
-        <div id="menu-bar" class="fas fa-bars"></div>
+        
 
-        <a href="<?= BASE_URL ?>/" class="logo">VNTRAVEL</a>
+        <a href="<?= BASE_URL ?>/" class="logo col-1">VNTRAVEL</a>
 
-        <nav class="navbar">
+        <nav class="navbar col-8">
             <a href="">Trang Chủ</a>
             <a href="">Giới Thiệu</a>
             <span>
                 <select class="form-select" style="font-size: 17px; border:none;" name="ma_loai" onchange="location = this.value;">
                     <option selected>Danh Mục Tour</option>
-                    <option value=""></option>
+                    <?php
+                    if (empty($category)) {
+                    } else {
+                        foreach ($category as $value) {
+                            if ($value['trang_thai'] == 1) {
+                    ?>
+                                <option value="<?= BASE_URL ?>/tour-by-category?ct=<?= $value['id'] ?>"><?= $value['ten'] ?></option>
+                    <?php
+                            }
+                        }
+                    }
+                    ?>
                 </select>
             </span>
+
             <style>
                 .container-2 {
                     vertical-align: middle;
@@ -108,6 +120,7 @@
                     z-index: 1;
                     color: #000;
                     background: none;
+                    
                 }
 
                 .container-2 input#search:focus,
@@ -127,17 +140,8 @@
                     background: none;
                 }
             </style>
-            <span>
-            <div class="box">
-                    <form action="find.php" method="POST" class="container-2">
-                        <button class="icon"><i class="fas fa-search"></i></button>
-                        <input type="search" name="search" id="search" placeholder="Search..." />
-                    </form>
-                </div>
-            </span>
         </nav>
-
-        <div class="icons">
+        <div class="icons col-1">
             <span>
                 <a href="" type="submit"><i class="fas fa-shopping-bag cart"></i></a>
                 <span class="number"><?php echo isset($sosp) ? intval($sosp) : 0 ?></span>
@@ -162,13 +166,43 @@
             }
             ?>
         </div>
-
+        <div class="container col-7" style="margin:auto;">
+            <form action="search-tour" method="POST" class="row">
+                <div class="col-6"style="margin-bottom: 10px;">
+                    <input type="date" class="form-control" name="ngay_di"style="font-size: 17px;"value="">
+                </div>
+                <div class="col-6" style="margin-bottom: 10px;">
+                    <input type="text" class="form-control" id="formGroupExampleInput" name="value"style="font-size: 17px;" placeholder="nhap vào giá, địa chỉ "value="">
+                </div>
+                <div class="col-8">
+                        <select class="form-select" style="font-size: 17px;" name="dia_chi">
+                            <option selected value="">Bạn muốn đi đâu?</option>
+                            <?php
+                            if (empty($address)) {
+                            } else {
+                                foreach ($address as $value) {
+                                    if ($value['trang_thai'] == 1) {
+                            ?>
+                                        <option value="<?= $value['id'] ?>"><?= $value['dia_chi'] ?></option>
+                            <?php
+                                    }
+                                }
+                            }
+                            ?>
+                        </select>
+                </div>
+                <div class="col-4">
+                    <input type="submit" class="form-control" name="submit" value="Search"style="height: 35px;">
+                </div>
+            </form>
+                        </div>
+                        
 
     </header>
     <!-- START --- CONTENT-->
 
 
-    <?php include_once $businessView;?>
+    <?php include_once $businessView; ?>
 
 
     <!-- END --- CONTENT-->
