@@ -162,4 +162,16 @@ function tour_by_category($id_danhmuc)
     $sql = "SELECT * from tour where  id_danhmuc = $id_danhmuc";
     return query($sql);
 }
-// tìm kiếm theo tên 
+// tìm kiếm theo tên
+
+// Slider
+function insert_slide($ten_slide, $anh, $url, $date) {
+    $sql = "INSERT INTO slider(ten_slide,image,url,ngay_tao) values(?,?,?,?)";
+    return execute($sql,$ten_slide, $anh, $url, $date);
+}
+
+function update_slide($ten_slide, $image, $url, $id){
+    $sql = "UPDATE slider set ten_slide = ?, image =?, url = ? where id = ?";
+    execute($sql, $ten_slide, $image, $url, $id);
+}
+?>

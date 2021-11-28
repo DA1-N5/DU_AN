@@ -287,6 +287,30 @@ switch ($url) {
     case 'admin/category/status':
         require_once './business/admin/category.php';
         category_status();
+    //-------------------------------------MANAGE SLIDER---------------------------------------------
+    case 'admin/slider/list':
+        require_once './business/admin/slider.php';
+        slider_list();
+        break;
+    case 'admin/slider/add':
+        require_once './business/admin/slider.php';
+        slider_add();
+        break;
+    case 'admin/slider/save-add':
+        require_once './business/admin/slider.php';
+        slider_save_add();
+        break;
+    case 'admin/slider/update':
+        require_once './business/admin/slider.php';
+        slider_update();
+        break;
+    case 'admin/slider/save-update':
+        require_once './business/admin/slider.php';
+        slider_save_update();
+        break;
+    case 'admin/slider/delete':
+        require_once './business/admin/slider.php';
+        slider_delete();
         break;
     default:
         require_once './404.php';
