@@ -163,8 +163,3 @@ function tour_by_category($id_danhmuc)
     return query($sql);
 }
 // tìm kiếm theo tên 
-function tim_kiem($date,$dia_chi,$value,$pre,$next){
-    $sql =  "SELECT * FROM  tour where  ngay_di = '$date' or id_diachi = '$dia_chi' or (noi_di like '%$value%') or (gia > '$pre' and gia < '$next')";
-    return query($sql);
- 
-}
