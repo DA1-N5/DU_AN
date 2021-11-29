@@ -1,7 +1,11 @@
 <?php
 function client_homepage(){
     $tour = getSelect("tour", 0, 10);
-    client_render('homepage.php', ["result" => $tour]);
+    $slider = getSelect("slider", 0, 10);
+    client_render('homepage.php', [
+        "result" => $tour,
+        "slider" => $slider
+    ]);
 }
 function client_detail(){
     $value = getSelect_one("tour", "id", intval($_GET['id']));
