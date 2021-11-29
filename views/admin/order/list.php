@@ -13,14 +13,72 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
+                <select class="form-control-sm" onchange="location=this.value;" >
+                                <option value="0" selected>Chọn danh mục</option>
+                                <?php
+                                $rows = getSelect('danh_muc', 0, 10);
+                                foreach ($rows as $row) {
+                                    extract($row);
+                                ?>
+                                    <option value=" <?=BASE_URL?>/admin/order/list?id_ct=<?= $id; ?>"><?= $ten; ?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                            <select name="" id="" onchange="location=this.value;">
+                                <option value="">Chọn trạng Thái</option>
+                                <option value=" <?=BASE_URL?>/admin/order/list?id_st=1">Đã thanh toán</option>
+                                <option value=" <?=BASE_URL?>/admin/order/list?id_st=2">Chưa thanh toán</option>                  
+                            </select>
                     <br>
                     <div class="box-tools">
-                        <form action="<?=BASE_URL?>/admin/phuongtien/find-user" class="input-group input-group-sm" style="width: 150px;" method="GET">
-                            <input type="text" name="id" class="form-control pull-right"placeholder="Search ID">
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                            </div>
-                        </form>
+                    <span>
+                        <div class="dropdown">
+                            
+                            <a class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-search"></i>
+                            </a>
+
+                            <form action="list" method="POST" style="width:300px" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li>
+                                    <div>
+                                        <a>Chọn ngày đi:</a>
+                                        <input type="date" class="form-control" name="ngay_di" style="font-size: 17px;" value="">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <a>Tìm kiếm giá hoặc nơi khởi hành:</a>
+                                        <input type="text" class="form-control" id="formGroupExampleInput" name="values" style="font-size: 17px;" placeholder="Nhập vào giá, địa chỉ khởi hành" value="">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <select class="form-select" style="font-size: 17px;" name="dia_chi">
+                                            <option selected value="">Bạn muốn đi đâu?</option>
+                                            <?php
+                                            if (empty($address)) {
+                                            } else {
+                                                foreach ($address as $value) {
+                                                    if ($value['trang_thai'] == 1) {
+                                            ?>
+                                                        <option value="<?= $value['id'] ?>"><?= $value['dia_chi'] ?></option>
+                                            <?php
+                                                    }
+                                                }
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <button type="submit" style="font-size:17px" name="search_order" class="btn btn-default form-control">Tìm kiếm</button>
+                                    </div>
+                                </li>
+                            </form>
+                        </div>
+                    </span>
                     </div>
                 </div>
                 <div class="box-body table-responsive no-padding">

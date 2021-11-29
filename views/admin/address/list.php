@@ -14,12 +14,16 @@
             <div class="box">
                 <div class="box-header">
                     <a href="<?=BASE_URL?>/admin/address/add"  class="btn btn-success">+Thêm mới Địa chỉ</a>
-
+                            <select name="" id="" onchange="location=this.value;">
+                                <option value="">Chọn trạng Thái</option>
+                                <option value=" <?=BASE_URL?>/admin/address/list?id_st=1">Hoạt động</option>
+                                <option value=" <?=BASE_URL?>/admin/address/list?id_st=2">Khóa</option>                  
+                            </select>
                     <div class="box-tools">
-                        <form action="<?=$website?>/admin/diachi/find-user.php" class="input-group input-group-sm" style="width: 150px;" method="GET">
-                            <input type="text" name="id" class="form-control pull-right"placeholder="Search ID">
+                        <form action="list" class="input-group input-group-sm" style="width: 150px;" method="POST">
+                            <input type="text" name="values" class="form-control pull-right"placeholder="Search Address">
                             <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                <button type="submit" name="search_address" class="btn btn-default"><i class="fa fa-search"></i></button>
                             </div>
                         </form>
                     </div>
