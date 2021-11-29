@@ -20,6 +20,11 @@ function update_status($table, $value, $id){
     execute($sql, $value, $id);
 }
 
+function getSelectAll($table){
+    $sql = "SELECT * FROM $table";
+    return query($sql);
+}
+
 // User ---------------------------------------------------
 function insert_user($ten, $mat_khau, $email, $sdt, $ngay_them){
     $sql = "INSERT INTO khach_hang(ten, mat_khau, email, sdt, ngay_tao) VALUES (?, ?, ?, ?, ?)";

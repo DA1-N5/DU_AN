@@ -65,7 +65,7 @@ function client_homepage()
     $category = getSelect("danh_muc", 0, 10);
     $address = getSelect('dia_chi', 0, 10);
     $slider = getSelect("slider", 0, 10);
-    client_render('homepage.php', ["result" => $tour, "category" => $category, "address" => $address], "slider" => $slider);
+    client_render('homepage.php', ["result" => $tour, "category" => $category, "address" => $address, "slider" => $slider]);
 
 }
 function client_detail()
