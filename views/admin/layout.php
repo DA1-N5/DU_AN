@@ -126,6 +126,21 @@ if(!isset($_SESSION['admin'])){
                                         class="fa fa-circle-o"></i> Thêm mới</a></li>
                         </ul>
                     </li>
+                    
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-user"></i> <span>Quản Lí Danh Mục </span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="<?=BASE_URL?>/admin/category/list"><i
+                                        class="fa fa-circle-o"></i> Danh sách</a></li>
+                            <li><a href="<?=BASE_URL?>/admin/category/add"><i
+                                        class="fa fa-circle-o"></i> Thêm mới</a></li>
+                        </ul>
+                    </li>
 
                     <li class="treeview">
                         <a href="#">

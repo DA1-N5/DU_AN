@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/tour.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/chitiettour.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 
 <style>
@@ -40,103 +40,76 @@
             unset($_SESSION['success']);
         }
         ?>
-        <div id="menu-bar" class="fas fa-bars"></div>
+
 
         <a href="<?= BASE_URL ?>/" class="logo">VNTRAVEL</a>
 
         <nav class="navbar">
-            <a href="">Trang Chủ</a>
-            <a href="">Giới Thiệu</a>
+            <a href="<?= BASE_URL ?>/">Trang Chủ</a>
+            <a href="<?= BASE_URL ?>/gioi-thieu">Giới Thiệu</a>
             <span>
                 <select class="form-select" style="font-size: 17px; border:none;" name="ma_loai" onchange="location = this.value;">
                     <option selected>Danh Mục Tour</option>
-                    <option value=""></option>
+                    <?php
+                    if (empty($category)) {
+                    } else {
+                        foreach ($category as $value) {
+                            if ($value['trang_thai'] == 1) {
+                    ?>
+                                <option value="<?= BASE_URL ?>/tour-by-category?ct=<?= $value['id'] ?>"><?= $value['ten'] ?></option>
+                    <?php
+                            }
+                        }
+                    }
+                    ?>
                 </select>
             </span>
-            <style>
-                .container-2 {
-                    vertical-align: middle;
-                    white-space: nowrap;
-                    position: relative;
-                }
-
-                .container-2 input#search {
-                    width: 50px;
-                    height: 50px;
-                    background: #fff;
-                    border: none;
-                    font-size: 10pt;
-                    float: left;
-                    color: #000;
-                    padding-left: 40px;
-                    -webkit-border-radius: 5px;
-                    -moz-border-radius: 5px;
-                    border-radius: 5px;
-                    color: #000;
-
-                    -webkit-transition: width .55s ease;
-                    -moz-transition: width .55s ease;
-                    -ms-transition: width .55s ease;
-                    -o-transition: width .55s ease;
-                    transition: width .55s ease;
-
-                }
-
-                .container-2 input#search::-webkit-input-placeholder {
-                    color: #000;
-                }
-
-                .container-2 input#search:-moz-placeholder {
-                    /* Firefox 18- */
-                    color: #000;
-                }
-
-                .container-2 input#search::-moz-placeholder {
-                    /* Firefox 19+ */
-                    color: #000;
-                }
-
-                .container-2 input#search:-ms-input-placeholder {
-                    color: #000;
-                }
-
-                .container-2 .icon {
-                    position: absolute;
-                    top: 50%;
-                    margin-left: 20px;
-                    margin-top: 18px;
-                    z-index: 1;
-                    color: #000;
-                    background: none;
-                }
-
-                .container-2 input#search:focus,
-                .container-2 input#search:active {
-                    outline: none;
-                }
-
-                .container-2:hover input#search {
-                    outline: none;
-                    width: 150px;
-                    background: #ccc;
-                    color: #000;
-                }
-
-                .container-2:hover .icon {
-                    color: #000;
-                    background: none;
-                }
-            </style>
             <span>
-                <div class="box">
-                    <form action="find.php" method="POST" class="container-2">
-                        <button class="icon"><i class="fas fa-search"></i></button>
-                        <input type="search" name="search" id="search" placeholder="Search..." />
+                <div class="dropdown">
+                    <a class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <form action="search-tour" method="POST" style="width:300px" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li>
+                            <div>
+                                <a>Chọn ngày đi:</a>
+                                <input type="date" class="form-control" name="ngay_di" style="font-size: 17px;" value="">
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <a>Tìm kiếm giá hoặc nơi khởi hành:</a>
+                                <input type="text" class="form-control" id="formGroupExampleInput" name="values" style="font-size: 17px;" placeholder="Nhập vào giá, địa chỉ khởi hành" value="">
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <select class="form-select" style="font-size: 17px;" name="dia_chi">
+                                    <option selected value="">Bạn muốn đi đâu?</option>
+                                    <?php
+                                    if (empty($address)) {
+                                    } else {
+                                        foreach ($address as $value) {
+                                            if ($value['trang_thai'] == 1) {
+                                    ?>
+                                                <option value="<?= $value['id'] ?>"><?= $value['dia_chi'] ?></option>
+                                    <?php
+                                            }
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <button type="submit" style="font-size:17px" name="submit" class="btn btn-default form-control">Tìm kiếm</button>
+                            </div>
+                        </li>
                     </form>
                 </div>
             </span>
         </nav>
-
         <div class="icons">
             <span>
                 <a href="" type="submit"><i class="fas fa-shopping-bag cart"></i></a>
@@ -163,12 +136,11 @@
             ?>
         </div>
 
-
     </header>
     <!-- START --- CONTENT-->
 
 
-    <?php include_once $businessView;?>
+    <?php include_once $businessView; ?>
 
 
     <!-- END --- CONTENT-->
@@ -209,15 +181,6 @@
             </div>
         </div>
     </section>
-    <script>
-        function confirm_delete() {
-            if (confirm("Bạn chắc muốn xóa không ?") === true) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-    </script>
     <script src="<?= BASE_URL ?>/js/script.js"></script>
 
 </body>

@@ -147,6 +147,22 @@ function select_order_by_id_tour($id_tour){
     $sql = "SELECT * FROM don_hang where id_tour = $id_tour order by ngay_tao DESC";
     return query($sql);
 }
+// --------------------------- Danh Mục ------------------
+function insert_danhmuc($ten,$date){
+    $sql ="INSERT INTO danh_muc(ten,ngay_tao) VALUES(?,?)"; 
+     execute($sql, $ten,$date);
+}
+function update_danhmuc($ten,$id){
+    $sql ="UPDATE danh_muc set ten = ? where id = ?"; 
+    execute($sql, $ten,$id);
+}
+/// tìm kiếm theo danh mục 
+function tour_by_category($id_danhmuc)
+{
+    $sql = "SELECT * from tour where  id_danhmuc = $id_danhmuc";
+    return query($sql);
+}
+// tìm kiếm theo tên
 
 // Slider
 function insert_slide($ten_slide, $anh, $url, $date) {
