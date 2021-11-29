@@ -24,6 +24,11 @@ function getSelect_by_id($table,$id, $value){
     return query($sql);
 }
 
+function getSelectAll($table){
+    $sql = "SELECT * FROM $table";
+    return query($sql);
+}
+
 // User ---------------------------------------------------
 function insert_user($ten, $mat_khau, $email, $sdt, $ngay_them){
     $sql = "INSERT INTO khach_hang(ten, mat_khau, email, sdt, ngay_tao) VALUES (?, ?, ?, ?, ?)";
