@@ -1,34 +1,12 @@
-<section class="home" id="home">
-    <div class="slide-container active">
-        <div class="slide">
-            <div class="content">
-                <h3>Giày nike </h3>
-            </div>
-            <div class="image">
-                <img src="images/home-shoe-2.png" class="shoe" alt="">
-                <img src="images/home-text-1.png" class="text" alt="">
-            </div>
-        </div>
-    </div>
-    <div class="slide-container">
-        <div class="slide">
-            <div class="content">
-                <h3>Giày Mới </h3>
-            </div>
-            <div class="image">
-                <img src="images/home-shoe-2.png" class="shoe" alt="">
-                <img src="images/home-text-1.png" class="text" alt="">
-            </div>
-        </div>
-    </div>
+<section class="home" id="home" style="margin-top: 85px">
         <?php
         if (empty($slider)) {
         } else {
-            foreach ($slider as $img) {
+            for ($i = 0; $i < count($slider); $i++) {
         ?>
-                <div class="slide-container">
-                    <a href="<?= $img['url'] ?>">
-                        <img src="<?= IMAGE_URL . $img['image'] ?>" class="sliderImage" width="100%" style="height: 60rem;" alt="">
+                <div class="slide-container <?=$i == 0 ? "active" : "" ?>">
+                    <a href="<?= $slider[$i]['url'] ?>">
+                        <img src="<?= IMAGE_URL . $slider[$i]['image'] ?>" class="sliderImage" width="100%"alt="">
                     </a>
                 </div>
         <?php
