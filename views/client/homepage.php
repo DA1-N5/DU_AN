@@ -10,8 +10,22 @@
             </div>
         </div>
     </div>
-    <div id="prev" class="fas fa-chevron-left" onclick="prev()"></div>
-    <div id="next" class="fas fa-chevron-right" onclick="next()"></div>
+        <?php
+        if (empty($slider)) {
+        } else {
+            foreach ($slider as $img) {
+        ?>
+                <div class="slide-container">
+                    <a href="<?= $img['url'] ?>">
+                        <img src="<?= IMAGE_URL . $img['image'] ?>" class="sliderImage" width="100%" style="height: 60rem;" alt="">
+                    </a>
+                </div>
+        <?php
+            }
+        }
+        ?>
+        <div id="prev" class="fas fa-chevron-left" onclick="prev()"></div>
+        <div id="next" class="fas fa-chevron-right" onclick="next()"></div>
 </section>
 <aside style="margin-top: 150px;">
     <div class="tournoibat">
@@ -40,25 +54,25 @@
         <h1 class="heading"> Tour <span>Mới Nhất</span> </h1>
     </div>
     <div class="col-10" id="row" style="margin:auto">
-    
+
         <?php
         if (empty($result)) {
         } else {
             foreach ($result as $value) {
-                if($value['trang_thai'] == 1){
+                if ($value['trang_thai'] == 1) {
         ?>
-        <div class="" id="so1">
-            <a href="<?= BASE_URL ?>/detail?id=<?= $value['id']?>">
-                <div class="img">
-                    <img src="<?= IMAGE_URL . $value['anh'] ?>">
-                </div>
-                <div class="conten-item">
-                    <h3><?= $value['ten'] ?></h3>
-                    <p><?= number_format($value['gia']) ?> VNĐ</p>
-                    <a href="<?= BASE_URL ?>/detail?id=<?= $value['id']?>" class="btn" style="border: 2px solid #fff;padding: 10px;color:#fff;">Xem Thêm</a>
-                </div>
-            </a>
-        </div>
+                    <div class="" id="so1">
+                        <a href="<?= BASE_URL ?>/detail?id=<?= $value['id'] ?>">
+                            <div class="img">
+                                <img src="<?= IMAGE_URL . $value['anh'] ?>">
+                            </div>
+                            <div class="conten-item">
+                                <h3><?= $value['ten'] ?></h3>
+                                <p><?= number_format($value['gia']) ?> VNĐ</p>
+                                <a href="<?= BASE_URL ?>/detail?id=<?= $value['id'] ?>" class="btn" style="border: 2px solid #fff;padding: 10px;color:#fff;">Xem Thêm</a>
+                            </div>
+                        </a>
+                    </div>
         <?php
                 }
             }
