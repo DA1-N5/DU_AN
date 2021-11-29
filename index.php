@@ -312,6 +312,10 @@ switch ($url) {
         require_once './business/admin/slider.php';
         slider_delete();
         break;
+    case 'admin/slider/status':
+        require_once './business/admin/slider.php';
+        slider_status();
+        break;
     default:
         require_once './404.php';
         break;

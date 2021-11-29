@@ -19,6 +19,10 @@ function update_status($table, $value, $id){
     $sql = "UPDATE $table set trang_thai = ? where id = ?";
     execute($sql, $value, $id);
 }
+function getSelect_by_id($table,$id, $value){
+    $sql = "SELECT * FROM $table where $id = $value order by ngay_tao desc ";
+    return query($sql);
+}
 
 function getSelectAll($table){
     $sql = "SELECT * FROM $table";

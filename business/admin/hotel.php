@@ -1,7 +1,16 @@
 <?php
 
-function hotel_list() {
+function hotel_list(){
+    if(isset($_POST['search_hotel'])){
+        extract($_REQUEST);
+        $sql = "SELECT * FROM khach_san where dia_chi_ct LIKE '%$values%' OR sdt LIKE '%$values%' OR id_dc LIKE '%$values%' OR ten_ks LIKE '%$values%' ";
+        $result = query($sql);
+    }else if(isset($_GET['id_st'])){
+        $result = getSelect_by_id('khach_san', 'trang_thai', intval($_GET['id_st']));
+    }
+    else{
     $result = getSelect('khach_san', 0, 10);
+    }
     admin_render('hotel/list.php', ['result' => $result]);
 }
 

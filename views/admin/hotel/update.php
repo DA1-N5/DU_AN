@@ -32,7 +32,7 @@
                         </div>
                         <div class="form-group">
                             <label>Mô tả</label>
-                            <textarea name="mo_ta" class="form-control" cols="30" rows="6" placeholder="<?=$result['mo_ta']?>"></textarea>
+                            <textarea name="mo_ta" class="form-control" cols="30" rows="6"><?=$result['mo_ta']?></textarea>
                         </div>
                         <div class="form-group">
                             <label>Địa chỉ</label>
