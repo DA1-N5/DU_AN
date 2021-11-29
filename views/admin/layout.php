@@ -90,6 +90,12 @@ if(!isset($_SESSION['admin'])){
                     </div>
                 </div>
                 <ul class="sidebar-menu" data-widget="tree">
+                    <li>
+                        <a href="<?=BASE_URL?>/admin">
+                            <i class="fa fa-database"></i> <span>Thống Kê</span>
+                        </a>
+                    </li>
+                        
                     <?php
                     if($_SESSION['admin']['vai_tro'] == 2){
                     ?>

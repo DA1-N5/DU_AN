@@ -1,12 +1,23 @@
 <section class="home" id="home">
     <div class="slide-container active">
         <div class="slide">
-           
+            <div class="content">
+                <h3>Giày nike </h3>
+            </div>
             <div class="image">
-                <img src="images/home-shoe-2.png.jpg" class="shoe" alt="">
+                <img src="images/home-shoe-2.png" class="shoe" alt="">
                 <img src="images/home-text-1.png" class="text" alt="">
-                <div class="row col-8">
-                <div class="mb-3">
+            </div>
+        </div>
+    </div>
+    <div class="slide-container">
+        <div class="slide">
+            <div class="content">
+                <h3>Giày Mới </h3>
+            </div>
+            <div class="image">
+                <img src="images/home-shoe-2.png" class="shoe" alt="">
+                <img src="images/home-text-1.png" class="text" alt="">
             </div>
         </div>
     </div>
