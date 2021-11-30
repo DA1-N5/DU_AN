@@ -174,4 +174,14 @@ function update_slide($ten_slide, $image, $url, $id){
     $sql = "UPDATE slider set ten_slide = ?, image =?, url = ? where id = ?";
     execute($sql, $ten_slide, $image, $url, $id);
 }
+
+/// ------------ Giới Thiệu -----------------------------
+function insert_gioithieu($ten,$date){
+    $sql ="INSERT INTO gioi_thieu(noi_dung,ngay_tao) VALUES(?,?)"; 
+     execute($sql, $ten,$date);
+}
+function update_gioithieu($ten,$id){
+    $sql ="UPDATE gioi_thieu set noi_dung = ? where id = ?"; 
+    execute($sql, $ten,$id);
+}
 ?>
