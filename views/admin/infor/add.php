@@ -24,7 +24,7 @@
                         <div class="form-group">
                             <label>Nội Dung </label>
                             <div class="mb-3">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ten"></textarea>
+                                <textarea class="form-control" id="noi_dung" rows="3" name="ten"></textarea>
                                 <script src="<?= BASE_URL ?>/ckeditor/ckeditor.js"></script>
         <script>
             ClassicEditor
