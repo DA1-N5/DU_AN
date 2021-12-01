@@ -143,7 +143,7 @@ if(!isset($_SESSION['admin'])){
                     </li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-user"></i> <span>Quản Lí Giới Thieu </span>
+                            <i class="fa fa-user"></i> <span>Quản Lí Giới Thiệu </span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>

@@ -9,19 +9,13 @@ function infor_add(){
 }
 function infor_save_add(){
     extract($_REQUEST);
-    if(empty($ten)){
+    if(empty($noi_dung)){
         $_SESSION['error'] = "Vui lòng không để trống !";
         header("Location: ". BASE_URL ."/admin/infor/add");
         die;
     }
-    $ton_tai = getSelect_one('gioi_thieu', 'noi_dung', $ten);
-    if(!empty($ton_tai)){
-        $_SESSION['error'] = "Tên Danh mục đã tồn tại!";
-        header("Location: ". BASE_URL ."/admin/infor/add");
-        die;
-    }
     $date = date('Y-m-d');
-    insert_gioithieu($ten,$date);
+    insert_gioithieu($noi_dung,$date);
     header("Location: ". BASE_URL ."/admin/infor/list");
 }
 function infor_update(){
@@ -36,18 +30,12 @@ function infor_update(){
 }
 function infor_save_update(){
     extract($_REQUEST);
-    if(empty($ten)){
+    if(empty($noi_dung)){
         $_SESSION['error'] = "Vui lòng không để trống !";
         header("Location:".BASE_URL."/admin/infor/update?id=$id");
         die;
     }
-    $ton_tai = getSelect_one('gioi_thieu', 'noi_dung', $ten);
-    if(!empty($ton_tai) && $ten != $ten_cu){
-        $_SESSION['error'] = "Tên danh mục đã tồn tại!";
-        header("Location:".BASE_URL."/admin/infor/update?id=$id");
-        die;
-    }   
-    update_gioithieu($ten,$id);
+    update_gioithieu($noi_dung,$id);
     header("Location:".BASE_URL."/admin/infor/list");
 }
 function  infor_delete(){

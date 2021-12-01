@@ -25,9 +25,22 @@
                             <input type="hidden" name="id" value="<?=$result['id']?>">
                             <label>Tên Giới Thiệu</label>
                             <div class="mb-3">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ten"><?=$result['noi_dung']?></textarea>
+                                <textarea class="form-control" id="noi_dung" rows="3" name="noi_dung"><?=$result['noi_dung']?></textarea>
+                                <script src="<?= BASE_URL ?>/ckeditor/ckeditor.js"></script>
+        <script>
+            ClassicEditor
+                .create(document.querySelector('#noi_dung'), {
+                    ckfinder: {
+                        uploadUrl: '<?= BASE_URL ?>/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+
+                    },
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        </script>
                             </div>
-                            <input type="hidden" class="form-control" name="ten_cu"  value="<?=$result['noi_dung']?>">
+                           
                         </div>
                     </div>
                     <div class="box-footer-group">

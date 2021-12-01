@@ -28,7 +28,6 @@
                         <thead>
                             <tr>
                                 <td>ID</td>
-                                <td>Nội Dung</td>
                                 <td>Ngày tạo</td>
                                 <td>Trạng Thái</td>
                                 <td>Thao Tác</td>
@@ -44,10 +43,6 @@
                                     <td>
                                         
                                         <?=$value['id']?>
-                                    </td>
-                                    <td>
-                                        
-                                        <?=$value['noi_dung']?>
                                     </td>
                                     <td>
                                         
