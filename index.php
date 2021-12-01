@@ -9,10 +9,10 @@ require_once './dao/connect_DB.php';
 
 $url = isset($_GET['url']) ? $_GET['url'] : "/";
 switch ($url) {
-            //------------------------------------HOMEPAGE---DETAIL----------------------------------------
+        //------------------------------------HOMEPAGE---DETAIL----------------------------------------
     case '/':
         require_once './business/client/clientpage.php';
-        client_homepage(); 
+        client_homepage();
         break;
     case 'detail':
         require_once './business/client/clientpage.php';
@@ -27,12 +27,17 @@ switch ($url) {
         require_once './business/client/clientpage.php';
         client_homepage();
         break;
-            //----------------------------LOGIN---LOGOUT---SIGN-UP---CLIENT---------------------------
-    case 'login': 
+        // gioi thieu 
+    case 'infor':
+        require_once './business/client/clientpage.php';
+        client_infor();
+        break;
+        //----------------------------LOGIN---LOGOUT---SIGN-UP---CLIENT---------------------------
+    case 'login':
         require_once './business/client/log.php';
         client_login_form();
         break;
-    case 'save-login' :
+    case 'save-login':
         require_once './business/client/log.php';
         client_login();
         break;
@@ -40,11 +45,11 @@ switch ($url) {
         require_once './business/client/log.php';
         client_log_out();
         break;
-    case 'sign-up': 
+    case 'sign-up':
         require_once './business/client/log.php';
         client_sign_up_form();
         break;
-    case 'save-sign-up': 
+    case 'save-sign-up':
         require_once './business/client/log.php';
         client_sign_up();
         break;
@@ -52,7 +57,7 @@ switch ($url) {
         require_once './business/client/log.php';
         client_check_code_form();
         break;
-    case 'check-code': 
+    case 'check-code':
         require_once './business/client/log.php';
         client_check_code();
         break;
@@ -60,7 +65,7 @@ switch ($url) {
         require_once './business/client/log.php';
         client_sendmail();
         break;
-            //-------------------------DASHBROARD---LOGIN/LOGOUT---ADMIN-------------------------
+        //-------------------------DASHBROARD---LOGIN/LOGOUT---ADMIN-------------------------
     case 'admin':
         require_once './business/admin/dashbroard.php';
         admin_dashbroard();
@@ -164,7 +169,7 @@ switch ($url) {
         require_once './business/admin/address.php';
         address_delete();
         break;
-            //------------------------------------------MANAGE--HOTEL----------------------------------------------
+        //------------------------------------------MANAGE--HOTEL----------------------------------------------
     case 'admin/hotel/list':
         require_once './business/admin/hotel.php';
         hotel_list();
@@ -193,7 +198,7 @@ switch ($url) {
         require_once './business/admin/hotel.php';
         hotel_status();
         break;
-            //-------------------------------------------MANAGE--USER-----------------------------------------------
+        //-------------------------------------------MANAGE--USER-----------------------------------------------
     case 'admin/user/list':
         require_once './business/admin/user.php';
         user_list();
@@ -222,7 +227,7 @@ switch ($url) {
         require_once './business/admin/user.php';
         user_status();
         break;
-            //-------------------------------------------MANAGE--ORDER-----------------------------------------------
+        //-------------------------------------------MANAGE--ORDER-----------------------------------------------
     case 'admin/order/list':
         require_once './business/admin/order.php';
         order_list();
@@ -259,7 +264,7 @@ switch ($url) {
         require_once './business/admin/order.php';
         order_detail();
         break;
-   //-------------------------------------------MANAGE--CATEGORY-----------------------------------------------
+        //-------------------------------------------MANAGE--CATEGORY-----------------------------------------------
     case 'admin/category/list':
         require_once './business/admin/category.php';
         category_list();
@@ -287,7 +292,7 @@ switch ($url) {
     case 'admin/category/status':
         require_once './business/admin/category.php';
         category_status();
-    //-------------------------------------MANAGE SLIDER---------------------------------------------
+        //-------------------------------------MANAGE SLIDER---------------------------------------------
     case 'admin/slider/list':
         require_once './business/admin/slider.php';
         slider_list();
@@ -316,6 +321,34 @@ switch ($url) {
         require_once './business/admin/slider.php';
         slider_status();
         break;
+        //-------------------------------------MANAGE INFORMATION---------------------------------------------
+    case 'admin/infor/list':
+        require_once './business/admin/infor.php';
+        infor_list();
+        break;
+    case 'admin/infor/add':
+        require_once './business/admin/infor.php';
+        infor_add();
+        break;
+    case 'admin/infor/save-add':
+        require_once './business/admin/infor.php';
+        infor_save_add();
+        break;
+    case 'admin/infor/update':
+        require_once './business/admin/infor.php';
+        infor_update();
+        break;
+    case 'admin/infor/save-update':
+        require_once './business/admin/infor.php';
+        infor_save_update();
+        break;
+    case 'admin/infor/delete':
+        require_once './business/admin/infor.php';
+        infor_delete();
+        break;
+    case 'admin/infor/status':
+        require_once './business/admin/infor.php';
+        infor_status();
     default:
         require_once './404.php';
         break;

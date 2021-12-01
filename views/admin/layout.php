@@ -69,7 +69,7 @@ if(!isset($_SESSION['admin'])){
                                     </div>
                                 </li>
                             </ul>
-                        </li>
+                        </li>   
                     </ul>
                 </div>
             </nav>
@@ -149,6 +149,21 @@ if(!isset($_SESSION['admin'])){
                                         class="fa fa-circle-o"></i> Thêm mới</a></li>
                         </ul>
                     </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-user"></i> <span>Quản Lí Giới Thieu </span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="<?=BASE_URL?>/admin/infor/list"><i
+                                        class="fa fa-circle-o"></i> Danh sách</a></li>
+                            <li><a href="<?=BASE_URL?>/admin/infor/add"><i
+                                        class="fa fa-circle-o"></i> Thêm mới</a></li>
+                        </ul>
+                    </li>
+
 
                     <li class="treeview">
                         <a href="#">
@@ -222,7 +237,7 @@ if(!isset($_SESSION['admin'])){
                                         class="fa fa-circle-o"></i> Thêm mới</a></li>            
                          </ul>
                     </li>
-                                     
+
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-list-alt"></i> <span>Quản lí Slider</span>
@@ -236,7 +251,7 @@ if(!isset($_SESSION['admin'])){
                             <li><a href="<?=BASE_URL?>/admin/slider/add"><i
                                         class="fa fa-circle-o"></i> Thêm mới</a></li>            
                          </ul>
-                    </li>
+                    </li>                
                 </ul>
             </section>
         </aside>
