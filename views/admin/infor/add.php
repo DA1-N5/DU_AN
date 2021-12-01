@@ -26,18 +26,17 @@
                             <div class="mb-3">
                                 <textarea class="form-control" id="noi_dung" rows="3" name="ten"></textarea>
                                 <script src="<?= BASE_URL ?>/ckeditor/ckeditor.js"></script>
-        <script>
-            ClassicEditor
-                .create(document.querySelector('#noi_dung'), {
-                    ckfinder: {
-                        uploadUrl: '<?= BASE_URL ?>/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
-
-                    },
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-        </script>
+                                <script>
+                                    ClassicEditor
+                                        .create(document.querySelector('#noi_dung'), {
+                                            ckfinder: {
+                                                uploadUrl: '<?= BASE_URL ?>/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+                                            },
+                                        })
+                                        .catch(error => {
+                                            console.error(error);
+                                        });
+                                </script>
                             </div>
                         </div>
                     </div>

@@ -84,11 +84,18 @@
                 var data = google.visualization.arrayToDataTable([
                     ['Thời gian', 'Doanh Thu'],
                     <?php
-                    foreach ($don_hang_month as $dh) {
-                        $price = select_price_by_id_day($dh['ngay_tao']);
+                    if(empty($don_hang_month)){
+                        $dh = date('Y-m-d');
+                        $price = 0;
+                    ?>
+                    ['<?=$dh?>', <?=$price?>],
+                    <?php
+                    } else {
+                        foreach ($don_hang_month as $dh) {
+                            $price = select_price_by_id_day($dh['ngay_tao']);
                     ?>
                     ['<?=$dh['ngay_tao']?>', <?=$price[0]['gia']?>],
-                    <?php  } ?>
+                    <?php  } }?>
                 ]);
 
                 var options = {
