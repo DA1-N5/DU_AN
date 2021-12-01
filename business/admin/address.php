@@ -1,10 +1,17 @@
 <?php 
 function  address_list(){
-    $start = 0;
-    $quantity = 10;
-    $result = getSelect('dia_chi', $start, $quantity);
-    admin_render('address/list.php', ['result' => $result]);
+    if(isset($_POST['search_address'])){
+        extract($_REQUEST);
+        $sql = "SELECT * FROM dia_chi where dia_chi LIKE '%$values%' ";
+        $result = query($sql);
+    }else if (isset($_GET['id_st'])){
+        $result = getSelect_by_id('dia_chi', 'trang_thai', intval($_GET['id_st']));
     }
+    else{
+        $result = getSelect('dia_chi', 0, 10);
+    }
+    admin_render('address/list.php', ['result' => $result]);
+}
 function address_add(){
         admin_render('address/add.php');
     } 

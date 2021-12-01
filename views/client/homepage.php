@@ -1,17 +1,20 @@
-<section class="home" id="home">
-    <?php
-    for($i = 0; $i < count($slider); $i++) {
-    ?>
-    <div class="slide-container <?= ($i == 0) ? 'active' : '' ?>">   
-        <a href="<?=$slider[$i]['url']?>">
-            <img src="<?= IMAGE_URL . $slider[$i]['image'] ?>" alt="" width="100%" style="height: 60rem;">
-        </a>
-    </div>
-    <?php
-    }
-    ?>
-    <div id="prev" class="fas fa-chevron-left" onclick="prev()"></div>
-    <div id="next" class="fas fa-chevron-right" onclick="next()"></div>
+<section class="home" id="home" style="margin-top: 85px">
+        <?php
+        if (empty($slider)) {
+        } else {
+            for ($i = 0; $i < count($slider); $i++) {
+        ?>
+                <div class="slide-container <?=$i == 0 ? "active" : "" ?>">
+                    <a href="<?= $slider[$i]['url'] ?>">
+                        <img src="<?= IMAGE_URL . $slider[$i]['image'] ?>" class="sliderImage" width="100%"alt="">
+                    </a>
+                </div>
+        <?php
+            }
+        }
+        ?>
+        <div id="prev" class="fas fa-chevron-left" onclick="prev()"></div>
+        <div id="next" class="fas fa-chevron-right" onclick="next()"></div>
 </section>
 <aside style="margin-top: 150px;">
     <div class="tournoibat">

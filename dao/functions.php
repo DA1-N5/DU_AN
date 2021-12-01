@@ -19,6 +19,15 @@ function update_status($table, $value, $id){
     $sql = "UPDATE $table set trang_thai = ? where id = ?";
     execute($sql, $value, $id);
 }
+function getSelect_by_id($table,$id, $value){
+    $sql = "SELECT * FROM $table where $id = $value order by ngay_tao desc ";
+    return query($sql);
+}
+
+function getSelectAll($table){
+    $sql = "SELECT * FROM $table";
+    return query($sql);
+}
 
 // User ---------------------------------------------------
 function insert_user($ten, $mat_khau, $email, $sdt, $ngay_them){
@@ -147,6 +156,21 @@ function select_order_by_id_tour($id_tour){
     $sql = "SELECT * FROM don_hang where id_tour = $id_tour order by ngay_tao DESC";
     return query($sql);
 }
+
+function select_order_by_id_category($id_category){
+    $sql = "SELECT DH.* FROM ((don_hang DH INNER JOIN tour T ON DH.id_tour = T.id) INNER JOIN danh_muc DM ON T.id_danhmuc = DM.id) WHERE DM.id = $id_category";
+    return query($sql);
+}
+function select_order_by_id_day(){
+    $firstDay = date('Y-m-01');
+    $lastDay = date("Y-m-t");
+    $sql = "SELECT distinct(ngay_tao) FROM don_hang where ngay_tao >= '$firstDay' and ngay_tao <= '$lastDay'";
+    return query($sql);
+}
+function select_price_by_id_day($day){
+    $sql = "SELECT sum(gia) as gia FROM don_hang where ngay_tao = '$day'";
+    return query($sql);
+}
 // --------------------------- Danh Mục ------------------
 function insert_danhmuc($ten,$date){
     $sql ="INSERT INTO danh_muc(ten,ngay_tao) VALUES(?,?)"; 
@@ -173,5 +197,15 @@ function insert_slide($ten_slide, $anh, $url, $date) {
 function update_slide($ten_slide, $image, $url, $id){
     $sql = "UPDATE slider set ten_slide = ?, image =?, url = ? where id = ?";
     execute($sql, $ten_slide, $image, $url, $id);
+}
+
+/// ------------ Giới Thiệu -----------------------------
+function insert_gioithieu($ten,$date){
+    $sql ="INSERT INTO gioi_thieu(noi_dung,ngay_tao) VALUES(?,?)"; 
+     execute($sql, $ten,$date);
+}
+function update_gioithieu($ten,$id){
+    $sql ="UPDATE gioi_thieu set noi_dung = ? where id = ?"; 
+    execute($sql, $ten,$id);
 }
 ?>

@@ -1,5 +1,7 @@
 <?php
 function order_list(){
+    
+    
     $result1 = select_order_linh_dong();
     $result = select_distinct();
     admin_render('order/list.php', ['result1' => $result1, 'result' => $result]);
