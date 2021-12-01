@@ -208,3 +208,65 @@ function client_change_pass() {
         die;
     }
 }
+
+// ---------------------CHANGE INFO USER---------------------
+function client_edit_info() {
+    $user = $_SESSION['user'];
+    client_render('edit-user.php', ['user' => $user]);
+}
+
+function client_save_edit_info() {
+    $id = $_SESSION['user']['id'];
+    $ten = $_POST['ten'];
+    $sdt = $_POST['sdt'];
+    if (checkSdt($sdt) == false){
+        $_SESSION['error'] = "Số điện thoại không đúng định dạng !";
+        header("Location: " . BASE_URL  . "/client/edit-info");
+        die;
+    }
+    edit_user($ten, $sdt, $id);
+    header('location: ' . BASE_URL . '/client/edit-info');
+}
+
+// ---------------------CHANGE EDIT PASSWORD---------------------
+function client_edit_password() {
+    $user = $_SESSION['user'];
+    client_render('edit-password.php', ['user' => $user]);
+}
+
+function client_save_edit_password() {
+    $mk_cu = $_POST['mat_khau_cu'];
+    $mk_moi = $_POST['mat_khau'];
+    $mk2 = $_POST['mat_khau2'];
+    $user = $_SESSION['user'];
+
+    if(empty($mk_cu) || empty($mk_moi) || empty($mk2)) {
+        $_SESSION['error'] = "Mời bạn nhập đầy đủ thông tin";
+        header("location:" . BASE_URL . "/client/edit-password");
+        die;
+    }
+
+    if(strlen($mk_moi) < 6) {
+        $_SESSION['error'] = "Mật khẩu ít nhất phải có 6 kí tự!";
+        header("location:" . BASE_URL . "/client/edit-password");
+        die;
+    }
+
+    if(md5($mk_cu) != $user['mat_khau']) {
+        $_SESSION['error'] = "Mật khẩu cũ của bạn không đúng!";
+        header("location:" . BASE_URL . "/client/edit-password");
+        die;
+    }
+
+    if($mk_moi != $mk2) {
+        $_SESSION['error'] = "Mật khẩu xác nhận không đúng!";
+        header("location:" . BASE_URL . "/client/edit-password");
+        die;
+    }
+
+    else {
+        edit_password(md5($mk_moi), $user['id']);
+        $_SESSION['error'] = "<script>alert('Đổi mật khẩu thành công.')</script>";
+        header('location: ' . BASE_URL . '/client/edit-password');
+    }
+}
