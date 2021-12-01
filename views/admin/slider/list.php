@@ -33,6 +33,7 @@
                                 <td>Ảnh</td>
                                 <td>URL</td>
                                 <td>Ngày tạo</td>
+                                <td>Trạng thái</td>
                                 <td>Thao tác</td>
                             </tr>
                         </thead>
@@ -54,14 +55,31 @@
                                     <td>
                                         <img src="<?= IMAGE_URL . $values['image']?>" width="100px" alt="">
                                     </td>
+                                    
                                     <td>
                                         
                                         <?=$values['url']?>
                                     </td>
+                                    
                                     <td>
                                         
                                         <?=$values['ngay_tao']?>
                                     </td>
+                                    <td>
+                                        
+                                    <?php
+                                        if($values['trang_thai'] == 1){
+                                        ?>
+                                        <a href="<?=BASE_URL?>/admin/slider/status?id=<?=$values['id']?>&st=1" class="btn btn-success">Hoạt Động</a> <!--trạng thái đang hoạt động ấn vào để chuyển trạng thái khóa-->
+                                        <?php
+                                        } else {
+                                        ?>
+                                        <a href="<?=BASE_URL?>/admin/slider/status?id=<?=$values['id']?>&st=2" class="btn btn-danger">Khóa</a> <!--trạng thái đang khóa ấn vào để chuyển trạng thái hoạt động-->
+                                        <?php
+                                        }
+                                        ?>
+                                    </td>
+
                                     <td>
                                         
                                         <a href="<?=BASE_URL?>/admin/slider/update?id=<?=$values['id']?>" class="btn btn-success">Update</a>

@@ -317,7 +317,10 @@ switch ($url) {
         require_once './business/admin/slider.php';
         slider_delete();
         break;
-
+    case 'admin/slider/status':
+        require_once './business/admin/slider.php';
+        slider_status();
+        break;
         //-------------------------------------MANAGE INFORMATION---------------------------------------------
     case 'admin/infor/list':
         require_once './business/admin/infor.php';
