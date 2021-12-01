@@ -40,7 +40,7 @@
                     </div>
                     <div class="mb-3 d-flex justify-content-between align-items-center">
                         <a href="<?= BASE_URL ?>/sign-up" id="hihi">Đăng Kí ngay</a>
-                        <a href="<?= BASE_URL ?>/forget" id="hihi">Quên mật khẩu?</a>
+                        <a href="<?= BASE_URL ?>/forgot-password" id="hihi">Quên mật khẩu?</a>
                     </div>
                     <button type="submit" class="btn btn-blue mb-3">Đăng nhập</button>
 

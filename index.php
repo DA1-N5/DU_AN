@@ -60,6 +60,23 @@ switch ($url) {
         require_once './business/client/log.php';
         client_sendmail();
         break;
+    // ------------------------------FORGOT PASSWORD---------------------------------------
+    case 'forgot-password':
+        require_once './business/client/log.php';
+        client_check_email_form();
+        break;
+    case 'checkEmail': 
+        require_once './business/client/log.php';
+        client_check_email();
+        break;
+    case 'change-password-form':
+        require_once './business/client/log.php';
+        client_change_pass_form();
+        break;
+    case 'change-password':
+        require_once './business/client/log.php';
+        client_change_pass();
+        break;
             //-------------------------DASHBROARD---LOGIN/LOGOUT---ADMIN-------------------------
     case 'admin':
         require_once './business/admin/dashbroard.php';

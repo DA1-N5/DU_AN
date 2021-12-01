@@ -1,31 +1,17 @@
 <section class="home" id="home">
-    <div class="slide-container active">
-        <div class="slide">
-           
-            <div class="image">
-                <img src="images/home-shoe-2.png.jpg" class="shoe" alt="">
-                <img src="images/home-text-1.png" class="text" alt="">
-                <div class="row col-8">
-                <div class="mb-3">
-            </div>
-        </div>
+    <?php
+    for($i = 0; $i < count($slider); $i++) {
+    ?>
+    <div class="slide-container <?= ($i == 0) ? 'active' : '' ?>">   
+        <a href="<?=$slider[$i]['url']?>">
+            <img src="<?= IMAGE_URL . $slider[$i]['image'] ?>" alt="" width="100%" style="height: 60rem;">
+        </a>
     </div>
-        <?php
-        if (empty($slider)) {
-        } else {
-            foreach ($slider as $img) {
-        ?>
-                <div class="slide-container">
-                    <a href="<?= $img['url'] ?>">
-                        <img src="<?= IMAGE_URL . $img['image'] ?>" class="sliderImage" width="100%" style="height: 60rem;" alt="">
-                    </a>
-                </div>
-        <?php
-            }
-        }
-        ?>
-        <div id="prev" class="fas fa-chevron-left" onclick="prev()"></div>
-        <div id="next" class="fas fa-chevron-right" onclick="next()"></div>
+    <?php
+    }
+    ?>
+    <div id="prev" class="fas fa-chevron-left" onclick="prev()"></div>
+    <div id="next" class="fas fa-chevron-right" onclick="next()"></div>
 </section>
 <aside style="margin-top: 150px;">
     <div class="tournoibat">
@@ -51,7 +37,9 @@
         </div>
     </div>
     <div class="contenner">
+
         <h1 class="heading"> Tour <span>Mới Nhất</span> </h1>
+
     </div>
     <div class="col-10" id="row" style="margin:auto">
 
