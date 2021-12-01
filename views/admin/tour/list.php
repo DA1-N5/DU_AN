@@ -14,14 +14,75 @@
             <div class="box">
                 <div class="box-header">
                     <a href="<?=BASE_URL?>/admin/tour/add" class="btn btn-success">+Thêm mới Tour</a>
+                   
+                          
+                            <select class="form-control-sm" onchange="location=this.value;" >
+                                <option value="0" selected>Chọn danh mục</option>
+                                <?php
+                                $rows = getSelect('danh_muc', 0, 10);
+                                foreach ($rows as $row) {
+                                    extract($row);
+                                ?>
+                                    <option value=" <?=BASE_URL?>/admin/tour/list?id_ct=<?= $id; ?>"><?= $ten; ?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                            <select name="" id="" onchange="location=this.value;">
+                                <option value="">Chọn trạng Thái</option>
+                                <option value=" <?=BASE_URL?>/admin/tour/list?id_st=1">Hoạt động</option>
+                                <option value=" <?=BASE_URL?>/admin/tour/list?id_st=2">Khóa</option>                  
+                            </select>
+                      
 
                     <div class="box-tools">
-                        <form action="" class="input-group input-group-sm" style="width: 150px;" method="GET">
-                            <input type="text" name="id" class="form-control pull-right"placeholder="Search ID">
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                            </div>
-                        </form>
+                    <span>
+                        <div class="dropdown">
+                            
+                            <a class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-search"></i>
+                            </a>
+
+                            <form action="list" method="POST" style="width:300px" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li>
+                                    <div>
+                                        <a>Chọn ngày đi:</a>
+                                        <input type="date" class="form-control" name="ngay_di" style="font-size: 17px;" value="">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <a>Tìm kiếm giá hoặc nơi khởi hành:</a>
+                                        <input type="text" class="form-control" id="formGroupExampleInput" name="values" style="font-size: 17px;" placeholder="Nhập vào giá, địa chỉ khởi hành" value="">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <select class="form-select" style="font-size: 17px;" name="dia_chi">
+                                            <option selected value="">Bạn muốn đi đâu?</option>
+                                            <?php
+                                            if (empty($address)) {
+                                            } else {
+                                                foreach ($address as $value) {
+                                                    if ($value['trang_thai'] == 1) {
+                                            ?>
+                                                        <option value="<?= $value['id'] ?>"><?= $value['dia_chi'] ?></option>
+                                            <?php
+                                                    }
+                                                }
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <button type="submit" style="font-size:17px" name="search_tour" class="btn btn-default form-control">Tìm kiếm</button>
+                                    </div>
+                                </li>
+                            </form>
+                        </div>
+                    </span>
                     </div>
                 </div>
                 <div class="box-body table-responsive no-padding">
@@ -103,62 +164,9 @@
                             <?php
                                 }
                             }
-                            if (isset($value)){
-                            ?>
-                                <tr>
-                                    <td>
-                                        <?=$value['id']?>
-                                    </td>
-                                    <td>
-                                        <?=$value['ten']?>
-                                    </td>
-                                    <td>
-                                    <img src="<?=IMAGE_URL . $value['anh']?>" width="50px" alt=""> 
-                                    </td>
-                                    <td>
-                                        <?=$value['ngay_di']?>
-                                    </td>
-                                    <td>
-                                        <?=$value['ngay_den']?>
-                                    </td>
-                                    <td>
-                                        <?=$value['gia']?>
-                                    </td>
-                                    <td>
-                                        <?=$value['ngay_tao']?>
-                                    </td>
-                                    <td>
-                                        <?=$value['ngay_sua']?>
-                                    </td>
-                                    <td>
-                                        <?php
-                                        if($value['trang_thai'] == 1){
-                                        ?>
-                                        <a href="<?=BASE_URL?>/admin/tour/status<?=$value['id']?>&st=1" class="btn btn-success">Hoạt Động</a> <!--trạng thái đang hoạt động ấn vào để chuyển trạng thái khóa-->
-                                        <?php
-                                        } else {
-                                        ?>
-                                        <a href="<?=BASE_URL?>/admin/tour/status<?=$value['id']?>&st=2" class="btn btn-danger">Khóa</a> <!--trạng thái đang khóa ấn vào để chuyển trạng thái hoạt động-->
-                                        <?php
-                                        }
-                                        ?>
-                                    </td>
-                                    <td>
-                                        <a href="<?=BASE_URL?>/admin/tour/update<?=$value['id']?>" class="btn btn-success">Update</a>
-                                        <?php
-                                            if($_SESSION['admin']['vai_tro'] == 2){
-                                        ?>
-                                        <a href="<?=BASE_URL?>/admin/tour/delete<?=$value['id']?>" onclick="return confirm('Bạn có chắc muốn xóa không ? ')" class="btn btn-danger">Delete</a>
-                                        <?php
-                                            }
-                                        ?>        
-                                    </td>
-                                    <td>
-                                    <a href="<?=BASE_URL?>/admin/order/add?id<?=$value['id']?>" class="btn btn-primary">Đặt Tour</a>
-                                    </td>
-                                </tr>
-                            <?php
-                            } 
+                            
+                          
+                            
                             ?>
                         <tbody>
                     </table>

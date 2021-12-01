@@ -1,11 +1,17 @@
 <?php 
 function vehicle_list(){
-$start = 0;
-$quantity = 10;
-$result = getSelect('phuong_tien', $start, $quantity);
-admin_render('vehicle/list.php', ['result' => $result]);
+    if(isset($_POST['search_vehicle'])){
+        extract($_REQUEST);
+        $sql = "SELECT * FROM phuong_tien where bien_so LIKE '%$values%' ";
+        $result = query($sql);
+    }else if (isset($_GET['id_st'])){
+        $result = getSelect_by_id('phuong_tien', 'trang_thai', intval($_GET['id_st']));
+    }
+    else{
+        $result = getSelect('phuong_tien', 0, 10);
+    }
+    admin_render('vehicle/list.php', ['result' => $result]);
 }
-
 function vehicle_add(){
     admin_render('vehicle/add.php');
 }

@@ -38,6 +38,19 @@ function slider_save_add() {
     insert_slide($ten_slide, $image['name'], $url, $date);
     header("Location: ". BASE_URL ."/admin/slider/list");
 }
+function slider_status(){
+    if(!isset($_GET['id'])){
+            header("Location: " . BASE_URL . "/admin/slider/list");
+    }
+        $id = intval($_GET['id']);
+        $status = intval($_GET['st']);
+        if($status == 1){
+            update_status('slider', 2, $id);
+        } else if($status == 2){
+            update_status('slider', 1, $id);
+        }
+        header("Location:". BASE_URL . "/admin/slider/list");
+    }
 
 function slider_update() {
     if(!isset($_GET['id'])) {

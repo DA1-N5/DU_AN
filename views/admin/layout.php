@@ -24,6 +24,8 @@ if(!isset($_SESSION['admin'])){
     <!-- <link rel="stylesheet" href="<?=BASE_URL?>/css/style.css" /> -->
     <script src="<?=BASE_URL?>/js/angular.min.js"></script>
     <script src="<?=BASE_URL?>/js/app.js"></script>
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -90,6 +92,12 @@ if(!isset($_SESSION['admin'])){
                     </div>
                 </div>
                 <ul class="sidebar-menu" data-widget="tree">
+                    <li>
+                        <a href="<?=BASE_URL?>/admin">
+                            <i class="fa fa-database"></i> <span>Thống Kê</span>
+                        </a>
+                    </li>
+                        
                     <?php
                     if($_SESSION['admin']['vai_tro'] == 2){
                     ?>
