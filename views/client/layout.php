@@ -119,19 +119,18 @@
                 <a href='<?= BASE_URL ?>/client/edit-password' class='fas fa-key'></a>
                 <a href='<?= BASE_URL ?>/log-out' class='fas fa-user-times'></a>
             <?php
+            } elseif(isset($_SESSION['admin'])) {
+            ?>
+                <a href='<?= BASE_URL ?>/admin'><i class='fas fa-users-cog'></i></a>
+                <a href='<?= BASE_URL ?>/admin/logout' class='fas fa-user-times'></a>
+            <?php
             } else {
             ?>
-                <a href='<?= BASE_URL ?>/login'><i class='fas fa-user'></i></a>
+                <a href='<?= BASE_URL ?>/login' class='fas fa-user'></a>
             <?php
             }
             ?>
-            <?php
-            if (isset($_SESSION['admin'])) {
-            ?>
-                <a href='<?= BASE_URL ?>/admin' class='fas fa-users-cog'></a>
-            <?php
-            }
-            ?>
+            
         </div>
 
     </header>
