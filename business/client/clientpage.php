@@ -102,3 +102,16 @@ function client_login()
     }
     header("Location: $website/");
 }
+function client_infor(){
+    $result = getSelect("gioi_thieu", 0, 10);
+    client_render('infor.php',['result' => $result]);
+    if (isset($_GET['ct'])) {
+        $tour = tour_by_category(intval($_GET['ct']));
+    } else {
+        $tour = getSelect("tour", 0, 10);
+    }
+    $category = getSelect("danh_muc", 0, 10);
+    $address = getSelect('dia_chi', 0, 10);
+    client_render('infor.php',["result" => $tour, "category" => $category, "address" => $address]);
+}
+

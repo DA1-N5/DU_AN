@@ -35,6 +35,16 @@ function insert_user($ten, $mat_khau, $email, $sdt, $ngay_them){
     execute($sql, $ten, $mat_khau, $email, $sdt, $ngay_them);
 }
 
+function edit_user($ten, $sdt, $id) {
+    $sql = "UPDATE khach_hang set ten = ?, sdt = ? where id = ?";
+    return execute($sql, $ten, $sdt, $id);
+} 
+
+function edit_password($mat_khau, $id) {
+    $sql = "UPDATE khach_hang set mat_khau = ? where id = ?";
+    return execute($sql, $mat_khau, $id);
+} 
+
 function update_user($ten, $mat_khau, $email, $sdt, $id){
     $sql = "UPDATE khach_hang set ten = ?, mat_khau = ?, email = ?, sdt = ? where id = ?";
     execute($sql, $ten, $mat_khau, $email, $sdt, $id);
@@ -156,6 +166,21 @@ function select_order_by_id_tour($id_tour){
     $sql = "SELECT * FROM don_hang where id_tour = $id_tour order by ngay_tao DESC";
     return query($sql);
 }
+
+function select_order_by_id_category($id_category){
+    $sql = "SELECT DH.* FROM ((don_hang DH INNER JOIN tour T ON DH.id_tour = T.id) INNER JOIN danh_muc DM ON T.id_danhmuc = DM.id) WHERE DM.id = $id_category";
+    return query($sql);
+}
+function select_order_by_id_day(){
+    $firstDay = date('Y-m-01');
+    $lastDay = date("Y-m-t");
+    $sql = "SELECT distinct(ngay_tao) FROM don_hang where ngay_tao >= '$firstDay' and ngay_tao <= '$lastDay'";
+    return query($sql);
+}
+function select_price_by_id_day($day){
+    $sql = "SELECT sum(gia) as gia FROM don_hang where ngay_tao = '$day'";
+    return query($sql);
+}
 // --------------------------- Danh Mục ------------------
 function insert_danhmuc($ten,$date){
     $sql ="INSERT INTO danh_muc(ten,ngay_tao) VALUES(?,?)"; 
@@ -182,5 +207,15 @@ function insert_slide($ten_slide, $anh, $url, $date) {
 function update_slide($ten_slide, $image, $url, $id){
     $sql = "UPDATE slider set ten_slide = ?, image =?, url = ? where id = ?";
     execute($sql, $ten_slide, $image, $url, $id);
+}
+
+/// ------------ Giới Thiệu -----------------------------
+function insert_gioithieu($ten,$date){
+    $sql ="INSERT INTO gioi_thieu(noi_dung,ngay_tao) VALUES(?,?)"; 
+     execute($sql, $ten,$date);
+}
+function update_gioithieu($ten,$id){
+    $sql ="UPDATE gioi_thieu set noi_dung = ? where id = ?"; 
+    execute($sql, $ten,$id);
 }
 ?>

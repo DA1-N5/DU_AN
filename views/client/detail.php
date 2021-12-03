@@ -89,7 +89,7 @@
     <h1 class="col-12" class="col-10" style="border-bottom:1px solid #000"></h1>
     <div style="margin: 20px"></div>
     <style>
-        @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+        
 
         /*reset css*/
         div,

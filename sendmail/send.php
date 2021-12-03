@@ -22,7 +22,7 @@ try {
 
     $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
     $mail->Port = 587;                                       // TCP port to connect to
-    $mail->charSet = "utf-8";                                    
+    $mail->CharSet = 'UTF-8';
  
     //Recipients
     $mail->setFrom('vannamhdvt@gmail.com', 'LOVEONEX');
@@ -50,6 +50,10 @@ try {
     die;
 }
 if(intval($_GET['id']) == 1) {
+    header('Location: ' . BASE_URL . '/check-code-form');
+}
+
+if(intval($_GET['id'] == 2)) {
     header('Location: ' . BASE_URL . '/check-code-form');
 }
 ?>

@@ -21,7 +21,7 @@
     .cart {
         position: relative;
     }
-
+/* 
     .number {
         position: absolute;
         top: 1;
@@ -29,7 +29,7 @@
         bottom: 1;
         right: 1;
         cursor: pointer;
-    }
+    } */
 </style>
 
 <body>
@@ -40,13 +40,10 @@
             unset($_SESSION['success']);
         }
         ?>
-
-
         <a href="<?= BASE_URL ?>/" class="logo">VNTRAVEL</a>
-
         <nav class="navbar">
             <a href="<?= BASE_URL ?>/">Trang Chủ</a>
-            <a href="<?= BASE_URL ?>/gioi-thieu">Giới Thiệu</a>
+            <a href="<?= BASE_URL ?>/infor">Giới Thiệu</a>
             <span>
                 <select class="form-select" style="font-size: 17px; border:none;" name="ma_loai" onchange="location = this.value;">
                     <option selected>Danh Mục Tour</option>
@@ -118,8 +115,9 @@
             <?php
             if (isset($_SESSION['user'])) {
             ?>
-                <a href='#' class='fas fa-edit'></a>
-                <a href='<?= BASE_URL ?>/log-out'><i class='fas fa-user-times'></i></a>
+                <a href='<?= BASE_URL ?>/client/edit-info' class='fas fa-edit'></a>
+                <a href='<?= BASE_URL ?>/client/edit-password' class='fas fa-key'></a>
+                <a href='<?= BASE_URL ?>/log-out' class='fas fa-user-times'></a>
             <?php
             } else {
             ?>
@@ -138,11 +136,7 @@
 
     </header>
     <!-- START --- CONTENT-->
-
-
     <?php include_once $businessView; ?>
-
-
     <!-- END --- CONTENT-->
     <section class="footer" id="info">
 
