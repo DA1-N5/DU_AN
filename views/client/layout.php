@@ -21,7 +21,7 @@
     .cart {
         position: relative;
     }
-/* 
+
     .number {
         position: absolute;
         top: 1;
@@ -29,7 +29,7 @@
         bottom: 1;
         right: 1;
         cursor: pointer;
-    } */
+    }
 </style>
 
 <body>
