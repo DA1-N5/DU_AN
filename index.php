@@ -65,7 +65,42 @@ switch ($url) {
         require_once './business/client/log.php';
         client_sendmail();
         break;
-        //-------------------------DASHBROARD---LOGIN/LOGOUT---ADMIN-------------------------
+    // ------------------------------FORGOT PASSWORD---------------------------------------
+    case 'forgot-password':
+        require_once './business/client/log.php';
+        client_check_email_form();
+        break;
+    case 'checkEmail': 
+        require_once './business/client/log.php';
+        client_check_email();
+        break;
+    case 'change-password-form':
+        require_once './business/client/log.php';
+        client_change_pass_form();
+        break;
+    case 'change-password':
+        require_once './business/client/log.php';
+        client_change_pass();
+        break;
+    // ---------------------------CHANGE INFO USER---------------------------------------
+    case 'client/edit-info': 
+        require_once './business/client/log.php';
+        client_edit_info();
+        break;
+    case 'client/save-info':
+        require_once './business/client/log.php';
+        client_save_edit_info();
+        break;
+    // ----------------------------CHANGE PASSWORD---------------------------------------
+    case 'client/edit-password': 
+        require_once './business/client/log.php';
+        client_edit_password();
+        break;
+    case 'client/save-edit-password': 
+        require_once './business/client/log.php';
+        client_save_edit_password();
+        break;
+    //-------------------------DASHBROARD---LOGIN/LOGOUT---ADMIN-------------------------
     case 'admin':
         require_once './business/admin/dashbroard.php';
         admin_dashbroard();

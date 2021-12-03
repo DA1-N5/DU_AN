@@ -6,11 +6,11 @@
             foreach ($result as $value) {
                 if($value['trang_thai'] == 1){
         ?>
- 
-<h3 style="text-align: center; "><?= $value['noi_dung'] ?></h3>
+
+<h3 class="col-9" style="margin:auto"><?= $value['noi_dung'] ?></h3>
 <?php
-                }
-            }
         }
-        ?>
+    }
+}
+?>
         

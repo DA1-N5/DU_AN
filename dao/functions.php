@@ -35,6 +35,16 @@ function insert_user($ten, $mat_khau, $email, $sdt, $ngay_them){
     execute($sql, $ten, $mat_khau, $email, $sdt, $ngay_them);
 }
 
+function edit_user($ten, $sdt, $id) {
+    $sql = "UPDATE khach_hang set ten = ?, sdt = ? where id = ?";
+    return execute($sql, $ten, $sdt, $id);
+} 
+
+function edit_password($mat_khau, $id) {
+    $sql = "UPDATE khach_hang set mat_khau = ? where id = ?";
+    return execute($sql, $mat_khau, $id);
+} 
+
 function update_user($ten, $mat_khau, $email, $sdt, $id){
     $sql = "UPDATE khach_hang set ten = ?, mat_khau = ?, email = ?, sdt = ? where id = ?";
     execute($sql, $ten, $mat_khau, $email, $sdt, $id);

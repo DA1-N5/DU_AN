@@ -21,7 +21,7 @@
     .cart {
         position: relative;
     }
-
+/* 
     .number {
         position: absolute;
         top: 1;
@@ -29,7 +29,7 @@
         bottom: 1;
         right: 1;
         cursor: pointer;
-    }
+    } */
 </style>
 
 <body>
@@ -115,8 +115,9 @@
             <?php
             if (isset($_SESSION['user'])) {
             ?>
-                <a href='#' class='fas fa-edit'></a>
-                <a href='<?= BASE_URL ?>/log-out'><i class='fas fa-user-times'></i></a>
+                <a href='<?= BASE_URL ?>/client/edit-info' class='fas fa-edit'></a>
+                <a href='<?= BASE_URL ?>/client/edit-password' class='fas fa-key'></a>
+                <a href='<?= BASE_URL ?>/log-out' class='fas fa-user-times'></a>
             <?php
             } else {
             ?>

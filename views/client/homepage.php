@@ -40,7 +40,9 @@
         </div>
     </div>
     <div class="contenner">
+
         <h1 class="heading"> Tour <span>Mới Nhất</span> </h1>
+
     </div>
     <div class="col-10" id="row" style="margin:auto">
 
