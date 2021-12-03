@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 01, 2021 lúc 02:26 AM
+-- Thời gian đã tạo: Th12 03, 2021 lúc 12:38 PM
 -- Phiên bản máy phục vụ: 10.4.19-MariaDB
 -- Phiên bản PHP: 7.4.25
 
@@ -47,6 +47,31 @@ CREATE TABLE `admin` (
 INSERT INTO `admin` (`id`, `email`, `mat_khau`, `ten`, `sdt`, `ngay_sinh`, `vai_tro`, `anh`, `ngay_tao`, `trang_thai`) VALUES
 (1, 'vannamhdvt@gmail.com', 'c9740b276a32f2066522ee3362ae90aa', 'Trần Văn Nam', '0886458972', '2001-09-28', 2, 'new.jpg', '0000-00-00', 1),
 (2, 'congtcph11890@fpt.edu.vn', '5a734ecdd0295bfc196a1d740bf3921f', 'Công ', '0862460235', '2021-11-10', 2, '', '2021-11-03', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `binh_luan`
+--
+
+CREATE TABLE `binh_luan` (
+  `id` int(11) NOT NULL,
+  `id_kh` int(11) NOT NULL,
+  `id_tour` int(11) NOT NULL,
+  `noi_dung` varchar(2000) COLLATE utf8_unicode_ci NOT NULL,
+  `danh_gia` int(11) NOT NULL,
+  `ngay_tao` datetime NOT NULL,
+  `trang_thai` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `binh_luan`
+--
+
+INSERT INTO `binh_luan` (`id`, `id_kh`, `id_tour`, `noi_dung`, `danh_gia`, `ngay_tao`, `trang_thai`) VALUES
+(1, 7, 4, '<p>Tạm được</p>', 3, '2021-12-03 00:00:00', 1),
+(2, 7, 4, '<figure class=\"image\"><img src=\"/DU_AN/images/files/Untitled(3).png\"></figure><p>ok đấy</p>', 5, '2021-12-03 06:09:08', 1),
+(3, 7, 1, '<p>Oki</p>', 4, '2021-12-03 06:35:56', 1);
 
 -- --------------------------------------------------------
 
@@ -121,7 +146,8 @@ INSERT INTO `don_hang` (`id`, `id_tour`, `id_kh`, `nguoi_lon`, `tre_em`, `ngay_d
 (2, 4, 5, 24, 1, '2021-11-28', 'Mỹ Phúc - Mỹ Lộc - Nam Định', '<p><strong>NGÀY 1 : HẢI PHÒNG – SAPA – KHÁM PHÁ CHỢ ĐÊM SAPA (Ăn trưa, tối)</strong><br>06:45 Quý khách có mặt tại bến xe, lên xe giường nằm khởi hành đi <strong>Sapa </strong>(dự kiến 07:00).<br>Chiều: Đến Sapa, Hướng dẫn viên đón đoàn đưa đi ăn trưa sau đó về khách sạn nhận phòng, nghỉ ngơi. 15h00: Quý khách tự do <strong>khám phá Sapa như Nhà Thờ Đá, Hồ Sapa, </strong>Mua sắm đồ tại các dãy phố ...18h00: Sau bữa tối, quý khách đi <strong>chợ tình SaPa</strong> (nếu vào tối thứ 7) - một nét văn hóa đặc sắc của đồng bào dân tộc thiểu số tại vùng núi Tây Bắc và  tự do dạo chơi chợ đêm Sapa, thưởng thức các món nướng đặc sắc vùng cao.</p><p><strong>NGÀY 2 : SAPA – CÁT CÁT – HÀM RỒNG (Ăn sáng, trưa, tối)</strong><br>Quý khách dùng bữa sáng tại khách sạn . 07h30: HDV và xe đưa đoàn đi tham quan <strong>bản Cát Cát</strong>, bản của người H’Mông đen, thăm <strong>thác nước Cát Cát</strong>, <strong>thuỷ điện Cát cát</strong> nơi có ba con suối gặp nhau tạo thành thung lũng Mường Hoa quý khách chụp ảnh lưu niệm. Ăn trưa.<br>14h30 HDV đưa quý khách đi tham quan <strong>khu du lịch núi Hàm Rồng</strong> - hòa mình trong bốn bề của các loài hoa & ngắm nhìn toàn cảnh thị trấn Sapa, xem biểu diễn của những chàng trai cô gái trong điệu khèn, điệu múa đặc trưng của dân tộc  miền Tây Bắc…18h00: Quý khách dùng bữa tối tại nhà hang, sau bữa tối Quý khách tự do dạo chơi và khám phá thị trấn Sapa về đêm.</p><p><strong>NGÀY 3 : CHINH PHỤC FANSIPAN– LÀO CAI - HẢI PHÒNG (Ăn sáng, trưa)</strong><br>Quý khách dùng bữa sáng tại khách sạn. .HDV đưa Quý khách tới nhà Ga SAPA, quý khách trải nghiệm<strong> tàu hỏa leo núi Mường Hoa (TỰ TÚC CHI PHÍ)</strong> ngắm nhìn khung cảnh thiên nhiên hùng vĩ của thung lũng Mường Hoa với núi đồi trập trùng. Đến Ga cáp treo, du khách sẽ tiếp tục hành trình khám phá Sun World Fansipan Legend với cáp treo ba dây hiện đại nhất thế giới băng qua <strong>dãy Hoàng Liên Sơn, chinh phục đỉnh Fansipan</strong> - nóc nhà Đông Dương và chiêm bái quần thể văn hóa tâm linh trên đỉnh Fansipan. (TỰ TÚC CHI PHÍ)<br>11h30: Quý khách về nhà hàng dùng bữa trưa, trả phòng khách sạn sau đó quý khách tự do đi chợ Sapa mua sắm về làm quà cho người thân. Quý khách có mặt tại văn phòng xe hoặc bến xe Sapa, lên xe giường nằm khởi hành về Hà Nội (dự kiến chuyến 13:30 hoặc 16:00- tùy ngày khởi hành). Về đến tp Hải Phòng, Quý khách tự túc phương tiện trở về nhà. Kết thúc chương trình tham quan.</p>', 58045000, '2021-11-18', 2, 2),
 (4, 2, 7, 2, 0, '2021-11-23', 'Hồ Chí Minh', '<p><strong>NGÀY 1 | TP.HCM – HÀ NỘI – HẠ LONG (Ăn trưa, chiều)</strong></p><p> </p><p><strong>Sáng:</strong> Quý khách có mặt tại ga quốc nội, sân bay Tân Sơn Nhất trước giờ bay ít nhất ba tiếng.</p><ul><li>Đại diện công ty Du Lịch Việt đón và hỗ trợ Quý Khách làm thủ tục đón chuyến bay đi Hà Nội.</li><li>Đến sân bay Nội Bài, Hướng Dẫn Viên đón đoàn, Khởi hành đến Hạ Long. Đến núi Yên Tử - ngọn núi cao 1068 m so với mực nước biển, một thắng cảnh thiên nhiên còn lưu giữ hệ thống các di tích lịch sử văn hóa gắn với sự ra đời, hình thành và phát triển của thiền phái Trúc Lâm Yên Tử, được mệnh danh là “đất tổ Phật giáo Việt Nam”.</li></ul><p> </p><p><strong>Trưa:</strong> Dùng cơm trưa.</p><ul><li>Quý khách lên núi bằng cáp treo (chi phí cáp treo tự túc), tham quan chùa Hoa Yên, Bảo Tháp, Trúc Lâm Tam Tổ, Hàng Tùng 700 tuổi…xuống núi tham quan Thiền Viện Trúc Lâm với quả cầu Như Ý nặng 6 tấn được xếp kỷ lục guiness Việt Nam.</li><li>Đoàn khởi hành đến Hạ Long</li></ul><p> </p><p><strong>Tối: </strong>Dùng bữa tối. Nghỉ đêm tại Hạ Long.</p><ul><li>Quý khách tự do dạo phố, mua sắm tại chợ đêm hoặc tham gia khu Sunworld Hạ Long Park với tất cả khu trò chơi trong nhà, ngoài trời hoành tráng có các khu Công viên Rồng, Cáp treo Nữ Hoàng vòng quay Sun wheel…(chi phí tự túc).</li></ul><p> </p><p><strong>NGÀY 2 | HẠ LONG – NINH BÌNH (Ăn sáng, trưa, chiều)</strong></p><p> </p><p><strong>NGÀY 3 | NINH BÌNH – HÀ NỘI (Ăn sáng, trưa, chiều)</strong></p><p> </p><p><strong>NGÀY 4 | HÀ NỘI – LÀO CAI - SAPA (Ăn sáng, trưa, chiều)</strong></p><p> </p><p><strong>NGÀY 5 | SAPA – FANSIPAN – HÀ NỘI (Ăn sáng, trưa, chiều)</strong></p><p> </p><p><strong>NGÀY 6 | HÀ NỘI – TP.HCM (Ăn sáng, trưa)</strong></p><p> </p>', 16398000, '2021-11-20', 1, 1),
 (6, 2, 5, 2, 0, '2021-11-23', 'Hồ Chí Minh', '<p><strong>NGÀY 1 | TP.HCM – HÀ NỘI – HẠ LONG (Ăn trưa, chiều)</strong></p><p> </p><p><strong>Sáng:</strong> Quý khách có mặt tại ga quốc nội, sân bay Tân Sơn Nhất trước giờ bay ít nhất ba tiếng.</p><ul><li>Đại diện công ty Du Lịch Việt đón và hỗ trợ Quý Khách làm thủ tục đón chuyến bay đi Hà Nội.</li><li>Đến sân bay Nội Bài, Hướng Dẫn Viên đón đoàn, Khởi hành đến Hạ Long. Đến núi Yên Tử - ngọn núi cao 1068 m so với mực nước biển, một thắng cảnh thiên nhiên còn lưu giữ hệ thống các di tích lịch sử văn hóa gắn với sự ra đời, hình thành và phát triển của thiền phái Trúc Lâm Yên Tử, được mệnh danh là “đất tổ Phật giáo Việt Nam”.</li></ul><p> </p><p><strong>Trưa:</strong> Dùng cơm trưa.</p><ul><li>Quý khách lên núi bằng cáp treo (chi phí cáp treo tự túc), tham quan chùa Hoa Yên, Bảo Tháp, Trúc Lâm Tam Tổ, Hàng Tùng 700 tuổi…xuống núi tham quan Thiền Viện Trúc Lâm với quả cầu Như Ý nặng 6 tấn được xếp kỷ lục guiness Việt Nam.</li><li>Đoàn khởi hành đến Hạ Long</li></ul><p> </p><p><strong>Tối: </strong>Dùng bữa tối. Nghỉ đêm tại Hạ Long.</p><ul><li>Quý khách tự do dạo phố, mua sắm tại chợ đêm hoặc tham gia khu Sunworld Hạ Long Park với tất cả khu trò chơi trong nhà, ngoài trời hoành tráng có các khu Công viên Rồng, Cáp treo Nữ Hoàng vòng quay Sun wheel…(chi phí tự túc).</li></ul><p> </p><p><strong>NGÀY 2 | HẠ LONG – NINH BÌNH (Ăn sáng, trưa, chiều)</strong></p><p> </p><p><strong>NGÀY 3 | NINH BÌNH – HÀ NỘI (Ăn sáng, trưa, chiều)</strong></p><p> </p><p><strong>NGÀY 4 | HÀ NỘI – LÀO CAI - SAPA (Ăn sáng, trưa, chiều)</strong></p><p> </p><p><strong>NGÀY 5 | SAPA – FANSIPAN – HÀ NỘI (Ăn sáng, trưa, chiều)</strong></p><p> </p><p><strong>NGÀY 6 | HÀ NỘI – TP.HCM (Ăn sáng, trưa)</strong></p><p> </p>', 16398000, '2021-11-20', 2, 1),
-(7, 3, 7, 3, 0, '2021-11-16', 'Hồ Chí Minh', '<p><strong>NGÀY 1 | TP.HCM – HÀ NỘI – HÒA BÌNH – MAI CHÂU – MỘC CHÂU (Ăn trưa, chiều)</strong></p><p> </p><p> </p><p>Sáng: Quý khách có mặt tại ga quốc nội, sân bay Tân Sơn Nhất trước giờ bay ít nhất hai tiếng. Đại diện công ty Du Lịch Việt đón và hỗ trợ Quý khách làm thủ tục đón chuyến bay đi Hà Nội.</p><ul><li>Đến sân bay Nội Bài, xe đón Đoàn khởi hành đến Mai Châu.</li><li>Trên đường đến Hòa Bình, Quý khách có dịp ngắm nhìn Nhà máy thủy điện sông Đà (còn gọi là thủy điện Hòa Bình)</li><li>Chiêm ngưỡng toàn cảnh tuyệt đẹp của thung lũng Mai Châu trên đoạn đường đèo Thung Khe.</li></ul><p> </p><p> </p><p>Trưa: Dùng cơm trưa.</p><ul><li>Đoàn tiếp tục khởi hành đến Mai Châu, tham quan Bản Lác tìm hiểu phong tục tập quán của bản làng người Thái, nơi in đậm bản sắc văn hóa người Thái.</li><li>Rời Mai Châu, Đoàn khởi hành đến Cao Nguyên Mộc Châu nổi tiếng với những đồi chè xanh mướt trải dài đến tận bên kia quả đồi</li></ul><p> </p><p>Tối: Dùng cơm chiều. Nghỉ đêm Mộc Châu.</p><p><strong>NGÀY 2 | MỘC CHÂU – SƠN LA – ĐIỆN BIÊN (Ăn sáng, trưa, chiều)</strong></p><p> </p><p><strong>NGÀY 3 | ĐIỆN BIÊN – MƯỜNG LAY – SAPA (Ăn sáng, trưa, chiều)</strong></p><p> </p><p><strong>NGÀY 4 | SAPA – FANSIPAN – BẢN CÁT CÁT (Ăn sáng, trưa, chiều)</strong></p><p> </p><p><strong>NGÀY 5 | SAPA – YÊN BÁI – MÙ CANG CHẢI (Ăn sáng, trưa, chiều)</strong></p><p> </p><p><strong>NGÀY 6 | YÊN BÁI – PHÚ THỌ – HÀ NỘI –TP.HCM (Ăn sáng, trưa)</strong></p><p> </p>', 25197000, '2021-11-23', 2, 2);
+(7, 3, 7, 3, 0, '2021-11-16', 'Hồ Chí Minh', '<p><strong>NGÀY 1 | TP.HCM – HÀ NỘI – HÒA BÌNH – MAI CHÂU – MỘC CHÂU (Ăn trưa, chiều)</strong></p><p> </p><p> </p><p>Sáng: Quý khách có mặt tại ga quốc nội, sân bay Tân Sơn Nhất trước giờ bay ít nhất hai tiếng. Đại diện công ty Du Lịch Việt đón và hỗ trợ Quý khách làm thủ tục đón chuyến bay đi Hà Nội.</p><ul><li>Đến sân bay Nội Bài, xe đón Đoàn khởi hành đến Mai Châu.</li><li>Trên đường đến Hòa Bình, Quý khách có dịp ngắm nhìn Nhà máy thủy điện sông Đà (còn gọi là thủy điện Hòa Bình)</li><li>Chiêm ngưỡng toàn cảnh tuyệt đẹp của thung lũng Mai Châu trên đoạn đường đèo Thung Khe.</li></ul><p> </p><p> </p><p>Trưa: Dùng cơm trưa.</p><ul><li>Đoàn tiếp tục khởi hành đến Mai Châu, tham quan Bản Lác tìm hiểu phong tục tập quán của bản làng người Thái, nơi in đậm bản sắc văn hóa người Thái.</li><li>Rời Mai Châu, Đoàn khởi hành đến Cao Nguyên Mộc Châu nổi tiếng với những đồi chè xanh mướt trải dài đến tận bên kia quả đồi</li></ul><p> </p><p>Tối: Dùng cơm chiều. Nghỉ đêm Mộc Châu.</p><p><strong>NGÀY 2 | MỘC CHÂU – SƠN LA – ĐIỆN BIÊN (Ăn sáng, trưa, chiều)</strong></p><p> </p><p><strong>NGÀY 3 | ĐIỆN BIÊN – MƯỜNG LAY – SAPA (Ăn sáng, trưa, chiều)</strong></p><p> </p><p><strong>NGÀY 4 | SAPA – FANSIPAN – BẢN CÁT CÁT (Ăn sáng, trưa, chiều)</strong></p><p> </p><p><strong>NGÀY 5 | SAPA – YÊN BÁI – MÙ CANG CHẢI (Ăn sáng, trưa, chiều)</strong></p><p> </p><p><strong>NGÀY 6 | YÊN BÁI – PHÚ THỌ – HÀ NỘI –TP.HCM (Ăn sáng, trưa)</strong></p><p> </p>', 25197000, '2021-11-23', 2, 1),
+(8, 2, 7, 10, 2, '2021-11-16', 'Hồ Chí Minh', '<p><strong>NGÀY 1 | TP.HCM – HÀ NỘI – HẠ LONG (Ăn trưa, chiều)</strong></p><p> </p><p><strong>Sáng:</strong> Quý khách có mặt tại ga quốc nội, sân bay Tân Sơn Nhất trước giờ bay ít nhất ba tiếng.</p><ul><li>Đại diện công ty Du Lịch Việt đón và hỗ trợ Quý Khách làm thủ tục đón chuyến bay đi Hà Nội.</li><li>Đến sân bay Nội Bài, Hướng Dẫn Viên đón đoàn, Khởi hành đến Hạ Long. Đến núi Yên Tử - ngọn núi cao 1068 m so với mực nước biển, một thắng cảnh thiên nhiên còn lưu giữ hệ thống các di tích lịch sử văn hóa gắn với sự ra đời, hình thành và phát triển của thiền phái Trúc Lâm Yên Tử, được mệnh danh là “đất tổ Phật giáo Việt Nam”.</li></ul><p> </p><p><strong>Trưa:</strong> Dùng cơm trưa.</p><ul><li>Quý khách lên núi bằng cáp treo (chi phí cáp treo tự túc), tham quan chùa Hoa Yên, Bảo Tháp, Trúc Lâm Tam Tổ, Hàng Tùng 700 tuổi…xuống núi tham quan Thiền Viện Trúc Lâm với quả cầu Như Ý nặng 6 tấn được xếp kỷ lục guiness Việt Nam.</li><li>Đoàn khởi hành đến Hạ Long</li></ul><p> </p><p><strong>Tối: </strong>Dùng bữa tối. Nghỉ đêm tại Hạ Long.</p><ul><li>Quý khách tự do dạo phố, mua sắm tại chợ đêm hoặc tham gia khu Sunworld Hạ Long Park với tất cả khu trò chơi trong nhà, ngoài trời hoành tráng có các khu Công viên Rồng, Cáp treo Nữ Hoàng vòng quay Sun wheel…(chi phí tự túc).</li></ul><p> </p><p><strong>NGÀY 2 | HẠ LONG – NINH BÌNH (Ăn sáng, trưa, chiều)</strong></p><p> </p><p><strong>NGÀY 3 | NINH BÌNH – HÀ NỘI (Ăn sáng, trưa, chiều)</strong></p><p> </p><p><strong>NGÀY 4 | HÀ NỘI – LÀO CAI - SAPA (Ăn sáng, trưa, chiều)</strong></p><p> </p><p><strong>NGÀY 5 | SAPA – FANSIPAN – HÀ NỘI (Ăn sáng, trưa, chiều)</strong></p><p> </p><p><strong>NGÀY 6 | HÀ NỘI – TP.HCM (Ăn sáng, trưa)</strong></p><p> </p>', 93468600, '2021-12-02', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -131,7 +157,7 @@ INSERT INTO `don_hang` (`id`, `id_tour`, `id_kh`, `nguoi_lon`, `tre_em`, `ngay_d
 
 CREATE TABLE `gioi_thieu` (
   `id` int(11) NOT NULL,
-  `noi_dung` varchar(10000) COLLATE utf8_unicode_ci NOT NULL,
+  `noi_dung` mediumtext COLLATE utf8_unicode_ci NOT NULL,
   `ngay_tao` date NOT NULL,
   `trang_thai` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -141,7 +167,7 @@ CREATE TABLE `gioi_thieu` (
 --
 
 INSERT INTO `gioi_thieu` (`id`, `noi_dung`, `ngay_tao`, `trang_thai`) VALUES
-(4, '<p>THÔNG TIN CƠ BẢN VỀ CÔNG TY - Tên chính thức : CÔNG TY CỔ PHẦN TRUYỀN THÔNG DU LỊCH VIỆT - Tên giao dịch đối ngoại: VIET MEDIA TRAVEL CORPORATION - Tên giao dịch viết tắt: VIET MEDIA TRAVEL - Hình thức sở hữu: Cổ phần; Thành lập: Ngày 11/01/2008 - Giấy phép LHQT số: GP79-042/2009/TCDL-GP. - Số ĐKKD: 030 5448 565 được cấp bởi Sở Kế hoạch và Đầu tư TP. Hồ Chí Minh. - Đăng ký lần đầu ngày 11/01/2008, - Đăng ký thay đổi lần 05 ngày 26/10/201712</p>', '2021-11-29', 1),
+(4, '<p><strong>THÔNG TIN CƠ BẢN VỀ CÔNG TY</strong><br>- Tên chính thức : CÔNG TY CỔ PHẦN VNTRAVEL<br>- Tên giao dịch đối ngoại: VNTRAVEL<br>- Hình thức sở hữu: &nbsp;Cổ phần; Thành lập: Ngày 01/11/2021</p><p><strong>TRỤ SỞ CHÍNH</strong><br>- Địa chỉ: Số 3 Trịnh Văn Bô, Nam Từ Liêm, Hà Nội.<br>- Hotline : 1900 xxxx<br>- Tel: (+84 8) 730 xxxx<br>- Website: <a href=\"\">vntravel.domain</a><br>- Email: example@email.com<br><br><strong>TẦM NHÌN</strong></p><ul><li>Trở thành Thương hiệu du lịch được yêu thích nhất của người Việt Nam</li><li>Trở thành Tập đoàn du lịch nghỉ dưỡng Top đầu Đông Nam á</li></ul><p><strong>SỨ MỆNH</strong></p><ul><li>Tạo ra các sản phẩm du lịch phong phú, nhân văn cho mọi gia đình Việt với</li></ul><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;GIÁ TRỊ GỐC – &nbsp;CHẤT LƯỢNG CAO&nbsp;</p><ul><li>Chuyển tải vẻ đẹp của các danh lam thắng cảnh, nét văn hóa độc đáo và những thành tựu phát triển mọi mặt của nhân loại tới khách hàng;</li><li>Kết nối, dẫn dắt đem đến cho du khách trải nghiệm thú vị trong từng hành trình đến với những miền đất Việt Nam tươi đẹp và những nền văn minh của các quốc gia trên thế giới.</li></ul><p><strong>CÁC SẢN PHẨM CỦA CÔNG TY</strong></p><ul><li>Tour Cố Định: Tour phục vụ những khách hàng có số lượng thành viên &lt; 7 người và có thời gian đi <strong>cố định</strong></li><li>Tour Linh Động: Tour phục vụ những khách hàng có số lượng thành viên &gt; 7 người và có thời gian đi <strong>linh động</strong> theo <strong>mong muốn của khách hàng</strong>, đặc biệt để nâng cao sự riêng tư và trải nghiệm cho khách hàng, tour sẽ là tour cá nhân (Không ghép tour).</li></ul><p><strong>QUÁ TRÌNH HÌNH THÀNH VÀ PHÁT TRIỂN CỦA DU LỊCH VIỆT</strong></p><ul><li>Được thành lập từ năm 2021 giữa lúc nền kinh tế trong nước và Quốc tế đang rất phát triển, <strong>VNTravel</strong> xuất hiện trên thị trường du lịch Việt Nam với sản phẩm du lịch&nbsp; &nbsp; &nbsp; &nbsp; trong nước chất lượng cao, giá thành rẻ đến bất ngờ.&nbsp;</li><li>Định hướng chiến lược mang tính đột phá tại thời điểm thành lập và đi vào vận hành trong những bước đi chập chững ban đầu của <strong>VNTravel</strong> đó là: Thay vì tập trung vào quảng cáo, đầu tư hệ thống bán hàng theo cách truyền thống làm tăng chi phí cố định dẫn đến tăng giá thành tour, Du lịch Việt đã tập trung đầu tư vốn vào chất lượng dịch vụ và xây dựng nguồn nhân lực để giữ dịch vụ được ổn định, tốt nhất cho du khách trong mọi thời điểm.</li></ul><p><i><strong>Công ty VNTravel</strong> luôn nỗ lực hết mình và không ngừng sáng tạo, đổi mới, phấn đấu trở thành công ty quy mô và chuyên nghiệp nhất trong lĩnh vực du lịch lữ hành. Với tầm nhìn xa của Ban Lãnh đạo công ty, hướng dẫn viên năng động, chuyên nghiệp; Kết hợp thế mạnh về nguồn tài chính vững chắc, mối quan hệ bền vững với các đối tác trong và ngoài nước; Công ty đã và ngày càng xây dựng nhiều sản phẩm du lịch và loại hình du lịch đa dạng phục vụ nhu cầu của khách hàng; Đem lại sự hài lòng, thoải mái, sự trải nghiệm thú vị trong từng chuyến thưởng ngoạn du lịch đầy đam mê và hấp dẫn cùng Du Lịch Việt.</i></p>', '2021-11-29', 1),
 (5, 'TRỤ SỞ CHÍNH\r\n- Địa chỉ: 95B-97-99 Trần Hưng Đạo, Q.1, TPHCM.\r\n- Hotline : 1900 1177\r\n- Tel: (+84 8) 730 56789       \r\n- Website: www.dulichviet.com.vn\r\n- Email: info@dulichviet.com.vn', '2021-11-29', 1);
 
 -- --------------------------------------------------------
@@ -165,7 +191,7 @@ CREATE TABLE `khach_hang` (
 --
 
 INSERT INTO `khach_hang` (`id`, `ten`, `email`, `mat_khau`, `sdt`, `ngay_tao`, `trang_thai`) VALUES
-(5, 'Trần Văn Nam', 'namtvph13226@fpt.edu.vn', 'c9740b276a32f2066522ee3362ae90aa', '0839551901', '2021-11-15', 1),
+(5, 'Trần Văn Nam', 'namtvph13226@fpt.edu.vn', 'e10adc3949ba59abbe56e057f20f883e', '0839551901', '2021-11-15', 1),
 (7, 'Trần Nam', 'vannamhdvt@gmail.com', 'c9740b276a32f2066522ee3362ae90aa', '0369852147', '2021-11-20', 1);
 
 -- --------------------------------------------------------
@@ -290,6 +316,14 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `binh_luan`
+--
+ALTER TABLE `binh_luan`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_idtour` (`id_tour`),
+  ADD KEY `FK_idkh` (`id_kh`);
+
+--
 -- Chỉ mục cho bảng `danh_muc`
 --
 ALTER TABLE `danh_muc`
@@ -358,6 +392,12 @@ ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT cho bảng `binh_luan`
+--
+ALTER TABLE `binh_luan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT cho bảng `danh_muc`
 --
 ALTER TABLE `danh_muc`
@@ -373,7 +413,7 @@ ALTER TABLE `dia_chi`
 -- AUTO_INCREMENT cho bảng `don_hang`
 --
 ALTER TABLE `don_hang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `gioi_thieu`
@@ -414,6 +454,13 @@ ALTER TABLE `tour`
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
+
+--
+-- Các ràng buộc cho bảng `binh_luan`
+--
+ALTER TABLE `binh_luan`
+  ADD CONSTRAINT `FK_idkh` FOREIGN KEY (`id_kh`) REFERENCES `khach_hang` (`id`),
+  ADD CONSTRAINT `FK_idtour` FOREIGN KEY (`id_tour`) REFERENCES `tour` (`id`);
 
 --
 -- Các ràng buộc cho bảng `don_hang`

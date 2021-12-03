@@ -5,9 +5,9 @@ function getSelect($table,$start, $quantity){
     return query($sql);
 }
 
-function getSelect_one($table, $value, $email){
+function getSelect_one($table, $value, $id){
     $sql = "SELECT * FROM $table where $value = ?";
-    return query_one($sql, $email);
+    return query_one($sql, $id);
 }
 
 function getDelete($table, $id, $value){
@@ -212,10 +212,36 @@ function update_slide($ten_slide, $image, $url, $id){
 /// ------------ Giới Thiệu -----------------------------
 function insert_gioithieu($ten,$date){
     $sql ="INSERT INTO gioi_thieu(noi_dung,ngay_tao) VALUES(?,?)"; 
-     execute($sql, $ten,$date);
+    execute($sql, $ten,$date);
 }
 function update_gioithieu($ten,$id){
     $sql ="UPDATE gioi_thieu set noi_dung = ? where id = ?"; 
     execute($sql, $ten,$id);
+}
+
+// --------------------Bình luận---------------------
+function insert_comment($id_kh, $id_tour, $noi_dung, $danh_gia, $date){
+    $sql ="INSERT INTO binh_luan(id_kh, id_tour, noi_dung, danh_gia,ngay_tao) VALUES(?,?,?,?,?)"; 
+    execute($sql, $id_kh, $id_tour, $noi_dung, $danh_gia, $date);
+}
+
+function getSelect_cmt($table, $value, $id){
+    $sql = "SELECT * FROM $table where $value = $id";
+    return query($sql);
+}
+
+function select_tour(){
+    $sql = "SELECT distinct(t.ten), t.id FROM binh_luan bl inner join tour t on bl.id_tour = t.id";
+    return query($sql);
+}
+
+function select_count_cmt($id_tour){
+    $sql = "SELECT count(id_tour) as tong FROM binh_luan where id_tour = ?";
+    return query_one($sql, $id_tour);
+}
+
+function select_avg($id_tour){
+    $sql = "SELECT avg(danh_gia) as trung_binh FROM binh_luan where id_tour = ?";
+    return query_one($sql, $id_tour);
 }
 ?>

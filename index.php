@@ -9,7 +9,7 @@ require_once './dao/connect_DB.php';
 
 $url = isset($_GET['url']) ? $_GET['url'] : "/";
 switch ($url) {
-        //------------------------------------HOMEPAGE---DETAIL----------------------------------------
+        //----------------------------HOMEPAGE---DETAIL---COMMENT--------------------------------
     case '/':
         require_once './business/client/clientpage.php';
         client_homepage();
@@ -31,6 +31,10 @@ switch ($url) {
     case 'infor':
         require_once './business/client/clientpage.php';
         client_infor();
+        break;
+    case 'save-comment':
+        require_once './business/client/clientpage.php';
+        client_comment();
         break;
         //----------------------------LOGIN---LOGOUT---SIGN-UP---CLIENT---------------------------
     case 'login':
@@ -384,6 +388,24 @@ switch ($url) {
     case 'admin/infor/status':
         require_once './business/admin/infor.php';
         infor_status();
+        break;
+        //-------------------------------------MANAGE INFORMATION---------------------------------------------
+    case 'admin/comment/list':
+        require_once './business/admin/comment.php';
+        comment_list();
+        break;
+    case 'admin/comment/detail':
+        require_once './business/admin/comment.php';
+        comment_detail();
+        break;
+    case 'admin/comment/delete':
+        require_once './business/admin/comment.php';
+        comment_delete();
+        break;
+    case 'admin/comment/status':
+        require_once './business/admin/comment.php';
+        comment_status();
+        break;
     default:
         require_once './404.php';
         break;
