@@ -71,36 +71,11 @@ function client_homepage()
 function client_detail()
 {
     $value = getSelect_one("tour", "id", intval($_GET['id']));
-    $comment = [];
+    $comment = getSelect_cmt("binh_luan", "id_tour", intval($_GET['id']));
     client_render('detail.php', [
         "value" => $value,
         "comment" => $comment
     ]);
-}
-function client_login()
-{
-    extract($_REQUEST);
-    if (empty($email) || empty($mat_khau)) {
-        $_SESSION['error'] = 'Không được để trống.';
-        header("location: $website/log/loginform.php");
-        die;
-    }
-    $user = getSelect_one('khach_hang', 'email', $email);
-
-    if (empty($user) || md5($mat_khau) != $user['mat_khau']) {
-        $_SESSION['error'] = 'Mật khẩu hoặc tài khoản không đúng.';
-        header("location: $website/log/loginform.php");
-        die;
-    }
-    $_SESSION['user'] = $user;
-    $_SESSION['success'] = "<script>alert('Đăng nhập thành công.');</script>";
-    if (isset($_SESSION['id_tour'])) {
-        $id_tour = $_SESSION['id_tour'];
-        unset($_SESSION['id_tour']);
-        header("location: $website/tour-detail.php?id=$id_tour");
-        die;
-    }
-    header("Location: $website/");
 }
 function client_infor(){
     $result = getSelect("gioi_thieu", 0, 10);
@@ -115,3 +90,15 @@ function client_infor(){
     client_render('infor.php',["result" => $tour, "category" => $category, "address" => $address]);
 }
 
+function client_comment(){
+    extract($_REQUEST);
+    if(empty($noi_dung) || empty($danh_gia)){
+        $_SESSION['error_cmt'] = "Vui lòng không để trống !";
+        header("location: " . BASE_URL . "/detail?id=$id_tour#comment");
+        die;
+    }
+    $date = date('Y-m-d H:i:s');
+    insert_comment($id_kh, $id_tour, $noi_dung, $danh_gia, $date);
+    header("location: " . BASE_URL . "/detail?id=$id_tour#comment");
+}
+?>

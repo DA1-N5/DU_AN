@@ -15,7 +15,7 @@
         <?php
             if (!isset($_SESSION['user'])) {
             ?>
-                <a href="<?=BASE_URL?>/login?id_tour=<?=$_GET['id']?>" class="btn" style="border: 2px solid #000;padding: 5px; font-size:15px">Đăng nhập ngay để liên hệ đặt tour</a>
+                <a href="<?=BASE_URL?>/login" class="btn" style="border: 2px solid #000;padding: 5px; font-size:15px">Đăng nhập ngay để liên hệ đặt tour</a>
             <?php
             } else {
             ?>
@@ -41,18 +41,19 @@
         if (empty($comment)) {
             echo "<h2 style='text-align: center; color:red'>Chưa có đánh giá !</h2>";
         } else {
-            foreach ($comment as $value) {
-                $user = getSelect_one('khach_hang', 'ma_khach_hang', $value['ma_khach_hang']);
+            foreach ($comment as $cmt) {
+                if(intval($cmt['trang_thai']) == 1){
+                $user = getSelect_one('khach_hang', 'id', $cmt['id_kh']);
         ?>
-                <h4><?= $user['ten'] ?></h4>
+                <h3 style="color:blue" ><?= $user['ten'] ?></h3>
                 <div class="stars">
                     <?php
-                    for ($i = 0; $i < intval($value['danh_gia']); $i++) {
+                    for ($i = 0; $i < intval($cmt['danh_gia']); $i++) {
                     ?>
                         <i class="fas fa-star"></i>
                     <?php
                     }
-                    for ($j = 0; $j < (5 - intval($value['danh_gia'])); $j++) {
+                    for ($j = 0; $j < (5 - intval($cmt['danh_gia'])); $j++) {
                     ?>
                         <i class="far fa-star"></i>
                     <?php
@@ -60,19 +61,24 @@
                     ?>
                     <br>
                     <br>
-                    <p style="font-size:17px"><?= $value['noi_dung'] ?></p>
+                    <style>
+                    .nd img{
+                        max-width: 100%;
+                    }
+                    </style>
+                    <h4 style="font-size:25px" class="nd"><?= $cmt['noi_dung'] ?></h4>
                     <p>
                         <?php
-                        if (strtotime(date('Y-m-d H:i:s')) - strtotime($value['ngay_them']) < 60) {
-                            echo (strtotime(date('Y-m-d H:i:s')) - strtotime($value['ngay_them'])) . " Giây trước";
-                        } else if ((strtotime(date('Y-m-d H:i:s')) - strtotime($value['ngay_them'])) < 3600) {
-                            echo floor((strtotime(date('Y-m-d H:i:s')) - strtotime($value['ngay_them'])) / 60) . " Phút trước";
-                        } else if ((strtotime(date('Y-m-d H:i:s')) - strtotime($value['ngay_them'])) < 86400) {
-                            echo floor((strtotime(date('Y-m-d H:i:s')) - strtotime($value['ngay_them'])) / 3600) . " Giờ trước";
-                        } else if ((strtotime(date('Y-m-d H:i:s')) - strtotime($value['ngay_them'])) < 2592000) {
-                            echo floor((strtotime(date('Y-m-d H:i:s')) - strtotime($value['ngay_them'])) / 86400) . " Ngày trước";
+                        if (strtotime(date('Y-m-d H:i:s')) - strtotime($cmt['ngay_tao']) < 60) {
+                            echo (strtotime(date('Y-m-d H:i:s')) - strtotime($cmt['ngay_tao'])) . " Giây trước";
+                        } else if ((strtotime(date('Y-m-d H:i:s')) - strtotime($cmt['ngay_tao'])) < 3600) {
+                            echo floor((strtotime(date('Y-m-d H:i:s')) - strtotime($cmt['ngay_tao'])) / 60) . " Phút trước";
+                        } else if ((strtotime(date('Y-m-d H:i:s')) - strtotime($cmt['ngay_tao'])) < 86400) {
+                            echo floor((strtotime(date('Y-m-d H:i:s')) - strtotime($cmt['ngay_tao'])) / 3600) . " Giờ trước";
+                        } else if ((strtotime(date('Y-m-d H:i:s')) - strtotime($cmt['ngay_tao'])) < 2592000) {
+                            echo floor((strtotime(date('Y-m-d H:i:s')) - strtotime($cmt['ngay_tao'])) / 86400) . " Ngày trước";
                         } else {
-                            echo floor((strtotime(date('Y-m-d H:i:s')) - strtotime($value['ngay_them'])) / 2592000) . " Tháng trước";
+                            echo floor((strtotime(date('Y-m-d H:i:s')) - strtotime($cmt['ngay_tao'])) / 2592000) . " Tháng trước";
                         }
 
                         ?>
@@ -80,6 +86,7 @@
                 </div>
                 <h1 style="border-bottom:1px solid #000"></h1>
         <?php
+                }
             }
         }
         ?>
@@ -139,17 +146,19 @@
         }
     </style>
     <div class="col-12" id="comment">
+        <h4 style="color: red;">
         <?php
         if (isset($_SESSION['error_cmt'])) {
             echo $_SESSION['error_cmt'];
             unset($_SESSION['error_cmt']);
         }
         ?>
+        </h4>
 
-        <form action="" method="POST">
-            <h2>Đánh giá</h2>
-            <input type="hidden" name="ma_san_pham" value="">
-            <input type="hidden" name="ma_khach_hang" value="">
+        <form action="save-comment" method="POST">
+            <h2>Đánh giá*</h2>
+            <input type="hidden" name="id_tour" value="<?= $value['id'] ?>">
+            <input type="hidden" name="id_kh" value="<?=$_SESSION['user']['id']?>">
             <div id="rating">
                 <input type="radio" id="star5" value="5" name="danh_gia" />
                 <label class="full" for="star5" title="Tuyệt vời quá"></label>
@@ -167,13 +176,21 @@
                 <label class="full" for="star1" title="Không thích"></label>
             </div>
             <br><br>
-            <br><br>
             <h2>Nội dung*</h2><br>
-            <textarea name="noi_dung" id="noi_dung" placeholder="Tối đa 2000 kí tự"></textarea>
+            <?php
+            if (isset($_SESSION['user'])) {
+            ?>
+                <h4>Bạn đang bình luận dưới tên: <span style="color:blue"><?=$_SESSION['user']['ten']?></span></h4><br>
+            <?php
+            }
+            ?>
+            <div class="form-group">
+                <textarea name="noi_dung" id="noi_dung" placeholder="Viết cảm nghĩ của bạn" class="form-control"></textarea>
+            </div>
             <?php
             if (!isset($_SESSION['user'])) {
             ?>
-                <a href="#" class="btn" style="border: 2px solid #000;padding: 5px; font-size:15px">Đăng nhập ngay để đánh giá</a>
+                <a href="<?=BASE_URL?>/login" class="btn" style="border: 2px solid #000;padding: 5px; font-size:15px">Đăng nhập ngay để đánh giá</a>
             <?php
             } else {
             ?>
@@ -204,7 +221,7 @@
 
     <h1 class="heading"> Tour <span>Liên Quan</span> </h1>
 
-    <div class="container">
+    <!-- <div class="container">
         <div class="row g-2">
 
             <div class="col-3">
@@ -260,6 +277,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 </section>

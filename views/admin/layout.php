@@ -251,7 +251,19 @@ if(!isset($_SESSION['admin'])){
                             <li><a href="<?=BASE_URL?>/admin/slider/add"><i
                                         class="fa fa-circle-o"></i> Thêm mới</a></li>            
                          </ul>
-                    </li>                
+                    </li> 
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-list-alt"></i> <span>Quản lí Comment</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                         <ul class="treeview-menu">
+                            <li><a href="<?=BASE_URL?>/admin/comment/list"><i
+                                        class="fa fa-circle-o"></i> Danh sách</a></li>          
+                         </ul>
+                    </li>               
                 </ul>
             </section>
         </aside>
