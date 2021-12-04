@@ -12,7 +12,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <a href="<?=BASE_URL?>/admin/infor/add" class="btn btn-success">+Thêm mới Giới THiệu</a>
+                    <a href="<?=BASE_URL?>/admin/infor/add" class="btn btn-success">+Thêm mới Giới Thiệu</a>
 
                     <div class="box-tools">
                         <form action="<?=BASE_URL?>/admin/phuongtien/find-user.php" class="input-group input-group-sm" style="width: 150px;" method="GET">
