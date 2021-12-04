@@ -1,49 +1,92 @@
 <section class="home" id="home" style="margin-top: 85px">
+    <?php
+    if (empty($slider)) {
+    } else {
+        for ($i = 0; $i < count($slider); $i++) {
+    ?>
+            <div class="slide-container <?= $i == 0 ? "active" : "" ?>">
+                <a href="<?= $slider[$i]['url'] ?>">
+                    <img src="<?= IMAGE_URL . $slider[$i]['image'] ?>" class="sliderImage" width="100%" alt="">
+                </a>
+            </div>
+    <?php
+        }
+    }
+    ?>
+    <div id="prev" class="fas fa-chevron-left" onclick="prev()"></div>
+    <div id="next" class="fas fa-chevron-right" onclick="next()"></div>
+</section>
+<aside style="margin-top: 20px;">
+    <h1 class="heading"> Tour <span>Nổi bật</span> </h1>
+    <style>
+        #tournoibat {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-gap: 20px;
+            max-width: 85%;
+            margin: auto;
+            padding: 10px;
+        }
+
+        #tournoibat .img2 {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-gap: 10px;
+        }
+        #tournoibat .img1 img{
+            border-radius: 10px;
+            max-width: 100%;
+        }
+        #tournoibat .img2 img{
+            border-radius: 15px;
+            max-width: 96%;
+        }
+        @media only screen and (max-width: 1200px) {
+            #tournoibat {
+                display: grid;
+                grid-template-columns: auto;
+                grid-gap: 0px;
+                max-width: 90%;
+                margin: auto;
+            }
+            #tournoibat .img2 {
+                display: grid;
+                grid-template-columns: auto;
+                grid-gap: 0px;
+            }
+            #tournoibat .img2 img{
+                border-radius: 15px;
+                max-width: 100%;
+                padding-top: 10px;
+            }
+        }
+    </style>
+    <div id="tournoibat">
         <?php
-        if (empty($slider)) {
+        if (empty($hightlights)) {
         } else {
-            for ($i = 0; $i < count($slider); $i++) {
+            for ($i = 0; $i < 1; $i++) {
         ?>
-                <div class="slide-container <?=$i == 0 ? "active" : "" ?>">
-                    <a href="<?= $slider[$i]['url'] ?>">
-                        <img src="<?= IMAGE_URL . $slider[$i]['image'] ?>" class="sliderImage" width="100%"alt="">
-                    </a>
-                </div>
+        <div class="img1"><a href="<?=BASE_URL?>/detail?id=<?=$hightlights[$i]['id']?>"><img src="<?= IMAGE_URL . $hightlights[$i]['anh']?>" alt=""></a></div>
         <?php
             }
         }
         ?>
-        <div id="prev" class="fas fa-chevron-left" onclick="prev()"></div>
-        <div id="next" class="fas fa-chevron-right" onclick="next()"></div>
-</section>
-<aside style="margin-top: 150px;">
-    <div class="tournoibat">
-        <h1 class="heading"> Tour <span>Nổi bật</span> </h1>
-        <div class="row col-10" style="margin:auto;">
-            <div class="col-12   col-sm-12	col-md-12	col-lg-12	col-xl-6    col-xxl-6">
-                <img src="images/anh1.png.jpg" style="max-width:100%" class="col-12">
-            </div>
-            <div style="margin:auto;" class="row col-12   col-sm-12	col-md-12	col-lg-12	col-xl-6    col-xxl-6">
-                <div class="col-6" style="padding-bottom:7.5px">
-                    <img src="images/anh1.png.jpg" style="max-width:100%">
-                </div>
-                <div class="col-6" style="padding-bottom:7.5px">
-                    <img src="images/anh1.png.jpg" style="max-width:100%">
-                </div>
-                <div class="col-6" style="padding-top:7.5px">
-                    <img src="images/anh1.png.jpg" style="max-width:100%">
-                </div>
-                <div class="col-6" style="padding-top:7.5px">
-                    <img src="images/anh1.png.jpg" style="max-width:100%">
-                </div>
-            </div>
+        <div class="img2">
+            <?php
+            if (empty($hightlights)) {
+            } else {
+                for ($i = 1; $i < count($hightlights); $i++) {
+            ?>
+            <a class="row" href="<?=BASE_URL?>/detail?id=<?=$hightlights[$i]['id']?>"><img src="<?= IMAGE_URL . $hightlights[$i]['anh']?>" alt=""></a>
+            
+            <?php
+                }
+            }
+            ?>
         </div>
     </div>
-    <div class="contenner">
-
-        <h1 class="heading"> Tour <span>Mới Nhất</span> </h1>
-
-    </div>
+    <h1 class="heading"> Tour <span>Mới Nhất</span> </h1>
     <div class="col-10" id="row" style="margin:auto">
 
         <?php

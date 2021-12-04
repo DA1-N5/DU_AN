@@ -99,6 +99,14 @@ function update_tour($ten, $id_diachi, $anh, $id_danhmuc, $ngay_di, $ngay_den, $
     $sql = "UPDATE tour set ten = ?, id_diachi = ?, anh = ? ,id_danhmuc = ?, ngay_di = ?, ngay_den = ?, noi_di = ?, mo_ta =?, thong_tin = ?, gia = ?, ngay_sua = ? where id = ?";
     execute($sql, $ten, $id_diachi, $anh, $id_danhmuc, $ngay_di, $ngay_den, $noi_di, $mo_ta, $thong_tin, $gia, $ngay_sua, $id);
 }
+function select_hightlights(){
+    $sql = "SELECT * FROM tour where trang_thai = 1  order by luot_xem asc limit 0,5 ";
+    return query($sql);
+}
+function selct_tour_lq(){
+    $sql = " SELECT * FROM  tour where id_danhmuc = 1 order by rand() limit 0,2 ";
+    return query($sql);
+}
 
 // Đơn hàng ---------------------------------------------
 function insert_donhang($id_tour, $id_kh, $nguoi_lon, $tre_em, $ngay_di, $noi_di, $gia, $lich_trinh, $ngay_tao){
@@ -244,4 +252,5 @@ function select_avg($id_tour){
     $sql = "SELECT avg(danh_gia) as trung_binh FROM binh_luan where id_tour = ?";
     return query_one($sql, $id_tour);
 }
+
 ?>
