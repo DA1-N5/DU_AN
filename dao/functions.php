@@ -253,4 +253,30 @@ function select_avg($id_tour){
     return query_one($sql, $id_tour);
 }
 
+//-----------------------admin---------------------
+
+// function edit_admin($ten, $sdt, $id) {
+//     $sql = "UPDATE admin set ten = ?, sdt = ? where id = ?";
+//     return execute($sql, $ten, $sdt, $id);
+// } 
+
+// function edit_password_admin($mat_khau, $id) {
+//     $sql = "UPDATE admin set mat_khau = ? where id = ?";
+//     return execute($sql, $mat_khau, $id);
+// } 
+
+function update_admin($mat_khau,$email){
+    $sql = "UPDATE admin set  mat_khau = ? where email = ?";
+    execute($sql,$mat_khau, $email);
+}
+
+// function update_user_one_admin($mat_khau, $email) {
+//     $sql = "UPDATE admin set mat_khau = ? where email = ?";
+//     return execute($sql, $mat_khau, $email);
+// }
+
+// function check_email_existed_admin($email) {
+//     $sql = "SELECT email FROM admin WHERE email=?";
+//     return query_one($sql, $email);
+// }
 ?>

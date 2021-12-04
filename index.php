@@ -121,6 +121,41 @@ switch ($url) {
         require_once './business/admin/log.php';
         admin_logout();
         break;
+         //------------------------------FORGOT PASWORD ADMIN---------------------------------
+    case 'admin/forgot-password':
+        require_once './business/admin/log.php';
+        admin_check_email_form();
+        break;
+    case 'admin/checkEmail': 
+        require_once './business/admin/log.php';
+        admin_check_email();
+        break;
+    case 'admin/change-password-form':
+        require_once './business/admin/log.php';
+        admin_change_pass_form();
+        break;
+    case 'admin/change-password':
+        require_once './business/admin/log.php';
+        admin_change_pass();
+        break;
+    case 'admin/check-code-form':
+        require_once './business/admin/log.php';
+        admin_check_code_form();
+        break;
+    case 'admin/check-code':
+        require_once './business/admin/log.php';
+        admin_check_code();
+        break;
+    case 'admin/send-mail':
+        require_once './business/admin/log.php';
+        admin_sendmail();
+        break;
+    //------------------------------Edit thông tin admin-----------------
+    case 'admin/edit-admin':
+        require_once './business/admin/vehicle.php';
+        vehicle_list();
+        break;
+    
         //----------------------------------------MANAGE--VEHICLE------------------------------------------
     case 'admin/vehicle/list':
         require_once './business/admin/vehicle.php';

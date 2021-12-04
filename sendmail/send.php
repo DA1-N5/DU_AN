@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include("PHPMailer/src/PHPMailer.php");
 include("PHPMailer/src/Exception.php");
 include("PHPMailer/src/OAuth.php");
@@ -52,8 +52,12 @@ try {
 if(intval($_GET['id']) == 1) {
     header('Location: ' . BASE_URL . '/check-code-form');
 }
-
 if(intval($_GET['id'] == 2)) {
     header('Location: ' . BASE_URL . '/check-code-form');
 }
+if(intval($_GET['id']) == 3) {
+  
+    header('Location: ' . BASE_URL . '/admin/check-code-form');
+}
+
 ?>

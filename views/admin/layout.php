@@ -63,9 +63,15 @@ if(!isset($_SESSION['admin'])){
 
                                 <li class="user-footer">
                                     <div class="pull-right">
-                                        <form action="<?=BASE_URL?>/admin/logout" method="POST">
-                                            <button class="btn btn-default btn-flat">Log Out</button>
+                                        <form action="<?=BASE_URL?>/admin" method="POST">
+                                            <button class="btn btn-default btn-flat" style="position: absolute; left : 30px; margin-right:10px;">Change Admin</button>
                                         </form>
+                                        <form action="<?=BASE_URL?>/admin" method="POST">
+                                        <button class="btn btn-default btn-flat" >Change Password</button>
+                                         </form>
+                                         <form action="<?=BASE_URL?>/admin/logout" method="POST">
+                                        <button class="btn btn-default" style="position: relative; right :30px; margin-top:10px;" > Log Out </button>
+                                         </form>
                                     </div>
                                 </li>
                             </ul>

@@ -27,6 +27,12 @@
                             echo $_SESSION['error'];
                             unset($_SESSION['error']);
                         }
+                        if (isset($_SESSION['success']))
+                        {
+                            echo $_SESSION['success'];
+                            unset($_SESSION['success']);
+                        }
+                       
                         ?>
                         </span>
                     </div>
@@ -38,6 +44,9 @@
                     <div class="mb-3">
                         <label for="password">Mật Khẩu</label>
                         <input type="password" class="form-control" name="mat_khau" placeholder="******">
+                    </div>
+                    <div class="mb-3 d-flex justify-content-between align-items-center">
+                        <a href="<?= BASE_URL ?>/admin/forgot-password" id="hihi">Quên mật khẩu?</a>
                     </div>
                     <button type="submit" class="btn btn-blue mb-3" name="login">Đăng Nhập</button>
                     <div class="mb-3 d-flex justify-content-between align-items-center">

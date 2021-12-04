@@ -1,7 +1,16 @@
 <?php
 
 function slider_list() {
-    $result = getSelect('slider', 0, 10);
+    if(isset($_POST['search_slider'])){
+        extract($_REQUEST);
+        $sql = "SELECT * FROM slider where ngay_tao  LIKE '%$values%' OR ten_slide LIKE '%$values%' ";
+        $result = query($sql);
+    }else if (isset($_GET['id_st'])){
+        $result = getSelect_by_id('slider', 'trang_thai', intval($_GET['id_st']));
+    }
+    else{
+        $result = getSelect('slider', 0, 10);
+    }
     admin_render('slider/list.php', ['result' => $result]);
 }
 

@@ -14,7 +14,7 @@
             <div class="box">
                 <div class="box-header">
                     <a href="<?=BASE_URL?>/admin/vehicle/add" class="btn btn-success">+Thêm mới phương tiện</a>
-                    <select name="" id="" onchange="location=this.value;">
+                            <select name="" id="" onchange="location=this.value;">
                                 <option value="">Chọn trạng Thái</option>
                                 <option value=" <?=BASE_URL?>/admin/vehicle/list?id_st=1">Hoạt động</option>
                                 <option value=" <?=BASE_URL?>/admin/vehicle/list?id_st=2">Khóa</option>                  
