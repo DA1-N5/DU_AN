@@ -6,7 +6,7 @@
     ?>
             <div class="slide-container <?= $i == 0 ? "active" : "" ?>">
                 <a href="<?= $slider[$i]['url'] ?>">
-                    <img src="<?= IMAGE_URL . $slider[$i]['image'] ?>" class="sliderImage" width="100%" alt="">
+                    <img src="<?= IMAGE_URL . $slider[$i]['image'] ?>" class="sliderImage" width="100%" style="height: 500px;" alt="">
                 </a>
             </div>
     <?php
