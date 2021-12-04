@@ -157,7 +157,7 @@
         <form action="save-comment" method="POST">
             <h2>Đánh giá*</h2>
             <input type="hidden" name="id_tour" value="<?= $value['id'] ?>">
-            <input type="hidden" name="id_kh" value="<?=$_SESSION['user']['id']?>">
+            <input type="hidden" name="id_kh" value="<?=isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : "" ?>">
             <div id="rating">
                 <input type="radio" id="star5" value="5" name="danh_gia" />
                 <label class="full" for="star5" title="Tuyệt vời quá"></label>
@@ -216,66 +216,37 @@
 </div>
 
 
-<section class="products" id="products">
+<section class="products " id="products">
 
     <h1 class="heading"> Tour <span>Liên Quan</span> </h1>
-
-    <!-- <div class="container">
+    <div class="container row">
         <div class="row g-2">
-
-            <div class="col-3">
-                <div class="col-6" id="so1">
-                    <a href="#">
+        <?php
+        if (empty($lq)) {
+        } else {
+            foreach ($lq as $value) {
+                
+                if ($value['trang_thai'] == 1) {
+                  $user =selct_tour_lq('tour', 'id', $cmt['id_kh']);      
+        ?>
+            <div class="row col-4">
+                <div class=" row col-3" id="so1">
+                    <a href="<?= BASE_URL ?>/detail?id=<?= $value['id'] ?>">
                         <div class="img">
-                            <img src="images/anh1.png.jpg" style="max-width:100%">
+                            <img src="<?= IMAGE_URL . $value['anh'] ?>" style="max-width:100%">
                         </div>
                         <div class="conten-item">
-                            <span>1.000.000 VNĐ</span><br>
+                            <span><?= number_format($value['gia']) ?></span><br>
                             <h2 class="btn btn-primary">Xem Thêm</h2>
                         </div>
                     </a>
                 </div>
             </div>
-            <div class="col-3">
-                <div class="col-6" id="so1">
-                    <a href="#">
-                        <div class="img">
-                            <img src="images/anh1.png.jpg" style="max-width:100%">
-                        </div>
-                        <div class="conten-item">
-                            <span>1.000.000 VNĐ</span><br>
-                            <h2 class="btn btn-primary">Xem Thêm</h2>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="col-6" id="so1">
-                    <a href="#">
-                        <div class="img">
-                            <img src="images/anh1.png.jpg" style="max-width:100%">
-                        </div>
-                        <div class="conten-item">
-                            <span>1.000.000 VNĐ</span><br>
-                            <h2 class="btn btn-primary">Xem Thêm</h2>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="col-6" id="so1">
-                    <a href="#">
-                        <div class="img">
-                            <img src="images/anh1.png.jpg" style="max-width:100%">
-                        </div>
-                        <div class="conten-item">
-                            <span>1.000.000 VNĐ</span><br>
-                            <h2 class="btn btn-primary">Xem Thêm</h2>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            <?php
+                }
+            }
+        }
+        ?>
         </div>
-    </div> -->
-
+    </div>
 </section>

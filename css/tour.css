@@ -1,15 +1,5 @@
-.contenner {
-    margin-top: 50px;
-    text-align: center;
-}
-
-.tournoibat {
-    text-align: center;
-    margin-top: 30px;
-}
-
 .container {
-    margin-top: 30px;
+    margin-top: 20px;
     display: grid;
 }
 
@@ -27,8 +17,6 @@
 }
 
 #so1 .img img {
-    width: 5000px;
-    height: 500px;
     border-radius: 15px;
     max-width: 100%;
 }
@@ -40,8 +28,6 @@
         grid-gap: 20px;
     }
     #so1 .img img {
-        width: 5000px;
-        height: 300px;
         border-radius: 15px;
         max-width: 100%;
     }
