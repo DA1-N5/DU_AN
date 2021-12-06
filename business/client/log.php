@@ -225,6 +225,8 @@ function client_save_edit_info() {
         die;
     }
     edit_user($ten, $sdt, $id);
+    $new_user = getSelect_one('khach_hang', 'id', $id);
+    $_SESSION['user'] = $new_user;
     header('location: ' . BASE_URL . '/client/edit-info');
 }
 
