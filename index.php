@@ -151,9 +151,13 @@ switch ($url) {
         admin_sendmail();
         break;
     //------------------------------Edit thông tin admin-----------------
-    case 'admin/edit-admin':
-        require_once './business/admin/vehicle.php';
-        vehicle_list();
+    case 'admin/edit-info':
+        require_once './business/admin/log.php';
+        admin_edit_info();
+        break;
+    case 'admin/save-info':
+        require_once './business/admin/log.php';
+        admin_save_edit_info();
         break;
     
         //----------------------------------------MANAGE--VEHICLE------------------------------------------

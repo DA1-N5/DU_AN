@@ -13,7 +13,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                <select class="form-control-sm" onchange="location=this.value;" >
+                            <select class="form-control-sm" onchange="location=this.value;" >
                                 <option value="0" selected>Chọn danh mục</option>
                                 <?php
                                 $rows = getSelect('danh_muc', 0, 10);

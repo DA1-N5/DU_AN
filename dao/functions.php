@@ -255,10 +255,10 @@ function select_avg($id_tour){
 
 //-----------------------admin---------------------
 
-// function edit_admin($ten, $sdt, $id) {
-//     $sql = "UPDATE admin set ten = ?, sdt = ? where id = ?";
-//     return execute($sql, $ten, $sdt, $id);
-// } 
+function edit_admin($ten, $sdt, $anh, $id) {
+    $sql = "UPDATE admin set ten = ?, sdt = ?, anh = ? where id = ?";
+    execute($sql, $ten, $sdt, $anh, $id);
+} 
 
 // function edit_password_admin($mat_khau, $id) {
 //     $sql = "UPDATE admin set mat_khau = ? where id = ?";

@@ -128,5 +128,48 @@ function admin_change_pass() {
 function admin_sendmail() {
     require_once './sendmail/send.php';
 }
+//-----------------------thay đổi thông tin admin-------------------------------
+function admin_edit_info() {
+    $admin = $_SESSION['admin'];
+    admin_render('edit-admin.php', ['admin' => $admin]);
+}
 
+function admin_save_edit_info() {
+    $id = $_SESSION['admin']['id'];
+    $ten = $_POST['ten'];
+    $sdt = $_POST['sdt'];
+    $anh = $_FILES['anh'];
+    extract($_REQUEST);
+    if(
+        checkEmpty($ten) == false ||
+        checkEmpty($sdt) == false 
+    
+    ){
+        $_SESSION['error'] = "Vui lòng không để trống !";
+        header("Location: " . BASE_URL . "/admin/edit-info");
+        die;
+    }
+    if (checkSdt($sdt) == false){
+        $_SESSION['error'] = "Số điện thoại không đúng định dạng !";
+        header("Location: " . BASE_URL  . "/admin/edit-info");
+        die;
+    }
+    $anh_admin = getSelect_one('admin','id',$id);
+    if(!checkEmpty($anh['name'])){
+        edit_admin($ten, $sdt, $anh_admin['name'], $id);
+    }
+    else{
+    if(!checkImage($anh)){
+        $_SESSION['error'] = "File không phải là ảnh !";
+        header("Location: " . BASE_URL . "/admin/vehicle/update?id=$id");
+        die;
+    }
+    save_file($anh);
+    unlink($image_path . $anh_admin['anh']);
+    edit_admin($ten, $sdt, $anh['name'], $id);
+    }   
+    $admin_new = getSelect_one('admin','id', $id);
+    $_SESSION['admin'] = $admin_new;
+    header('location: ' . BASE_URL . '/admin');
+}
 ?>
