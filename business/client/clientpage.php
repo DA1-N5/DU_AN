@@ -72,7 +72,7 @@ function client_detail()
 {
     $value = getSelect_one("tour", "id", intval($_GET['id']));
     $comment = getSelect_cmt("binh_luan", "id_tour", intval($_GET['id']));
-    $lq = selct_tour_lq("tour",intval($value['id_danhmuc']));
+    $lq = selct_tour_lq(intval($value['id_danhmuc']));
     client_render('detail.php', [
         "value" => $value,
         "comment" => $comment,
@@ -90,8 +90,7 @@ function client_infor(){
     $category = getSelect("danh_muc", 0, 10);
     $address = getSelect('dia_chi', 0, 10);
     client_render('infor.php',["result" => $tour, "category" => $category, "address" => $address]);
-}
-
+}   
 function client_comment(){
     extract($_REQUEST);
     if(empty($noi_dung) || empty($danh_gia)){

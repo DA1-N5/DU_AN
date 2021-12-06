@@ -143,6 +143,15 @@
         #rating>input:checked~label:hover~label {
             color: #FFD700;
         }
+        #so1>a{
+            color: white;
+            padding-top: 20px;
+        }
+        #lq1{
+            margin-left: 20px;
+        }
+       
+      
     </style>
     <div class="col-12" id="comment">
         <h4 style="color: red;">
@@ -217,26 +226,23 @@
 
 
 <section class="products " id="products">
-
     <h1 class="heading"> Tour <span>Liên Quan</span> </h1>
-    <div class="container row">
-        <div class="row g-2">
+    <div class="container row " id="lq1">
+        <div class="row ">
         <?php
         if (empty($lq)) {
         } else {
-            foreach ($lq as $value) {
-                
-                if ($value['trang_thai'] == 1) {
-                  $user =selct_tour_lq('tour', 'id', $cmt['id_kh']);      
+            foreach ($lq as $values) {   
+                if ($values['trang_thai'] == 1) {    
         ?>
-            <div class="row col-4">
-                <div class=" row col-3" id="so1">
-                    <a href="<?= BASE_URL ?>/detail?id=<?= $value['id'] ?>">
-                        <div class="img">
-                            <img src="<?= IMAGE_URL . $value['anh'] ?>" style="max-width:100%">
+            <div class="row  row row-cols-1 row-cols-sm-2 row-cols-md-4 col" id="lq">
+                <div class=" row col" id="so1">
+                    <a href="<?= BASE_URL ?>/detail?id=<?= $values['id'] ?>">
+                        <div class="img row rounded float-end">
+                            <img src="<?= IMAGE_URL . $values['anh'] ?>" style="max-width:100%" class="img-thumbnail">
                         </div>
                         <div class="conten-item">
-                            <span><?= number_format($value['gia']) ?></span><br>
+                            <p><?= number_format($values['gia']) ?></p><br>
                             <h2 class="btn btn-primary">Xem Thêm</h2>
                         </div>
                     </a>

@@ -103,8 +103,8 @@ function select_hightlights(){
     $sql = "SELECT * FROM tour where trang_thai = 1  order by luot_xem asc limit 0,5 ";
     return query($sql);
 }
-function selct_tour_lq(){
-    $sql = " SELECT * FROM  tour where id_danhmuc = 1 order by rand() limit 0,2 ";
+function selct_tour_lq($id_danhmucchon){
+    $sql = " SELECT * FROM  tour where id_danhmuc = " .$id_danhmucchon. " order by ngay_tao desc limit 0,3";
     return query($sql);
 }
 
