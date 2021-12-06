@@ -22,14 +22,17 @@
         position: relative;
     }
 
-    /* .number {
+    #cart-icon {
+        position: relative;
+    }
+
+    .number {
         position: absolute;
-        top: 1;
-        left: 1;
-        bottom: 1;
-        right: 1;
-        cursor: pointer;
-    } */
+        top: -15px;
+        color: rgba(0, 0, 0, 0.8);
+        font-size: 1.6rem;
+        z-index: 1;
+    }
 </style>
 
 <body>
@@ -108,7 +111,7 @@
             </span>
         </nav>
         <div class="icons">
-            <span>
+            <span id="cart-icon">
                 <a href="" type="submit"><i class="fas fa-shopping-bag cart"></i></a>
                 <span class="number"><?php echo isset($sosp) ? intval($sosp) : 0 ?></span>
             </span>
