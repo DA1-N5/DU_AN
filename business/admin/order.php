@@ -1,9 +1,79 @@
 <?php
 function order_list(){
+    if(isset($_POST['search_order'])){
+        extract($_REQUEST);
+        if (empty($ngay_di) && empty($dia_chi) && empty($values)) {
+            $sql = "SELECT * FROM tour";
+            $tour = query($sql);
+        } else if (!empty($ngay_di) && empty($dia_chi) && empty($values)) {
+            $sql = "SELECT * FROM tour where ngay_di = '$ngay_di'";
+            $tour = query($sql);
+        } else if (empty($ngay_di) && !empty($dia_chi) && empty($values)) {
+            $sql = "SELECT * FROM tour where id_diachi = '$dia_chi'";
+            $tour = query($sql);
+        } else if (empty($ngay_di) && empty($dia_chi) && !empty($values)) {
+            if (intval($values) > 0) {
+                $pre = (intval($values) * (90 / 100));
+                $next = (intval($values) * (110 / 100));
+                $sql = "SELECT * FROM tour where gia >= '$pre' and gia <= '$next'";
+            } else {
+                $value = $values;
+                $sql = "SELECT * FROM tour where noi_di like '%$value%'";
+            }
+            $tour = query($sql);
+        } else if (!empty($ngay_di) && !empty($dia_chi) && empty($values)) {
+            $sql = "SELECT * FROM tour where ngay_di = '$ngay_di' and id_diachi = '$dia_chi'";
+            $tour = query($sql);
+        } else if (empty($ngay_di) && !empty($dia_chi) && !empty($values)) {
+            if (intval($values) > 0) {
+                $pre = (intval($values) * (90 / 100));
+                $next = (intval($values) * (110 / 100));
+                $sql = "SELECT * FROM tour where id_diachi = '$dia_chi' and gia > '$pre' and gia < '$next'";
+            } else {
+                $value = $values;
+                $sql = "SELECT * FROM tour where id_diachi = '$dia_chi' and noi_di like '%$value%'";
+            }
+            $tour = query($sql);
+        } else if (!empty($ngay_di) && empty($dia_chi) && !empty($values)) {
+            if (intval($values) > 0) {
+                $pre = (intval($values) * (90 / 100));
+                $next = (intval($values) * (110 / 100));
+                $sql = "SELECT * FROM tour where ngay_di = '$ngay_di' and gia > '$pre' and gia < '$next'";
+            } else {
+                $value = $values;
+                $sql = "SELECT * FROM tour where ngay_di = '$ngay_di' and (noi_di like '%$value%')";
+            }
+            $tour = query($sql);
+        } else if (!empty($ngay_di) && !empty($dia_chi) && !empty($values)) {
+            if (intval($values) > 0) {
+                $pre = (intval($values) * (90 / 100));
+                $next = (intval($values) * (110 / 100));
+                $sql =  "SELECT * FROM  tour where  ngay_di = '$ngay_di' and id_diachi = '$dia_chi' and (gia > '$pre' and gia < '$next')";
+            } else {
+                $value = $values;
+                $sql =  "SELECT * FROM  tour where  ngay_di = '$ngay_di' and id_diachi = '$dia_chi' and (noi_di like '%$value%')";
+            }
+            $tour = query($sql);
+        }
+    }else if(isset($_GET['id'])){
+        $order = getSelect_by_id('don_hang', 'id', intval($_GET['id']));
+        
+    }else if(isset($_GET['id_ct'])){
+        $order = getSelect_by_id('don_hang', 'id_danhmuc', intval($_GET['id_ct']));
+    }else if(isset($_GET['id_st'])){
+        $order = getSelect_by_id('don_hang', 'trang_thai', intval($_GET['id_st']));
     
-    
+    } else{
+       
+        $order = getSelect('order', 0, 10);
+       
+    }
     $result1 = select_order_linh_dong();
     $result = select_distinct();
+    // $address = getSelect('dia_chi', 0, 20);
+    // admin_render('tour/list.php', ['result' => $order,'address' => $address,'result1' => $result1, 'result' => $result]);
+
+    
     admin_render('order/list.php', ['result1' => $result1, 'result' => $result]);
 }
 

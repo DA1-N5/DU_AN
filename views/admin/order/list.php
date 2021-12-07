@@ -13,26 +13,26 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                <select class="form-control-sm" onchange="location=this.value;" >
+                            <select class="form-control-sm" onchange="location=this.value;" >
                                 <option value="0" selected>Chọn danh mục</option>
                                 <?php
                                 $rows = getSelect('danh_muc', 0, 10);
                                 foreach ($rows as $row) {
                                     extract($row);
                                 ?>
-                                    <option value=" <?=BASE_URL?>/admin/order/list?id_ct=<?= $id; ?>"><?= $ten; ?></option>
+                                    <option value=" <?=BASE_URL?>/admin/tour/list?id_ct=<?= $id; ?>"><?= $ten; ?></option>
                                 <?php
                                 }
                                 ?>
                             </select>
                             <select name="" id="" onchange="location=this.value;">
                                 <option value="">Chọn trạng Thái</option>
-                                <option value=" <?=BASE_URL?>/admin/order/list?id_st=1">Đã thanh toán</option>
-                                <option value=" <?=BASE_URL?>/admin/order/list?id_st=2">Chưa thanh toán</option>                  
+                                <option value=" <?=BASE_URL?>/admin/tour/list?id_st=1">Hoạt động</option>
+                                <option value=" <?=BASE_URL?>/admin/tour/list?id_st=2">Khóa</option>                  
                             </select>
                     <br>
                     <div class="box-tools">
-                    <span>
+                        <span>
                         <div class="dropdown">
                             
                             <a class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -78,7 +78,7 @@
                                 </li>
                             </form>
                         </div>
-                    </span>
+                        </span>
                     </div>
                 </div>
                 <div class="box-body table-responsive no-padding">

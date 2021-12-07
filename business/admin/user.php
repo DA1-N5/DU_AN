@@ -1,12 +1,19 @@
 <?php
 function user_list() {
-    if(isset($_GET['id'])){
-        $value = getSelect_one('khach_hang', 'id', intval($_GET['id']));
-        admin_render('user/list.php', ['value' => $value]);
-    } else {
+    if(isset($_POST['search_user'])){
+        extract($_REQUEST);
+        $sql = "SELECT * FROM khach_hang where ten  LIKE '%$values%' OR email LIKE '%$values%' OR sdt LIKE '%$values%' ";
+        $result = query($sql);
+    }else if (isset($_GET['id_st'])){
+        $result = getSelect_by_id('khach_hang', 'trang_thai', intval($_GET['id_st']));
+    }else if(isset($_GET['id'])){
+        $result = getSelect_one('khach_hang', 'id', intval($_GET['id']));
+    }    
+    else{
         $result = getSelect('khach_hang', 0, 10);
-        admin_render('user/list.php', ['result' => $result]);
     }
+    admin_render('user/list.php', ['result' => $result]);
+   
 }
 
 function user_add() {
