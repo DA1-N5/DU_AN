@@ -20,65 +20,15 @@
                                 foreach ($rows as $row) {
                                     extract($row);
                                 ?>
-                                    <option value=" <?=BASE_URL?>/admin/tour/list?id_ct=<?= $id; ?>"><?= $ten; ?></option>
+                                    <option value=" <?=BASE_URL?>/admin/order/list?id_ct=<?= $id; ?>"><?= $ten; ?></option>
                                 <?php
                                 }
                                 ?>
                             </select>
-                            <select name="" id="" onchange="location=this.value;">
-                                <option value="">Chọn trạng Thái</option>
-                                <option value=" <?=BASE_URL?>/admin/tour/list?id_st=1">Hoạt động</option>
-                                <option value=" <?=BASE_URL?>/admin/tour/list?id_st=2">Khóa</option>                  
-                            </select>
+                            
                     <br>
                     <div class="box-tools">
-                        <span>
-                        <div class="dropdown">
-                            
-                            <a class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-search"></i>
-                            </a>
-
-                            <form action="list" method="POST" style="width:300px" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li>
-                                    <div>
-                                        <a>Chọn ngày đi:</a>
-                                        <input type="date" class="form-control" name="ngay_di" style="font-size: 17px;" value="">
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <a>Tìm kiếm giá hoặc nơi khởi hành:</a>
-                                        <input type="text" class="form-control" id="formGroupExampleInput" name="values" style="font-size: 17px;" placeholder="Nhập vào giá, địa chỉ khởi hành" value="">
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <select class="form-select" style="font-size: 17px;" name="dia_chi">
-                                            <option selected value="">Bạn muốn đi đâu?</option>
-                                            <?php
-                                            if (empty($address)) {
-                                            } else {
-                                                foreach ($address as $value) {
-                                                    if ($value['trang_thai'] == 1) {
-                                            ?>
-                                                        <option value="<?= $value['id'] ?>"><?= $value['dia_chi'] ?></option>
-                                            <?php
-                                                    }
-                                                }
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <button type="submit" style="font-size:17px" name="search_order" class="btn btn-default form-control">Tìm kiếm</button>
-                                    </div>
-                                </li>
-                            </form>
-                        </div>
-                        </span>
+                       
                     </div>
                 </div>
                 <div class="box-body table-responsive no-padding">
@@ -188,6 +138,7 @@
                                     $users = select_user_by_id_tour(intval($value['id_tour']));
                                     $don_hang = select_status_order(intval($value['id_tour'])); 
                                     $don_hang1 = select_deposit_order(intval($value['id_tour']));
+                                   
                             ?>
                                 <tr>
                                     <td>
@@ -204,13 +155,12 @@
                                         <?=$value['ngay_di']?>
                                     </td>
                                     <td>
-                                    <h5><?=count($user) - count($don_hang1) >= 1 ? "Có " . count($don_hang1) . " khách hàng đã đặt cọc" : "Tất cả khách hàng đã đặt cọc"?></h5>                            
+                                    <h5><?=count($users) - count($don_hang1) >= 1 ? "Có " . count($don_hang1) . " khách hàng đã đặt cọc" : "Tất cả khách hàng đã đặt cọc"?></h5>                            
                                     </td>
                                     <td>
-                                        <h5><?=count($user) - count($don_hang) >= 1 ? "Có " . count($don_hang) . " khách hàng đã thanh toán" : "Tất cả khách hàng đã thanh toán"?></h5>
+                                        <h5><?=count($users) - count($don_hang) >= 1 ? "Có " . count($don_hang) . " khách hàng đã thanh toán" : "Tất cả khách hàng đã thanh toán"?></h5>
                                     </td>
-                                    <td>
-                                    </td>
+                                    <td></td>
                                     <td>
                                         <a href="<?=BASE_URL?>/admin/order/detail?ed=<?=$value['id_tour']?>" class="btn btn-default">Xem Chi Tiết</a>     
                                     </td>
