@@ -36,9 +36,19 @@ switch ($url) {
         require_once './business/client/clientpage.php';
         client_comment();
         break;
+        //đơn hàng
     case 'order':
         require_once './business/client/clientpage.php';
         client_order();
+        break;
+        //thanh toán
+    case 'pay':
+        require_once './business/client/clientpage.php';
+        client_pay();
+        break;
+    case 'save-pay':
+        require_once './business/client/clientpage.php';
+        client_save_pay();
         break;
         //----------------------------LOGIN---LOGOUT---SIGN-UP---CLIENT---------------------------
     case 'login':

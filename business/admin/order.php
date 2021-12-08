@@ -74,7 +74,14 @@ function order_save_add(){
     }
     $ngay_them = date('Y-m-d');
     insert_donhang($id_tour, $user['id'], $nguoi_lon, $tre_em, $ngay_di, $noi_di, $gia, $lich_trinh, $ngay_them, $_SESSION['admin']['id']);
-    header("Location: " . BASE_URL . "/admin/order/list");
+    $don_hang = getSelect('don_hang', 0, 1);
+    $chu_de = "Thanh Toán Đơn Hàng";
+    $noi_dung = "<h3>Xin chào " . $user['name'] . " Cảm ơn bạn đã đặt tour tại website VNTravel, để thanh toán cho đơn hàng vui lòng truy cập <a href='" . BASE_URL . "/pay?don_hang=". $don_hang[0]['id'] ."'>Vào đây</a>, Xin cảm ơn</h3>";
+    $_SESSION['checkMail']['noi_dung'] = $noi_dung;
+    $_SESSION['checkMail']['chu_de'] = $chu_de;
+    $_SESSION['checkMail']['ten'] = $ten;
+    $_SESSION['checkMail']['email'] = $email;
+    header("Location:" . BASE_URL . "/send-mail?id=4");
 }
 
 function order_update(){

@@ -12,35 +12,23 @@ use PHPMailer\PHPMailer\Exception;
 $mail = new PHPMailer(true);
 
 try {
-    //Server settings
-    $mail->SMTPDebug = 0;                                 // Enable verbose debug output
-    $mail->isSMTP();                                      // Set mailer to use SMTP
-    $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-    $mail->SMTPAuth = true;                               // Enable SMTP authentication
-    $mail->Username = 'vannamhdvt@gmail.com';                 // SMTP username
-    $mail->Password = 'povfhiusxeldbtmj';                           // SMTP password
+    $mail->SMTPDebug = 0;                                
+    $mail->isSMTP();                             
+    $mail->Host = 'smtp.gmail.com';  
+    $mail->SMTPAuth = true;                               
+    $mail->Username = 'vannamhdvt@gmail.com';        
+    $mail->Password = 'povfhiusxeldbtmj';            
 
-    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-    $mail->Port = 587;                                       // TCP port to connect to
+    $mail->SMTPSecure = 'tls';                            
+    $mail->Port = 587;                                       
     $mail->CharSet = 'UTF-8';
- 
-    //Recipients
-    $mail->setFrom('vannamhdvt@gmail.com', 'LOVEONEX');
-    $mail->addAddress($_SESSION['checkMail']['email'], $_SESSION['checkMail']['ten']);     // Add a recipient
-    // $mail->addReplyTo('info@example.com', 'Information');
-    // $mail->addCC('cc@example.com');
-    // $mail->addBCC('bcc@example.com');
- 
-    //Attachments
-    // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-    // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
- 
-    //Content
 
-    $mail->isHTML(true);                                  // Set email format to HTML
+    $mail->setFrom('vannamhdvt@gmail.com', 'LOVEONEX');
+    $mail->addAddress($_SESSION['checkMail']['email'], $_SESSION['checkMail']['ten']);
+
+    $mail->isHTML(true);
     $mail->Subject = $_SESSION['checkMail']['chu_de'];
     $mail->Body    = $_SESSION['checkMail']['noi_dung'];
-    // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
  
     $mail->send();
     $_SESSION['error'] = "<script>alert('Đã gửi mã code vào email mời bạn xác nhận');</script>";
@@ -56,8 +44,10 @@ if(intval($_GET['id'] == 2)) {
     header('Location: ' . BASE_URL . '/check-code-form');
 }
 if(intval($_GET['id']) == 3) {
-  
     header('Location: ' . BASE_URL . '/admin/check-code-form');
+}
+if(intval($_GET['id'] == 4)){
+    header("Location: " . BASE_URL . "/admin/order/list");
 }
 
 ?>

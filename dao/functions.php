@@ -20,7 +20,7 @@ function update_status($table, $value, $id){
     execute($sql, $value, $id);
 }
 function getSelect_by_id($table,$id, $value){
-    $sql = "SELECT * FROM $table where $id = $value order by ngay_tao desc ";
+    $sql = "SELECT * FROM $table where $id = '$value'";
     return query($sql);
 }
 
@@ -185,9 +185,14 @@ function select_order_by_id_day(){
     $sql = "SELECT distinct(ngay_tao) FROM don_hang where ngay_tao >= '$firstDay' and ngay_tao <= '$lastDay'";
     return query($sql);
 }
-function select_price_by_id_day($day){
-    $sql = "SELECT sum(gia) as gia FROM don_hang where ngay_tao = '$day'";
-    return query($sql);
+// function select_price_by_id_day($day){
+//     $sql = "SELECT sum(gia) as gia FROM don_hang where ngay_tao = '$day'";
+//     return query($sql);
+// }
+
+function insert_pay($thanh_toan, $id){
+    $sql ="UPDATE don_hang SET thanh_toan = ? WHERE id = ?";
+    execute($sql, $thanh_toan, $id);
 }
 // --------------------------- Danh Mục ------------------
 function insert_danhmuc($ten,$date){
