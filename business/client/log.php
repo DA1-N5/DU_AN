@@ -211,8 +211,20 @@ function client_change_pass() {
 
 // ---------------------CHANGE INFO USER---------------------
 function client_edit_info() {
+    $category = getSelect("danh_muc", 0, 10);
+    $address = getSelect('dia_chi', 0, 10);
+    if( isset($_SESSION['user'])){
+        $order = getSelect_by_id('don_hang','id_kh', $_SESSION['user']['id']);
+        } else {
+            $order = [];
+    }
     $user = $_SESSION['user'];
-    client_render('edit-user.php', ['user' => $user]);
+    client_render('edit-user.php', [
+        'user' => $user,
+        "category" => $category,
+        "address" => $address,
+        "order" => $order,
+    ]);
 }
 
 function client_save_edit_info() {
@@ -232,8 +244,20 @@ function client_save_edit_info() {
 
 // ---------------------CHANGE EDIT PASSWORD---------------------
 function client_edit_password() {
+    $category = getSelect("danh_muc", 0, 10);
+    $address = getSelect('dia_chi', 0, 10);
+    if( isset($_SESSION['user'])){
+        $order = getSelect_by_id('don_hang','id_kh', $_SESSION['user']['id']);
+        } else {
+            $order = [];
+    }
     $user = $_SESSION['user'];
-    client_render('edit-password.php', ['user' => $user]);
+    client_render('edit-password.php', [
+        'user' => $user,
+        "category" => $category,
+        "address" => $address,
+        "order" => $order,
+    ]);
 }
 
 function client_save_edit_password() {

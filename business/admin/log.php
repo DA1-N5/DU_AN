@@ -85,8 +85,6 @@ function admin_check_code_form() {
 }
 function admin_check_code() {
     $code = $_POST['code'];
-    // var_dump($_SESSION['code']==$code);
-    // die;
     if(isset($_SESSION['code'])) {
         if(intval($_SESSION['code']) != $code) {
             $_SESSION['error'] = 'Mã code sai';

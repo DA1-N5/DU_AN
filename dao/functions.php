@@ -109,9 +109,9 @@ function selct_tour_lq($id_danhmucchon){
 }
 
 // Đơn hàng ---------------------------------------------
-function insert_donhang($id_tour, $id_kh, $nguoi_lon, $tre_em, $ngay_di, $noi_di, $gia, $lich_trinh, $ngay_tao){
-    $sql = "INSERT INTO don_hang(id_tour, id_kh, nguoi_lon, tre_em, ngay_di, noi_di, gia, lich_trinh, ngay_tao) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    execute($sql, $id_tour, $id_kh, $nguoi_lon, $tre_em, $ngay_di, $noi_di, $gia, $lich_trinh, $ngay_tao);
+function insert_donhang($id_tour, $id_kh, $nguoi_lon, $tre_em, $ngay_di, $noi_di, $gia, $lich_trinh, $ngay_tao, $id_admin){
+    $sql = "INSERT INTO don_hang(id_tour, id_kh, nguoi_lon, tre_em, ngay_di, noi_di, gia, lich_trinh, ngay_tao, id_admin) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    execute($sql, $id_tour, $id_kh, $nguoi_lon, $tre_em, $ngay_di, $noi_di, $gia, $lich_trinh, $ngay_tao, $id_admin);
 }
 function update_donhang($id_tour, $id_kh, $nguoi_lon, $tre_em, $ngay_di, $noi_di, $gia, $lich_trinh, $id){
     $sql = "UPDATE don_hang set id_tour = ?, id_kh = ?, nguoi_lon = ?, tre_em = ?, ngay_di = ?, noi_di = ?, gia = ?, lich_trinh = ? where id = ?";

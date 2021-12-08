@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/user.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/tour.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/chitiettour.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/login.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
@@ -30,7 +31,7 @@
         position: absolute;
         top: -15px;
         color: rgba(0, 0, 0, 0.8);
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         z-index: 1;
     }
 </style>
@@ -111,16 +112,18 @@
             </span>
         </nav>
         <div class="icons">
+            <?php
+            if(isset($_SESSION['user'])){
+            ?>
             <span id="cart-icon">
-                <a href="" type="submit"><i class="fas fa-shopping-bag cart"></i></a>
-                <span class="number"><?php echo isset($sosp) ? intval($sosp) : 0 ?></span>
+                <a href="<?= BASE_URL ?>/order" type="submit"><i class="fas fa-shopping-bag cart"></i></a>
+                <span class="number"><?=count($order)?></span>
             </span>
+            <?php }?>
             <?php
             if (isset($_SESSION['user'])) {
             ?>
                 <a href='<?= BASE_URL ?>/client/edit-info' class='fas fa-edit'></a>
-                <a href='<?= BASE_URL ?>/client/edit-password' class='fas fa-key'></a>
-                <a href='<?= BASE_URL ?>/log-out' class='fas fa-user-times'></a>
             <?php
             } else {
             ?>
