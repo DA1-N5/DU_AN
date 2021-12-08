@@ -144,4 +144,42 @@ function client_order(){
         "order" => $order,
     ]);
 }
+
+function client_pay(){
+    if($_GET['don_hang']){
+        $don_hang = getSelect_one('don_hang', 'id', $_GET['don_hang']);
+        if( isset($_SESSION['user'])){
+            $order = getSelect_by_id('don_hang','id_kh', $_SESSION['user']['id']);
+            } else {
+                $order = [];
+        }
+        $category = getSelect("danh_muc", 0, 10);
+        $address = getSelect('dia_chi', 0, 10);
+        client_render('pay.php',[
+            "don_hang" => $don_hang,
+            "category" => $category,
+            "address" => $address,
+            "order" => $order,
+        ]);
+    }
+}
+
+function client_save_pay(){
+    extract($_REQUEST);
+    $anh = $_FILES['thanh_toan'];
+    if(empty($anh['name']) || empty($id)){
+        $_SESSION['error'] = "Vui lòng không để trống !";
+        header("Location: ". BASE_URL . "/pay?don_hang=$id");
+        die;
+    }
+    if(!checkImage($anh)){
+        $_SESSION['error'] = "File phải là ảnh !";
+        header("Location: ". BASE_URL . "/pay?don_hang=$id");
+        die;
+    }
+    save_file($anh);
+    insert_pay($anh['name'], $id);
+    $_SESSION['success'] = "<script>alert('Thanh toán thành công');</script>";
+    header("Location: ". BASE_URL);
+}
 ?>

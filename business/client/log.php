@@ -18,6 +18,11 @@ function client_login() {
         header("location: " . BASE_URL . "/login");
         die;
     }
+    if(intval($user['trang_thai']) == 2){
+        $_SESSION['error'] = 'Tài khoản của bạn đã bị khóa';
+        header("location: " . BASE_URL . "/login");
+        die;
+    }
     $_SESSION['user'] = $user;
     $_SESSION['success'] = "<script>alert('Đăng nhập thành công.');</script>";
     if(isset($_SESSION['id_tour'])){

@@ -8,20 +8,27 @@
     <section class="content">
         <div class="col-md-10">
             <!--TOUR Linh Động-->
-            <?php if (isset($user)) { ?>
-                <div class="box box-primary">
-                    <div class="box-header with-border">
+            <?php if (isset($user)) {
+            $admin = getSelect_one('admin', 'id', $don_hang['id_admin']);
+            ?>
+                <div class="row box box-primary">
+                    <div class="col-md-12 box-header with-border">
                         <a href="<?=BASE_URL?>/admin/order/list" class="btn btn-primary">Quay Lại</a>
                         <h3>Thông Tin Khách Hàng</h3>
                     </div>
-                    <div class="box-body">
+                    <div class="box-body col-md-8">
                         <span>Họ Và Tên: <?= $user['ten'] ?></span><br>
                         <span>Email: <?= $user['email'] ?></span><br>
                         <span>SĐT: <?= $user['sdt'] ?></span><br>
                         <span>Địa Chỉ: <?= $don_hang['noi_di'] ?></span><br>
+                        <a href="" class="btn btn-default"><?=intval($admin['vai_tro']) == 2 ? "Quản trị viên: ".$admin['ten'] : "Nhân viên: ".$admin['ten']?></a>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="">Hình ảnh thanh toán</label>
+                        <img src="<?=IMAGE_URL . $don['thanh_toan']?>" alt="" style="max-width: 70%">
                     </div>
                 </div>
-                <div class="box box-primary">
+                <div class="row box box-primary">
                     <div class="box-header with-border">
                         <h3>Thông Tin Tour</h3>
                     </div>
@@ -48,10 +55,11 @@
                     $tong = 0;
                     foreach ($don_hang as $don) {
                         $user = getSelect_one('khach_hang', 'id', intval($don['id_kh']));
+                        $admin = getSelect_one('admin', 'id', $don['id_admin'])
                     ?>
                         <div class="row col-md-12">
                             <h2 style="border-top: 2px solid #000"></h2>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <br>
                                 <span style="color:red">Khách Hàng Thứ <?= $i ?></span><br>
                                 <span>Họ Và Tên: <?= $user['ten'] ?></span><br>
@@ -61,8 +69,9 @@
                                 <span>Người lớn: <?= $don['nguoi_lon'] ?></span><br>
                                 <span>Trẻ em dưới 10 tuổi: <?= $don['tre_em'] ?></span><br>
                                 <span>Đơn giá: <?= number_format($don['gia']) ?> VNĐ</span><br>
+                                <a href="" class="btn btn-default"><?=intval($admin['vai_tro']) == 2 ? "Quản trị viên: ".$admin['ten'] : "Nhân viên: ".$admin['ten']?></a><br>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                                 <br>
                                 <?php
                                 if($don['trang_thai'] == 2){
@@ -125,6 +134,10 @@
                                         /<?= number_format($don['gia']) ?> VNĐ
                                     </span>
                                 </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="">Hình ảnh thanh toán</label>
+                                <img src="<?=IMAGE_URL . $don['thanh_toan']?>" alt="" style="max-width: 70%">
                             </div>
                         </div>
                     <?php

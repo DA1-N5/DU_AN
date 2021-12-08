@@ -83,21 +83,27 @@
                                     </td>
                                     <td>
                                         <?php
-                                        $now = strtotime(date('Y-m-d'));
-                                        if((strtotime($values['ngay_di']) - $now < (12*3600)) && ($values['dat_coc'] == 2)){
-                                            echo "<h5 style='color:red'>Quá Hạn Đặt Cọc</h5>";
-                                        } else {
-                                        if($values['dat_coc'] == 1){
+                                        if($values['trang_thai'] == 2){
+                                            $now = strtotime(date('Y-m-d'));
+                                            if((strtotime($values['ngay_di']) - $now < (12*3600)) && ($values['dat_coc'] == 2)){
+                                                echo "<h5 style='color:red'>Quá Hạn Đặt Cọc</h5>";
+                                            } else {
+                                            if($values['dat_coc'] == 1){
                                         ?>
                                         <a href="<?=BASE_URL?>/admin/order/deposit?id=<?=$values['id']?>&dc=1" class="btn btn-success">Đã đặt cọc</a>
                                         <?php
-                                            } else {
+                                                } else {
                                         ?>
                                         <a href="<?=BASE_URL?>/admin/order/deposit?id=<?=$values['id']?>&dc=2" class="btn btn-danger">Chưa đặt cọc</a>
                                         <?php
+                                                }
                                             }
+                                        } else {
+                                        ?>
+                                        <a href="javascript:;" class="btn btn-success">Đã đặt cọc</a>
+                                        <?php
                                         }
-                                        ?>                                 
+                                        ?>
                                     </td>
                                     <td>
                                         <?php
@@ -155,7 +161,7 @@
                                         <?=$value['ngay_di']?>
                                     </td>
                                     <td>
-                                    <h5><?=count($users) - count($don_hang1) >= 1 ? "Có " . count($don_hang1) . " khách hàng đã đặt cọc" : "Tất cả khách hàng đã đặt cọc"?></h5>                            
+                                    <h5><?=count($users) - count($don_hang1) >= 1 ? "Có " . count($don_hang1) . " khách hàng đã đặt cọc" : "Tất cả khách hàng đã đặt cọc"?></h5>                  
                                     </td>
                                     <td>
                                         <h5><?=count($users) - count($don_hang) >= 1 ? "Có " . count($don_hang) . " khách hàng đã thanh toán" : "Tất cả khách hàng đã thanh toán"?></h5>

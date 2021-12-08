@@ -27,8 +27,8 @@ extract($tour);
                         <div class="form-group">
                             <label>Tour : <?=$ten?></label>
                             <input type="hidden" value="<?=$id?>" name="id_tour">
-                            <input type="hidden" value="<?=$gia?>" id="gia">
                             <input type="hidden" name="lich_trinh" value="<?=$thong_tin?>">
+                            <input type="hidden" value="<?=$gia?>" id="gia">
                         </div>
                         <div class="form-group">
                             <label>Ngày đi</label>
