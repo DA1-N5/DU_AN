@@ -36,6 +36,10 @@ switch ($url) {
         require_once './business/client/clientpage.php';
         client_comment();
         break;
+    case 'order':
+        require_once './business/client/clientpage.php';
+        client_order();
+        break;
         //----------------------------LOGIN---LOGOUT---SIGN-UP---CLIENT---------------------------
     case 'login':
         require_once './business/client/log.php';

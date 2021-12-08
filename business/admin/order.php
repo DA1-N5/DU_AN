@@ -68,7 +68,7 @@ if(!checkInt(intval($gia))){
     die;
 }
 $ngay_them = date('Y-m-d');
-insert_donhang($id_tour, $user['id'], $nguoi_lon, $tre_em, $ngay_di, $noi_di, $gia, $lich_trinh, $ngay_them);
+insert_donhang($id_tour, $user['id'], $nguoi_lon, $tre_em, $ngay_di, $noi_di, $gia, $lich_trinh, $ngay_them, $_SESSION['admin']['id']);
 header("Location: " . BASE_URL . "/admin/order/list");
 }
 
