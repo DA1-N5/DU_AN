@@ -172,4 +172,45 @@ function admin_save_edit_info() {
     $_SESSION['admin'] = $admin_new;
     header('location: ' . BASE_URL . '/admin');
 }
+//-----------------------thay đổi password admin------------------------------
+function admin_edit_password() {
+    $admin = $_SESSION['admin'];   
+    admin_render('edit-password.php', ['admin' => $admin]);
+}
+function admin_save_edit_password() {
+    $mk_cu = $_POST['mat_khau_cu'];
+    $mk_moi = $_POST['mat_khau'];
+    $mk2 = $_POST['mat_khau2'];
+    $user = $_SESSION['admin'];
+
+    if(empty($mk_cu) || empty($mk_moi) || empty($mk2)) {
+        $_SESSION['error'] = "Mời bạn nhập đầy đủ thông tin";
+        header("location:" . BASE_URL . "/admin/edit-password");
+        die;
+    }
+
+    if(strlen($mk_moi) < 6) {
+        $_SESSION['error'] = "Mật khẩu ít nhất phải có 6 kí tự!";
+        header("location:" . BASE_URL . "/admin/edit-password");
+        die;
+    }
+
+    if(md5($mk_cu) != $user['mat_khau']) {
+        $_SESSION['error'] = "Mật khẩu cũ của bạn không đúng!";
+        header("location:" . BASE_URL . "/admin/edit-password");
+        die;
+    }
+
+    if($mk_moi != $mk2) {
+        $_SESSION['error'] = "Mật khẩu xác nhận không đúng!";
+        header("location:" . BASE_URL . "/admin/edit-password");
+        die;
+    }
+
+    else {
+        edit_password_admin(md5($mk_moi), $user['id']);
+        $_SESSION['error'] = "<script>alert('Đổi mật khẩu thành công.')</script>";
+        header('location: ' . BASE_URL . '/admin/edit-password');
+    }
+}
 ?>

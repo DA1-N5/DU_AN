@@ -159,7 +159,15 @@ switch ($url) {
         require_once './business/admin/log.php';
         admin_save_edit_info();
         break;
-    
+    //------------------------------Edit Password admin-----------------
+    case 'admin/edit-password':
+        require_once './business/admin/log.php';
+        admin_edit_password();
+        break;
+    case 'admin/save-password':
+        require_once './business/admin/log.php';
+        admin_save_edit_password();
+        break;
         //----------------------------------------MANAGE--VEHICLE------------------------------------------
     case 'admin/vehicle/list':
         require_once './business/admin/vehicle.php';
