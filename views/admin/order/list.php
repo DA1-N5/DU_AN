@@ -38,7 +38,7 @@
                                 <td>ID</td>
                                 <td>Tour</td>
                                 <td>Khách Hàng</td>
-                                <td>Giá</td>
+                                <td>Truy Thu</td>
                                 <td>Ngày đi</td>
                                 <td>Đặt Cọc</td>
                                 <td>Trạng Thái</td>
@@ -67,7 +67,16 @@
                                         <a href="<?=BASE_URL?>/admin/user/list?id=<?=$values['id_kh']?>" class="btn btn-default"><?=$user['ten']?></a>
                                     </td>
                                     <td>
-                                        <?=number_format($values['gia'])?> VNĐ
+                                            <?php
+                                            if (intval($values['trang_thai']) == 2) {
+                                            ?>
+                                                <?= intval($values['dat_coc']) == 1 ? (number_format(($values['gia']) * (30 / 100))) : "0" ?>
+                                            <?php
+                                            } else {
+                                            ?>
+                                                <?= number_format($values['gia']) ?>
+                                            <?php } ?>
+                                            /<?= number_format($values['gia']) ?> VNĐ
                                     </td>
                                     <td>
                                         <?=$values['ngay_di']?>
@@ -75,7 +84,7 @@
                                     <td>
                                         <?php
                                         $now = strtotime(date('Y-m-d'));
-                                        if((strtotime($values['ngay_di']) - $now < (48*3600)) && ($values['dat_coc'] == 2)){
+                                        if((strtotime($values['ngay_di']) - $now < (12*3600)) && ($values['dat_coc'] == 2)){
                                             echo "<h5 style='color:red'>Quá Hạn Đặt Cọc</h5>";
                                         } else {
                                         if($values['dat_coc'] == 1){
@@ -142,7 +151,6 @@
                                         <a href="<?php admin_render('user/list.php', ['result' => $users])?>" class="btn btn-default">Có <?=count($users)?> Khách hàng</a>
                                     </td>
                                     <td></td>
-                                   
                                     <td>
                                         <?=$value['ngay_di']?>
                                     </td>
@@ -152,9 +160,7 @@
                                     <td>
                                         <h5><?=count($users) - count($don_hang) >= 1 ? "Có " . count($don_hang) . " khách hàng đã thanh toán" : "Tất cả khách hàng đã thanh toán"?></h5>
                                     </td>
-                                    <td>
-                                      
-                                    </td>
+                                    <td></td>
                                     <td>
                                         <a href="<?=BASE_URL?>/admin/order/detail?ed=<?=$value['id_tour']?>" class="btn btn-default">Xem Chi Tiết</a>     
                                     </td>
