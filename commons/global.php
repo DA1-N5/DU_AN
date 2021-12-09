@@ -1,5 +1,5 @@
 <?php
-const BASE_URL = "/DU_AN";
+const BASE_URL = "http://localhost/DU_AN";
 const ADMIN_URL = BASE_URL . "/admin/";
 const IMAGE_URL = BASE_URL . "/images/";
 
