@@ -4,7 +4,6 @@
             Thống Kê
         </h1>
     </section>
-
     <section class="col-md-12">
         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; grid-gap: 30px">
             <?php
@@ -92,9 +91,21 @@
                     <?php
                     } else {
                         foreach ($don_hang_month as $dh) {
-                            $price = select_price_by_id_day($dh['ngay_tao']);
+                            $tong = 0;
+                            $price = getSelect_by_id('don_hang', 'ngay_tao', $dh['ngay_tao']);
+                            for($k = 0; $k < count($price); $k++){
+                                if(intval($price[$k]['trang_thai']) == 2){
+                                    if(intval($price[$k]['dat_coc']) == 2){
+                                        $tong += 0;
+                                    } else {
+                                        $tong += (intval($price[$k]['gia'])*(30/100));
+                                    }
+                                } else {
+                                    $tong += intval($price[$k]['gia']);
+                                }
+                            }
                     ?>
-                    ['<?=$dh['ngay_tao']?>', <?=$price[0]['gia']?>],
+                    ['<?=$dh['ngay_tao']?>', <?=$tong?>],
                     <?php  } }?>
                 ]);
 

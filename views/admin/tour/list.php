@@ -157,14 +157,16 @@
                                     </td>
                                     <td>
                                         <?php
-                                        if((date('Y-m-d') <= $values['ngay_di']) || empty($values['ngay_di'])){
+                                        if($values['trang_thai'] == 1){
+                                            if((date('Y-m-d') <= $values['ngay_di']) || empty($values['ngay_di'])){
                                         ?>
                                         <a href="<?=BASE_URL?>/admin/order/add?id=<?=$values['id']?>" class="btn btn-primary">Đặt Tour</a>
                                         <?php
-                                        } else {
+                                            } else {
                                         ?>
                                         <span style="color:red">Hết thời gian đặt tour</span>
                                         <?php
+                                            }
                                         }
                                         ?>
                                     </td>
