@@ -22,14 +22,14 @@
         position: relative;
     }
 
-    .number {
+    /* .number {
         position: absolute;
         top: 1;
         left: 1;
         bottom: 1;
         right: 1;
         cursor: pointer;
-    }
+    } */
 </style>
 
 <body>
