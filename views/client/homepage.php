@@ -98,7 +98,7 @@
                     <div class="" id="so1">
                         <a href="<?= BASE_URL ?>/detail?id=<?= $value['id'] ?>">
                             <div class="img">
-                                <img src="<?= IMAGE_URL . $value['anh'] ?>">
+                                <img src="<?= IMAGE_URL . $value['anh'] ?>" height="400px" width="700px">
                             </div>
                             <div class="conten-item">
                                 <h3><?= $value['ten'] ?></h3>

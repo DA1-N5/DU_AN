@@ -150,7 +150,9 @@
         #lq1{
             margin-left: 20px;
         }
-       
+       #loww>img{
+            height: 245px;
+       }
       
     </style>
     <div class="col-12" id="comment">
@@ -228,7 +230,7 @@
 <section class="products " id="products">
     <h1 class="heading"> Tour <span>Liên Quan</span> </h1>
     <div class="container row " id="lq1">
-        <div class="row ">
+        <div class="row">
         <?php
         if (empty($lq)) {
         } else {
@@ -238,7 +240,7 @@
             <div class="row  row row-cols-1 row-cols-sm-2 row-cols-md-4 col" id="lq">
                 <div class=" row col" id="so1">
                     <a href="<?= BASE_URL ?>/detail?id=<?= $values['id'] ?>">
-                        <div class="img row rounded float-end">
+                        <div class="img row rounded float-end" id="loww">
                             <img src="<?= IMAGE_URL . $values['anh'] ?>" style="max-width:100%" class="img-thumbnail">
                         </div>
                         <div class="conten-item">
