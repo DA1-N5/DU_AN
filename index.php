@@ -36,6 +36,20 @@ switch ($url) {
         require_once './business/client/clientpage.php';
         client_comment();
         break;
+        //đơn hàng
+    case 'order':
+        require_once './business/client/clientpage.php';
+        client_order();
+        break;
+        //thanh toán
+    case 'pay':
+        require_once './business/client/clientpage.php';
+        client_pay();
+        break;
+    case 'save-pay':
+        require_once './business/client/clientpage.php';
+        client_save_pay();
+        break;
         //----------------------------LOGIN---LOGOUT---SIGN-UP---CLIENT---------------------------
     case 'login':
         require_once './business/client/log.php';
@@ -159,7 +173,15 @@ switch ($url) {
         require_once './business/admin/log.php';
         admin_save_edit_info();
         break;
-    
+    //------------------------------Edit Password admin-----------------
+    case 'admin/edit-password':
+        require_once './business/admin/log.php';
+        admin_edit_password();
+        break;
+    case 'admin/save-password':
+        require_once './business/admin/log.php';
+        admin_save_edit_password();
+        break;
         //----------------------------------------MANAGE--VEHICLE------------------------------------------
     case 'admin/vehicle/list':
         require_once './business/admin/vehicle.php';

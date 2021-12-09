@@ -20,7 +20,7 @@ function update_status($table, $value, $id){
     execute($sql, $value, $id);
 }
 function getSelect_by_id($table,$id, $value){
-    $sql = "SELECT * FROM $table where $id = $value order by ngay_tao desc ";
+    $sql = "SELECT * FROM $table where $id = '$value'";
     return query($sql);
 }
 
@@ -109,9 +109,9 @@ function selct_tour_lq($id_danhmucchon){
 }
 
 // Đơn hàng ---------------------------------------------
-function insert_donhang($id_tour, $id_kh, $nguoi_lon, $tre_em, $ngay_di, $noi_di, $gia, $lich_trinh, $ngay_tao){
-    $sql = "INSERT INTO don_hang(id_tour, id_kh, nguoi_lon, tre_em, ngay_di, noi_di, gia, lich_trinh, ngay_tao) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    execute($sql, $id_tour, $id_kh, $nguoi_lon, $tre_em, $ngay_di, $noi_di, $gia, $lich_trinh, $ngay_tao);
+function insert_donhang($id_tour, $id_kh, $nguoi_lon, $tre_em, $ngay_di, $noi_di, $gia, $lich_trinh, $ngay_tao, $id_admin){
+    $sql = "INSERT INTO don_hang(id_tour, id_kh, nguoi_lon, tre_em, ngay_di, noi_di, gia, lich_trinh, ngay_tao, id_admin) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    execute($sql, $id_tour, $id_kh, $nguoi_lon, $tre_em, $ngay_di, $noi_di, $gia, $lich_trinh, $ngay_tao, $id_admin);
 }
 function update_donhang($id_tour, $id_kh, $nguoi_lon, $tre_em, $ngay_di, $noi_di, $gia, $lich_trinh, $id){
     $sql = "UPDATE don_hang set id_tour = ?, id_kh = ?, nguoi_lon = ?, tre_em = ?, ngay_di = ?, noi_di = ?, gia = ?, lich_trinh = ? where id = ?";
@@ -185,9 +185,14 @@ function select_order_by_id_day(){
     $sql = "SELECT distinct(ngay_tao) FROM don_hang where ngay_tao >= '$firstDay' and ngay_tao <= '$lastDay'";
     return query($sql);
 }
-function select_price_by_id_day($day){
-    $sql = "SELECT sum(gia) as gia FROM don_hang where ngay_tao = '$day'";
-    return query($sql);
+// function select_price_by_id_day($day){
+//     $sql = "SELECT sum(gia) as gia FROM don_hang where ngay_tao = '$day'";
+//     return query($sql);
+// }
+
+function insert_pay($thanh_toan, $id){
+    $sql ="UPDATE don_hang SET thanh_toan = ? WHERE id = ?";
+    execute($sql, $thanh_toan, $id);
 }
 // --------------------------- Danh Mục ------------------
 function insert_danhmuc($ten,$date){
@@ -259,24 +264,15 @@ function edit_admin($ten, $sdt, $anh, $id) {
     $sql = "UPDATE admin set ten = ?, sdt = ?, anh = ? where id = ?";
     execute($sql, $ten, $sdt, $anh, $id);
 } 
+function edit_password_admin($mat_khau, $id) {
+    $sql = "UPDATE admin set mat_khau = ? where id = ?";
+     execute($sql, $mat_khau, $id);
+} 
 
-// function edit_password_admin($mat_khau, $id) {
-//     $sql = "UPDATE admin set mat_khau = ? where id = ?";
-//     return execute($sql, $mat_khau, $id);
-// } 
 
 function update_admin($mat_khau,$email){
     $sql = "UPDATE admin set  mat_khau = ? where email = ?";
     execute($sql,$mat_khau, $email);
 }
 
-// function update_user_one_admin($mat_khau, $email) {
-//     $sql = "UPDATE admin set mat_khau = ? where email = ?";
-//     return execute($sql, $mat_khau, $email);
-// }
-
-// function check_email_existed_admin($email) {
-//     $sql = "SELECT email FROM admin WHERE email=?";
-//     return query_one($sql, $email);
-// }
 ?>

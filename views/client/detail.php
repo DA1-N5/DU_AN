@@ -1,16 +1,16 @@
 <div style="margin-top: 150px;"></div>
 <h1 class="heading" style="margin-bottom:50px"><span>Chi Tiết Tour</span> </h1>
 <div class="row col-8" style="margin:auto">
-    <div class="col-6"><img src="<?= IMAGE_URL . $value['anh'] ?>" alt="" width="100%"></div>
+    <div class="col-6"><img src="<?= IMAGE_URL . $tour_detail['anh'] ?>" alt="" width="100%"></div>
     <div class="col-6">
-        <h1 style="font-size:30px"><?= $value['ten'] ?></h1>
+        <h1 style="font-size:30px"><?= $tour_detail['ten'] ?></h1>
         <h1 style="border-bottom:1px solid #000"></h1>
         <p style="font-size:20px">Mô tả:</p>
-        <h2><?= $value['mo_ta'] ?></h2>
+        <h2><?= $tour_detail['mo_ta'] ?></h2>
         <h1 style="border-bottom:1px solid #000"></h1>
         <br>
-        <h3>- Người Lớn: <span style="font-size:20px; color:red"><?= number_format($value['gia']) ?> VNĐ</span></h3>
-        <h3>- Trẻ em dưới 10 tuổi: <span style="font-size:20px; color:red"><?=number_format(floor((intval($value['gia']))*(70/100)))?> VNĐ</span></h3>
+        <h3>- Người Lớn: <span style="font-size:20px; color:red"><?= number_format($tour_detail['gia']) ?> VNĐ</span></h3>
+        <h3>- Trẻ em dưới 10 tuổi: <span style="font-size:20px; color:red"><?=number_format(floor((intval($tour_detail['gia']))*(70/100)))?> VNĐ</span></h3>
         <h3>- Trẻ em dưới 3 tháng tuổi: <span style="font-size:20px; color:red">0 VNĐ</span></h3>
         <?php
             if (!isset($_SESSION['user'])) {
@@ -32,7 +32,7 @@
 </div>
 <div class="col-7" style="margin:auto">
 <h1 class="heading" style="margin-bottom:50px"><span class="fas fa-map"> Lịch Trình</span> </h1>
-    <h2><?= $value['thong_tin'] ?></h2>
+    <h2><?= $tour_detail['thong_tin'] ?></h2>
 </div>
 <div class="col-7" style="margin:auto">
     <h1 class="heading" style="margin-top:50px"><span>Đánh Giá</span> </h1>

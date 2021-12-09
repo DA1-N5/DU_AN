@@ -66,7 +66,7 @@ if(!isset($_SESSION['admin'])){
                                         <form action="<?=BASE_URL?>/admin/edit-info" method="POST">
                                             <button class="btn btn-default btn-flat" style="position: absolute; left : 30px; margin-right:10px;">Change Admin</button>
                                         </form>
-                                        <form action="<?=BASE_URL?>/admin" method="POST">
+                                        <form action="<?=BASE_URL?>/admin/edit-password" method="POST">
                                         <button class="btn btn-default btn-flat" >Change Password</button>
                                          </form>
                                          <form action="<?=BASE_URL?>/admin/logout" method="POST">

@@ -1,79 +1,16 @@
 <?php
-function order_list(){
-    if(isset($_POST['search_order'])){
-        extract($_REQUEST);
-        if (empty($ngay_di) && empty($dia_chi) && empty($values)) {
-            $sql = "SELECT * FROM tour";
-            $tour = query($sql);
-        } else if (!empty($ngay_di) && empty($dia_chi) && empty($values)) {
-            $sql = "SELECT * FROM tour where ngay_di = '$ngay_di'";
-            $tour = query($sql);
-        } else if (empty($ngay_di) && !empty($dia_chi) && empty($values)) {
-            $sql = "SELECT * FROM tour where id_diachi = '$dia_chi'";
-            $tour = query($sql);
-        } else if (empty($ngay_di) && empty($dia_chi) && !empty($values)) {
-            if (intval($values) > 0) {
-                $pre = (intval($values) * (90 / 100));
-                $next = (intval($values) * (110 / 100));
-                $sql = "SELECT * FROM tour where gia >= '$pre' and gia <= '$next'";
-            } else {
-                $value = $values;
-                $sql = "SELECT * FROM tour where noi_di like '%$value%'";
-            }
-            $tour = query($sql);
-        } else if (!empty($ngay_di) && !empty($dia_chi) && empty($values)) {
-            $sql = "SELECT * FROM tour where ngay_di = '$ngay_di' and id_diachi = '$dia_chi'";
-            $tour = query($sql);
-        } else if (empty($ngay_di) && !empty($dia_chi) && !empty($values)) {
-            if (intval($values) > 0) {
-                $pre = (intval($values) * (90 / 100));
-                $next = (intval($values) * (110 / 100));
-                $sql = "SELECT * FROM tour where id_diachi = '$dia_chi' and gia > '$pre' and gia < '$next'";
-            } else {
-                $value = $values;
-                $sql = "SELECT * FROM tour where id_diachi = '$dia_chi' and noi_di like '%$value%'";
-            }
-            $tour = query($sql);
-        } else if (!empty($ngay_di) && empty($dia_chi) && !empty($values)) {
-            if (intval($values) > 0) {
-                $pre = (intval($values) * (90 / 100));
-                $next = (intval($values) * (110 / 100));
-                $sql = "SELECT * FROM tour where ngay_di = '$ngay_di' and gia > '$pre' and gia < '$next'";
-            } else {
-                $value = $values;
-                $sql = "SELECT * FROM tour where ngay_di = '$ngay_di' and (noi_di like '%$value%')";
-            }
-            $tour = query($sql);
-        } else if (!empty($ngay_di) && !empty($dia_chi) && !empty($values)) {
-            if (intval($values) > 0) {
-                $pre = (intval($values) * (90 / 100));
-                $next = (intval($values) * (110 / 100));
-                $sql =  "SELECT * FROM  tour where  ngay_di = '$ngay_di' and id_diachi = '$dia_chi' and (gia > '$pre' and gia < '$next')";
-            } else {
-                $value = $values;
-                $sql =  "SELECT * FROM  tour where  ngay_di = '$ngay_di' and id_diachi = '$dia_chi' and (noi_di like '%$value%')";
-            }
-            $tour = query($sql);
-        }
-    }else if(isset($_GET['id'])){
-        $order = getSelect_by_id('don_hang', 'id', intval($_GET['id']));
-        
-    }else if(isset($_GET['id_ct'])){
-        $order = getSelect_by_id('don_hang', 'id_danhmuc', intval($_GET['id_ct']));
-    }else if(isset($_GET['id_st'])){
-        $order = getSelect_by_id('don_hang', 'trang_thai', intval($_GET['id_st']));
-    
-    } else{
-       
-        $order = getSelect('order', 0, 10);
-       
-    }
+function order_list(){      
     $result1 = select_order_linh_dong();
     $result = select_distinct();
-    // $address = getSelect('dia_chi', 0, 20);
-    // admin_render('tour/list.php', ['result' => $order,'address' => $address,'result1' => $result1, 'result' => $result]);
-
-    
+    if(isset($_GET['id_ct'])){
+        if(intval($_GET['id_ct']) == 1){
+        $result1 = select_order_linh_dong();
+        $result = [];
+        }else{
+        $result = select_distinct();
+        $result1 = [];
+        }
+}
     admin_render('order/list.php', ['result1' => $result1, 'result' => $result]);
 }
 
@@ -87,52 +24,64 @@ function order_add(){
 
 function order_save_add(){
     extract($_REQUEST);
-if(
-    checkEmpty($id_tour) == false ||
-    checkEmpty($ngay_di) == false ||
-    checkEmpty($noi_di) == false ||
-    checkEmpty($gia) == false ||
-    checkEmpty($email) == false 
+    if(
+        checkEmpty($id_tour) == false ||
+        checkEmpty($ngay_di) == false ||
+        checkEmpty($noi_di) == false ||
+        checkEmpty($gia) == false ||
+        checkEmpty($email) == false 
 
-){
-    $_SESSION['error'] = "Vui lòng không để trống !";
-    header("Location: " . BASE_URL . "/admin/order/add?id=$id_tour");
-    die;
-}
+    ){
+        $_SESSION['error'] = "Vui lòng không để trống !";
+        header("Location: " . BASE_URL . "/admin/order/add?id=$id_tour");
+        die;
+    }
 
-if(empty($nguoi_lon)){
-    $nguoi_lon = 0;
-}
-if(empty($tre_em)){
-    $tre_em = 0;
-}
+    if(empty($nguoi_lon)){
+        $nguoi_lon = 0;
+    }
+    if(empty($tre_em)){
+        $tre_em = 0;
+    }
 
-$user = getSelect_one("khach_hang", 'email', $email);
-if(empty($user)){
-    $_SESSION['error'] = "Email không có trong dữ liệu !";
-    header("Location: " . BASE_URL . "/admin/order/add?id=$id_tour");
-    die;
-}
-if(!checkInt(intval($nguoi_lon))){
-    $_SESSION['error'] = "Số lượng người lớn không đúng định dạng !";
-    header("Location: " . BASE_URL . "/admin/order/add?id=$id_tour");
-    die;
-}
+    $user = getSelect_one("khach_hang", 'email', $email);
+    if(empty($user)){
+        $_SESSION['error'] = "Email không có trong dữ liệu !";
+        header("Location: " . BASE_URL . "/admin/order/add?id=$id_tour");
+        die;
+    }
+    if(intval($user['trang_thai']) == 2){
+        $_SESSION['error'] = "Tài khoản khách hàng bị vô hiệu hóa !";
+        header("Location: " . BASE_URL . "/admin/order/add?id=$id_tour");
+        die;
+    }
+    if(!checkInt(intval($nguoi_lon))){
+        $_SESSION['error'] = "Số lượng người lớn không đúng định dạng !";
+        header("Location: " . BASE_URL . "/admin/order/add?id=$id_tour");
+        die;
+    }
 
-if(!checkInt(intval($tre_em))){
-    $_SESSION['error'] = "Số lượng trẻ em không đúng định dạng !";
-    header("Location: " . BASE_URL . "/admin/order/add?id=$id_tour");
-    die;
-}
+    if(!checkInt(intval($tre_em))){
+        $_SESSION['error'] = "Số lượng trẻ em không đúng định dạng !";
+        header("Location: " . BASE_URL . "/admin/order/add?id=$id_tour");
+        die;
+    }
 
-if(!checkInt(intval($gia))){
-    $_SESSION['error'] = "Giá không đúng định dạng !";
-    header("Location: " . BASE_URL . "/admin/order/add?id=$id_tour");
-    die;
-}
-$ngay_them = date('Y-m-d');
-insert_donhang($id_tour, $user['id'], $nguoi_lon, $tre_em, $ngay_di, $noi_di, $gia, $lich_trinh, $ngay_them);
-header("Location: " . BASE_URL . "/admin/order/list");
+    if(!checkInt(intval($gia))){
+        $_SESSION['error'] = "Giá không đúng định dạng !";
+        header("Location: " . BASE_URL . "/admin/order/add?id=$id_tour");
+        die;
+    }
+    $ngay_them = date('Y-m-d');
+    insert_donhang($id_tour, $user['id'], $nguoi_lon, $tre_em, $ngay_di, $noi_di, $gia, $lich_trinh, $ngay_them, $_SESSION['admin']['id']);
+    $don_hang = getSelect('don_hang', 0, 1);
+    $chu_de = "Thanh Toán Đơn Hàng";
+    $noi_dung = "<h3>Xin chào " . $user['name'] . " Cảm ơn bạn đã đặt tour tại website VNTravel, để thanh toán cho đơn hàng vui lòng truy cập <a href='" . BASE_URL . "/pay?don_hang=". $don_hang[0]['id'] ."'>Vào đây</a>, Xin cảm ơn</h3>";
+    $_SESSION['checkMail']['noi_dung'] = $noi_dung;
+    $_SESSION['checkMail']['chu_de'] = $chu_de;
+    $_SESSION['checkMail']['ten'] = $ten;
+    $_SESSION['checkMail']['email'] = $email;
+    header("Location:" . BASE_URL . "/send-mail?id=4");
 }
 
 function order_update(){

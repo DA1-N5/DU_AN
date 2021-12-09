@@ -87,8 +87,15 @@
         </div>
     </div>
     <h1 class="heading"> Tour <span>Mới Nhất</span> </h1>
+    <p class="heading" style="color:green; text-align:center; font-size: 17px">
+        <?php
+        if(isset($_SESSION['find_tour'])){
+            echo $_SESSION['find_tour'];
+            unset($_SESSION['find_tour']);
+        }
+        ?>
+    </p>
     <div class="col-10" id="row" style="margin:auto">
-
         <?php
         if (empty($result)) {
         } else {
