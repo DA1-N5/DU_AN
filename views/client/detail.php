@@ -235,7 +235,7 @@
                 if ($values['trang_thai'] == 1) {    
         ?>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 col" id="lq">
-                <div class="col" id="so1">
+                <div class="col" style="padding: 0px;" id="so1">
                     <a href="<?= BASE_URL ?>/detail?id=<?= $values['id'] ?>">
                         <div class="img row rounded float-end col" id="loww">
                             <img src="<?= IMAGE_URL . $values['anh'] ?>" class="img-thumbnail">
