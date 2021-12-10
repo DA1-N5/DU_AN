@@ -1,6 +1,5 @@
 .container {
     margin-top: 20px;
-    display: grid;
 }
 
 #row {
@@ -11,7 +10,6 @@
 
 #so1 {
     position: relative;
-    width: fit-content;
     overflow: hidden;
     border-radius: 15px;
 }

@@ -97,17 +97,17 @@
         }
         ?>
     </p>
-    <div class="row col-10 container" id="row" style="margin:auto;">
+    <div class="row col-12 container" id="row" style="margin:auto;">
         <?php
         if (empty($result)) {
         } else {
             foreach ($result as $value) {
                 if ($value['trang_thai'] == 1) {
         ?>
-                    <div class="col" id="so1">
+                    <div id="so1" style="padding: 0px;">
                         <a href="<?= BASE_URL ?>/detail?id=<?= $value['id'] ?>">
                             <div class="img col">
-                                <img src="<?= IMAGE_URL . $value['anh'] ?>" height="400px" width="600px">
+                                <img src="<?= IMAGE_URL . $value['anh'] ?>" height="400px" width="1000px" style="max-width: 100%;">
                             </div>
                             <div class="conten-item col">
                                 <h2 style="color: white; margin-top:10px;"><?= $value['ten']?></h2>
