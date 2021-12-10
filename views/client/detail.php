@@ -147,10 +147,9 @@
             color: white;
             padding-top: 20px;
         }
-        #lq1{
-            margin-left: 20px;
-        }
-       
+       #loww>img{
+            height: 245px;
+       }
       
     </style>
     <div class="col-12" id="comment">
@@ -227,22 +226,23 @@
 
 <section class="products " id="products">
     <h1 class="heading"> Tour <span>Liên Quan</span> </h1>
-    <div class="container row " id="lq1">
-        <div class="row ">
+    <div class="container" id="lq1">
+        <div class="row container">
         <?php
         if (empty($lq)) {
         } else {
             foreach ($lq as $values) {   
                 if ($values['trang_thai'] == 1) {    
         ?>
-            <div class="row  row row-cols-1 row-cols-sm-2 row-cols-md-4 col" id="lq">
-                <div class=" row col" id="so1">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 col" id="lq">
+                <div class=" col" id="so1">
                     <a href="<?= BASE_URL ?>/detail?id=<?= $values['id'] ?>">
-                        <div class="img row rounded float-end">
-                            <img src="<?= IMAGE_URL . $values['anh'] ?>" style="max-width:100%" class="img-thumbnail">
+                        <div class="img row rounded float-end col" id="loww">
+                            <img src="<?= IMAGE_URL . $values['anh'] ?>" class="img-thumbnail">
                         </div>
-                        <div class="conten-item">
-                            <p><?= number_format($values['gia']) ?></p><br>
+                        <div class="conten-item col"><br>
+                            <h5><?= number_format($values['gia']) ?></h5>
+                            <h5><?= $values['ten']?></h5>
                             <h2 class="btn btn-primary">Xem Thêm</h2>
                         </div>
                     </a>
