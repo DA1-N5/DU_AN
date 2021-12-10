@@ -59,20 +59,22 @@
                 max-width: 100%;
                 padding-top: 10px;
             }
+
+
         }
     </style>
-    <div id="tournoibat">
+    <div id="tournoibat" class="container">
         <?php
         if (empty($hightlights)) {
         } else {
             for ($i = 0; $i < 1; $i++) {
         ?>
-        <div class="img1"><a href="<?=BASE_URL?>/detail?id=<?=$hightlights[$i]['id']?>"><img src="<?= IMAGE_URL . $hightlights[$i]['anh']?>" alt=""></a></div>
+        <div class="img1 "><a href="<?=BASE_URL?>/detail?id=<?=$hightlights[$i]['id']?>"><img src="<?= IMAGE_URL . $hightlights[$i]['anh']?>" alt=""></a></div>
         <?php
             }
         }
         ?>
-        <div class="img2">
+        <div class="img2 ">
             <?php
             if (empty($hightlights)) {
             } else {
@@ -95,22 +97,22 @@
         }
         ?>
     </p>
-    <div class="col-10" id="row" style="margin:auto">
+    <div class="row col-10 container" id="row" style="margin:auto;">
         <?php
         if (empty($result)) {
         } else {
             foreach ($result as $value) {
                 if ($value['trang_thai'] == 1) {
         ?>
-                    <div class="" id="so1">
+                    <div class="col" id="so1">
                         <a href="<?= BASE_URL ?>/detail?id=<?= $value['id'] ?>">
-                            <div class="img">
-                                <img src="<?= IMAGE_URL . $value['anh'] ?>" height="400px" width="700px">
+                            <div class="img col">
+                                <img src="<?= IMAGE_URL . $value['anh'] ?>" height="400px" width="600px">
                             </div>
-                            <div class="conten-item">
-                                <h3><?= $value['ten'] ?></h3>
+                            <div class="conten-item col">
+                                <h2 style="color: white; margin-top:10px;"><?= $value['ten']?></h2>
                                 <p><?= number_format($value['gia']) ?> VNĐ</p>
-                                <a href="<?= BASE_URL ?>/detail?id=<?= $value['id'] ?>" class="btn" style="border: 2px solid #fff;padding: 10px;color:#fff;">Xem Thêm</a>
+                                <a href="<?= BASE_URL ?>/detail?id=<?= $value['id'] ?>" class="btn" style="border: 2px solid #fff;padding: 10px;color:#fff; ">Xem Thêm</a>
                             </div>
                         </a>
                     </div>
