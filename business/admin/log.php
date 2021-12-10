@@ -161,6 +161,7 @@ function admin_save_edit_info() {
         $_SESSION['error'] = "File không phải là ảnh !";
         header("Location: " . BASE_URL . "/admin/vehicle/update?id=$id");
         die;
+        
     }
     save_file($anh);
     unlink($image_path . $anh_admin['anh']);
