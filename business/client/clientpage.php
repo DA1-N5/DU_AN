@@ -1,7 +1,7 @@
 <?php
 function client_homepage()
 {
-    if (isset($_POST['submit'])) {
+    if (isset($_POST['submit'])){
         extract($_REQUEST);
         if (empty($ngay_di) && empty($dia_chi) && empty($values)) {
             $sql = "SELECT * FROM tour";
