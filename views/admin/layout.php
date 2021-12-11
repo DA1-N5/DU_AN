@@ -64,7 +64,7 @@ if(!isset($_SESSION['admin'])){
                                 <li class="user-footer">
                                     <div class="pull-right">
                                         <form action="<?=BASE_URL?>/admin/edit-info" method="POST">
-                                            <button class="btn btn-default btn-flat" style="position: absolute; left : 30px; margin-right:10px;">Change Admin</button>
+                                            <button class="btn btn-default btn-flat" style="position: absolute; left : 30px; margin-right:10px;">Edit Info</button>
                                         </form>
                                         <form action="<?=BASE_URL?>/admin/edit-password" method="POST">
                                         <button class="btn btn-default btn-flat" >Change Password</button>
@@ -115,15 +115,13 @@ if(!isset($_SESSION['admin'])){
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href=""><i
+                            <li><a href="<?=BASE_URL?>/admin/admin/list"><i
                                         class="fa fa-circle-o"></i> Danh sách</a></li>
-                            <li><a href=""><i
+                            <li><a href="<?=BASE_URL?>/admin/admin/add"><i
                                         class="fa fa-circle-o"></i> Thêm mới</a></li>
                         </ul>
                     </li>
                     <?php
-                    } else {
-
                     }
                     ?>
                     <li class="treeview">

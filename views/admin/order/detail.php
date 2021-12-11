@@ -1,3 +1,68 @@
+<style>
+.myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.myImg:hover {opacity: 0.7;}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+}
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 1000px;
+}
+.modal-content {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+.close {
+  position: absolute;
+  top: 10%;
+  right: 15%;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+</style>
 <div class="content-wrapper">
     <section class="content-header">
         <ol class="breadcrumb">
@@ -17,6 +82,7 @@
                         <h3>Thông Tin Khách Hàng</h3>
                     </div>
                     <div class="box-body col-md-8">
+                        <span style="color:red">Mã đơn hàng:  <?=$don_hang['id']?></span><br>
                         <span>Họ Và Tên: <?= $user['ten'] ?></span><br>
                         <span>Email: <?= $user['email'] ?></span><br>
                         <span>SĐT: <?= $user['sdt'] ?></span><br>
@@ -24,8 +90,8 @@
                         <a href="" class="btn btn-default"><?=intval($admin['vai_tro']) == 2 ? "Quản trị viên: ".$admin['ten'] : "Nhân viên: ".$admin['ten']?></a>
                     </div>
                     <div class="col-md-4">
-                        <label for="">Hình ảnh thanh toán</label>
-                        <img src="<?=IMAGE_URL . $don['thanh_toan']?>" alt="" style="max-width: 70%">
+                        <label for="">Hình ảnh thanh toán</label><br>
+                        <img src="<?=IMAGE_URL . $don_hang['thanh_toan']?>"  class="myImg" alt="" style="max-width: 50%">
                     </div>
                 </div>
                 <div class="row box box-primary">
@@ -62,6 +128,7 @@
                             <div class="col-md-4">
                                 <br>
                                 <span style="color:red">Khách Hàng Thứ <?= $i ?></span><br>
+                                <span style="color:red">Mã đơn hàng:  <?=$don['id']?></span><br>
                                 <span>Họ Và Tên: <?= $user['ten'] ?></span><br>
                                 <span>Email: <?= $user['email'] ?></span><br>
                                 <span>SĐT: <?= $user['sdt'] ?></span><br>
@@ -136,9 +203,10 @@
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <label for="">Hình ảnh thanh toán</label>
-                                <img src="<?=IMAGE_URL . $don['thanh_toan']?>" alt="" style="max-width: 70%">
+                                <label for="">Hình ảnh thanh toán</label><br>
+                                <img class="myImg" src="<?=IMAGE_URL . $don['thanh_toan']?>" alt="" style="max-width: 50%">
                             </div>
+                            
                         </div>
                     <?php
                         $tong += $don['gia'];
@@ -160,4 +228,22 @@
             <?php } ?>
         </div>
     </section>
+    <div class="myModal modal">
+        <span class="close">&times;</span>
+        <img class="modal-content img">
+    </div>
 </div>
+<script>
+    var modal = document.querySelector(".myModal");
+    var img = document.querySelector(".myImg");
+    var modalImg = document.querySelector(".img");
+    img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+    }
+    var span = document.querySelector(".close");
+    span.onclick = function() { 
+    modal.style.display = "none";
+    }
+</script>

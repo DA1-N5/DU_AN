@@ -135,6 +135,7 @@ switch ($url) {
         require_once './business/admin/log.php';
         admin_logout();
         break;
+    
          //------------------------------FORGOT PASWORD ADMIN---------------------------------
     case 'admin/forgot-password':
         require_once './business/admin/log.php';
@@ -466,6 +467,35 @@ switch ($url) {
     case 'admin/comment/status':
         require_once './business/admin/comment.php';
         comment_status();
+        break;
+     //----------------------------------------MANAGE--admin------------------------------------------
+     case 'admin/admin/list':
+        require_once './business/admin/admin.php';
+        admin_list();
+        break;
+    case 'admin/admin/add':
+        require_once './business/admin/admin.php';
+        admin_add();
+        break;
+    case 'admin/admin/save-add':
+        require_once './business/admin/admin.php';
+        admin_save_add();
+        break;
+    case 'admin/admin/update':
+        require_once './business/admin/admin.php';
+        admin_update();
+        break;
+    case 'admin/admin/save-update':
+        require_once './business/admin/admin.php';
+        admin_save_update();
+        break;
+    case 'admin/admin/delete':
+        require_once './business/admin/admin.php';
+        admin_delete();
+        break;
+    case 'admin/admin/status':
+        require_once './business/admin/admin.php';
+        admin_status();
         break;
     default:
         require_once './404.php';
