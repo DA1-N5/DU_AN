@@ -13,19 +13,20 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                            <select class="form-control-sm" onchange="location=this.value;" >
-                                <option value="0" selected>Chọn danh mục</option>
-                                <?php
-                                $rows = getSelect('danh_muc', 0, 10);
-                                foreach ($rows as $row) {
-                                    extract($row);
-                                ?>
-                                    <option value=" <?=BASE_URL?>/admin/order/list?id_ct=<?= $id; ?>"><?= $ten; ?></option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            
+                    <div class="col-md-2">
+                        <select class="form-control" onchange="location=this.value;" >
+                            <option value="0" selected>Chọn danh mục</option>
+                            <?php
+                            $rows = getSelect('danh_muc', 0, 10);
+                            foreach ($rows as $row) {
+                                extract($row);
+                            ?>
+                                <option value=" <?=BASE_URL?>/admin/order/list?id_ct=<?= $id; ?>"><?= $ten; ?></option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                    </div>        
                     <br>
                     <div class="box-tools">
                        
@@ -161,10 +162,20 @@
                                         <?=$value['ngay_di']?>
                                     </td>
                                     <td>
-                                    <h5><?=count($users) - count($don_hang1) >= 1 ? "Có " . count($don_hang1) . " khách hàng đã đặt cọc" : "Tất cả khách hàng đã đặt cọc"?></h5>                  
+                                    <?php 
+                                    if(count($users) - count($don_hang) >= 1){
+                                    ?>
+                                    <h5><?=count($users) - count($don_hang1) >= 1 ? "<span style='color:red'>Có " . count($don_hang1) . " khách hàng đã đặt cọc</span>" : "<span style='color:green'>Tất cả khách hàng đã đặt cọc</span>"?></h5>                  
+                                    <?php
+                                    } else {
+                                    ?>
+                                    <h5><span style='color:green'>Tất cả khách hàng đã đặt cọc</span></h5>
+                                    <?php
+                                    }
+                                    ?>
                                     </td>
                                     <td>
-                                        <h5><?=count($users) - count($don_hang) >= 1 ? "Có " . count($don_hang) . " khách hàng đã thanh toán" : "Tất cả khách hàng đã thanh toán"?></h5>
+                                        <h5><?=count($users) - count($don_hang) >= 1 ? "<span style='color:red'>Có " . count($don_hang) . " khách hàng đã thanh toán</span>" : "<span style='color:green'>Tất cả khách hàng đã thanh toán</span>"?></h5>
                                     </td>
                                     <td></td>
                                     <td>

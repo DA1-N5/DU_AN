@@ -72,6 +72,14 @@ function order_save_add(){
         header("Location: " . BASE_URL . "/admin/order/add?id=$id_tour");
         die;
     }
+    $danh_muc = getSelect_one('tour', 'id', $id_tour);
+    if(intval($danh_muc['id_danhmuc']) == 1){
+        if(intval($nguoi_lon) + intval($tre_em) < 7){
+            $_SESSION['error'] = "Tổng số người phải trên 7 !";
+            header("Location: " . BASE_URL . "/admin/order/add?id=$id_tour");
+            die;
+        }
+    }
     $ngay_them = date('Y-m-d');
     insert_donhang($id_tour, $user['id'], $nguoi_lon, $tre_em, $ngay_di, $noi_di, $gia, $lich_trinh, $ngay_them, $_SESSION['admin']['id']);
     $don_hang = getSelect('don_hang', 0, 1);
