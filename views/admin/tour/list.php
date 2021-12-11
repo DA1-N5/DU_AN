@@ -13,26 +13,28 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <a href="<?=BASE_URL?>/admin/tour/add" class="btn btn-success">+Thêm mới Tour</a>
-                            <select class="form-control-sm" onchange="location=this.value;" >
-                                <option value="0" selected>Chọn danh mục</option>
-                                <?php
-                                $rows = getSelect('danh_muc', 0, 10);
-                                foreach ($rows as $row) {
-                                    extract($row);
-                                ?>
-                                    <option value=" <?=BASE_URL?>/admin/tour/list?id_ct=<?= $id; ?>"><?= $ten; ?></option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <select name="" id="" onchange="location=this.value;">
-                                <option value="">Chọn trạng Thái</option>
-                                <option value=" <?=BASE_URL?>/admin/tour/list?id_st=1">Hoạt động</option>
-                                <option value=" <?=BASE_URL?>/admin/tour/list?id_st=2">Khóa</option>                  
-                            </select>
-                      
-
+                    <a href="<?=BASE_URL?>/admin/tour/add" class="btn btn-success col-md-1">+Thêm mới Tour</a>
+                    <div class="col-md-2">
+                        <select class="form-control" onchange="location=this.value;" >
+                            <option value="0" selected>Chọn danh mục</option>
+                            <?php
+                            $rows = getSelect('danh_muc', 0, 10);
+                            foreach ($rows as $row) {
+                                extract($row);
+                            ?>
+                                <option value=" <?=BASE_URL?>/admin/tour/list?id_ct=<?= $id; ?>"><?= $ten; ?></option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select name="" class="form-control" id="" onchange="location=this.value;">
+                            <option value="">Chọn trạng Thái</option>
+                            <option value=" <?=BASE_URL?>/admin/tour/list?id_st=1">Hoạt động</option>
+                            <option value=" <?=BASE_URL?>/admin/tour/list?id_st=2">Khóa</option>                  
+                        </select>
+                    </div>
                     <div class="box-tools">
                     <span>
                         <div class="dropdown">

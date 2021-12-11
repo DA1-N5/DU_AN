@@ -122,8 +122,6 @@ if(!isset($_SESSION['admin'])){
                         </ul>
                     </li>
                     <?php
-                    } else {
-
                     }
                     ?>
                     <li class="treeview">

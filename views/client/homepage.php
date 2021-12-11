@@ -112,7 +112,7 @@
                             <div class="conten-item col">
                                 <h2 style="color: white; margin-top:10px;"><?= $value['ten']?></h2>
                                 <p><?= number_format($value['gia']) ?> VNĐ</p>
-                                <a href="<?= BASE_URL ?>/detail?id=<?= $value['id'] ?>" class="btn" style="border: 2px solid #fff;padding: 10px;color:#fff; ">Xem Thêm</a>
+                                <a href="<?= BASE_URL ?>/detail?id=<?= $value['id'] ?>" class="btn col-md-2" style="border: 2px solid #fff;padding: 10px;color:#fff; ">Xem Thêm</a>
                             </div>
                         </a>
                     </div>

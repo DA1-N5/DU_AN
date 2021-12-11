@@ -19,7 +19,7 @@
             <?php
             } else {
             ?>
-                <a href="tel:1234567890" class="btn" style="border: 2px solid #000;padding: 10px; font-size:20px">Liên Hệ Để Đặt Tour</a>
+                <a href="tel:1234567890" class="btn col-md-5" style="border: 2px solid #000;padding: 10px; font-size:20px">Liên Hệ Để Đặt Tour</a>
             <?php
             }
             ?>
@@ -197,11 +197,11 @@
             <?php
             if (!isset($_SESSION['user'])) {
             ?>
-                <a href="<?=BASE_URL?>/login" class="btn" style="border: 2px solid #000;padding: 5px; font-size:15px">Đăng nhập ngay để đánh giá</a>
+                <a href="<?=BASE_URL?>/login" class="btn col-md-3" style="border: 2px solid #000;padding: 5px; font-size:15px">Đăng nhập ngay để đánh giá</a>
             <?php
             } else {
             ?>
-                <button class="btn" style="border: 2px solid #000;padding: 10px">Gửi Đánh Giá</button>
+                <button class="btn col-md-2" style="border: 2px solid #000;padding: 10px">Gửi Đánh Giá</button>
             <?php
             }
             ?>
@@ -234,16 +234,15 @@
             foreach ($lq as $values) {   
                 if ($values['trang_thai'] == 1) {    
         ?>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 col" id="lq">
+            <div class="row col row-cols-1" id="lq">
                 <div class="col" style="padding: 0px;" id="so1">
                     <a href="<?= BASE_URL ?>/detail?id=<?= $values['id'] ?>">
                         <div class="img row rounded float-end col" id="loww">
-                            <img src="<?= IMAGE_URL . $values['anh'] ?>" class="img-thumbnail">
+                            <img src="<?= IMAGE_URL . $values['anh'] ?>" class="img-thumbnail" style="width:1000px">
                         </div>
                         <div class="conten-item col"><br>
-                            <h5><?= number_format($values['gia']) ?></h5>
-                            <h5><?= $values['ten']?></h5>
-                            <h2 class="btn btn-primary">Xem Thêm</h2>
+                            <h5 style="color: white; padding: 0px 10px"><?= $values['ten']?></h5>
+                            <a href="<?= BASE_URL ?>/detail?id=<?= $value['id'] ?>" class="btn col-md-4" style="border: 2px solid #fff;padding: 10px;color:#fff; ">Xem Thêm</a>
                         </div>
                     </a>
                 </div>

@@ -156,7 +156,7 @@ function admin_save_edit_info() {
     }
     $anh_admin = getSelect_one('admin','id',$id);
     if(!checkEmpty($anh['name'])){
-        edit_admin($ten, $email, $sdt, $anh_admin['anh'], $vai_tro, $id);
+        edit_admin($ten, $email, $sdt, $anh_admin['anh'], $_SESSION['admin']['vai_tro'], $id);
     }
     else{
     if(!checkImage($anh)){
@@ -167,7 +167,7 @@ function admin_save_edit_info() {
     }
     save_file($anh);
     unlink($image_path . $anh_admin['anh']);
-    edit_admin($ten, $email, $sdt, $anh['name'], $vai_tro, $id);
+    edit_admin($ten, $email, $sdt, $anh['name'], $_SESSION['admin']['vai_tro'], $id);
     }   
     $admin_new = getSelect_one('admin','id', $id);
     $_SESSION['admin'] = $admin_new;

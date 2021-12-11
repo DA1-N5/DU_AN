@@ -115,7 +115,7 @@
                         <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                     <div class="box-footer">
-                        <a href="<?=BASE_URL?>/admin/index.php" class="btn btn-primary"><i class="fa fa-arrow-right"></i> Quay lại</a>
+                        <a href="<?=BASE_URL ?>/admin/tour/list" class="btn btn-primary"><i class="fa fa-arrow-right"></i> Quay lại</a>
                     </div>
                     </div>
                 </form>

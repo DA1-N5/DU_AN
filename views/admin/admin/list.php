@@ -13,12 +13,14 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <a href="<?=BASE_URL?>/admin/admin/add" class="btn btn-success">+Thêm mới Admin</a>
-                            <select name="" id="" onchange="location=this.value;">
-                                <option value="">Chọn trạng Thái</option>
-                                <option value=" <?=BASE_URL?>/admin/admin/list?id_st=1">Hoạt động</option>
-                                <option value=" <?=BASE_URL?>/admin/admin/list?id_st=2">Khóa</option>                  
-                            </select>
+                    <a href="<?=BASE_URL?>/admin/admin/add" class="btn btn-success col-md-1">+Thêm mới Admin</a>
+                    <div class="col-md-2">
+                        <select name="" id="" class="form-control" onchange="location=this.value;">
+                            <option value="">Chọn trạng Thái</option>
+                            <option value=" <?=BASE_URL?>/admin/admin/list?id_st=1">Hoạt động</option>
+                            <option value=" <?=BASE_URL?>/admin/admin/list?id_st=2">Khóa</option>                  
+                        </select>
+                    </div>
                     <div class="box-tools">
                         <form action="list" class="input-group input-group-sm" style="width: 150px;" method="POST">
                             <input type="text" name="values" class="form-control pull-right"placeholder="Search admin">

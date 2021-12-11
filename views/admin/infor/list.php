@@ -13,7 +13,6 @@
             <div class="box">
                 <div class="box-header">
                     <a href="<?=BASE_URL?>/admin/infor/add" class="btn btn-success">+Thêm mới Giới Thiệu</a>
-
                     <div class="box-tools">
                         <form action="<?=BASE_URL?>/admin/phuongtien/find-user.php" class="input-group input-group-sm" style="width: 150px;" method="GET">
                             <input type="text" name="id" class="form-control pull-right"placeholder="Search ID">
