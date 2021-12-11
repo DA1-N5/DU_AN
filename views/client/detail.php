@@ -19,7 +19,7 @@
             <?php
             } else {
             ?>
-                <a href="tel:1234567890" class="btn" style="border: 2px solid #000;padding: 10px; font-size:20px">Liên Hệ Để Đặt Tour</a>
+                <a href="tel:1234567890" class="btn col-md-5" style="border: 2px solid #000;padding: 10px; font-size:20px">Liên Hệ Để Đặt Tour</a>
             <?php
             }
             ?>
