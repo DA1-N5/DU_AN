@@ -28,9 +28,14 @@
                             
                         </div>
                         <div class="form-group">
+                           <label>Email*</label>
+                            <input type="text" class="form-control" name ="email" value="<?=$admin['email']?>">
+                            
+                        </div>
+                        <div class="form-group">
                            <label>Số điện thoại*</label>
                             <input type="text" class="form-control" name ="sdt" value="<?=$admin['sdt']?>">
-                        </div>     
+                        </div>  
                         <div class="form-group">
                            <label>Ảnh*</label>
                            <input type="file" class="form-control" name ="anh" value="<?=$admin['anh']?>">
