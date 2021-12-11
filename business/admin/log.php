@@ -135,11 +135,13 @@ function admin_edit_info() {
 function admin_save_edit_info() {
     $id = $_SESSION['admin']['id'];
     $ten = $_POST['ten'];
+    $email = $_POST['email'];
     $sdt = $_POST['sdt'];
     $anh = $_FILES['anh'];
     extract($_REQUEST);
     if(
         checkEmpty($ten) == false ||
+        checkEmpty($email) == false ||
         checkEmpty($sdt) == false 
     
     ){
@@ -154,18 +156,18 @@ function admin_save_edit_info() {
     }
     $anh_admin = getSelect_one('admin','id',$id);
     if(!checkEmpty($anh['name'])){
-        edit_admin($ten, $sdt, $anh_admin['name'], $id);
+        edit_admin($ten, $email, $sdt, $anh_admin['anh'], $vai_tro, $id);
     }
     else{
     if(!checkImage($anh)){
         $_SESSION['error'] = "File không phải là ảnh !";
-        header("Location: " . BASE_URL . "/admin/vehicle/update?id=$id");
+        header("Location: " . BASE_URL . "/admin/edit-info");
         die;
         
     }
     save_file($anh);
     unlink($image_path . $anh_admin['anh']);
-    edit_admin($ten, $sdt, $anh['name'], $id);
+    edit_admin($ten, $email, $sdt, $anh['name'], $vai_tro, $id);
     }   
     $admin_new = getSelect_one('admin','id', $id);
     $_SESSION['admin'] = $admin_new;

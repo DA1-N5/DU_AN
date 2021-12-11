@@ -59,6 +59,37 @@ function check_email_existed($email) {
     $sql = "SELECT email FROM khach_hang WHERE email=?";
     return query_one($sql, $email);
 }
+//----------------------------------------ADMIN------------------------------------
+function insert_admin($ten, $mat_khau, $email, $sdt, $vaitro, $anh, $ngay_them){
+    $sql = "INSERT INTO admin(ten, mat_khau, email, sdt, vai_tro, anh, ngay_tao) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    execute($sql, $ten, $mat_khau, $email, $sdt, $vaitro, $anh, $ngay_them);
+}
+
+function edit_admin($ten, $email, $sdt, $anh, $vai_tro, $id){
+    $sql = "UPDATE admin set ten = ?, email = ?, sdt = ?, anh = ?, vai_tro = ? where id = ?";
+    execute($sql, $ten, $email, $sdt, $anh, $vai_tro, $id);
+}
+
+function check_email_existed_admin($email) {
+    $sql = "SELECT email FROM admin WHERE email=?";
+    return query_one($sql, $email);
+}
+// function edit_admin($ten, $sdt, $anh, $id) {
+//     $sql = "UPDATE admin set ten = ?, sdt = ?, anh = ? where id = ?";
+//     execute($sql, $ten, $sdt, $anh, $id);
+// } 
+function edit_password_admin($mat_khau, $id) {
+    $sql = "UPDATE admin set mat_khau = ? where id = ?";
+     execute($sql, $mat_khau, $id);
+} 
+
+
+function update_admin($mat_khau,$email){
+    $sql = "UPDATE admin set  mat_khau = ? where email = ?";
+    execute($sql,$mat_khau, $email);
+}
+
+
 
 // Địa chỉ ------------------------------------------------
 function insert_diachi($dia_chi,$ngay_tao){
@@ -260,19 +291,5 @@ function select_avg($id_tour){
 
 //-----------------------admin---------------------
 
-function edit_admin($ten, $sdt, $anh, $id) {
-    $sql = "UPDATE admin set ten = ?, sdt = ?, anh = ? where id = ?";
-    execute($sql, $ten, $sdt, $anh, $id);
-} 
-function edit_password_admin($mat_khau, $id) {
-    $sql = "UPDATE admin set mat_khau = ? where id = ?";
-     execute($sql, $mat_khau, $id);
-} 
-
-
-function update_admin($mat_khau,$email){
-    $sql = "UPDATE admin set  mat_khau = ? where email = ?";
-    execute($sql,$mat_khau, $email);
-}
 
 ?>
